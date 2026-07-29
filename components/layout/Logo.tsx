@@ -1,7 +1,9 @@
 export default function Logo() {
   return (
-    <div className="text-xl font-light tracking-widest">
-      <img src="/content/logo.svg" alt="" />
-    </div>
+    <img
+      src="/content/logo.svg"
+      alt="Mercedes-Benz"
+      className="h-9.5 w-9.5"
+    />
   );
 }

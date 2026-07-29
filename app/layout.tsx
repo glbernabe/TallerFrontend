@@ -1,15 +1,16 @@
-import "./global.css";
+import { mbCorpoText, mbCorpoTitle } from "@/fonts/fonts";
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="es">
-      <body className="bg-white text-neutral-900 antialiased">
-        {children}
-      </body>
+    <html
+      lang="es"
+      className={`${mbCorpoText.variable} ${mbCorpoTitle.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

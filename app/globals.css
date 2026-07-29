@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-text: var(--font-mb-text);
+  --font-title: var(--font-mb-title);
+
+  --color-background: #000000;
+  --color-text: #e8e8e8;
+
+  --color-blue-button: #0078d6;
+  --color-blue-button-hover: #006abd;
+
+  --color-hover-darkgray: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* Colores */
+  --hover-darkgray: #1a1a1a;
+  --background: #000000;
+  --background-contrast: #ffffff;
+  --text-color: #e8e8e8;
+
+  --blue-button: #0078d6;
+  --hover-blue-button: #006abd;
+}
+
+body {
+  font-family: var(--font-mb-text);
+  background: var(--background);
+  color: var(--text-color);
+}

@@ -5,7 +5,7 @@ type Props = {
 
 export default function Section({ children, className = "" }: Props) {
   return (
-    <section className={`py-20 ${className}`}>
+    <section className={`${className}`}>
       {children}
     </section>
   );
