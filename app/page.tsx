@@ -9,6 +9,7 @@ import Logo from "@/components/layout/Logo";
 import MainButton from "@/components/ui/MainButton";
 import ActionButton from "@/components/ui/ActionButton";
 import Image from "next/image";
+import Card from "@/components/ui/Card";
 
 export default function Home() {
     return (
@@ -81,47 +82,9 @@ export default function Home() {
                 <Container className="relative z-10 flex h-full">
 
                     <div
-                        className="
-                flex
-                flex-col
-                justify-start
+                        className="flex flex-col justify-start pt-[22vh] sm:pt-[21vh] md:pt-[20vh] lg:pt-[19vh] xl:pt-[18vh] 2xl:pt-[17vh] max-w-[760px]">
 
-                pt-[22vh]
-
-                sm:pt-[21vh]
-
-                md:pt-[20vh]
-
-                lg:pt-[19vh]
-
-                xl:pt-[18vh]
-
-                2xl:pt-[17vh]
-
-                max-w-[760px]
-            "
-                    >
-
-                        <h1
-                            className="
-                    font-title
-                    text-white
-                    tracking-[-0.02em]
-
-                    text-[2.3rem]
-                    leading-[1.12]
-
-                    sm:text-[3rem]
-
-                    md:text-[3.8rem]
-
-                    lg:text-[4.5rem]
-
-                    xl:text-[5rem]
-
-                    2xl:text-[5.6rem]
-                "
-                        >
+                        <h1 className="font-title text-white tracking-[-0.02em] text-[2.3rem] leading-[1.12] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.5rem] xl:text-[5rem] 2xl:text-[5.6rem]">
                             Servicio Oficial
                             <br />
                             Mercedes-Benz
@@ -129,22 +92,7 @@ export default function Home() {
                             Autotalleres Orihuela
                         </h1>
 
-                        <p
-                            className="
-                    mt-5
-
-                    max-w-[650px]
-
-                    text-white/90
-
-                    text-base
-                    sm:text-lg
-                    md:text-xl
-                    xl:text-2xl
-
-                    leading-relaxed
-                "
-                        >
+                        <p className="mt-5 max-w-[650px] text-white/90 text-base sm:text-lg md:text-xl xl:text-2xl leading-relaxed">
                             Mantenimiento, diagnosis y reparación.
                         </p>
 
@@ -160,39 +108,84 @@ export default function Home() {
 
             </Section>
 
-            <Section>
+            <Section className="bg-black pt-32 pb-24 text-white">
                 <Container>
-                    <h2 className="mb-8 text-3xl font-semibold">
-                        Servicios destacados
+
+                    <h2
+                        className="mb-16 font-title text-5xl leading-tight md:text-6xl xl:text-7xl">
+                        ¿Por qué elegirnos?
                     </h2>
 
-                    <div className="grid gap-6 md:grid-cols-3">
-                        <div className="rounded-xl border p-6">
-                            Cambio de aceite
-                        </div>
+                    <div className="grid gap-6 lg:grid-cols-3">
 
-                        <div className="rounded-xl border p-6">
-                            Cambio de frenos
-                        </div>
+                        <Card
+                            src="/content/images/cards/tecnicos.webp"
+                            alt="Técnicos Mercedes"
+                            title="Técnicos certificados"
+                            description="Personal especializado en Mercedes-Benz."
+                            href="/tecnicos"
+                        />
 
-                        <div className="rounded-xl border p-6">
-                            Revisión oficial
-                        </div>
+                        <Card
+                            src="/content/images/cards/recambios.webp"
+                            alt="Recambios originales"
+                            title="Recambios originales"
+                            description="Componentes originales y homologados."
+                            href="/recambios"
+                        />
+
+                        <Card
+                            src="/content/images/cards/asesoramiento.webp"
+                            alt="Servicio personalizado"
+                            title="Servicio personalizado"
+                            description="Seguimiento y asesoramiento durante toda la reparación."
+                            href="/servicio"
+                        />
+
                     </div>
+
                 </Container>
             </Section>
 
-            <Section className="bg-neutral-900 text-white">
+            <Section className="border-t border-white/10 bg-neutral-950 py-28">
                 <Container>
-                    <h2 className="text-3xl font-semibold">
-                        Reserva tu cita
-                    </h2>
 
-                    <p className="mt-4 max-w-xl">
-                        Elige el servicio que necesitas y reserva tu cita online en pocos minutos.
-                    </p>
+                    <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+
+                        <h2 className="font-title text-5xl md:text-6xl">
+                            ¿Necesitas ayuda?
+                        </h2>
+
+                        <p
+                            className="mt-6 max-w-2xl text-lg leading-8 text-white/70
+                "
+                        >
+                            Nuestro equipo de especialistas está disponible para ayudarte
+                            con cualquier consulta sobre mantenimiento, diagnosis,
+                            reparaciones o recambios originales Mercedes-Benz.
+                        </p>
+
+                        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+
+                            <MainButton href="/contacto">
+                                Contactar
+                            </MainButton>
+
+                            <MainButton
+                                href="/reservar-cita"
+                                className="bg-transparent border border-white hover:bg-white hover:text-black transition-colors"
+                            >
+                                Reservar cita
+                            </MainButton>
+
+                        </div>
+
+                    </div>
+
                 </Container>
             </Section>
+
+            <Footer />
         </>
     );
 }
