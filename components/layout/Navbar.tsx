@@ -1,52 +1,83 @@
-type Props = {
-  left: React.ReactNode;
-  center: React.ReactNode;
-  right: React.ReactNode;
-  mobileMenuButton: React.ReactNode;
-};
+import Logo from "./Logo";
 
-export default function Navbar({
-  left,
-  center,
-  right,
-  mobileMenuButton,
-}: Props) {
-  return (
-    <header className="h-18 border-b border-white/20 bg-black text-white">
+import NavButton from "@/components/ui/NavButton";
+import ActionButton from "@/components/ui/ActionButton";
 
-      <div className="mx-auto h-full max-w-[1560px] px-6 md:px-8 lg:px-10 xl:px-12">
+export default function Navbar() {
+    return (
+        <header className="h-18 border-b border-white/20 bg-black text-white">
 
-        <div className="grid h-full grid-cols-3 items-center">
+            <div className="mx-auto h-full max-w-[1560px] px-6 md:px-8 lg:px-10 xl:px-12">
 
-          {/* IZQUIERDA */}
-          <div className="flex items-center justify-start">
+                <div className="grid h-full grid-cols-3 items-center">
 
-            {/* Desktop */}
-            <nav className="hidden md:flex items-center gap-6">
-              {left}
-            </nav>
+                    {/* IZQUIERDA */}
+                    <div className="flex items-center justify-start">
 
-            {/* Mobile */}
-            <div className="flex md:hidden">
-              {mobileMenuButton}
+                        {/* Navegación escritorio */}
+                        <nav className="hidden md:flex items-center gap-6">
+
+                            <NavButton href="/">
+                                Inicio
+                            </NavButton>
+
+                            <NavButton href="/servicios">
+                                Servicios
+                            </NavButton>
+
+                            <NavButton href="/contacto">
+                                Contacto
+                            </NavButton>
+
+                        </nav>
+
+                        {/* Botón hamburguesa móvil */}
+                        <div className="flex md:hidden">
+
+                            <ActionButton
+                                href="#"
+                                src="/content/action_button/Hamburger_List_Icon.svg"
+                                alt="Abrir menú"
+                            />
+
+                        </div>
+
+                    </div>
+
+                    {/* CENTRO */}
+                    <div className="flex justify-center">
+
+                        <Logo />
+
+                    </div>
+
+                    {/* DERECHA */}
+                    <div className="flex items-center justify-end gap-2 md:gap-4">
+
+                        <ActionButton
+                            href="/buscar"
+                            src="/content/action_button/Search_Icon.svg"
+                            alt="Buscar"
+                        />
+
+                        <ActionButton
+                            href="/carrito"
+                            src="/content/action_button/Shopping_Icon.svg"
+                            alt="Carrito"
+                        />
+
+                        <ActionButton
+                            href="/perfil"
+                            src="/content/action_button/User_Icon.svg"
+                            alt="Perfil"
+                        />
+
+                    </div>
+
+                </div>
+
             </div>
 
-          </div>
-
-          {/* CENTRO */}
-          <div className="flex justify-center">
-            {center}
-          </div>
-
-          {/* DERECHA */}
-          <div className="flex justify-end items-center gap-2 md:gap-4">
-            {right}
-          </div>
-
-        </div>
-
-      </div>
-
-    </header>
-  );
+        </header>
+    );
 }
