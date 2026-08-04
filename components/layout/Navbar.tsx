@@ -1,83 +1,105 @@
+"use client";
+
+import { useState } from "react";
+
+import SearchOverlay from "../overlays/SearchOverlay";
+import CartOverlay from "@/components/overlays/CartOverlay";
+
 import Logo from "./Logo";
 
 import NavButton from "@/components/ui/NavButton";
 import ActionButton from "@/components/ui/ActionButton";
 
 export default function Navbar() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+
     return (
-        <header className="h-18 border-b border-white/20 bg-black text-white">
+        <>
+            <header className="h-18 border-b border-white/20 bg-black text-white">
 
-            <div className="mx-auto h-full max-w-[1560px] px-6 md:px-8 lg:px-10 xl:px-12">
+                <div className="mx-auto h-full max-w-[1560px] px-6 md:px-8 lg:px-10 xl:px-12">
 
-                <div className="grid h-full grid-cols-3 items-center">
+                    <div className="grid h-full grid-cols-3 items-center">
 
-                    {/* IZQUIERDA */}
-                    <div className="flex items-center justify-start">
+                        {/* IZQUIERDA */}
+                        <div className="flex items-center justify-start">
 
-                        {/* Navegación escritorio */}
-                        <nav className="hidden md:flex items-center gap-6">
+                            {/* Navegación escritorio */}
+                            <nav className="hidden md:flex items-center gap-6">
 
-                            <NavButton href="/">
-                                Inicio
-                            </NavButton>
+                                <NavButton href="/">
+                                    Inicio
+                                </NavButton>
 
-                            <NavButton href="/servicios">
-                                Servicios
-                            </NavButton>
+                                <NavButton href="/servicios">
+                                    Servicios
+                                </NavButton>
 
-                            <NavButton href="/contacto">
-                                Contacto
-                            </NavButton>
+                                <NavButton href="/contacto">
+                                    Contacto
+                                </NavButton>
 
-                        </nav>
+                            </nav>
 
-                        {/* Botón hamburguesa móvil */}
-                        <div className="flex md:hidden">
+                            {/* Botón hamburguesa móvil */}
+                            <div className="flex md:hidden">
+
+                                <ActionButton
+                                    src="/content/action_button/Hamburger_List_Icon.svg"
+                                    alt="Abrir menú"
+                                />
+
+                            </div>
+
+                        </div>
+
+                        {/* CENTRO */}
+                        <div className="flex justify-center">
+
+                            <Logo />
+
+                        </div>
+
+                        {/* DERECHA */}
+                        <div className="flex items-center justify-end gap-2 md:gap-4">
 
                             <ActionButton
-                                href="#"
-                                src="/content/action_button/Hamburger_List_Icon.svg"
-                                alt="Abrir menú"
+                                src="/content/action_button/Search_Icon.svg"
+                                alt="Buscar"
+                                onClick={() => setIsSearchOpen(true)}
+                            />
+
+                            <ActionButton
+                                src="/content/action_button/Shopping_Icon.svg"
+                                alt="Carrito"
+                                onClick={() => setIsCartOpen(true)}
+                            />
+
+                            <ActionButton
+                                src="/content/action_button/User_Icon.svg"
+                                alt="Perfil"
+                                onClick={() => setIsProfileOpen(true)}
                             />
 
                         </div>
 
                     </div>
 
-                    {/* CENTRO */}
-                    <div className="flex justify-center">
-
-                        <Logo />
-
-                    </div>
-
-                    {/* DERECHA */}
-                    <div className="flex items-center justify-end gap-2 md:gap-4">
-
-                        <ActionButton
-                            href="/buscar"
-                            src="/content/action_button/Search_Icon.svg"
-                            alt="Buscar"
-                        />
-
-                        <ActionButton
-                            href="/carrito"
-                            src="/content/action_button/Shopping_Icon.svg"
-                            alt="Carrito"
-                        />
-
-                        <ActionButton
-                            href="/perfil"
-                            src="/content/action_button/User_Icon.svg"
-                            alt="Perfil"
-                        />
-
-                    </div>
-
                 </div>
 
-            </div>
+            </header>
 
-        </header>
+            <SearchOverlay
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
+            />
+
+            <CartOverlay
+                isOpen={isCartOpen}
+                onClose={() => setIsCartOpen(false)}
+            />
+        </>
     );
 }

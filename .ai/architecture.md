@@ -1,0 +1,13 @@
+Frontend
+
+↓
+
+FastAPI
+
+↓
+
+Spiga+
+
+↓
+
+ERP

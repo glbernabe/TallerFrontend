@@ -58,7 +58,7 @@ export default function Features() {
                         icon="/content/icons/features/group.svg"
                         title="Técnicos certificados"
                         description="Especialistas formados según los estándares oficiales de Mercedes-Benz."
-                        iconOffsetY={6}
+                        iconClassName="translate-y-1.5"
                     />
 
                     <Feature

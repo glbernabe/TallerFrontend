@@ -4,14 +4,14 @@ type Props = {
     icon: string;
     title: string;
     description: string;
-    iconOffsetY?: number;
+    iconClassName?: string;
 };
 
 export default function Feature({
     icon,
     title,
     description,
-    iconOffsetY = 0,
+    iconClassName = "",
 }: Props) {
 
     return (
@@ -41,11 +41,7 @@ export default function Feature({
             <div
                 className="mb-6 flex h-10 items-center"
             >
-                <div
-                    style={{
-                        transform: `translateY(${iconOffsetY}px)`,
-                    }}
-                >
+                <div className={iconClassName}>
                     <Image
                         src={icon}
                         alt=""
