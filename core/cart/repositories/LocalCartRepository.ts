@@ -4,7 +4,6 @@ import type { ICartRepository } from "@/domain/cart/ICartRepository";
 import { mockCart } from "../mock/mockCart";
 
 import { fakeDelay } from "@/core/common/utils/fakeDelay";
-import { CART_PREVIEW_LIMIT } from "@/core/common/constants/cart";
 
 /**
  * ⚠️ SOLO DESARROLLO
@@ -16,7 +15,6 @@ import { CART_PREVIEW_LIMIT } from "@/core/common/constants/cart";
  *
  * RestCartRepository
  */
-
 export class LocalCartRepository
 implements ICartRepository {
 
@@ -41,10 +39,6 @@ implements ICartRepository {
             total,
 
             totalItems: mockCart.length,
-
-            hasMoreItems:
-
-                mockCart.length > CART_PREVIEW_LIMIT,
 
         };
 

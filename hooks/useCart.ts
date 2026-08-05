@@ -57,7 +57,13 @@ export function useCart(
 
         if (!isEnabled) return;
 
-        reload();
+        const timeout = setTimeout(() => {
+
+            void reload();
+
+        }, 0);
+
+        return () => clearTimeout(timeout);
 
     }, [isEnabled, reload]);
 

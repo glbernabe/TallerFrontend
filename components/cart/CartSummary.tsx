@@ -8,12 +8,6 @@ type Props = {
     summary: CartSummaryModel;
 
     /**
-     * Indica si debe mostrarse el precio
-     * de cada servicio.
-     */
-    showPrices?: boolean;
-
-    /**
      * Acción que aparecerá al final del resumen.
      *
      * CartSummary no conoce si es un botón,
@@ -25,7 +19,6 @@ type Props = {
 
 export default function CartSummary({
     summary,
-    showPrices = false,
     action,
 }: Props) {
 
@@ -47,66 +40,12 @@ export default function CartSummary({
                 py-8
             "
         >
-
-            {/* Lista de servicios */}
-
-            <div className="space-y-2">
-
-                {summary.items.map((item) => (
-
-                    <div
-                        key={item.id}
-                        className="
-                            flex
-                            items-center
-                            justify-between
-
-                            text-sm
-                            text-neutral-600
-                        "
-                    >
-
-                        <span className="truncate">
-                            {item.quantity}x {item.title}
-                        </span>
-
-                        {showPrices && (
-
-                            <span>
-
-                                {new Intl.NumberFormat("es-ES", {
-                                    style: "currency",
-                                    currency: "EUR",
-                                }).format(item.price)}
-
-                            </span>
-
-                        )}
-
-                    </div>
-
-                ))}
-
-            </div>
-
-            {/* Separador */}
-
-            <div
-                className="
-                    my-6
-
-                    border-t
-                    border-neutral-200
-                "
-            />
-
-            {/* Total */}
-
             <div
                 className="
                     flex
                     items-end
                     justify-between
+                    gap-6
                 "
             >
 
@@ -142,6 +81,7 @@ export default function CartSummary({
 
                 <p
                     className="
+                        text-right
                         text-sm
                         text-neutral-500
                     "
@@ -152,8 +92,6 @@ export default function CartSummary({
                 </p>
 
             </div>
-
-            {/* Acción */}
 
             {action && (
 

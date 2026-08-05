@@ -12,11 +12,12 @@ export default function Hero() {
             <div className="absolute inset-0">
 
                 <Image
-                    src="/content/images/background/Mercedes_Benz_Pattern.jpeg"
+                    src="/content/images/background/Mercedes_Benz_Pattern.webp"
                     alt="Patrón Mercedes-Benz"
                     fill
                     priority
-                    quality={100}
+                    sizes="100vw"
+                    quality={75}
                     className="object-cover object-center"
                 />
 

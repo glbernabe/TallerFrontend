@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
+import { CART } from "@/core/common/design/cart";
+import { OVERLAY } from "@/core/common/design/overlays";
 
 import Overlay from "./Overlay";
+import OverlayHeader from "./OverlayHeader";
 
-import CartItemList from "../cart/CartItemList";
-import CartSummary from "../cart/CartSummary"; // Componente
-
-import { useCart } from "@/hooks/useCart";
-
+import CartItemList from "@/components/cart/CartItemList";
+import CartSummary from "@/components/cart/CartSummary";
 import MainButton from "@/components/ui/MainButton";
 
+import { useCart } from "@/hooks/useCart";
 
 type Props = {
     isOpen: boolean;
@@ -23,18 +23,22 @@ export default function CartOverlay({
 }: Props) {
 
     const {
-
         data: cart,
-
         isLoading,
-
         error,
-
-        reload,
-
     } = useCart(isOpen);
 
+    const previewItems =
+        cart?.items.slice(
+            0,
+            CART.previewItems,
+        ) ?? [];
+
+    const hasMoreItems =
+        (cart?.totalItems ?? 0) > CART.previewItems;
+
     return (
+
         <Overlay
             isOpen={isOpen}
             onClose={onClose}
@@ -42,204 +46,69 @@ export default function CartOverlay({
         >
             <aside
                 className={`
-                    flex
-                    h-full
-                    w-full
-                    max-w-[560px]
+                    ${OVERLAY.drawerWidth}
 
-                    flex-col
+                    rounded-sm
 
                     bg-white
 
                     shadow-2xl
-
-                    transition-all
-                    duration-300
-                    ease-out
-
-                    ${
-                        isOpen
-                            ? "translate-x-0 opacity-100"
-                            : "translate-x-8 opacity-0"
-                    }
                 `}
             >
+                <OverlayHeader
+                    title="Carrito"
+                    description="Vista previa de los servicios añadidos."
+                    onClose={onClose}
+                />
 
-                {/* ==============================
-                            CABECERA
-                ============================== */}
+                {isLoading && (
 
-                <header
-                    className="
-                        flex
-                        items-center
-                        justify-between
-
-                        border-b
-                        border-neutral-200
-
-                        px-8
-                        py-6
-                    "
-                >
-
-                    <h2
-                        className="
-                            font-title
-
-                            text-4xl
-
-                            text-black
-                        "
-                    >
-                        Cesta
-                    </h2>
-
-                    <button
-                        type="button"
-                        onClick={onClose}
-                        className="
-                            flex
-                            h-13
-                            w-13
-
-                            items-center
-                            justify-center
-
-                            transition-opacity
-
-                            hover:opacity-60
-                        "
-                        aria-label="Cerrar carrito"
-                    >
-                        <Image
-                            src="/content/action_button/Cancel_Icon.svg"
-                            alt=""
-                            width={18}
-                            height={18}
-                        />
-                    </button>
-
-                </header>
-
-                <div
-                    className="
-                        flex
-                        flex-1
-                        flex-col
-
-                        overflow-hidden
-                    "
-                >
-
-                    {/* Loading */}
-
-                    {isLoading && (
-
-                        <div
-                            className="
-                                flex
-                                flex-1
-
-                                items-center
-                                justify-center
-
-                                text-neutral-500
-                            "
-                        >
-                            Cargando carrito...
-                        </div>
-
-                    )}
-
-                    {/* Lista */}
-
-                    {!isLoading && cart && (
-
-                        <CartItemList
-                            items={cart.items}
-                        />
-
-                    )}
-
-                </div>
-
-                {/* ==============================
-                                FOOTER
-                ============================== */}
-
-                {!isLoading && cart && (
-
-                    <footer
-                        className="
-                            border-t
-                            border-neutral-200
-
-                            bg-white
-
-                            px-8
-                            py-8
-                        "
-                    >
-
-                        {/* Total */}
-
-                        <div
-                            className="
-                                mb-8
-
-                                flex
-                                items-center
-                                justify-between
-                            "
-                        >
-
-
-
-                            <div
-                                className="
-                                    text-right
-                                "
-                            >
-
-                                <p
-                                    className="
-                                        text-sm
-
-                                        text-neutral-500
-                                    "
-                                >
-                                    {cart.totalItems}
-                                    {" "}
-                                    servicio{cart.totalItems !== 1 && "s"}
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        {/* Botón */}
-
-                        <CartSummary
-                            summary={cart}
-                            action={
-                                <MainButton
-                                    href="/carrito"
-                                    className="w-full justify-center"
-                                >
-                                    {cart.hasMoreItems
-                                        ? `Ver todos (${cart.totalItems})`
-                                        : "Ver carrito"}
-                                </MainButton>
-                            }
-                        />
-
-                    </footer>
+                    <div className="px-8 py-16 text-center text-neutral-500">
+                        Cargando carrito...
+                    </div>
 
                 )}
 
-            </aside>
+                {error && (
 
+                    <div className="px-8 py-16 text-center text-neutral-500">
+                        No se ha podido cargar el carrito.
+                    </div>
+
+                )}
+
+                {!isLoading && !error && cart && (
+
+                    <>
+                        <CartItemList
+                            items={previewItems}
+                        />
+
+                        {hasMoreItems && (
+
+                            <p className="px-8 py-4 text-sm text-neutral-500">
+                                Hay {cart.totalItems - CART.previewItems} servicios más en el carrito.
+                            </p>
+
+                        )}
+
+                        <CartSummary
+                            summary={cart}
+                            action={(
+                                <MainButton
+                                    href="/carrito"
+                                    className="w-full"
+                                >
+                                    Ver carrito
+                                </MainButton>
+                            )}
+                        />
+                    </>
+
+                )}
+            </aside>
         </Overlay>
+
     );
+
 }

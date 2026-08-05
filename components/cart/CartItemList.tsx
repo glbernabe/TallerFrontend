@@ -52,11 +52,7 @@ export default function CartItemList({
     return (
 
         <section
-            className="
-                flex-1
-
-                overflow-y-auto
-            "
+            className="min-h-0"
         >
 
             {items.map((item, index) => (

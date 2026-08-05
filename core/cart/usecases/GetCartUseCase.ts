@@ -1,4 +1,4 @@
-import type { CartItem } from "@/domain/cart/CartItem";
+import type { CartSummary } from "@/domain/cart/CartSummary";
 import type { ICartRepository } from "@/domain/cart/ICartRepository";
 
 export class GetCartUseCase {
@@ -7,7 +7,7 @@ export class GetCartUseCase {
         private readonly repository: ICartRepository,
     ) {}
 
-    async execute(): Promise<CartItem[]> {
+    async execute(): Promise<CartSummary> {
 
         return await this.repository.getCart();
 

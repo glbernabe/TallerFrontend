@@ -1,3 +1,5 @@
+import "./globals.css";
+
 import { mbCorpoText, mbCorpoTitle } from "@/fonts/fonts";
 
 export default function RootLayout({

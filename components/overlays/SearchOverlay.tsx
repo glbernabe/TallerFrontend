@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 
 import Overlay from "./Overlay";
+import { OVERLAY } from "@/core/common/design/overlays";
+import OverlayHeader from "./OverlayHeader";
 
 type Props = {
     isOpen: boolean;
@@ -43,83 +45,41 @@ export default function SearchOverlay({
         >
             <div
                 className={`
-                    w-full
-
-                    max-w-full
-                    sm:max-w-[92%]
-                    md:max-w-[88%]
-                    lg:max-w-[820px]
-                    xl:max-w-[860px]
+                    ${OVERLAY.searchWidth}
 
                     rounded-sm
 
                     bg-white
 
-                    shadow-xl
-
-                    transition-all
-                    duration-300
-                    ease-out
-
-                    ${
-                        isOpen
-                            ? "translate-y-0 opacity-100 scale-100"
-                            : "-translate-y-3 opacity-0 scale-[0.985]"
-                    }
+                    shadow-2xl
                 `}
             >
                 {/* Cabecera */}
-                <div
-                    className="
-                    flex
-                    justify-end
-
-                    px-8
-                    pt-6
-                    pb-4
-                    "
-                >
-                    <button
-                        type="button"
-                        onClick={onClose}
-                        className="
-                        flex
-                        h-10
-                        w-10
-
-                        items-center
-                        justify-center
-
-                        transition-opacity
-
-                        hover:opacity-60
-                        "
-                        aria-label="Cerrar búsqueda"
-                    >
-                        <Image
-                            src="/content/action_button/Cancel_Icon.svg"
-                            alt=""
-                            width={18}
-                            height={18}
-                        />
-                    </button>
-                </div>
+                <OverlayHeader
+                    onClose={onClose}
+                />
 
                 {/* Barra de búsqueda */}
                 <div className="px-8 pb-8">
 
                     <div
                         className="
-                        flex
-                        h-16
-                        items-center
+                            flex
 
-                        border
-                        border-neutral-300
+                            h-14
+                            sm:h-16
 
-                        bg-white
+                            items-center
 
-                        px-6
+                            gap-3
+
+                            border
+                            border-neutral-300
+
+                            bg-white
+
+                            px-4
+                            sm:px-6
                         "
                     >
                         <input
@@ -129,26 +89,41 @@ export default function SearchOverlay({
                             onChange={(e) => setQuery(e.target.value)}
                             placeholder="¿Cómo podemos ayudar?"
                             className="
-                            flex-1
+                                min-w-0
+                                flex-1
 
-                            bg-transparent
+                                bg-transparent
 
-                            text-xl
+                                text-base
+                                sm:text-xl
 
-                            text-black
+                                text-black
 
-                            outline-none
+                                outline-none
 
-                            placeholder:text-neutral-500
+                                placeholder:text-neutral-500
                             "
                         />
 
-                        <Image
-                            src="/content/action_button/Search_Black_Icon.svg"
-                            alt=""
-                            width={27}
-                            height={27}
-                        />
+                        <div
+                            className="
+                                flex
+                                h-6
+                                w-6
+
+                                shrink-0
+
+                                items-center
+                                justify-center
+                            "
+                        >
+                            <Image
+                                src="/content/action_button/Search_Black_Icon.svg"
+                                alt=""
+                                width={22}
+                                height={22}
+                            />
+                        </div>
                     </div>
                 </div>
 

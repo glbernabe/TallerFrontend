@@ -17,10 +17,5 @@ export interface CartSummary {
      */
     totalItems: number;
 
-    /**
-     * Indica si existen más servicios de los
-     * que se están mostrando en el preview.
-     */
-    hasMoreItems: boolean;
 
 }
