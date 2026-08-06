@@ -1,6 +1,6 @@
 import { RepositoryFactory } from "./RepositoryFactory";
 
-import { GetCartSummaryUseCase } from "@/core/cart/usecases/GetCartSummaryUseCase";
+import { GetCartSummaryUseCase } from "@/infrastructure/usecases/cart/GetCartSummaryUseCase";
 
 export class UseCaseFactory {
 

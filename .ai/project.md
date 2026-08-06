@@ -1,112 +1,24 @@
-# Proyecto
+# Mercedes Frontend
 
-Autotalleres Orihuela
+Proyecto oficial para Autotalleres Orihuela.
 
-## Objetivo
-
-Crear una plataforma web moderna para un Servicio Oficial Mercedes-Benz.
-
-No buscamos copiar la web oficial sino seguir su lenguaje de diseño.
-
----
-
-## Tecnologías
-
-Frontend
+Tecnologías:
 
 - Next.js 15
-- React
+- React 19
 - TypeScript
-- TailwindCSS v4
-
-Backend
-
+- Tailwind CSS v4
 - FastAPI
+- Google Identity Services
+- Clean Architecture
 
-ERP
+Objetivo:
 
-- Spiga+
+Crear una aplicación escalable que permita:
 
----
-
-## Estilo
-
-Minimalista
-
-Premium
-
-Mucho espacio en blanco
-
-Animaciones muy sutiles
-
-No Bootstrap
-
-No Material Design
-
----
-
-## Componentes
-
-Cada sección es un componente.
-
-No hacer componentes gigantes.
-
----
-
-## Diseño
-
-Usar Image de Next.
-
-Usar localFont.
-
-No usar img.
-
-No usar CSS Modules.
-
-Solo Tailwind.
-
----
-
-## SEO
-
-Siempre usar metadata.
-
-Un solo H1.
-
-Jerarquía H2/H3 correcta.
-
----
-
-## Accesibilidad
-
-Todos los botones con aria-label.
-
-Imágenes con alt.
-
----
-
-## Convenciones
-
-src/components
-
-src/app
-
-src/lib
-
-src/services
-
-src/types
-
----
-
-## Nunca
-
-No usar any.
-
-No usar fetch directamente en componentes.
-
-No duplicar código.
-
-No usar estilos inline.
-
-No instalar librerías innecesarias.
+- Login
+- Reservas
+- Carrito
+- Vehículos
+- Integración con Spiga+
+- APIs Mercedes

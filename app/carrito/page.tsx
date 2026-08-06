@@ -7,7 +7,7 @@ import Container from "@/components/layout/Container";
 import CartItemList from "@/components/cart/CartItemList";
 import CartSummary from "@/components/cart/CartSummary";
 
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/hooks/cart/useCart";
 
 export default function CartPage() {
 

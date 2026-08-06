@@ -1,13 +1,21 @@
-Antes de generar código:
+Nunca utilizar any.
 
-1. Analiza primero la arquitectura existente.
+Nunca usar lógica dentro de componentes.
 
-2. Reutiliza componentes siempre que sea posible.
+Todos los Hooks actúan como ViewModels.
 
-3. No introduzcas librerías nuevas sin justificarlo.
+Los DTO permanecen únicamente en Infrastructure.
 
-4. No rompas la consistencia visual.
+Los SDK externos viven únicamente en Infrastructure/Services.
 
-5. Todo el código debe ser escalable.
+Los UseCases nunca conocen React.
 
-6. Si existe más de una solución, explica cuál recomiendas y por qué.
+Los Repository nunca conocen Google.
+
+GoogleIdentityService es el único punto que conoce Google Identity Services.
+
+No generar código parcial.
+
+Generar siempre el archivo completo.
+
+Si una decisión rompe Clean Architecture, detenerse y explicarlo antes de modificar el código.

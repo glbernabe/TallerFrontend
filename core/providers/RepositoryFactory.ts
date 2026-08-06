@@ -1,6 +1,6 @@
 import type { ICartRepository } from "@/domain/cart/ICartRepository";
 
-import { LocalCartRepository } from "@/core/cart/repositories/LocalCartRepository";
+import { LocalCartRepository } from "@/infrastructure/repositories/cart/LocalCartRepository";
 
 // FUTURO
 // import { RestCartRepository } from "@/core/cart/repositories/RestCartRepository";

@@ -1,36 +1,195 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mercedes Frontend
 
-## Getting Started
+Frontend desarrollado con **Next.js**, **React** y **TypeScript** siguiendo una arquitectura basada en **Clean Architecture**, **MVVM**, **Repository Pattern** y **SOLID**.
 
-First, run the development server:
+El objetivo del proyecto es proporcionar una plataforma moderna para Auto Talleres Orihuela, preparada para integrarse con FastAPI, Spiga+, Google Identity Services y futuras APIs de Mercedes-Benz.
+
+---
+
+# Tecnologías
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- FastAPI (Backend)
+- Google Identity Services
+- Spiga+ (ERP)
+- Ollama + Continue (desarrollo asistido por IA)
+
+---
+
+# Arquitectura
+
+El proyecto sigue una arquitectura por capas basada en Clean Architecture.
+
+```text
+Component
+    ↓
+Hook (ViewModel)
+    ↓
+UseCase
+    ↓
+Repository
+    ↓
+Service / ApiClient
+    ↓
+Backend
+```
+
+La documentación completa se encuentra en:
+
+```text
+.ai/
+```
+
+---
+
+# Documentación
+
+Toda la documentación técnica se encuentra dentro de la carpeta:
+
+```text
+.ai/
+```
+
+Especialmente:
+
+```text
+.ai/
+├── README.md
+├── architecture/
+├── templates/
+├── coding-rules.md
+├── design-system.md
+├── filesystem.md
+├── api.md
+├── roadmap.md
+└── decisions.md
+```
+
+Antes de modificar la arquitectura o añadir nuevas funcionalidades se recomienda consultar dicha documentación.
+
+---
+
+# Instalación
+
+## Clonar el proyecto
+
+```bash
+git clone <repositorio>
+```
+
+## Instalar dependencias
+
+```bash
+npm install
+```
+
+## Ejecutar en desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará disponible en:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Scripts
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Inicia el servidor de desarrollo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+```
 
-## Deploy on Vercel
+Genera la versión de producción.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ejecuta la versión compilada.
+
+```bash
+npm run lint
+```
+
+Ejecuta el análisis estático del código.
+
+---
+
+# Estructura del proyecto
+
+```text
+app/
+components/
+core/
+hooks/
+infrastructure/
+public/
+.ai/
+```
+
+La explicación completa de cada carpeta se encuentra en:
+
+```text
+.ai/filesystem.md
+```
+
+---
+
+# Principios del proyecto
+
+Todo el desarrollo debe respetar:
+
+- Clean Architecture
+- SOLID
+- Repository Pattern
+- MVVM mediante Hooks
+- Componentes reutilizables
+- Separación estricta de responsabilidades
+
+---
+
+# Inteligencia Artificial
+
+Este proyecto está preparado para trabajar con asistentes de IA como:
+
+- Continue
+- Ollama
+- Codex
+- Claude Code
+
+Toda la documentación necesaria para generar código correctamente se encuentra en:
+
+```text
+.ai/
+```
+
+---
+
+# Estado del proyecto
+
+Actualmente en desarrollo.
+
+Las funcionalidades implementadas y las planificadas pueden consultarse en:
+
+```text
+.ai/roadmap.md
+```
+
+---
+
+# Licencia
+
+Pendiente de definir.

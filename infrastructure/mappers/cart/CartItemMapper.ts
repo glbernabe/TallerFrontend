@@ -1,4 +1,4 @@
-import type { CartItemDto } from "../dto/CartItemDto";
+import type { CartItemDto } from "../../dtos/cart/CartItemDto";
 import type { CartItem } from "@/domain/cart/CartItem";
 
 export class CartItemMapper {

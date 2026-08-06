@@ -1,7 +1,7 @@
 import type { CartSummary } from "@/domain/cart/CartSummary";
 import type { ICartRepository } from "@/domain/cart/ICartRepository";
 
-import { mockCart } from "../mock/mockCart";
+import { mockCart } from "../../mock/cart/mockCart";
 
 import { fakeDelay } from "@/core/common/utils/fakeDelay";
 

@@ -10,7 +10,7 @@ import CartItemList from "@/components/cart/CartItemList";
 import CartSummary from "@/components/cart/CartSummary";
 import MainButton from "@/components/ui/MainButton";
 
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/hooks/cart/useCart";
 
 type Props = {
     isOpen: boolean;

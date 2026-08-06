@@ -8,6 +8,9 @@ import { OVERLAY } from "@/core/common/design/overlays";
 import MainButton from "@/components/ui/MainButton";
 import SecondaryButton from "../ui/SecondaryButton";
 
+import GoogleButton from "@/components/auth/GoogleButton";
+
+
 type Props = {
     isOpen: boolean;
     onClose: () => void;
