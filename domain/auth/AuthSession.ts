@@ -24,3 +24,6 @@ export interface AuthSession {
     user: User;
 
 }
+
+// TODO (Backend):
+// Sustituir por los tokens devueltos por la API.

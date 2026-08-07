@@ -1,66 +1,19 @@
-import type {
+import type { AuthSession } from "@/domain/auth/AuthSession";
+import type { GoogleCredential } from "@/domain/auth/GoogleCredential";
+import type { IAuthRepository } from "@/domain/auth/IAuthRepository";
 
-    AuthSession,
-
-} from "@/domain/auth/AuthSession";
-
-import type {
-
-    IAuthRepository,
-
-} from "@/domain/auth/IAuthRepository";
-
-import {
-
-    GoogleIdentityService,
-
-} from "@/infrastructure/services/auth/GoogleIdentityService";
-
-/**
- * Caso de uso encargado
- * del inicio de sesión
- * mediante Google.
- */
 export class LoginWithGoogleUseCase {
 
     constructor(
-
-        private readonly repository:
-
-            IAuthRepository,
-
-        private readonly googleService:
-
-            GoogleIdentityService,
-
+        private readonly repository: IAuthRepository,
     ) {}
 
-    /**
-     * Flujo:
-     *
-     * 1. Google autentica.
-     *
-     * 2. Google devuelve
-     *    una credencial.
-     *
-     * 3. El backend verifica
-     *    esa credencial.
-     *
-     * 4. El backend devuelve
-     *    nuestra sesión.
-     */
-    async execute():
+    async execute(
+        credential: GoogleCredential,
+    ): Promise<AuthSession> {
 
-        Promise<AuthSession> {
-
-        const credential =
-
-            await this.googleService.signIn();
-
-        return await this.repository.loginWithGoogle(
-
+        return this.repository.loginWithGoogle(
             credential,
-
         );
 
     }

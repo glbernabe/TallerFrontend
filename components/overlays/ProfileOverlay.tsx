@@ -6,9 +6,11 @@ import Overlay from "./Overlay";
 import { OVERLAY } from "@/core/common/design/overlays";
 
 import MainButton from "@/components/ui/MainButton";
-import SecondaryButton from "../ui/SecondaryButton";
 
-import GoogleButton from "@/components/auth/GoogleButton";
+import { GoogleLogin } from "@react-oauth/google";
+
+import { LocalAuthRepository } from "@/infrastructure/repositories/auth/LocalAuthRepository";
+import { LoginWithGoogleUseCase } from "@/infrastructure/usecases/auth/LoginWithGoogleUseCase";
 
 
 type Props = {
@@ -21,6 +23,13 @@ export default function ProfileOverlay({
     onClose,
 }: Props) {
 
+    const repository =
+        new LocalAuthRepository();
+
+    const loginUseCase =
+        new LoginWithGoogleUseCase(
+            repository,
+        );
     return (
 
         <Overlay
@@ -44,10 +53,9 @@ export default function ProfileOverlay({
                     duration-300
                     ease-out
 
-                    ${
-                        isOpen
-                            ? "translate-y-0 opacity-100 scale-100"
-                            : "-translate-y-3 opacity-0 scale-[0.985]"
+                    ${isOpen
+                        ? "translate-y-0 opacity-100 scale-100"
+                        : "-translate-y-3 opacity-0 scale-[0.985]"
                     }
                 `}
             >
@@ -138,25 +146,52 @@ export default function ProfileOverlay({
                         "
                     >
 
-                        <SecondaryButton
-                            href="#"
-                            className="
-                                w-full
-                                justify-center
-                            "
-                        >
+                        <GoogleLogin
 
-                            <Image
-                                src="/content/google/Google_Icon.svg"
-                                alt=""
-                                width={20}
-                                height={20}
-                                className="mr-3"
-                            />
+                            theme="outline"
 
-                            Continuar con Google
+                            size="large"
 
-                        </SecondaryButton>
+                            shape="rectangular"
+
+                            width="100%"
+
+                            text="continue_with"
+
+                            onSuccess={async (response) => {
+
+                                console.log("Respuesta de Google:");
+                                console.log(response);
+
+                                if (!response.credential) {
+
+                                    console.log("No se recibió credential.");
+
+                                    return;
+
+                                }
+
+                                console.log("Credential:");
+                                console.log(response.credential);
+
+                                await loginUseCase.execute({
+
+                                    credential:
+                                        response.credential,
+
+                                });
+
+                            }}
+
+                            onError={() => {
+
+                                console.error(
+                                    "Error al iniciar sesión con Google.",
+                                );
+
+                            }}
+
+                        />
 
                     </div>
 
