@@ -39,50 +39,47 @@ export default function Footer() {
                                     text-white/65
                                 "
                             >
-                                Servicio Oficial Mercedes-Benz especializado
-                                en mantenimiento, diagnosis y reparación.
-                                Comprometidos con la calidad y la confianza
-                                en cada intervención.
+                                Taller especializado en vehículos industriales,
+                                camiones y furgonetas. Mantenimiento, diagnosis
+                                y reparación para profesionales y empresas.
                             </p>
 
                         </div>
 
-                        <FooterColumn
-                            title="Servicios"
-                            links={[
-                                {
-                                    label: "Mantenimiento",
-                                    href: "/servicios/mantenimiento",
-                                },
-                                {
-                                    label: "Diagnosis",
-                                    href: "/servicios/diagnosis",
-                                },
-                                {
-                                    label: "Reparaciones",
-                                    href: "/servicios/reparaciones",
-                                },
-                                {
-                                    label: "Recambios",
-                                    href: "/servicios/recambios",
-                                },
-                            ]}
-                        />
+                        <div>
+
+                            <h3 className="font-title text-lg">
+                                Servicios
+                            </h3>
+
+                            <ul
+                                className="
+                                    mt-6
+                                    space-y-3
+
+                                    text-white/60
+                                "
+                            >
+
+                                <li>Mantenimiento</li>
+                                <li>Diagnosis</li>
+                                <li>Reparaciones</li>
+                                <li>Vehículo industrial</li>
+
+                            </ul>
+
+                        </div>
 
                         <FooterColumn
                             title="Empresa"
                             links={[
                                 {
                                     label: "Sobre nosotros",
-                                    href: "/empresa",
+                                    href: "/about-us",
                                 },
                                 {
                                     label: "Contacto",
                                     href: "/contacto",
-                                },
-                                {
-                                    label: "Reservar cita",
-                                    href: "/reservar-cita",
                                 },
                             ]}
                         />

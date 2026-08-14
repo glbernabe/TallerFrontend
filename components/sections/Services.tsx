@@ -4,18 +4,32 @@ import Section from "@/components/layout/Section";
 import Card from "@/components/ui/Card";
 
 export default function Services() {
+
     return (
-        <Section className="bg-black py-32 text-white">
+
+        <Section
+            className="
+                bg-black
+                py-32
+                text-white
+            "
+        >
 
             <Container>
 
-                {/* Cabecera */}
+                {/* CABECERA */}
 
-                <div className="mb-18 max-w-4xl">
+                <div
+                    className="
+                        mb-18
+                        max-w-4xl
+                    "
+                >
 
                     <h2
                         className="
                             font-title
+
                             text-5xl
                             leading-tight
 
@@ -23,55 +37,73 @@ export default function Services() {
                             xl:text-7xl
                         "
                     >
-                        Todo lo que tu Mercedes-Benz necesita
+                        Un servicio pensado
+                        <br />
+                        para el trabajo
                     </h2>
 
                     <p
                         className="
                             mt-6
+
                             max-w-3xl
 
                             text-lg
                             leading-8
+
                             text-white/70
                         "
                     >
-                        Como Servicio Oficial Mercedes-Benz ponemos a tu
-                        disposición un servicio integral para el mantenimiento,
-                        diagnóstico y reparación de tu vehículo. Trabajamos con
-                        herramientas oficiales, recambios originales y
-                        procedimientos certificados para ofrecer la máxima
-                        calidad en cada intervención.
+                        Mantenemos y reparamos vehículos industriales que
+                        forman parte del día a día de profesionales y empresas.
+                        Desde el mantenimiento preventivo hasta la diagnosis y
+                        reparación, trabajamos para que tu vehículo pueda
+                        seguir en marcha.
                     </p>
 
                 </div>
 
-                {/* Tarjetas */}
 
-                <div className="grid gap-6 lg:grid-cols-3">
+                {/* SERVICIOS */}
+
+                <div
+                    className="
+                        grid
+                        gap-6
+
+                        lg:grid-cols-3
+                    "
+                >
 
                     <Card
-                        src="/content/images/cards/tecnicos.webp"
-                        alt="Mantenimiento Mercedes"
+                        src="/content/images/cards/oil_change.jpg"
+                        alt="Mantenimiento de un vehículo industrial"
                         title="Mantenimiento"
-                        description="Revisiones oficiales, cambios de aceite, filtros, líquidos y mantenimiento preventivo."
-                        href="/servicios/mantenimiento"
+                        description="
+                            Revisiones, cambios de aceite, filtros, líquidos
+                            y mantenimiento preventivo para mantener el
+                            vehículo en condiciones óptimas.
+                        "
                     />
 
                     <Card
-                        src="/content/images/cards/recambios.webp"
-                        alt="Diagnosis Mercedes"
+                        src="/content/images/cards/electric_equipment.jpg"
+                        alt="Diagnosis de un vehículo industrial"
                         title="Diagnosis"
-                        description="Diagnóstico electrónico mediante equipamiento oficial Mercedes-Benz."
-                        href="/servicios/diagnosis"
+                        description="
+                            Diagnóstico electrónico para identificar averías
+                            con precisión y facilitar una reparación eficaz.
+                        "
                     />
 
                     <Card
-                        src="/content/images/cards/asesoramiento.webp"
-                        alt="Reparaciones Mercedes"
+                        src="/content/images/cards/motor_up.jpg"
+                        alt="Reparación de un vehículo industrial"
                         title="Reparaciones"
-                        description="Motor, transmisión, suspensión, climatización y sistemas electrónicos."
-                        href="/servicios/reparaciones"
+                        description="
+                            Intervenciones mecánicas y electrónicas para
+                            resolver averías y mantener el vehículo operativo.
+                        "
                     />
 
                 </div>
@@ -79,5 +111,7 @@ export default function Services() {
             </Container>
 
         </Section>
+
     );
+
 }

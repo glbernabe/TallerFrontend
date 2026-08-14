@@ -38,7 +38,7 @@ export default function Hero() {
                 <div
                     className="
                         flex
-                        max-w-[760px]
+                        max-w-[820px]
                         flex-col
                         justify-start
 
@@ -59,7 +59,7 @@ export default function Hero() {
                             tracking-[-0.02em]
 
                             text-[2.3rem]
-                            leading-[1.12]
+                            leading-[1.05]
 
                             sm:text-[3rem]
                             md:text-[3.8rem]
@@ -68,17 +68,17 @@ export default function Hero() {
                             2xl:text-[5.6rem]
                         "
                     >
-                        Servicio Oficial
+                        Vehículos industriales
                         <br />
-                        Mercedes-Benz
+                        preparados para seguir
                         <br />
-                        Autotalleres Orihuela
+                        trabajando
                     </h1>
 
                     <p
                         className="
-                            mt-5
-                            max-w-[650px]
+                            mt-6
+                            max-w-[680px]
 
                             text-base
                             leading-relaxed
@@ -89,13 +89,14 @@ export default function Hero() {
                             xl:text-2xl
                         "
                     >
-                        Mantenimiento, diagnosis y reparación.
+                        Mantenimiento, diagnosis y reparación de camiones,
+                        furgonetas y vehículos comerciales en Orihuela.
                     </p>
 
                     <div className="mt-10">
 
-                        <MainButton href="/reservar-cita">
-                            Reserva ahora
+                        <MainButton href="tel:+34966744466">
+                            Llamar al taller
                         </MainButton>
 
                     </div>

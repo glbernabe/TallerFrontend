@@ -31,7 +31,7 @@ export default function Contact() {
                                 md:text-6xl
                             "
                         >
-                            ¿Necesitas ayuda?
+                            Tu taller de vehículos industriales en Orihuela
                         </h2>
 
                         <p
@@ -46,10 +46,9 @@ export default function Contact() {
                                 text-white/70
                             "
                         >
-                            Nuestro equipo está disponible para ayudarte con
-                            cualquier consulta sobre mantenimiento,
-                            reparaciones, diagnosis o recambios originales
-                            Mercedes-Benz.
+                            Estamos en Orihuela, Alicante, para ayudarte con el
+                            mantenimiento, diagnosis y reparación de camiones,
+                            furgonetas y vehículos comerciales.
                         </p>
 
                         <div className="mt-12 space-y-8">
@@ -61,11 +60,11 @@ export default function Contact() {
                                 </h3>
 
                                 <p className="mt-2 text-white/65">
-                                    Autotalleres Orihuela
+                                    Auto-Talleres Orihuela
                                     <br />
-                                    Calle XXXXX
+                                    Carretera Murcia-Alicante, km 28
                                     <br />
-                                    Orihuela, Alicante
+                                    03300 Orihuela, Alicante
                                 </p>
 
                             </div>
@@ -76,9 +75,20 @@ export default function Contact() {
                                     Teléfono
                                 </h3>
 
-                                <p className="mt-2 text-white/65">
-                                    +34 965 XXX XXX
-                                </p>
+                                <a
+                                    href="tel:+34966744466"
+                                    className="
+                                        mt-2
+                                        block
+
+                                        text-white/65
+
+                                        transition-colors
+                                        hover:text-white
+                                    "
+                                >
+                                    966 744 466
+                                </a>
 
                             </div>
 
@@ -88,9 +98,20 @@ export default function Contact() {
                                     Correo electrónico
                                 </h3>
 
-                                <p className="mt-2 text-white/65">
-                                    info@autotalleresorihuela.es
-                                </p>
+                                <a
+                                    href="mailto:orihuela.ato@autotalleresorihuela.es"
+                                    className="
+                                        mt-2
+                                        block
+
+                                        text-white/65
+
+                                        transition-colors
+                                        hover:text-white
+                                    "
+                                >
+                                    orihuela.ato@autotalleresorihuela.es
+                                </a>
 
                             </div>
 
@@ -103,24 +124,23 @@ export default function Contact() {
                                 <p className="mt-2 text-white/65">
                                     Lunes - Viernes
                                     <br />
-                                    08:00 - 18:00
+                                    08:00 - 20:00
+                                    <br /><br />
+                                    Sábado
+                                    <br />
+                                    08:00 - 13:00
                                 </p>
 
                             </div>
 
                         </div>
 
-                        <div className="mt-12 flex flex-wrap gap-4">
-
-                            <MainButton href="/contacto">
-                                Contactar
-                            </MainButton>
+                        <div className="mt-12">
 
                             <MainButton
-                                href="/reservar-cita"
-                                className="border border-white bg-transparent hover:bg-white hover:text-black"
+                                href="tel:+34966744466"
                             >
-                                Reservar cita
+                                Llamar al taller
                             </MainButton>
 
                         </div>
@@ -134,21 +154,20 @@ export default function Contact() {
                         <div
                             className="
                                 overflow-hidden
-
                                 rounded-2xl
-
                                 border
                                 border-white/10
                             "
                         >
 
                             <iframe
-                                src="https://www.google.com/maps?q=Autotalleres+Orihuela&output=embed"
+                                src="https://www.google.com/maps?q=Auto-Talleres+Orihuela,+Orihuela,+Alicante&output=embed"
                                 width="100%"
                                 height="600"
                                 loading="lazy"
                                 allowFullScreen
                                 referrerPolicy="no-referrer-when-downgrade"
+                                title="Ubicación de Auto-Talleres Orihuela"
                             />
 
                         </div>

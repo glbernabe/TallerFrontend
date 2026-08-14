@@ -15,84 +15,138 @@ export default function Feature({
 }: Props) {
 
     return (
+
         <article
             className="
+                group
+
                 flex
                 flex-col
+                items-center
 
-                rounded-xl
-
-                border
-                border-white/10
-
-                bg-white/3
-
-                p-9
-
-                transition-all
-                duration-300
-
-                hover:-translate-y-1
-                hover:bg-white/5
+                text-center
             "
         >
-            {/* Icono */}
+
+            {/* ICONO */}
 
             <div
-                className="mb-6 flex h-10 items-center"
+                className="
+                    relative
+
+                    flex
+                    h-28
+                    w-28
+
+                    items-center
+                    justify-center
+
+                    rounded-full
+
+                    border
+                    border-white/10
+
+                    bg-white/[0.04]
+
+                    transition-all
+                    duration-500
+                    ease-out
+
+                    group-hover:-translate-y-2
+                    group-hover:border-white/20
+                    group-hover:bg-white/[0.08]
+                "
             >
-                <div className={iconClassName}>
+
+                {/* Halo */}
+
+                <div
+                    className="
+                        absolute
+                        inset-[-8px]
+
+                        rounded-full
+
+                        border
+                        border-white/[0.04]
+
+                        transition-all
+                        duration-500
+
+                        group-hover:inset-[-12px]
+                        group-hover:border-white/[0.08]
+                    "
+                />
+
+                <div
+                    className={`
+                        relative
+
+                        flex
+                        items-center
+                        justify-center
+
+                        ${iconClassName}
+                    `}
+                >
+
                     <Image
                         src={icon}
                         alt=""
-                        width={32}
-                        height={32}
+                        width={48}
+                        height={48}
+                        className="
+                            h-12
+                            w-12
+
+                            object-contain
+                        "
                     />
+
                 </div>
+
             </div>
 
-            {/* Línea Mercedes */}
 
-            <div
-                className="
-                    mt-6
-                    h-[2px]
-                    w-10
-                    rounded-full
-
-                    bg-[var(--color-blue-button)]
-                "
-            />
-
-            {/* Título */}
+            {/* TÍTULO */}
 
             <h3
                 className="
-                    mt-8
+                    mt-9
+
+                    max-w-xs
 
                     font-title
 
-                    text-[2rem]
+                    text-2xl
                     leading-tight
+
+                    md:text-[1.75rem]
                 "
             >
                 {title}
             </h3>
 
-            {/* Descripción */}
+
+            {/* DESCRIPCIÓN */}
 
             <p
                 className="
                     mt-5
 
-                    text-[17px]
-                    leading-8
+                    max-w-xs
 
-                    text-white/65
+                    text-base
+                    leading-7
+
+                    text-white/60
                 "
             >
                 {description}
             </p>
+
         </article>
+
     );
+
 }

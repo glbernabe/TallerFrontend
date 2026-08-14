@@ -1,26 +1,15 @@
 "use client";
 
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import Script from "next/script";
 
-type Props = {
-    children: React.ReactNode;
-};
-
-export default function GoogleProvider({
-    children,
-}: Props) {
+export default function GoogleProvider() {
 
     return (
 
-        <GoogleOAuthProvider
-            clientId={
-                process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!
-            }
-        >
-
-            {children}
-
-        </GoogleOAuthProvider>
+        <Script
+            src="https://accounts.google.com/gsi/client"
+            strategy="afterInteractive"
+        />
 
     );
 

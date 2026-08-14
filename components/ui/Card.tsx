@@ -2,11 +2,11 @@ import Image from "next/image";
 import MainButton from "@/components/ui/MainButton";
 
 type Props = {
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
-  href: string;
+    src: string;
+    alt: string;
+    title: string;
+    description: string;
+    href?: string;
 };
 
 export default function Card({
@@ -40,6 +40,7 @@ export default function Card({
             transition-transform duration-500
             group-hover:scale-105
           "
+          quality={75}
         />
 
         {/* Degradado Mercedes */}
@@ -67,12 +68,6 @@ export default function Card({
         <p className="font-text text-base leading-relaxed text-white/80">
           {description} 
         </p>
-
-        <div className="pt-2">
-          <MainButton href={href}>
-            Descubrir →
-          </MainButton>
-        </div>
 
       </div>
     </article>
