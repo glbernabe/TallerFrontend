@@ -53,7 +53,7 @@ export default function ContactPage() {
                 {/* Imagen */}
 
                 <Image
-                    src="/content/contact/assistance.jpg"
+                    src="/content/images/Assistance_client.webp"
                     alt="Asistencia de vehículos"
                     fill
                     priority

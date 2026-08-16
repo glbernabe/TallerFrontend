@@ -12,7 +12,7 @@ export default function Hero() {
             <div className="absolute inset-0">
 
                 <Image
-                    src="/content/images/background/Mercedes_Benz_Pattern.webp"
+                    src="/content/images/background/Trucks_display.webp"
                     alt="Patrón Mercedes-Benz"
                     fill
                     priority
