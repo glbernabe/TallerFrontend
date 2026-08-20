@@ -57,8 +57,15 @@ export default function ContactPage() {
                     alt="Asistencia de vehículos"
                     fill
                     priority
+                    sizes="100vw"
                     className="
                         object-cover
+
+                        object-[65%_center]
+
+                        sm:object-[60%_center]
+
+                        md:object-center
                     "
                 />
 
@@ -100,6 +107,8 @@ export default function ContactPage() {
                         min-h-[calc(100vh-72px)]
 
                         items-end
+
+                        md:items-center
                     "
                 >
 
@@ -109,15 +118,18 @@ export default function ContactPage() {
                             w-full
                             max-w-[1560px]
 
-                            px-6
-                            pb-20
+                            px-7
+                            pt-24
+                            pb-24
+
+                            sm:px-8
+                            sm:pt-28
+                            sm:pb-24
 
                             md:px-8
-                            md:pb-24
+                            md:py-0
 
                             lg:px-10
-                            lg:pb-28
-
                             xl:px-12
                         "
                     >

@@ -56,22 +56,6 @@ export default function Contact() {
                             <div>
 
                                 <h3 className="font-title text-xl">
-                                    Dirección
-                                </h3>
-
-                                <p className="mt-2 text-white/65">
-                                    Auto-Talleres Orihuela
-                                    <br />
-                                    Carretera Murcia-Alicante, km 28
-                                    <br />
-                                    03300 Orihuela, Alicante
-                                </p>
-
-                            </div>
-
-                            <div>
-
-                                <h3 className="font-title text-xl">
                                     Teléfono
                                 </h3>
 
@@ -124,11 +108,13 @@ export default function Contact() {
                                 <p className="mt-2 text-white/65">
                                     Lunes - Viernes
                                     <br />
-                                    08:00 - 20:00
+                                    08:30 - 14:00
+                                    <br />
+                                    15:30 - 19:00
                                     <br /><br />
                                     Sábado
                                     <br />
-                                    08:00 - 13:00
+                                    08:30 - 13:30
                                 </p>
 
                             </div>
@@ -147,28 +133,149 @@ export default function Contact() {
 
                     </div>
 
-                    {/* Mapa */}
+
+                    {/* Ubicación */}
 
                     <div>
 
                         <div
                             className="
+                                relative
+
+                                flex
+                                min-h-[500px]
+
+                                flex-col
+                                justify-between
+
                                 overflow-hidden
+
                                 rounded-2xl
+
                                 border
                                 border-white/10
+
+                                bg-white/[0.03]
+
+                                p-10
+                                md:p-12
                             "
                         >
 
-                            <iframe
-                                src="https://www.google.com/maps?q=Auto-Talleres+Orihuela,+Orihuela,+Alicante&output=embed"
-                                width="100%"
-                                height="600"
-                                loading="lazy"
-                                allowFullScreen
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Ubicación de Auto-Talleres Orihuela"
+                            {/* Detalle visual sutil */}
+
+                            <div
+                                className="
+                                    pointer-events-none
+                                    absolute
+                                    -right-32
+                                    -top-32
+
+                                    h-80
+                                    w-80
+
+                                    rounded-full
+
+                                    border
+                                    border-white/[0.04]
+                                "
                             />
+
+                            <div
+                                className="
+                                    pointer-events-none
+                                    absolute
+                                    -right-20
+                                    -top-20
+
+                                    h-56
+                                    w-56
+
+                                    rounded-full
+
+                                    border
+                                    border-white/[0.04]
+                                "
+                            />
+
+
+                            {/* Contenido */}
+
+                            <div className="relative">
+
+                                <p
+                                    className="
+                                        text-sm
+                                        uppercase
+                                        tracking-[0.2em]
+
+                                        text-white/45
+                                    "
+                                >
+                                    Nuestra ubicación
+                                </p>
+
+                                <h3
+                                    className="
+                                        mt-8
+
+                                        max-w-md
+
+                                        font-title
+
+                                        text-5xl
+                                        leading-[1.05]
+
+                                        md:text-6xl
+                                    "
+                                >
+                                    Orihuela,
+                                    <br />
+                                    Alicante
+                                </h3>
+
+                                <div
+                                    className="
+                                        mt-8
+
+                                        h-px
+                                        w-12
+
+                                        bg-white/30
+                                    "
+                                />
+
+                                <p
+                                    className="
+                                        mt-8
+
+                                        max-w-sm
+
+                                        text-lg
+                                        leading-8
+
+                                        text-white/60
+                                    "
+                                >
+                                    Carretera Murcia-Alicante, km 28
+                                    <br />
+                                    03300 Orihuela, Alicante
+                                </p>
+
+                            </div>
+
+
+                            {/* Acción */}
+
+                            <div className="relative mt-12">
+
+                                <MainButton
+                                    href="https://www.google.com/maps/dir/?api=1&destination=Auto-Talleres+Orihuela,+Carretera+Murcia-Alicante,+km+28,+03300+Orihuela,+Alicante"
+                                >
+                                    Cómo llegar
+                                </MainButton>
+
+                            </div>
 
                         </div>
 

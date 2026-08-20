@@ -117,7 +117,7 @@ export default function Footer() {
                             gap-6
 
                             text-sm
-                            text-white/45
+                            text-white/50
 
                             md:flex-row
                             md:items-center

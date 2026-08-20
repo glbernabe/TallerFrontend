@@ -15,7 +15,24 @@ export default function NavButton({
         <Link
             href={href}
             className={`
-                 flex h-8 items-center rounded cursor-pointer px-3 py-1 text-base leading-6 whitespace-nowrap transition-colors duration-150 ease-out hover:bg-(--hover-darkgray)
+                flex
+                h-8
+                items-center
+                rounded
+                cursor-pointer
+                px-3
+                py-1
+
+                text-base
+                leading-6
+                whitespace-nowrap
+
+                transition-colors
+                duration-150
+                ease-out
+
+                hover:bg-(--hover-darkgray)
+
                 ${className}
             `}
         >

@@ -76,7 +76,7 @@ export default function Services() {
                 >
 
                     <Card
-                        src="/content/images/cards/oil_change.jpg"
+                        src="/content/images/cards/oil_change.webp"
                         alt="Mantenimiento de un vehículo industrial"
                         title="Mantenimiento"
                         description="
@@ -87,7 +87,7 @@ export default function Services() {
                     />
 
                     <Card
-                        src="/content/images/cards/electric_equipment.jpg"
+                        src="/content/images/cards/electric_equipment.webp"
                         alt="Diagnosis de un vehículo industrial"
                         title="Diagnosis"
                         description="
@@ -97,7 +97,7 @@ export default function Services() {
                     />
 
                     <Card
-                        src="/content/images/cards/motor_up.jpg"
+                        src="/content/images/cards/motor_up.webp"
                         alt="Reparación de un vehículo industrial"
                         title="Reparaciones"
                         description="

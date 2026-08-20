@@ -1,9 +1,15 @@
+"use client";
+
+import { useState } from "react";
+
 import Logo from "./Logo";
 
 import NavButton from "@/components/ui/NavButton";
 import ActionButton from "@/components/ui/ActionButton";
+import MobileMenu from "@/components/overlays/MobileMenu";
 
 export default function Navbar() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
 
@@ -92,6 +98,9 @@ export default function Navbar() {
                             <ActionButton
                                 src="/content/action_button/Hamburger_List_Icon.svg"
                                 alt="Abrir menú"
+                                onClick={() =>
+                                    setIsMobileMenuOpen(true)
+                                }
                             />
 
                         </div>
@@ -134,6 +143,17 @@ export default function Navbar() {
                 </div>
 
             </div>
+
+            {/* ==========================
+                MENÚ MÓVIL
+            ========================== */}
+
+            <MobileMenu
+                isOpen={isMobileMenuOpen}
+                onClose={() =>
+                    setIsMobileMenuOpen(false)
+                }
+            />
 
         </header>
 

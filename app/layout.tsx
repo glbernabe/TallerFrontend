@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     },
 
     description:
-        "Auto-Talleres Orihuela, Servicio Oficial Mercedes-Benz en Orihuela, Alicante. Mantenimiento, diagnosis y reparación de vehículos.",
+        "Auto-Talleres Orihuela, Servicio Oficial Mercedes-Benz en Orihuela, Alicante. Mantenimiento, diagnosis y reparación de camiones, furgonetas y vehículos comerciales.",
 
     keywords: [
         "Auto-Talleres Orihuela",
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
     },
 
     icons: {
-        icon: "/favicon.ico",
+        icon: "/content/icons/logo.svg",
     },
 
 };
@@ -126,9 +126,18 @@ const structuredData = {
 
     legalName: "Autotalleres Orihuela S.L.",
 
+    taxID: "B03934908",
+
+    description:
+        "Servicio Oficial Mercedes-Benz especializado en mantenimiento, diagnosis y reparación de camiones, furgonetas y vehículos comerciales.",
+
     url: siteUrl,
 
     telephone: "+34966744466",
+
+    email: "orihuela.ato@autotalleresorihuela.es",
+
+    image: `${siteUrl}/content/images/background/Trucks_display.webp`,
 
     address: {
         "@type": "PostalAddress",
@@ -139,10 +148,30 @@ const structuredData = {
         addressCountry: "ES",
     },
 
-    areaServed: {
-        "@type": "City",
-        name: "Orihuela",
-    },
+    areaServed: [
+        {
+            "@type": "City",
+            name: "Orihuela",
+        },
+        {
+            "@type": "AdministrativeArea",
+            name: "Vega Baja del Segura",
+        },
+        {
+            "@type": "AdministrativeArea",
+            name: "Alicante",
+        },
+        {
+            "@type": "AdministrativeArea",
+            name: "Región de Murcia",
+        },
+    ],
+
+    sameAs: [
+        "https://www.facebook.com/autotalleres.orihuela/?locale=es_ES",
+        "https://www.instagram.com/autotalleresorihuela/",
+        "https://www.linkedin.com/company/autotalleresorihuela/?originalSubdomain=es",
+    ],
 
     openingHoursSpecification: [
         {

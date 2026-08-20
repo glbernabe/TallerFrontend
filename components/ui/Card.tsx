@@ -1,5 +1,4 @@
 import Image from "next/image";
-import MainButton from "@/components/ui/MainButton";
 
 type Props = {
     src: string;
@@ -10,66 +9,102 @@ type Props = {
 };
 
 export default function Card({
-  src,
-  alt,
-  title,
-  description,
-  href,
+    src,
+    alt,
+    title,
+    description,
+    href,
 }: Props) {
-  return (
-    <article
-      className="
-        group
-        overflow-hidden
-        rounded-sm
-        border border-white/30
-        bg-black
-        transition-all duration-300
-        hover:border-white/50
-      "
-    >
-      {/* Imagen */}
-      <div className="relative h-[420px] overflow-hidden">
+    return (
+        <article
+            className="
+                group
+                overflow-hidden
+                rounded-sm
+                border
+                border-white/30
+                bg-black
+                transition-all
+                duration-300
+                hover:border-white/50
+            "
+        >
+            {/* Imagen */}
 
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="
-            object-cover
-            transition-transform duration-500
-            group-hover:scale-105
-          "
-          quality={75}
-        />
+            <div
+                className="
+                    relative
+                    h-[420px]
+                    overflow-hidden
+                "
+            >
 
-        {/* Degradado Mercedes */}
-        <div
-          className="
-            absolute
-            inset-x-0
-            bottom-0
-            h-48
-            bg-gradient-to-t
-            from-black
-            via-black/80
-            to-transparent
-          "
-        />
-      </div>
+                <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="
+                        object-cover
+                        transition-transform duration-500
+                        group-hover:scale-105
+                    "
+                    quality={75}
+                />
 
-      {/* Contenido */}
-      <div className="flex flex-col gap-3 px-5 py-5">
+                {/* Degradado */}
 
-        <h3 className="font-title text-[2rem] leading-tight text-white">
-          {title}
-        </h3>
+                <div
+                    className="
+                        absolute
+                        inset-x-0
+                        bottom-0
+                        h-48
+                        bg-gradient-to-t
+                        from-black
+                        via-black/80
+                        to-transparent
+                    "
+                />
 
-        <p className="font-text text-base leading-relaxed text-white/80">
-          {description} 
-        </p>
+            </div>
 
-      </div>
-    </article>
-  );
+            {/* Contenido */}
+
+            <div
+                className="
+                    flex
+                    flex-col
+                    gap-3
+                    px-5
+                    py-5
+                "
+            >
+
+                <h3
+                    className="
+                        font-title
+                        text-[2rem]
+                        leading-tight
+                        text-white
+                    "
+                >
+                    {title}
+                </h3>
+
+                <p
+                    className="
+                        font-text
+                        text-base
+                        leading-relaxed
+                        text-white/80
+                    "
+                >
+                    {description}
+                </p>
+
+            </div>
+
+        </article>
+    );
 }

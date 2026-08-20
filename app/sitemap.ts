@@ -6,29 +6,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
         process.env.NEXT_PUBLIC_SITE_URL ??
         "https://www.autotalleresorihuela.es";
 
-    const lastModified = new Date();
-
     return [
 
         {
             url: baseUrl,
-            lastModified,
             changeFrequency: "weekly",
             priority: 1,
         },
 
         {
             url: `${baseUrl}/about-us`,
-            lastModified,
             changeFrequency: "monthly",
             priority: 0.8,
         },
 
         {
             url: `${baseUrl}/contacto`,
-            lastModified,
             changeFrequency: "monthly",
             priority: 0.9,
+        },
+
+        {
+            url: `${baseUrl}/servicios`,
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+
+        {
+            url: `${baseUrl}/legal`,
+            changeFrequency: "yearly",
+            priority: 0.3,
+        },
+
+        {
+            url: `${baseUrl}/privacidad`,
+            changeFrequency: "yearly",
+            priority: 0.3,
+        },
+
+        {
+            url: `${baseUrl}/cookies`,
+            changeFrequency: "yearly",
+            priority: 0.3,
         },
 
     ];
