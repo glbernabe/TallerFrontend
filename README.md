@@ -13,7 +13,6 @@ El objetivo del proyecto es proporcionar una plataforma moderna para Auto Taller
 - TypeScript
 - Tailwind CSS
 - FastAPI (Backend)
-- Google Identity Services
 - Spiga+ (ERP)
 - Ollama + Continue (desarrollo asistido por IA)
 
