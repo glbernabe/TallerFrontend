@@ -96,7 +96,7 @@ export default function AboutUsPage() {
                         className="
                             max-w-6xl
 
-                            animate-[textRiseAnimation_1.2s_ease-out_both]
+                            
                         "
                     >
 

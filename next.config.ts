@@ -6,9 +6,9 @@ const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""};
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: http://localhost:1337 https://cms.autotalleres-orihuela.es;
     font-src 'self';
-    connect-src 'self';
+    connect-src 'self' http://localhost:1337 https://cms.autotalleres-orihuela.es;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
@@ -21,9 +21,23 @@ const cspHeader = `
 `;
 
 const nextConfig: NextConfig = {
-
     images: {
         qualities: [75, 100],
+        dangerouslyAllowLocalIP: isDev,
+
+        remotePatterns: [
+            {
+                protocol: "http",
+                hostname: "127.0.0.1",
+                port: "1337",
+                pathname: "/uploads/**",
+            },
+            {
+                protocol: "https",
+                hostname: "cms.autotalleres-orihuela.es",
+                pathname: "/uploads/**",
+            },
+        ],
     },
 
     async headers() {
@@ -62,7 +76,6 @@ const nextConfig: NextConfig = {
             },
         ];
     },
-
 };
 
 export default nextConfig;
