@@ -2,36 +2,37 @@
 
 import { useState } from "react";
 
-import Logo from "./Logo";
+import BrandLockup from "./BrandLockup";
 
-import NavButton from "@/components/ui/NavButton";
-import ActionButton from "@/components/ui/ActionButton";
+import NavButton from "@/components/navigation/NavButton";
 import MobileMenu from "@/components/overlays/MobileMenu";
+import ActionButton from "@/components/ui/ActionButton";
+
+import { navigation } from "@/components/navigation/navigation";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-
         <header
             className="
                 h-18
-
                 border-b
                 border-white/20
-
                 bg-black
-
                 text-white
             "
         >
-
             <div
                 className="
                     mx-auto
-
+                    flex
                     h-full
+                    w-full
                     max-w-[1560px]
+
+                    items-center
+                    justify-between
 
                     px-6
                     md:px-8
@@ -39,114 +40,43 @@ export default function Navbar() {
                     xl:px-12
                 "
             >
+                {/* IZQUIERDA */}
 
-                <div
-                    className="
-                        grid
-                        h-full
-
-                        grid-cols-3
-
-                        items-center
-                    "
-                >
-
-                    {/* ==========================
-                        IZQUIERDA
-                    ========================== */}
-
-                    <div
-                        className="
-                            flex
-                            items-center
-                            justify-start
-                        "
-                    >
-
-                        <nav
-                            className="
-                                hidden
-                                md:flex
-
-                                items-center
-
-                                gap-6
-                            "
-                        >
-
-                            <NavButton href="/">
-                                Inicio
-                            </NavButton>
-
-                            <NavButton href="/servicios">
-                                Servicios
-                            </NavButton>
-
-                            <NavButton href="/contacto">
-                                Contacto
-                            </NavButton>
-
-                        </nav>
-
-                        <div
-                            className="
-                                flex
-                                md:hidden
-                            "
-                        >
-
-                            <ActionButton
-                                src="/content/action_button/Hamburger_List_Icon.svg"
-                                alt="Abrir menú"
-                                onClick={() =>
-                                    setIsMobileMenuOpen(true)
-                                }
-                            />
-
-                        </div>
-
-                    </div>
-
-                    {/* ==========================
-                        CENTRO
-                    ========================== */}
-
-                    <div
-                        className="
-                            flex
-                            justify-center
-                        "
-                    >
-
-                        <Logo />
-
-                    </div>
-
-                    {/* ==========================
-                        DERECHA
-                    ========================== */}
-
-                    <div
-                        className="
-                            flex
-                            items-center
-                            justify-end
-                        "
-                    >
-
-                        <NavButton href="/about-us">
-                            Sobre Nosotros
-                        </NavButton>
-
-                    </div>
-
+                <div className="flex min-w-0 items-center">
+                    <BrandLockup />
                 </div>
 
-            </div>
+                {/* DERECHA */}
 
-            {/* ==========================
-                MENÚ MÓVIL
-            ========================== */}
+                <div className="flex items-center">
+                    <nav
+                        className="
+                            hidden
+                            items-center
+                            gap-6
+                            md:flex
+                        "
+                        aria-label="Navegación principal"
+                    >
+                        {navigation.map((item) => (
+                            <NavButton
+                                key={item.label}
+                                item={item}
+                            />
+                        ))}
+                    </nav>
+
+                    <div className="flex md:hidden">
+                        <ActionButton
+                            src="/content/action_button/Hamburger_List_Icon.svg"
+                            alt="Abrir menú"
+                            onClick={() =>
+                                setIsMobileMenuOpen(true)
+                            }
+                        />
+                    </div>
+                </div>
+            </div>
 
             <MobileMenu
                 isOpen={isMobileMenuOpen}
@@ -154,9 +84,6 @@ export default function Navbar() {
                     setIsMobileMenuOpen(false)
                 }
             />
-
         </header>
-
     );
-
 }

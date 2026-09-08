@@ -1,17 +1,11 @@
 import { getNews } from "@/lib/strapi/news";
 import NewsGrid from "@/components/news/NewsGrid";
-import type { News } from "@/components/news/NewsCard";
-
-type NewsResponse = {
-    data: News[];
-};
 
 export default async function NoticiasPage() {
-    const response = await getNews() as NewsResponse;
+    const news = await getNews();
 
     return (
         <main className="mx-auto max-w-7xl px-6 py-20">
-
             <header className="mb-12">
                 <h1 className="font-title text-5xl">
                     Noticias
@@ -22,8 +16,7 @@ export default async function NoticiasPage() {
                 </p>
             </header>
 
-            <NewsGrid news={response.data} />
-
+            <NewsGrid news={news} />
         </main>
     );
 }

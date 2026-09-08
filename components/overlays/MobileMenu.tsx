@@ -1,10 +1,13 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 
-import NavButton from "@/components/ui/NavButton";
+import {
+    navigation,
+    type NavItem,
+} from "@/components/navigation/navigation";
 
-type Props = {
+type MobileMenuProps = {
     isOpen: boolean;
     onClose: () => void;
 };
@@ -12,212 +15,184 @@ type Props = {
 export default function MobileMenu({
     isOpen,
     onClose,
-}: Props) {
+}: MobileMenuProps) {
+    if (!isOpen) {
+        return null;
+    }
+
     return (
-        <>
-            {/* Fondo */}
+        <div
+            className="
+                fixed
+                inset-0
+                z-[100]
 
-            <div
-                className={`
-                    fixed
-                    inset-0
-                    z-40
+                bg-black
+                text-white
 
-                    bg-black/60
-                    backdrop-blur-sm
-
-                    transition-opacity
-                    duration-300
-
-                    ${
-                        isOpen
-                            ? "pointer-events-auto opacity-100"
-                            : "pointer-events-none opacity-0"
-                    }
-                `}
-                onClick={onClose}
-                aria-hidden="true"
-            />
-
-            {/* Panel */}
-
-            <aside
-                className={`
-                    fixed
-                    inset-y-0
-                    left-0
-                    z-50
-
-                    w-[min(85vw,420px)]
-
-                    bg-neutral-950
-                    text-white
-
-                    shadow-2xl
-
-                    transition-transform
-                    duration-300
-                    ease-out
-
-                    ${
-                        isOpen
-                            ? "translate-x-0"
-                            : "-translate-x-full"
-                    }
-                `}
-                aria-hidden={!isOpen}
-            >
-
-                {/* Cabecera */}
+                md:hidden
+            "
+        >
+            <div className="flex h-full flex-col">
 
                 <div
                     className="
                         flex
                         h-18
-
                         items-center
-                        justify-end
+                        justify-between
 
                         border-b
-                        border-white/10
+                        border-white/20
 
                         px-6
                     "
                 >
+                    <span className="font-title text-lg">
+                        Menú
+                    </span>
 
                     <button
                         type="button"
                         onClick={onClose}
                         className="
-                            flex
-                            h-10
-                            w-10
-
-                            items-center
-                            justify-center
-
+                            p-2
+                            text-white
                             transition-opacity
                             hover:opacity-60
                         "
                         aria-label="Cerrar menú"
                     >
-
-                        <Image
-                            src="/content/action_button/Cancel_Icon.svg"
-                            alt=""
-                            width={20}
-                            height={20}
-                        />
-
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
                     </button>
-
                 </div>
-
-
-                {/* Navegación */}
 
                 <nav
                     className="
-                        flex
-                        flex-col
+                        flex-1
+                        overflow-y-auto
 
                         px-6
-                        py-10
+                        py-8
                     "
+                    aria-label="Navegación móvil"
                 >
-
-                    <NavButton
-                        href="/"
-                        className="
-                            h-auto
-                            w-full
-                            justify-start
-
-                            rounded-none
-
-                            border-b
-                            border-white/10
-
-                            px-2
-                            py-5
-
-                            text-xl
-
-                            hover:bg-transparent
-                        "
-                    >
-                        Inicio
-                    </NavButton>
-
-                    <NavButton
-                        href="/servicios"
-                        className="
-                            h-auto
-                            w-full
-                            justify-start
-
-                            rounded-none
-
-                            border-b
-                            border-white/10
-
-                            px-2
-                            py-5
-
-                            text-xl
-
-                            hover:bg-transparent
-                        "
-                    >
-                        Servicios
-                    </NavButton>
-
-                    <NavButton
-                        href="/contacto"
-                        className="
-                            h-auto
-                            w-full
-                            justify-start
-
-                            rounded-none
-
-                            border-b
-                            border-white/10
-
-                            px-2
-                            py-5
-
-                            text-xl
-
-                            hover:bg-transparent
-                        "
-                    >
-                        Contacto
-                    </NavButton>
-
-                    <NavButton
-                        href="/about-us"
-                        className="
-                            h-auto
-                            w-full
-                            justify-start
-
-                            rounded-none
-
-                            px-2
-                            py-5
-
-                            text-xl
-
-                            hover:bg-transparent
-                        "
-                    >
-                        Sobre Nosotros
-                    </NavButton>
-
+                    <div className="space-y-2">
+                        {navigation.map((item) => (
+                            <MobileNavItem
+                                key={item.label}
+                                item={item}
+                                onClose={onClose}
+                            />
+                        ))}
+                    </div>
                 </nav>
 
-            </aside>
-        </>
+            </div>
+        </div>
+    );
+}
+
+type MobileNavItemProps = {
+    item: NavItem;
+    onClose: () => void;
+};
+
+function MobileNavItem({
+    item,
+    onClose,
+}: MobileNavItemProps) {
+    const hasChildren =
+        !!item.children &&
+        item.children.length > 0;
+
+    if (!hasChildren) {
+        return (
+            <Link
+                href={item.href ?? "#"}
+                onClick={onClose}
+                className="
+                    block
+                    py-3
+                    font-text
+                    text-lg
+                    font-medium
+                "
+            >
+                {item.label}
+            </Link>
+        );
+    }
+
+    return (
+        <details className="group">
+            <summary
+                className="
+                    flex
+                    cursor-pointer
+                    list-none
+                    items-center
+                    justify-between
+
+                    py-3
+
+                    font-text
+                    text-lg
+                    font-medium
+                "
+            >
+                <span>
+                    {item.label}
+                </span>
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="
+                        transition-transform
+                        duration-200
+                        group-open:rotate-180
+                    "
+                    aria-hidden="true"
+                >
+                    <path d="m6 9 6 6 6-6" />
+                </svg>
+            </summary>
+
+            <div
+                className="
+                    ml-4
+                    border-l
+                    border-white/20
+                    pl-4
+                "
+            >
+                {item.children?.map((child) => (
+                    <MobileNavItem
+                        key={child.label}
+                        item={child}
+                        onClose={onClose}
+                    />
+                ))}
+            </div>
+        </details>
     );
 }

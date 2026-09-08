@@ -23,10 +23,12 @@ export async function strapiFetch<T>(
   });
 
   if (!response.ok) {
+    const errorBody = await response.text();
+
     throw new Error(
-      `Strapi respondió con ${response.status}: ${response.statusText}`
+        `Strapi respondió con ${response.status}: ${errorBody}`
     );
-  }
+}
 
   return response.json();
 }
