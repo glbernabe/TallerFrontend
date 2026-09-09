@@ -1,17 +1,27 @@
 "use client";
 
+import { useState } from "react";
+
 import Logo from "./Logo";
 
 export default function BrandLockup() {
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    const handleMouseEnter = () => {
+        if (!hasAnimated) {
+            setHasAnimated(true);
+        }
+    };
+
     return (
         <div
             className="
-                group
                 flex
                 items-center
                 gap-3
                 select-none
             "
+            onMouseEnter={handleMouseEnter}
             aria-label="Auto Talleres Orihuela"
         >
             <Logo />
@@ -24,10 +34,7 @@ export default function BrandLockup() {
                     overflow-hidden
                 "
             >
-                {/* 
-                    Este texto invisible determina el ancho real
-                    necesario para el nombre completo.
-                */}
+                {/* Medidor de anchura */}
                 <span
                     aria-hidden="true"
                     className="
@@ -48,7 +55,7 @@ export default function BrandLockup() {
 
                 {/* Nombre corto */}
                 <span
-                    className="
+                    className={`
                         col-start-1
                         row-start-1
 
@@ -64,15 +71,18 @@ export default function BrandLockup() {
                         transition-opacity
                         duration-200
 
-                        group-hover:opacity-0
-                    "
+                        ${hasAnimated
+                            ? "opacity-0"
+                            : "opacity-100"
+                        }
+                    `}
                 >
                     A. T. ORIHUELA
                 </span>
 
                 {/* Nombre completo */}
                 <span
-                    className="
+                    className={`
                         pointer-events-none
                         absolute
                         inset-0
@@ -89,13 +99,14 @@ export default function BrandLockup() {
 
                         text-white
 
-                        opacity-0
-
                         transition-opacity
                         duration-200
 
-                        group-hover:opacity-100
-                    "
+                        ${hasAnimated
+                            ? "opacity-100"
+                            : "opacity-0"
+                        }
+                    `}
                 >
                     AUTO TALLERES ORIHUELA
                 </span>
@@ -103,7 +114,7 @@ export default function BrandLockup() {
                 {/* Estela */}
                 <span
                     aria-hidden="true"
-                    className="
+                    className={`
                         brand-sweep
 
                         pointer-events-none
@@ -119,10 +130,13 @@ export default function BrandLockup() {
 
                         bg-white
 
-                        opacity-0
-
                         blur-[2px]
-                    "
+
+                        ${hasAnimated
+                            ? "brand-sweep--active"
+                            : ""
+                        }
+                    `}
                 />
             </div>
         </div>

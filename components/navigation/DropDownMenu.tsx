@@ -21,6 +21,8 @@ export default function DropdownMenu({
                 z-[100]
 
                 pt-3
+
+                animate-dropdown-in
             "
         >
             <div
@@ -177,6 +179,8 @@ function DropdownItem({
                         z-[110]
 
                         pl-1
+
+                        animate-dropdown-sub-in
                     "
                 >
                     <div

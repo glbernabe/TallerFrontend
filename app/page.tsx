@@ -6,6 +6,7 @@ import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import Features from "@/components/sections/Features";
 import Contact from "@/components/sections/Contact";
+import FloatingAppointmentButton from "@/components/ui/FloatingAppointmentButton";
 
 export const metadata: Metadata = {
 
@@ -41,6 +42,8 @@ export default function Home() {
             <Navbar />
 
             <Hero />
+
+            <FloatingAppointmentButton />
 
             <Services />
 
