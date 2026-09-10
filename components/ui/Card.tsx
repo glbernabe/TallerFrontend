@@ -6,6 +6,7 @@ type Props = {
     title: string;
     description: string;
     href?: string;
+    imageClassName?: string;
 };
 
 export default function Card({
@@ -14,6 +15,7 @@ export default function Card({
     title,
     description,
     href,
+    imageClassName = "",
 }: Props) {
     return (
         <article
@@ -44,11 +46,13 @@ export default function Card({
                     alt={alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="
+                    className={`
                         object-cover
-                        transition-transform duration-500
+                        transition-all
+                        duration-500
                         group-hover:scale-105
-                    "
+                        ${imageClassName}
+                    `}
                     quality={75}
                 />
 

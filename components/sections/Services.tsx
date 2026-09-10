@@ -29,10 +29,8 @@ export default function Services() {
                     <h2
                         className="
                             font-title
-
                             text-5xl
                             leading-tight
-
                             md:text-6xl
                             xl:text-7xl
                         "
@@ -45,12 +43,9 @@ export default function Services() {
                     <p
                         className="
                             mt-6
-
                             max-w-3xl
-
                             text-lg
                             leading-8
-
                             text-white/70
                         "
                     >
@@ -70,7 +65,6 @@ export default function Services() {
                     className="
                         grid
                         gap-6
-
                         lg:grid-cols-3
                     "
                 >
@@ -84,6 +78,10 @@ export default function Services() {
                             y mantenimiento preventivo para mantener el
                             vehículo en condiciones óptimas.
                         "
+                        imageClassName="
+                            grayscale
+                            group-hover:grayscale-0
+                        "
                     />
 
                     <Card
@@ -94,6 +92,10 @@ export default function Services() {
                             Diagnóstico electrónico para identificar averías
                             con precisión y facilitar una reparación eficaz.
                         "
+                        imageClassName="
+                            grayscale
+                            group-hover:grayscale-0
+                        "
                     />
 
                     <Card
@@ -103,6 +105,10 @@ export default function Services() {
                         description="
                             Intervenciones mecánicas y electrónicas para
                             resolver averías y mantener el vehículo operativo.
+                        "
+                        imageClassName="
+                            grayscale
+                            group-hover:grayscale-0
                         "
                     />
 
