@@ -1,19 +1,25 @@
+import Image from "next/image";
+
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
-
 import MainButton from "@/components/ui/MainButton";
 
 export default function Contact() {
+    const googleMapsUrl =
+        "https://www.google.com/maps/dir/?api=1&destination=Auto-Talleres+Orihuela,+Carretera+Murcia-Alicante,+km+28,+03300+Orihuela,+Alicante";
+
+    // Aquí puedes poner la ruta local o la URL de la imagen que quieras utilizar.
+    const mapImage =
+        "/content/images/maps.webp";
+
     return (
         <Section className="bg-neutral-950 py-32 text-white">
-
             <Container>
 
                 <div
                     className="
                         grid
                         gap-16
-
                         lg:grid-cols-[1fr_1.2fr]
                         lg:items-center
                     "
@@ -27,7 +33,7 @@ export default function Contact() {
                             className="
                                 font-title
                                 text-5xl
-
+                                leading-tight
                                 md:text-6xl
                             "
                         >
@@ -37,12 +43,10 @@ export default function Contact() {
                         <p
                             className="
                                 mt-6
-
                                 max-w-xl
-
+                                font-text
                                 text-lg
                                 leading-8
-
                                 text-white/70
                             "
                         >
@@ -53,8 +57,9 @@ export default function Contact() {
 
                         <div className="mt-12 space-y-8">
 
-                            <div>
+                            {/* Teléfono */}
 
+                            <div>
                                 <h3 className="font-title text-xl">
                                     Teléfono
                                 </h3>
@@ -64,20 +69,20 @@ export default function Contact() {
                                     className="
                                         mt-2
                                         block
-
+                                        font-text
                                         text-white/65
-
                                         transition-colors
+                                        duration-200
                                         hover:text-white
                                     "
                                 >
                                     966 744 466
                                 </a>
-
                             </div>
 
-                            <div>
+                            {/* Correo */}
 
+                            <div>
                                 <h3 className="font-title text-xl">
                                     Correo electrónico
                                 </h3>
@@ -87,48 +92,46 @@ export default function Contact() {
                                     className="
                                         mt-2
                                         block
-
+                                        font-text
                                         text-white/65
-
                                         transition-colors
+                                        duration-200
                                         hover:text-white
                                     "
                                 >
                                     orihuela.ato@autotalleresorihuela.es
                                 </a>
-
                             </div>
 
-                            <div>
+                            {/* Horario */}
 
+                            <div>
                                 <h3 className="font-title text-xl">
                                     Horario
                                 </h3>
 
-                                <p className="mt-2 text-white/65">
+                                <p className="mt-2 font-text text-white/65">
                                     Lunes - Viernes
                                     <br />
                                     08:30 - 14:00
                                     <br />
                                     15:30 - 19:00
-                                    <br /><br />
+
+                                    <br />
+                                    <br />
+
                                     Sábado
                                     <br />
                                     08:30 - 13:30
                                 </p>
-
                             </div>
 
                         </div>
 
                         <div className="mt-12">
-
-                            <MainButton
-                                href="tel:+34966744466"
-                            >
+                            <MainButton href="tel:+34966744466">
                                 Llamar al taller
                             </MainButton>
-
                         </div>
 
                     </div>
@@ -140,75 +143,126 @@ export default function Contact() {
 
                         <div
                             className="
-                                relative
-
-                                flex
-                                min-h-[500px]
-
-                                flex-col
-                                justify-between
-
                                 overflow-hidden
-
                                 rounded-2xl
-
                                 border
                                 border-white/10
-
                                 bg-white/[0.03]
-
-                                p-10
-                                md:p-12
                             "
                         >
 
-                            {/* Detalle visual sutil */}
+                            {/* Mapa */}
 
-                            <div
-                                className="
-                                    pointer-events-none
-                                    absolute
-                                    -right-32
-                                    -top-32
+                            <a
+                                href={googleMapsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Ver la ubicación de Auto Talleres Orihuela en Google Maps"
+                                className="group block"
+                            >
+                                <div className="relative aspect-[4/3] overflow-hidden">
 
-                                    h-80
-                                    w-80
+                                    <Image
+                                        src={mapImage}
+                                        alt="Ubicación de Auto Talleres Orihuela en Orihuela, Alicante"
+                                        fill
+                                        sizes="
+                                            (min-width: 1024px) 55vw,
+                                            100vw
+                                        "
+                                        loading="eager"
+                                        className="
+                                            object-cover
 
-                                    rounded-full
+                                            grayscale
+                                            contrast-[0.9]
 
-                                    border
-                                    border-white/[0.04]
-                                "
-                            />
+                                            transition-all
+                                            duration-700
+                                            ease-out
 
-                            <div
-                                className="
-                                    pointer-events-none
-                                    absolute
-                                    -right-20
-                                    -top-20
+                                            group-hover:grayscale-0
+                                            group-hover:contrast-100
+                                            group-hover:scale-[1.03]
 
-                                    h-56
-                                    w-56
+                                            motion-reduce:transition-none
+                                            motion-reduce:transform-none
+                                        "
+                                        quality={90}
+                                    />
 
-                                    rounded-full
+                                    {/* Gradiente blanco y negro */}
 
-                                    border
-                                    border-white/[0.04]
-                                "
-                            />
+                                    <div
+                                        className="
+                                            pointer-events-none
+                                            absolute
+                                            inset-0
+
+                                            bg-gradient-to-t
+                                            from-black/55
+                                            via-transparent
+                                            to-white/10
+
+                                            transition-opacity
+                                            duration-700
+
+                                            group-hover:opacity-0
+                                        "
+                                    />
+
+                                    {/* Indicador de interacción */}
+
+                                    <div
+                                        className="
+                                            pointer-events-none
+                                            absolute
+                                            bottom-5
+                                            right-5
+
+                                            rounded-full
+                                            border
+                                            border-white/20
+                                            bg-black/60
+
+                                            px-4
+                                            py-2
+
+                                            font-text
+                                            text-xs
+                                            uppercase
+                                            tracking-[0.14em]
+                                            text-white
+
+                                            opacity-0
+                                            translate-y-2
+
+                                            backdrop-blur-sm
+
+                                            transition-all
+                                            duration-500
+
+                                            group-hover:translate-y-0
+                                            group-hover:opacity-100
+                                        "
+                                    >
+                                        Ver ubicación
+                                    </div>
+
+                                </div>
+                            </a>
 
 
-                            {/* Contenido */}
+                            {/* Información de ubicación */}
 
-                            <div className="relative">
+                            <div className="p-10 md:p-12">
 
                                 <p
                                     className="
+                                        font-text
                                         text-sm
                                         uppercase
                                         tracking-[0.2em]
-
                                         text-white/45
                                     "
                                 >
@@ -217,16 +271,11 @@ export default function Contact() {
 
                                 <h3
                                     className="
-                                        mt-8
-
-                                        max-w-md
-
+                                        mt-6
                                         font-title
-
-                                        text-5xl
+                                        text-4xl
                                         leading-[1.05]
-
-                                        md:text-6xl
+                                        md:text-5xl
                                     "
                                 >
                                     Orihuela,
@@ -236,24 +285,19 @@ export default function Contact() {
 
                                 <div
                                     className="
-                                        mt-8
-
+                                        mt-6
                                         h-px
                                         w-12
-
                                         bg-white/30
                                     "
                                 />
 
                                 <p
                                     className="
-                                        mt-8
-
-                                        max-w-sm
-
+                                        mt-6
+                                        font-text
                                         text-lg
                                         leading-8
-
                                         text-white/60
                                     "
                                 >
@@ -262,18 +306,11 @@ export default function Contact() {
                                     03300 Orihuela, Alicante
                                 </p>
 
-                            </div>
-
-
-                            {/* Acción */}
-
-                            <div className="relative mt-12">
-
-                                <MainButton
-                                    href="https://www.google.com/maps/dir/?api=1&destination=Auto-Talleres+Orihuela,+Carretera+Murcia-Alicante,+km+28,+03300+Orihuela,+Alicante"
-                                >
-                                    Cómo llegar
-                                </MainButton>
+                                <div className="mt-8">
+                                    <MainButton href={googleMapsUrl}>
+                                        Cómo llegar
+                                    </MainButton>
+                                </div>
 
                             </div>
 
@@ -284,7 +321,6 @@ export default function Contact() {
                 </div>
 
             </Container>
-
         </Section>
     );
 }
