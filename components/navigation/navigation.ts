@@ -75,7 +75,16 @@ export const navigation: NavItem[] = [
 
     {
         label: "Nosotros",
-        href: "/about-us",
+        children: [
+            {
+                label: "Personal de contacto",
+                href: "/nosotros/personal-de-contacto",
+            },
+            {
+                label: "Historia",
+                href: "/nosotros/historia",
+            },
+        ],
     },
 
     {

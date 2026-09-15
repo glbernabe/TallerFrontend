@@ -1,40 +1,90 @@
 import Image from "next/image";
-
 import type { Metadata } from "next";
 
+import ContactPersonCard from "@/components/contact/ContactPersonCard";
 import MainButton from "@/components/ui/MainButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
+import { strapiFetch } from "@/lib/strapi/client";
 
 export const metadata: Metadata = {
-
     title: "Contacto",
-
     description:
-        "Contacta con Auto-Talleres Orihuela S.L. Estamos en Orihuela, Alicante. Consulta nuestra ubicación, teléfono, correo electrónico y horario de atención.",
-
+        "Contacta con Auto-Talleres Orihuela S.L. Conoce a nuestro equipo y encuentra los datos de contacto de los responsables de cada departamento.",
     alternates: {
         canonical: "/contacto",
     },
-
     openGraph: {
-
         title: "Contacto",
-
         description:
-            "Encuentra Auto-Talleres Orihuela S.L. en Orihuela, Alicante. Consulta nuestra ubicación, teléfono, correo electrónico y horario.",
-
+            "Conoce al equipo de Auto-Talleres Orihuela S.L. y contacta con los responsables de cada departamento.",
         url: "/contacto",
-
         type: "website",
-
     },
-
 };
 
-export default function ContactPage() {
+type StrapiContactImage = {
+    url: string;
+    alternativeText?: string | null;
+};
+
+type StrapiContact = {
+    id: number;
+    firstName: string;
+    lastName: string;
+    department: string;
+    phone: string;
+    email: string;
+    photo: StrapiContactImage | null;
+    active: boolean;
+    order: number;
+};
+
+type ContactResponse = {
+    data: StrapiContact[];
+};
+
+async function getContactPeople(): Promise<StrapiContact[]> {
+    const response = await strapiFetch<ContactResponse>(
+        "/api/contacts?filters[active][$eq]=true&sort=order:asc&populate=photo"
+    );
+
+    return response.data;
+}
+
+function getImageUrl(url: string): string {
+    if (url.startsWith("http")) {
+        return url;
+    }
+
+    const strapiUrl = process.env.STRAPI_URL;
+
+    if (!strapiUrl) {
+        throw new Error("STRAPI_URL no está definida");
+    }
+
+    return `${strapiUrl}${url}`;
+}
+
+function groupByDepartment(people: StrapiContact[]) {
+    return people.reduce<Record<string, StrapiContact[]>>(
+        (groups, person) => {
+            if (!groups[person.department]) {
+                groups[person.department] = [];
+            }
+
+            groups[person.department].push(person);
+
+            return groups;
+        },
+        {}
+    );
+}
+
+export default async function ContactPage() {
+    const people = await getContactPeople();
+    const departments = groupByDepartment(people);
 
     return (
-
         <main className="bg-black text-white">
 
             {/* ==========================
@@ -60,7 +110,6 @@ export default function ContactPage() {
                     sizes="100vw"
                     className="
                         object-cover
-
                         object-[65%_center]
 
                         sm:object-[60%_center]
@@ -69,16 +118,17 @@ export default function ContactPage() {
                     "
                 />
 
+
                 {/* Oscurecimiento */}
 
                 <div
                     className="
                         absolute
                         inset-0
-
                         bg-black/55
                     "
                 />
+
 
                 {/* Gradiente inferior */}
 
@@ -95,6 +145,7 @@ export default function ContactPage() {
                         to-transparent
                     "
                 />
+
 
                 {/* Contenido */}
 
@@ -137,7 +188,6 @@ export default function ContactPage() {
                         <div
                             className="
                                 max-w-4xl
-
                                 animate-[textRiseAnimation_1.1s_ease-out_both]
                             "
                         >
@@ -148,7 +198,6 @@ export default function ContactPage() {
 
                                     text-sm
                                     uppercase
-
                                     tracking-[0.2em]
 
                                     text-white/70
@@ -156,6 +205,7 @@ export default function ContactPage() {
                             >
                                 Contacto
                             </p>
+
 
                             <h1
                                 className="
@@ -173,6 +223,7 @@ export default function ContactPage() {
                                 <br />
                                 para ayudarte.
                             </h1>
+
 
                             <p
                                 className="
@@ -193,6 +244,7 @@ export default function ContactPage() {
                                 Ponte en contacto directamente con nosotros.
                             </p>
 
+
                             {/* Acciones */}
 
                             <div
@@ -206,9 +258,7 @@ export default function ContactPage() {
                                 "
                             >
 
-                                <MainButton
-                                    href="tel:+34966744466"
-                                >
+                                <MainButton href="tel:+34966744466">
                                     Llamar al taller
                                 </MainButton>
 
@@ -240,16 +290,16 @@ export default function ContactPage() {
 
 
             {/* ==========================
-                INFORMACIÓN
+                PERSONAL DE CONTACTO
             ========================== */}
 
             <section
                 className="
                     bg-black
 
-                    py-20
+                    py-24
 
-                    md:py-28
+                    md:py-32
                 "
             >
 
@@ -259,116 +309,133 @@ export default function ContactPage() {
                         max-w-[1560px]
 
                         px-6
+
                         md:px-8
                         lg:px-10
                         xl:px-12
                     "
                 >
 
-                    <div
-                        className="
-                            grid
-                            gap-12
+                    <div className="max-w-4xl">
 
-                            md:grid-cols-3
-                        "
-                    >
+                        <p
+                            className="
+                                text-sm
+                                uppercase
+                                tracking-[0.15em]
+                                text-white/50
+                            "
+                        >
+                            Nuestro equipo
+                        </p>
 
-                        <div>
+                        <h2
+                            className="
+                                mt-5
 
-                            <p
-                                className="
-                                    text-sm
-                                    uppercase
-                                    tracking-[0.15em]
-                                    text-white/50
-                                "
-                            >
-                                Teléfono
-                            </p>
+                                font-title
 
-                            <a
-                                href="tel:+34966744466"
-                                className="
-                                    mt-3
-                                    block
+                                text-5xl
+                                leading-tight
 
-                                    font-title
-                                    text-2xl
+                                md:text-6xl
+                            "
+                        >
+                            Personas de contacto
+                        </h2>
 
-                                    transition-opacity
-                                    hover:opacity-60
-                                "
-                            >
-                                966 74 44 66
-                            </a>
+                        <p
+                            className="
+                                mt-6
 
-                        </div>
+                                max-w-2xl
 
-                        <div>
+                                text-lg
+                                leading-8
 
-                            <p
-                                className="
-                                    text-sm
-                                    uppercase
-                                    tracking-[0.15em]
-                                    text-white/50
-                                "
-                            >
-                                Correo electrónico
-                            </p>
+                                text-white/60
+                            "
+                        >
+                            Contacta directamente con el responsable del
+                            departamento que necesitas.
+                        </p>
 
-                            <a
-                                href="mailto:orihuela.ato@autotalleresorihuela.es"
-                                className="
-                                    mt-3
-                                    block
+                    </div>
 
-                                    break-words
 
-                                    font-title
-                                    text-xl
+                    {/* Personal agrupado por departamento */}
 
-                                    transition-opacity
-                                    hover:opacity-60
-                                "
-                            >
-                                orihuela.ato@autotalleresorihuela.es
-                            </a>
+                    <div className="mt-20 space-y-20">
 
-                        </div>
+                        {Object.entries(departments).map(
+                            ([department, departmentPeople]) => (
+                                <section key={department}>
 
-                        <div>
+                                    <div className="mb-8">
 
-                            <p
-                                className="
-                                    text-sm
-                                    uppercase
-                                    tracking-[0.15em]
-                                    text-white/50
-                                "
-                            >
-                                Dirección
-                            </p>
+                                        <h3
+                                            className="
+                                                font-title
+                                                text-3xl
+                                                leading-tight
 
-                            <p
-                                className="
-                                    mt-3
+                                                md:text-4xl
+                                            "
+                                        >
+                                            {department}
+                                        </h3>
 
-                                    text-lg
-                                    leading-7
+                                        <div
+                                            className="
+                                                mt-4
+                                                h-px
+                                                w-12
+                                                bg-white/30
+                                            "
+                                        />
 
-                                    text-white/80
-                                "
-                            >
-                                Carretera Murcia-Alicante,
-                                <br />
-                                km 28
-                                <br />
-                                03300 Orihuela, Alicante
-                            </p>
+                                    </div>
 
-                        </div>
+
+                                    <div
+                                        className="
+                                            grid
+                                            gap-6
+
+                                            md:grid-cols-2
+                                            xl:grid-cols-3
+                                        "
+                                    >
+
+                                        {departmentPeople.map((person) => (
+                                            <ContactPersonCard
+                                                key={person.id}
+                                                firstName={person.firstName}
+                                                lastName={person.lastName}
+                                                department={person.department}
+                                                phone={person.phone}
+                                                email={person.email}
+                                                image={
+                                                    person.photo
+                                                        ? {
+                                                              url: getImageUrl(
+                                                                  person.photo
+                                                                      .url
+                                                              ),
+                                                              alternativeText:
+                                                                  person.photo
+                                                                      .alternativeText,
+                                                          }
+                                                        : null
+                                                }
+                                            />
+                                        ))}
+
+                                    </div>
+
+                                </section>
+                            )
+                        )}
 
                     </div>
 
@@ -377,7 +444,5 @@ export default function ContactPage() {
             </section>
 
         </main>
-
     );
-
 }

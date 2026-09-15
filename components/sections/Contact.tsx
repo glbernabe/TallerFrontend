@@ -8,18 +8,19 @@ export default function Contact() {
     const googleMapsUrl =
         "https://www.google.com/maps/dir/?api=1&destination=Auto-Talleres+Orihuela,+Carretera+Murcia-Alicante,+km+28,+03300+Orihuela,+Alicante";
 
-    // Aquí puedes poner la ruta local o la URL de la imagen que quieras utilizar.
-    const mapImage =
-        "/content/images/maps.webp";
+    // Puedes cambiar esta ruta por la imagen del mapa que quieras utilizar.
+    const mapImage = "/content/images/maps.webp";
 
     return (
         <Section className="bg-neutral-950 py-32 text-white">
+
             <Container>
 
                 <div
                     className="
                         grid
                         gap-16
+
                         lg:grid-cols-[1fr_1.2fr]
                         lg:items-center
                     "
@@ -34,6 +35,7 @@ export default function Contact() {
                                 font-title
                                 text-5xl
                                 leading-tight
+
                                 md:text-6xl
                             "
                         >
@@ -43,10 +45,13 @@ export default function Contact() {
                         <p
                             className="
                                 mt-6
+
                                 max-w-xl
+
                                 font-text
                                 text-lg
                                 leading-8
+
                                 text-white/70
                             "
                         >
@@ -60,6 +65,7 @@ export default function Contact() {
                             {/* Teléfono */}
 
                             <div>
+
                                 <h3 className="font-title text-xl">
                                     Teléfono
                                 </h3>
@@ -69,20 +75,26 @@ export default function Contact() {
                                     className="
                                         mt-2
                                         block
+
                                         font-text
                                         text-white/65
+
                                         transition-colors
                                         duration-200
+
                                         hover:text-white
                                     "
                                 >
                                     966 744 466
                                 </a>
+
                             </div>
+
 
                             {/* Correo */}
 
                             <div>
+
                                 <h3 className="font-title text-xl">
                                     Correo electrónico
                                 </h3>
@@ -92,25 +104,38 @@ export default function Contact() {
                                     className="
                                         mt-2
                                         block
+
                                         font-text
                                         text-white/65
+
                                         transition-colors
                                         duration-200
+
                                         hover:text-white
                                     "
                                 >
                                     orihuela.ato@autotalleresorihuela.es
                                 </a>
+
                             </div>
+
 
                             {/* Horario */}
 
                             <div>
+
                                 <h3 className="font-title text-xl">
                                     Horario
                                 </h3>
 
-                                <p className="mt-2 font-text text-white/65">
+                                <p
+                                    className="
+                                        mt-2
+
+                                        font-text
+                                        text-white/65
+                                    "
+                                >
                                     Lunes - Viernes
                                     <br />
                                     08:30 - 14:00
@@ -124,14 +149,18 @@ export default function Contact() {
                                     <br />
                                     08:30 - 13:30
                                 </p>
+
                             </div>
 
                         </div>
 
+
                         <div className="mt-12">
+
                             <MainButton href="tel:+34966744466">
                                 Llamar al taller
                             </MainButton>
+
                         </div>
 
                     </div>
@@ -144,10 +173,16 @@ export default function Contact() {
                         <div
                             className="
                                 overflow-hidden
+
                                 rounded-2xl
+
                                 border
                                 border-white/10
+
                                 bg-white/[0.03]
+
+                                p-4
+                                md:p-5
                             "
                         >
 
@@ -160,7 +195,19 @@ export default function Contact() {
                                 aria-label="Ver la ubicación de Auto Talleres Orihuela en Google Maps"
                                 className="group block"
                             >
-                                <div className="relative aspect-[4/3] overflow-hidden">
+
+                                <div
+                                    className="
+                                        relative
+
+                                        h-56
+                                        overflow-hidden
+
+                                        rounded-xl
+
+                                        md:h-64
+                                    "
+                                >
 
                                     <Image
                                         src={mapImage}
@@ -191,7 +238,8 @@ export default function Contact() {
                                         quality={90}
                                     />
 
-                                    {/* Gradiente blanco y negro */}
+
+                                    {/* Gradiente */}
 
                                     <div
                                         className="
@@ -200,8 +248,8 @@ export default function Contact() {
                                             inset-0
 
                                             bg-gradient-to-t
-                                            from-black/55
-                                            via-transparent
+                                            from-black/60
+                                            via-black/5
                                             to-white/10
 
                                             transition-opacity
@@ -211,18 +259,22 @@ export default function Contact() {
                                         "
                                     />
 
+
                                     {/* Indicador de interacción */}
 
                                     <div
                                         className="
                                             pointer-events-none
+
                                             absolute
-                                            bottom-5
-                                            right-5
+                                            bottom-4
+                                            right-4
 
                                             rounded-full
+
                                             border
                                             border-white/20
+
                                             bg-black/60
 
                                             px-4
@@ -250,12 +302,23 @@ export default function Contact() {
                                     </div>
 
                                 </div>
+
                             </a>
 
 
                             {/* Información de ubicación */}
 
-                            <div className="p-10 md:p-12">
+                            <div
+                                className="
+                                    px-5
+                                    pb-5
+                                    pt-8
+
+                                    md:px-7
+                                    md:pb-7
+                                    md:pt-9
+                                "
+                            >
 
                                 <p
                                     className="
@@ -263,18 +326,23 @@ export default function Contact() {
                                         text-sm
                                         uppercase
                                         tracking-[0.2em]
+
                                         text-white/45
                                     "
                                 >
                                     Nuestra ubicación
                                 </p>
 
+
                                 <h3
                                     className="
-                                        mt-6
+                                        mt-5
+
                                         font-title
+
                                         text-4xl
                                         leading-[1.05]
+
                                         md:text-5xl
                                     "
                                 >
@@ -283,21 +351,27 @@ export default function Contact() {
                                     Alicante
                                 </h3>
 
+
                                 <div
                                     className="
                                         mt-6
+
                                         h-px
                                         w-12
+
                                         bg-white/30
                                     "
                                 />
 
+
                                 <p
                                     className="
                                         mt-6
+
                                         font-text
                                         text-lg
                                         leading-8
+
                                         text-white/60
                                     "
                                 >
@@ -306,10 +380,13 @@ export default function Contact() {
                                     03300 Orihuela, Alicante
                                 </p>
 
+
                                 <div className="mt-8">
+
                                     <MainButton href={googleMapsUrl}>
                                         Cómo llegar
                                     </MainButton>
+
                                 </div>
 
                             </div>
@@ -321,6 +398,7 @@ export default function Contact() {
                 </div>
 
             </Container>
+
         </Section>
     );
 }
