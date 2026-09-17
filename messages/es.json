@@ -1,0 +1,12 @@
+{
+    "navigation": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "about": "Nosotros",
+        "contact": "Contacto"
+    },
+    "home": {
+        "title": "Auto-Talleres Orihuela",
+        "description": "Servicio técnico y posventa para vehículos industriales."
+    }
+}

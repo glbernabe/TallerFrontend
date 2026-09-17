@@ -8,6 +8,9 @@ import Features from "@/components/sections/Features";
 import Contact from "@/components/sections/Contact";
 import FloatingAppointmentButton from "@/components/ui/FloatingAppointmentButton";
 
+import { getTranslations } from "next-intl/server";
+
+
 export const metadata: Metadata = {
 
     title:
@@ -36,10 +39,19 @@ export const metadata: Metadata = {
 
 };
 
-export default function Home() {
+export default async function Home() {
+    const t = await getTranslations("home");
+
     return (
         <>
+
             <Navbar />
+
+            <main>
+                <h1>{t("title")}</h1>
+
+                <p>{t("description")}</p>
+            </main>
 
             <Hero />
 

@@ -1,0 +1,12 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "services": "Dienstleistungen",
+        "about": "Über uns",
+        "contact": "Kontakt"
+    },
+    "home": {
+        "title": "Auto-Talleres Orihuela",
+        "description": "Technischer Service und Kundendienst für Nutzfahrzeuge."
+    }
+}

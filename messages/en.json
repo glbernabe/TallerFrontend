@@ -1,0 +1,12 @@
+{
+    "navigation": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About us",
+        "contact": "Contact"
+    },
+    "home": {
+        "title": "Auto-Talleres Orihuela",
+        "description": "Technical service and after-sales support for commercial vehicles."
+    }
+}
