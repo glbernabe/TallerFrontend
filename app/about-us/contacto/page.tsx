@@ -5,14 +5,14 @@ import ContactPersonCard from "@/components/contact/ContactPersonCard";
 import MainButton from "@/components/ui/MainButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 import { strapiFetch } from "@/lib/strapi/client";
+import { mapContactResponse } from "@/lib/strapi/mappers/contactMapper";
+import type { ContactPerson } from "@/lib/contact/types";
 
 export const metadata: Metadata = {
     title: "Contacto",
     description:
         "Contacta con Auto-Talleres Orihuela S.L. Conoce a nuestro equipo y encuentra los datos de contacto de los responsables de cada departamento.",
-    alternates: {
-        canonical: "/contacto",
-    },
+    alternates: { canonical: "/contacto" },
     openGraph: {
         title: "Contacto",
         description:
@@ -22,58 +22,55 @@ export const metadata: Metadata = {
     },
 };
 
+type StrapiContactImageFormat = {
+    url: string;
+    width: number;
+    height: number;
+};
+
 type StrapiContactImage = {
     url: string;
     alternativeText?: string | null;
+    width: number;
+    height: number;
+    formats?: {
+        medium?: StrapiContactImageFormat;
+        small?: StrapiContactImageFormat;
+        thumbnail?: StrapiContactImageFormat;
+    };
 };
 
 type StrapiContact = {
-    id: number;
-    firstName: string;
-    lastName: string;
-    department: string;
-    phone: string;
-    email: string;
-    photo: StrapiContactImage | null;
-    active: boolean;
-    order: number;
+    documentId: string;
+    Nombre: string;
+    Apellidos: string;
+    Departamento: string;
+    Email: string;
+    Telefono: string;
+    Foto: StrapiContactImage | null;
+    Activo: boolean;
+    Orden: number;
 };
 
 type ContactResponse = {
     data: StrapiContact[];
 };
 
-async function getContactPeople(): Promise<StrapiContact[]> {
+async function getContactPeople(): Promise<ContactPerson[]> {
     const response = await strapiFetch<ContactResponse>(
-        "/api/contacts?filters[active][$eq]=true&sort=order:asc&populate=photo"
+        "/api/contacts?filters[Activo][$eq]=true&sort=Orden:asc&populate=Foto"
     );
 
-    return response.data;
+    return mapContactResponse(response);
 }
 
-function getImageUrl(url: string): string {
-    if (url.startsWith("http")) {
-        return url;
-    }
-
-    const strapiUrl = process.env.STRAPI_URL;
-
-    if (!strapiUrl) {
-        throw new Error("STRAPI_URL no está definida");
-    }
-
-    return `${strapiUrl}${url}`;
-}
-
-function groupByDepartment(people: StrapiContact[]) {
-    return people.reduce<Record<string, StrapiContact[]>>(
+function groupByDepartment(people: ContactPerson[]) {
+    return people.reduce<Record<string, ContactPerson[]>>(
         (groups, person) => {
             if (!groups[person.department]) {
                 groups[person.department] = [];
             }
-
             groups[person.department].push(person);
-
             return groups;
         },
         {}
@@ -86,22 +83,7 @@ export default async function ContactPage() {
 
     return (
         <main className="bg-black text-white">
-
-            {/* ==========================
-                HERO CONTACTO
-            ========================== */}
-
-            <section
-                className="
-                    relative
-                    min-h-[calc(100vh-72px)]
-
-                    overflow-hidden
-                "
-            >
-
-                {/* Imagen */}
-
+            <section className="relative min-h-[calc(100vh-72px)] overflow-hidden">
                 <Image
                     src="/content/images/Assistance_client.webp"
                     alt="Asistencia de vehículos"
@@ -111,112 +93,54 @@ export default async function ContactPage() {
                     className="
                         object-cover
                         object-[65%_center]
-
                         sm:object-[60%_center]
-
                         md:object-center
                     "
                 />
 
-
-                {/* Oscurecimiento */}
+                <div className="absolute inset-0 bg-black/55" />
 
                 <div
                     className="
-                        absolute
-                        inset-0
-                        bg-black/55
+                        absolute inset-x-0 bottom-0 h-1/2
+                        bg-gradient-to-t from-black to-transparent
                     "
                 />
 
-
-                {/* Gradiente inferior */}
-
                 <div
                     className="
-                        absolute
-                        inset-x-0
-                        bottom-0
-
-                        h-1/2
-
-                        bg-gradient-to-t
-                        from-black
-                        to-transparent
-                    "
-                />
-
-
-                {/* Contenido */}
-
-                <div
-                    className="
-                        relative
-                        z-10
-
-                        flex
-                        min-h-[calc(100vh-72px)]
-
-                        items-end
-
-                        md:items-center
+                        relative z-10 flex min-h-[calc(100vh-72px)]
+                        items-end md:items-center
                     "
                 >
-
                     <div
                         className="
-                            mx-auto
-                            w-full
-                            max-w-[1560px]
-
-                            px-7
-                            pt-24
-                            pb-24
-
-                            sm:px-8
-                            sm:pt-28
-                            sm:pb-24
-
-                            md:px-8
-                            md:py-0
-
-                            lg:px-10
-                            xl:px-12
+                            mx-auto w-full max-w-[1560px]
+                            px-7 pt-24 pb-24
+                            sm:px-8 sm:pt-28 sm:pb-24
+                            md:px-8 md:py-0
+                            lg:px-10 xl:px-12
                         "
                     >
-
                         <div
                             className="
                                 max-w-4xl
                                 animate-[textRiseAnimation_1.1s_ease-out_both]
                             "
                         >
-
                             <p
                                 className="
-                                    mb-6
-
-                                    text-sm
-                                    uppercase
-                                    tracking-[0.2em]
-
-                                    text-white/70
+                                    mb-6 text-sm uppercase
+                                    tracking-[0.2em] text-white/70
                                 "
                             >
                                 Contacto
                             </p>
 
-
                             <h1
                                 className="
-                                    font-title
-
-                                    text-6xl
-                                    leading-[0.95]
-
-                                    md:text-8xl
-
-                                    lg:text-[8rem]
+                                    font-title text-6xl leading-[0.95]
+                                    md:text-8xl lg:text-[8rem]
                                 "
                             >
                                 Estamos aquí
@@ -224,19 +148,10 @@ export default async function ContactPage() {
                                 para ayudarte.
                             </h1>
 
-
                             <p
                                 className="
-                                    mt-8
-
-                                    max-w-2xl
-
-                                    text-lg
-                                    leading-8
-
-                                    text-white/80
-
-                                    md:text-xl
+                                    mt-8 max-w-2xl text-lg leading-8
+                                    text-white/80 md:text-xl
                                 "
                             >
                                 ¿Necesitas asistencia, tienes alguna consulta
@@ -244,20 +159,7 @@ export default async function ContactPage() {
                                 Ponte en contacto directamente con nosotros.
                             </p>
 
-
-                            {/* Acciones */}
-
-                            <div
-                                className="
-                                    mt-10
-
-                                    flex
-                                    flex-wrap
-
-                                    gap-4
-                                "
-                            >
-
+                            <div className="mt-10 flex flex-wrap gap-4">
                                 <MainButton href="tel:+34966744466">
                                     Llamar al taller
                                 </MainButton>
@@ -265,64 +167,30 @@ export default async function ContactPage() {
                                 <SecondaryButton
                                     href="mailto:orihuela.ato@autotalleresorihuela.es"
                                     className="
-                                        border-white/40
-                                        bg-white/10
-                                        text-white
-
+                                        border-white/40 bg-white/10 text-white
                                         backdrop-blur-sm
-
-                                        hover:bg-white
-                                        hover:text-black
+                                        hover:bg-white hover:text-black
                                     "
                                 >
                                     Enviar un correo
                                 </SecondaryButton>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
 
-
-            {/* ==========================
-                PERSONAL DE CONTACTO
-            ========================== */}
-
-            <section
-                className="
-                    bg-black
-
-                    py-24
-
-                    md:py-32
-                "
-            >
-
+            <section className="bg-black py-24 md:py-32">
                 <div
                     className="
-                        mx-auto
-                        max-w-[1560px]
-
-                        px-6
-
-                        md:px-8
-                        lg:px-10
-                        xl:px-12
+                        mx-auto max-w-[1560px]
+                        px-6 md:px-8 lg:px-10 xl:px-12
                     "
                 >
-
                     <div className="max-w-4xl">
-
                         <p
                             className="
-                                text-sm
-                                uppercase
-                                tracking-[0.15em]
+                                text-sm uppercase tracking-[0.15em]
                                 text-white/50
                             "
                         >
@@ -331,13 +199,7 @@ export default async function ContactPage() {
 
                         <h2
                             className="
-                                mt-5
-
-                                font-title
-
-                                text-5xl
-                                leading-tight
-
+                                mt-5 font-title text-5xl leading-tight
                                 md:text-6xl
                             "
                         >
@@ -346,40 +208,24 @@ export default async function ContactPage() {
 
                         <p
                             className="
-                                mt-6
-
-                                max-w-2xl
-
-                                text-lg
-                                leading-8
-
+                                mt-6 max-w-2xl text-lg leading-8
                                 text-white/60
                             "
                         >
                             Contacta directamente con el responsable del
                             departamento que necesitas.
                         </p>
-
                     </div>
 
-
-                    {/* Personal agrupado por departamento */}
-
                     <div className="mt-20 space-y-20">
-
                         {Object.entries(departments).map(
                             ([department, departmentPeople]) => (
                                 <section key={department}>
-
                                     <div className="mb-8">
-
                                         <h3
                                             className="
-                                                font-title
-                                                text-3xl
-                                                leading-tight
-
-                                                md:text-4xl
+                                                font-title text-3xl
+                                                leading-tight md:text-4xl
                                             "
                                         >
                                             {department}
@@ -387,26 +233,18 @@ export default async function ContactPage() {
 
                                         <div
                                             className="
-                                                mt-4
-                                                h-px
-                                                w-12
-                                                bg-white/30
+                                                mt-4 h-px w-12 bg-white/30
                                             "
                                         />
-
                                     </div>
-
 
                                     <div
                                         className="
-                                            grid
-                                            gap-6
-
+                                            grid gap-6
                                             md:grid-cols-2
                                             xl:grid-cols-3
                                         "
                                     >
-
                                         {departmentPeople.map((person) => (
                                             <ContactPersonCard
                                                 key={person.id}
@@ -415,34 +253,16 @@ export default async function ContactPage() {
                                                 department={person.department}
                                                 phone={person.phone}
                                                 email={person.email}
-                                                image={
-                                                    person.photo
-                                                        ? {
-                                                              url: getImageUrl(
-                                                                  person.photo
-                                                                      .url
-                                                              ),
-                                                              alternativeText:
-                                                                  person.photo
-                                                                      .alternativeText,
-                                                          }
-                                                        : null
-                                                }
+                                                image={person.image}
                                             />
                                         ))}
-
                                     </div>
-
                                 </section>
                             )
                         )}
-
                     </div>
-
                 </div>
-
             </section>
-
         </main>
     );
 }

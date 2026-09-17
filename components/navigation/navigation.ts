@@ -78,11 +78,11 @@ export const navigation: NavItem[] = [
         children: [
             {
                 label: "Personal de contacto",
-                href: "/nosotros/personal-de-contacto",
+                href: "/about-us/contacto",
             },
             {
                 label: "Historia",
-                href: "/nosotros/historia",
+                href: "/about-us/historia",
             },
         ],
     },
