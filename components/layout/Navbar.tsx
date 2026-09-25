@@ -5,13 +5,17 @@ import { useState } from "react";
 import BrandLockup from "./BrandLockup";
 
 import NavButton from "@/components/navigation/NavButton";
+import LanguageSwitcher from "@/components/navigation/LanguageSwitcher";
+
 import MobileMenu from "@/components/overlays/MobileMenu";
+
 import ActionButton from "@/components/ui/ActionButton";
 
 import { navigation } from "@/components/navigation/navigation";
 
 export default function Navbar() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] =
+        useState(false);
 
     return (
         <header
@@ -42,31 +46,45 @@ export default function Navbar() {
             >
                 {/* IZQUIERDA */}
 
-                <div className="flex min-w-0 items-center">
+                <div
+                    className="
+                        flex
+                        min-w-0
+                        shrink-0
+                        items-center
+                    "
+                >
                     <BrandLockup />
                 </div>
 
                 {/* DERECHA */}
 
                 <div className="flex items-center">
+
+                    {/* NAVEGACIÓN DESKTOP */}
+
                     <nav
                         className="
                             hidden
                             items-center
                             gap-6
-                            md:flex
+                            lg:flex
                         "
                         aria-label="Navegación principal"
                     >
                         {navigation.map((item) => (
                             <NavButton
-                                key={item.label}
+                                key={item.key}
                                 item={item}
                             />
                         ))}
+
+                        <LanguageSwitcher />
                     </nav>
 
-                    <div className="flex md:hidden">
+                    {/* MENÚ MÓVIL */}
+
+                    <div className="flex lg:hidden">
                         <ActionButton
                             src="/content/action_button/Hamburger_List_Icon.svg"
                             alt="Abrir menú"

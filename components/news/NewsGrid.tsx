@@ -1,5 +1,5 @@
 import NewsCard from "./NewsCard";
-import type { News } from "@/lib/news/types";
+import type { News } from "@/core/news/domain/News";
 
 type NewsGridProps = {
     news: News[];

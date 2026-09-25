@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import type { News } from "@/lib/news/types";
+import {Link} from "@/i18n/navigation";
+import type { News } from "@/core/news/domain/News";
 
 type NewsCardProps = {
     news: News;

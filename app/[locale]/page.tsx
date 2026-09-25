@@ -46,13 +46,7 @@ export default async function Home() {
         <>
 
             <Navbar />
-
-            <main>
-                <h1>{t("title")}</h1>
-
-                <p>{t("description")}</p>
-            </main>
-
+            
             <Hero />
 
             <FloatingAppointmentButton />

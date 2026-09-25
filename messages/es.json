@@ -1,12 +1,24 @@
 {
-    "navigation": {
+    "Navigation": {
         "home": "Inicio",
         "services": "Servicios",
-        "about": "Nosotros",
-        "contact": "Contacto"
-    },
-    "home": {
-        "title": "Auto-Talleres Orihuela",
-        "description": "Servicio técnico y posventa para vehículos industriales."
+        "workshop": "Taller",
+        "quote": "Presupuesto",
+        "appointment": "Cita Previa",
+        "offers": "Ofertas",
+        "florists": "Floristas",
+        "originalParts": "Recambios originales",
+        "individuals": "Particulares",
+        "professionals": "Profesionales",
+        "afterSales": "Posventa",
+        "vans": "Furgonetas",
+        "trucks": "Camiones",
+        "buses": "Autobuses",
+        "fuso": "FUSO",
+        "aboutUs": "Nosotros",
+        "contact": "Personal de contacto",
+        "history": "Historia",
+        "interestingLinks": "Enlaces de interés",
+        "news": "Noticias"
     }
 }

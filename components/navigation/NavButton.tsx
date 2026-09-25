@@ -1,7 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n/navigation";
 
 import DropdownMenu from "./DropDownMenu";
 import type { NavItem } from "./navigation";
@@ -15,6 +17,8 @@ export default function NavButton({
 }: NavButtonProps) {
     const [isOpen, setIsOpen] = useState(false);
 
+    const t = useTranslations("Navigation");
+
     const hasChildren =
         !!item.children &&
         item.children.length > 0;
@@ -23,9 +27,13 @@ export default function NavButton({
      * ENLACE NORMAL
      */
     if (!hasChildren) {
+        if (!item.href) {
+            return null;
+        }
+
         return (
             <Link
-                href={item.href ?? "#"}
+                href={item.href}
                 className="
                     relative
                     inline-flex
@@ -45,7 +53,7 @@ export default function NavButton({
                     hover:text-white/70
                 "
             >
-                {item.label}
+                {t(item.key)}
             </Link>
         );
     }
@@ -86,7 +94,7 @@ export default function NavButton({
                 "
             >
                 <span>
-                    {item.label}
+                    {t(item.key)}
                 </span>
 
                 <svg
@@ -110,7 +118,9 @@ export default function NavButton({
             </button>
 
             {isOpen && item.children && (
-                <DropdownMenu items={item.children} />
+                <DropdownMenu
+                    items={item.children}
+                />
             )}
         </div>
     );

@@ -1,12 +1,24 @@
 {
-    "navigation": {
+    "Navigation": {
         "home": "Home",
         "services": "Services",
-        "about": "About us",
-        "contact": "Contact"
-    },
-    "home": {
-        "title": "Auto-Talleres Orihuela",
-        "description": "Technical service and after-sales support for commercial vehicles."
+        "workshop": "Workshop",
+        "quote": "Quote",
+        "appointment": "Appointment",
+        "offers": "Offers",
+        "florists": "Florists",
+        "originalParts": "Original spare parts",
+        "individuals": "Individuals",
+        "professionals": "Professionals",
+        "afterSales": "After-sales",
+        "vans": "Vans",
+        "trucks": "Trucks",
+        "buses": "Buses",
+        "fuso": "FUSO",
+        "aboutUs": "About us",
+        "contact": "Contact",
+        "history": "History",
+        "interestingLinks": "Useful links",
+        "news": "News"
     }
 }

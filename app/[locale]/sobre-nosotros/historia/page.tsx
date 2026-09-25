@@ -21,28 +21,28 @@ export const metadata: Metadata = {
 
 const specializations = [
     {
-        image: "/content/images/history/vans.svg",
+        image: "/content/images/history/Vans.svg",
         alt: "Mercedes-Benz Vans",
         title: "Mercedes-Benz Vans",
         description:
             "Mantenimiento integral y recambio original para furgonetas de combustión como Vito, Sprinter y Citan.",
     },
     {
-        image: "/content/images/history/truck.svg",
+        image: "/content/images/history/Daimler-truck.svg",
         alt: "Daimler Truck España",
         title: "Daimler Truck España",
         description:
             "Asistencia especializada y repuestos oficiales para la gama de camiones Actros, Arocs, Atego y Unimog.",
     },
     {
-        image: "/content/images/history/bus.svg",
+        image: "/content/images/history/Bus.svg",
         alt: "Daimler Buses",
         title: "Daimler Buses",
         description:
             "Soporte en taller y piezas originales para autobuses y autocares Setra y Mercedes-Benz.",
     },
     {
-        image: "/content/images/history/fuso.svg",
+        image: "/content/images/history/MitsubishiFUSO.svg",
         alt: "FUSO Trucks",
         title: "FUSO Trucks",
         description:

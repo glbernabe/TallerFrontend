@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import {useTranslations} from "next-intl";
+import {useState} from "react";
 
-import type { NavItem } from "./navigation";
+import {Link} from "@/i18n/navigation";
+
+import type {NavItem} from "./navigation";
 
 type DropdownMenuProps = {
     items: NavItem[];
@@ -43,9 +45,11 @@ export default function DropdownMenu({
             >
                 {items.map((item, index) => (
                     <DropdownItem
-                        key={item.label}
+                        key={item.key}
                         item={item}
-                        isLast={index === items.length - 1}
+                        isLast={
+                            index === items.length - 1
+                        }
                     />
                 ))}
             </div>
@@ -62,7 +66,11 @@ function DropdownItem({
     item,
     isLast,
 }: DropdownItemProps) {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] =
+        useState(false);
+
+    const t =
+        useTranslations("Navigation");
 
     const hasChildren =
         Array.isArray(item.children) &&
@@ -72,9 +80,13 @@ function DropdownItem({
      * ELEMENTO SIN SUBMENÚ
      */
     if (!hasChildren) {
+        if (!item.href) {
+            return null;
+        }
+
         return (
             <Link
-                href={item.href ?? "#"}
+                href={item.href}
                 className={`
                     flex
                     items-center
@@ -94,10 +106,14 @@ function DropdownItem({
 
                     hover:bg-white/5
 
-                    ${!isLast ? "border-b border-white/10" : ""}
+                    ${
+                        !isLast
+                            ? "border-b border-white/10"
+                            : ""
+                    }
                 `}
             >
-                {item.label}
+                {t(item.key)}
             </Link>
         );
     }
@@ -108,14 +124,21 @@ function DropdownItem({
     return (
         <div
             className="relative"
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
+            onMouseEnter={() =>
+                setIsOpen(true)
+            }
+            onMouseLeave={() =>
+                setIsOpen(false)
+            }
         >
             <button
                 type="button"
                 onClick={(event) => {
                     event.stopPropagation();
-                    setIsOpen((current) => !current);
+
+                    setIsOpen(
+                        (current) => !current
+                    );
                 }}
                 aria-expanded={isOpen}
                 aria-haspopup="true"
@@ -139,12 +162,21 @@ function DropdownItem({
 
                     hover:bg-white/5
 
-                    ${isOpen ? "bg-white/5" : ""}
-                    ${!isLast ? "border-b border-white/10" : ""}
+                    ${
+                        isOpen
+                            ? "bg-white/5"
+                            : ""
+                    }
+
+                    ${
+                        !isLast
+                            ? "border-b border-white/10"
+                            : ""
+                    }
                 `}
             >
                 <span>
-                    {item.label}
+                    {t(item.key)}
                 </span>
 
                 <svg
@@ -162,7 +194,11 @@ function DropdownItem({
                         transition-transform
                         duration-200
 
-                        ${isOpen ? "rotate-90" : ""}
+                        ${
+                            isOpen
+                                ? "rotate-90"
+                                : ""
+                        }
                     `}
                     aria-hidden="true"
                 >
@@ -202,11 +238,12 @@ function DropdownItem({
                         {item.children!.map(
                             (child, index) => (
                                 <DropdownItem
-                                    key={child.label}
+                                    key={child.key}
                                     item={child}
                                     isLast={
                                         index ===
-                                        item.children!.length - 1
+                                        item.children!
+                                            .length - 1
                                     }
                                 />
                             )

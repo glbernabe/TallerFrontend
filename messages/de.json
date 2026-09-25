@@ -1,12 +1,24 @@
 {
-    "navigation": {
+    "Navigation": {
         "home": "Startseite",
         "services": "Dienstleistungen",
-        "about": "Über uns",
-        "contact": "Kontakt"
-    },
-    "home": {
-        "title": "Auto-Talleres Orihuela",
-        "description": "Technischer Service und Kundendienst für Nutzfahrzeuge."
+        "workshop": "Werkstatt",
+        "quote": "Kostenvoranschlag",
+        "appointment": "Termin",
+        "offers": "Angebote",
+        "florists": "Floristen",
+        "originalParts": "Original-Ersatzteile",
+        "individuals": "Privatkunden",
+        "professionals": "Gewerbekunden",
+        "afterSales": "Kundendienst",
+        "vans": "Transporter",
+        "trucks": "Lkw",
+        "buses": "Busse",
+        "fuso": "FUSO",
+        "aboutUs": "Über uns",
+        "contact": "Kontakt",
+        "history": "Geschichte",
+        "interestingLinks": "Nützliche Links",
+        "news": "Nachrichten"
     }
 }

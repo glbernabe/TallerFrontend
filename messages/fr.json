@@ -1,12 +1,24 @@
 {
-    "navigation": {
+    "Navigation": {
         "home": "Accueil",
         "services": "Services",
-        "about": "Nous",
-        "contact": "Contact"
-    },
-    "home": {
-        "title": "Auto-Talleres Orihuela",
-        "description": "Service technique et après-vente pour véhicules industriels."
+        "workshop": "Atelier",
+        "quote": "Devis",
+        "appointment": "Prendre rendez-vous",
+        "offers": "Offres",
+        "florists": "Fleuristes",
+        "originalParts": "Pièces détachées d'origine",
+        "individuals": "Particuliers",
+        "professionals": "Professionnels",
+        "afterSales": "Après-vente",
+        "vans": "Utilitaires",
+        "trucks": "Camions",
+        "buses": "Autobus",
+        "fuso": "FUSO",
+        "aboutUs": "À propos",
+        "contact": "Contact",
+        "history": "Histoire",
+        "interestingLinks": "Liens utiles",
+        "news": "Actualités"
     }
 }

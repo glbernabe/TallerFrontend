@@ -1,49 +1,58 @@
+import type { ComponentProps } from "react";
+
+import { Link } from "@/i18n/navigation";
+
+type NavigationHref = Extract<
+    ComponentProps<typeof Link>["href"],
+    string
+>;
+
 export type NavItem = {
-    label: string;
-    href?: string;
+    key: string;
+    href?: NavigationHref;
     children?: NavItem[];
 };
 
 export const navigation: NavItem[] = [
     {
-        label: "Inicio",
+        key: "home",
         href: "/",
     },
 
     {
-        label: "Servicios",
+        key: "services",
         children: [
             {
-                label: "Taller",
+                key: "workshop",
                 children: [
                     {
-                        label: "Presupuesto",
-                        href: "/servicios/taller/presupuesto",
+                        key: "quote",
+                        href: "/servicios/taller/presupuestos",
                     },
                     {
-                        label: "Cita Previa",
+                        key: "appointment",
                         href: "/servicios/taller/cita-previa",
                     },
                     {
-                        label: "Ofertas",
+                        key: "offers",
                         href: "/servicios/taller/ofertas",
                     },
                     {
-                        label: "Floristas",
+                        key: "florists",
                         href: "/servicios/taller/floristas",
                     },
                 ],
             },
 
             {
-                label: "Recambios originales",
+                key: "originalParts",
                 children: [
                     {
-                        label: "Particulares",
+                        key: "individuals",
                         href: "/servicios/recambios/particulares",
                     },
                     {
-                        label: "Profesionales",
+                        key: "professionals",
                         href: "/servicios/recambios/profesionales",
                     },
                 ],
@@ -52,43 +61,48 @@ export const navigation: NavItem[] = [
     },
 
     {
-        label: "Posventa",
+        key: "afterSales",
         children: [
             {
-                label: "Furgonetas",
+                key: "vans",
                 href: "/posventa/furgonetas",
             },
             {
-                label: "Camiones",
+                key: "trucks",
                 href: "/posventa/camiones",
             },
             {
-                label: "Autobuses",
+                key: "buses",
                 href: "/posventa/autobuses",
             },
             {
-                label: "FUSO",
+                key: "fuso",
                 href: "/posventa/fuso",
             },
         ],
     },
 
     {
-        label: "Nosotros",
+        key: "aboutUs",
         children: [
             {
-                label: "Personal de contacto",
-                href: "/about-us/contacto",
+                key: "contact",
+                href: "/sobre-nosotros/contacto",
             },
             {
-                label: "Historia",
-                href: "/about-us/historia",
+                key: "history",
+                href: "/sobre-nosotros/historia",
             },
         ],
     },
 
     {
-        label: "Enlaces de interés",
-        href: "/enlaces-de-interes",
+        key: "interestingLinks",
+        children: [
+            {
+                key: "news",
+                href: "/noticias",
+            },
+        ],
     },
 ];
