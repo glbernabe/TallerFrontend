@@ -4,7 +4,7 @@ import { GetContactsByDepartment } from "@/core/contact/application/use-cases/Ge
 import { SearchContacts } from "@/core/contact/application/use-cases/SearchContacts";
 import { GroupContactsByDepartment } from "@/core/contact/application/use-cases/GroupContactsByDepartment";
 
-import { StrapiContactRepository } from "@/infrastructure/contact/strapi/StrapiContactRepository";
+import { StrapiContactRepository } from "@/infrastructure/strapi/contact/StrapiContactRepository";
 
 const contactRepository =
     new StrapiContactRepository();

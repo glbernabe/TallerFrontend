@@ -3,7 +3,7 @@ import {GetNewsPage} from "@/core/news/application/use-cases/GetNewsPage";
 import {GetNewsBySlug} from "@/core/news/application/use-cases/GetNewsBySlug";
 import {SearchNews} from "@/core/news/application/use-cases/SearchNews";
 
-import {StrapiNewsRepository} from "@/infrastructure/news/strapi/StrapiNewsRepository";
+import {StrapiNewsRepository} from "@/infrastructure/strapi/news/StrapiNewsRepository";
 
 const newsRepository =
     new StrapiNewsRepository();
