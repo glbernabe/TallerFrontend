@@ -1,27 +1,43 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 import NewsPageContent from "@/components/news/NewsPageContent";
+
 import {
     getNewsPage,
 } from "@/lib/news/newsDependencies";
 
 type Props = {
+    params: Promise<{
+        locale: string;
+    }>;
     searchParams: Promise<{
         page?: string;
     }>;
 };
 
-export const metadata: Metadata = {
-    title: "Noticias",
-    description:
-        "Las últimas novedades de Auto Talleres Orihuela.",
-};
+export async function generateMetadata({
+    params,
+}: Props): Promise<Metadata> {
+    const { locale } = await params;
+
+    const t = await getTranslations({
+        locale,
+        namespace: "News",
+    });
+
+    return {
+        title: t("metadata.title"),
+        description: t("metadata.description"),
+    };
+}
 
 export default async function NoticiasPage({
     searchParams,
 }: Props) {
-    const params =
-        await searchParams;
+    const t = await getTranslations("News");
+
+    const params = await searchParams;
 
     const page = Number(
         params.page ?? "1"
@@ -38,7 +54,7 @@ export default async function NoticiasPage({
         <main className="mx-auto max-w-7xl px-6 py-20">
             <header className="mb-12">
                 <h1 className="font-title text-5xl">
-                    Noticias
+                    {t("title")}
                 </h1>
 
                 <p
@@ -49,8 +65,7 @@ export default async function NoticiasPage({
                         text-black/60
                     "
                 >
-                    Las últimas novedades de
-                    Auto Talleres Orihuela.
+                    {t("description")}
                 </p>
             </header>
 

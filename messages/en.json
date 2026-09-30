@@ -1,5 +1,8 @@
 {
     "Navigation": {
+        "menu": "Menu",
+        "closeMenu": "Close menu",
+        "mobileNavigation": "Mobile navigation",
         "home": "Home",
         "services": "Services",
         "workshop": "Workshop",
@@ -7,7 +10,7 @@
         "appointment": "Appointment",
         "offers": "Offers",
         "florists": "Florists",
-        "originalParts": "Original spare parts",
+        "originalParts": "Original parts",
         "individuals": "Individuals",
         "professionals": "Professionals",
         "afterSales": "After-sales",
@@ -20,5 +23,209 @@
         "history": "History",
         "interestingLinks": "Useful links",
         "news": "News"
+    },
+    "News": {
+        "metadata": {
+            "title": "News",
+            "description": "The latest news from Auto Talleres Orihuela."
+        },
+        "title": "News",
+        "description": "The latest news from Auto Talleres Orihuela."
+    },
+    "History": {
+        "metadata": {
+            "title": "About Us | Auto-Talleres Orihuela",
+            "description": "Discover the history, experience and expertise of Auto-Talleres Orihuela S.L. in after-sales service and original spare parts for industrial vehicles.",
+            "openGraph": {
+                "title": "About Us | Auto-Talleres Orihuela",
+                "description": "Discover the history and expertise of Auto-Talleres Orihuela S.L."
+            }
+        },
+        "breadcrumb": {
+            "home": "Home",
+            "aboutUs": "About us",
+            "history": "History"
+        },
+        "hero": {
+            "eyebrow": "About us",
+            "titleLine1": "More than four decades",
+            "titleLine2": "serving the",
+            "titleLine3": "transport industry.",
+            "description": "Our passion in every kilometre. At Auto Talleres Orihuela, we know first-hand what it means to depend on a vehicle as a working tool."
+        },
+        "passion": {
+            "eyebrow": "Our passion",
+            "titleLine1": "A support point for those who keep the country",
+            "titleLine2": "moving.",
+            "paragraph1": "At Auto Talleres Orihuela, S.L., we understand what it means to depend on a vehicle for your work. We are a support point for hundreds of hauliers, logistics companies and self-employed professionals who need to keep their vehicles in optimal condition.",
+            "paragraph2": "That responsibility is what motivates us to open our doors every morning with the same commitment as on the very first day."
+        },
+        "roots": {
+            "eyebrow": "Our roots",
+            "titleLine1": "Passion and family",
+            "titleLine2": "tradition.",
+            "subtitle": "The beginning of a family project.",
+            "paragraph1": "Our history began with Francisco Parres Sánchez, who founded this project with a very clear vision: to provide the Vega Baja region with a vehicle repair and maintenance service characterised by honesty, precision and a close relationship with our customers.",
+            "paragraph2": "What began as a family-run technical workshop has evolved over the years to become a benchmark for after-sales service in our region, while preserving the dedication and technical quality values on which we were founded."
+        },
+        "facilities": {
+            "eyebrow": "Our facilities",
+            "titleLine1": "State-of-the-art facilities serving your",
+            "titleLine2": "fleet.",
+            "paragraph1": "Located in a strategic area on the Murcia-Alicante road, km 28, Orihuela, our fully equipped facilities allow us to respond immediately to our customers' needs.",
+            "paragraph2": "Our work covers mechanical, electromechanical, braking and preventive maintenance needs for commercial and heavy-duty vehicles.",
+            "paragraph3": "We take care of your vehicle so that you only have to focus on your route."
+        },
+        "specialization": {
+            "eyebrow": "After-sales and original spare parts",
+            "titleLine1": "Specialists in what",
+            "titleLine2": "we do best.",
+            "description": "We focus 100% on after-sales technical service and the sale of original spare parts, backed by the highest quality standards in the industry."
+        },
+        "specializations": {
+            "vans": {
+                "alt": "Mercedes-Benz Vans",
+                "title": "Mercedes-Benz Vans",
+                "description": "Comprehensive maintenance and original spare parts for combustion-engine vans such as Vito, Sprinter and Citan."
+            },
+            "truck": {
+                "alt": "Daimler Truck Spain",
+                "title": "Daimler Truck Spain",
+                "description": "Specialised assistance and official spare parts for Actros, Arocs, Atego and Unimog trucks."
+            },
+            "buses": {
+                "alt": "Daimler Buses",
+                "title": "Daimler Buses",
+                "description": "Workshop support and original parts for Setra and Mercedes-Benz buses and coaches."
+            },
+            "fuso": {
+                "alt": "FUSO Trucks",
+                "title": "FUSO Trucks",
+                "description": "Official technical service and spare parts for the FUSO Canter range of compact trucks."
+            }
+        },
+        "pillars": {
+            "eyebrow": "Our pillars",
+            "titleLine1": "You and our",
+            "titleLine2": "team.",
+            "customers": {
+                "title": "Our customers",
+                "description": "Hauliers and companies who trust us to keep their working vehicles in perfect condition."
+            },
+            "team": {
+                "title": "Our team",
+                "description": "Passionate, qualified and approachable professionals whose technical expertise ensures that your vehicle is in the best hands."
+            }
+        },
+        "closing": {
+            "eyebrow": "Auto-Talleres Orihuela",
+            "titleLine1": "Thank you for trusting",
+            "titleLine2": "us.",
+            "titleLine3": "We keep moving forward together."
+        }
+    },
+    "Cookies": {
+        "metadata": {
+            "title": "Cookie Policy",
+            "description": "Cookie Policy of Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Legal information",
+        "title": "Cookie Policy",
+        "intro": "Information about the use of data storage and retrieval technologies on this website.",
+        "sections": {
+            "whatAre": {
+                "title": "What are cookies?",
+                "content": "Cookies are small files that your browser may store on your device when you visit a website. They allow technical information required for certain functions to operate correctly to be remembered."
+            },
+            "used": {
+                "title": "Cookies used",
+                "content": "This website only uses technical cookies that are necessary for its operation and security. No advertising cookies are used, and no commercial profiles are created through cookies."
+            },
+            "management": {
+                "title": "Cookie management",
+                "content": "You can allow, block or delete cookies through your browser settings. Please note that disabling technical cookies may affect the operation of certain parts of the website."
+            },
+            "updates": {
+                "title": "Updates",
+                "content": "This policy may be updated to reflect technical or legal changes or changes in the use of cookies. We recommend reviewing it periodically."
+            }
+        }
+    },
+    "Legal": {
+        "metadata": {
+            "title": "Legal Notice",
+            "description": "Legal Notice of Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Legal information",
+        "title": "Legal Notice",
+        "intro": "Terms and conditions governing access to and use of the Auto-Talleres Orihuela S.L. website.",
+        "sections": {
+            "ownership": {
+                "title": "Website ownership",
+                "content": "This website is owned by Autotalleres Orihuela S.L., with Spanish Tax Identification Number B03934908 and registered address at Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, Spain. For any enquiries, you can contact us by telephone on 966 74 44 66 or by email at orihuela.ato@autotalleresorihuela.es."
+            },
+            "purpose": {
+                "title": "Purpose",
+                "content": "This website is provided for informational purposes and presents the maintenance, diagnostic and repair services offered by the workshop. The information published does not constitute a contractual offer and may be updated when necessary."
+            },
+            "use": {
+                "title": "Use of the website",
+                "content": "Users undertake to use the website lawfully, diligently and respectfully, avoiding any action that could affect its security, operation or content."
+            },
+            "intellectualProperty": {
+                "title": "Intellectual property",
+                "content": "The texts, images, design, logos and other content on this website are protected by applicable regulations. Their reproduction, distribution or modification is not permitted without prior authorisation from the owner, except where legally permitted."
+            },
+            "liability": {
+                "title": "Liability",
+                "content": "Auto-Talleres Orihuela S.L. endeavours to keep the information on the website up to date and accurate, but cannot guarantee the complete absence of errors or interruptions. The use of the information is carried out at the user's own responsibility."
+            }
+        }
+    },
+    "Privacy": {
+        "metadata": {
+            "title": "Privacy Policy",
+            "description": "Privacy Policy of Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Legal information",
+        "title": "Privacy Policy",
+        "intro": "How we process the personal data you provide when contacting Auto-Talleres Orihuela.",
+        "sections": {
+            "controller": {
+                "title": "Data controller",
+                "content": "The data controller is Autotalleres Orihuela S.L., with Spanish Tax Identification Number B03934908 and registered address at Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, Spain. You can contact us at orihuela.ato@autotalleresorihuela.es or by telephone on 966 74 44 66."
+            },
+            "dataAndPurpose": {
+                "title": "Data and purpose",
+                "content": "We process the contact details and information you provide in your enquiries in order to respond to your request, answer questions and manage any professional or commercial relationship that may arise from it."
+            },
+            "legalBasis": {
+                "title": "Legal basis and retention",
+                "content": "The processing is based on your consent when you contact us and, where applicable, on taking pre-contractual steps or performing a contractual relationship. The data will be retained for as long as necessary to handle your request and comply with applicable legal obligations."
+            },
+            "recipients": {
+                "title": "Recipients",
+                "content": "Personal data will not be disclosed to third parties except where legally required or where necessary to provide the requested service. Service providers who may have access to personal data will do so under the applicable legal safeguards."
+            },
+            "rights": {
+                "title": "Your rights",
+                "content": "You may request access to, rectification, erasure, objection to, restriction of or portability of your personal data by writing to orihuela.ato@autotalleresorihuela.es. You may also lodge a complaint with the competent data protection authority."
+            }
+        }
+    },
+    "Errors": {
+        "retry": "Try again",
+        "generic": {
+            "title": "We couldn't load this content.",
+            "description": "There was a problem retrieving the information. You can try again."
+        },
+        "news": {
+            "title": "We couldn't load the news.",
+            "description": "There was a problem retrieving the latest news. You can try again."
+        },
+        "contact": {
+            "title": "We couldn't load the contact information.",
+            "description": "There was a problem retrieving our team's information. You can try again."
+        }
     }
 }

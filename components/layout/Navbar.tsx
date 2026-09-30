@@ -82,9 +82,11 @@ export default function Navbar() {
                         <LanguageSwitcher />
                     </nav>
 
-                    {/* MENÚ MÓVIL */}
+                    {/* IDIOMA EN TABLET Y MÓVIL */}
 
-                    <div className="flex lg:hidden">
+                    <div className="flex items-center gap-3 lg:hidden">
+                        <LanguageSwitcher />
+
                         <ActionButton
                             src="/content/action_button/Hamburger_List_Icon.svg"
                             alt="Abrir menú"

@@ -1,6 +1,8 @@
 "use client";
 
-import {Link} from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n/navigation";
 
 import {
     navigation,
@@ -16,6 +18,8 @@ export default function MobileMenu({
     isOpen,
     onClose,
 }: MobileMenuProps) {
+    const t = useTranslations("Navigation");
+
     if (!isOpen) {
         return null;
     }
@@ -30,7 +34,7 @@ export default function MobileMenu({
                 bg-black
                 text-white
 
-                md:hidden
+                lg:hidden
             "
         >
             <div className="flex h-full flex-col">
@@ -49,7 +53,7 @@ export default function MobileMenu({
                     "
                 >
                     <span className="font-title text-lg">
-                        Menú
+                        {t("menu")}
                     </span>
 
                     <button
@@ -61,7 +65,7 @@ export default function MobileMenu({
                             transition-opacity
                             hover:opacity-60
                         "
-                        aria-label="Cerrar menú"
+                        aria-label={t("closeMenu")}
                     >
                         <svg
                             width="24"
@@ -72,6 +76,7 @@ export default function MobileMenu({
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            aria-hidden="true"
                         >
                             <path d="M18 6 6 18" />
                             <path d="m6 6 12 12" />
@@ -87,12 +92,12 @@ export default function MobileMenu({
                         px-6
                         py-8
                     "
-                    aria-label="Navegación móvil"
+                    aria-label={t("mobileNavigation")}
                 >
                     <div className="space-y-2">
                         {navigation.map((item) => (
                             <MobileNavItem
-                                key={item.label}
+                                key={item.key}
                                 item={item}
                                 onClose={onClose}
                             />
@@ -114,14 +119,20 @@ function MobileNavItem({
     item,
     onClose,
 }: MobileNavItemProps) {
+    const t = useTranslations("Navigation");
+
     const hasChildren =
         !!item.children &&
         item.children.length > 0;
 
     if (!hasChildren) {
+        if (!item.href) {
+            return null;
+        }
+
         return (
             <Link
-                href={item.href ?? "#"}
+                href={item.href}
                 onClick={onClose}
                 className="
                     block
@@ -131,7 +142,7 @@ function MobileNavItem({
                     font-medium
                 "
             >
-                {item.label}
+                {t(item.key)}
             </Link>
         );
     }
@@ -154,7 +165,7 @@ function MobileNavItem({
                 "
             >
                 <span>
-                    {item.label}
+                    {t(item.key)}
                 </span>
 
                 <svg
@@ -187,7 +198,7 @@ function MobileNavItem({
             >
                 {item.children?.map((child) => (
                     <MobileNavItem
-                        key={child.label}
+                        key={child.key}
                         item={child}
                         onClose={onClose}
                     />

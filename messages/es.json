@@ -1,5 +1,8 @@
 {
     "Navigation": {
+        "menu": "Menú",
+        "closeMenu": "Cerrar menú",
+        "mobileNavigation": "Navegación móvil",
         "home": "Inicio",
         "services": "Servicios",
         "workshop": "Taller",
@@ -20,5 +23,209 @@
         "history": "Historia",
         "interestingLinks": "Enlaces de interés",
         "news": "Noticias"
+    },
+    "News": {
+        "metadata": {
+            "title": "Noticias",
+            "description": "Las últimas novedades de Auto Talleres Orihuela."
+        },
+        "title": "Noticias",
+        "description": "Las últimas novedades de Auto Talleres Orihuela."
+    },
+    "History": {
+        "metadata": {
+            "title": "Sobre Nosotros | Auto-Talleres Orihuela",
+            "description": "Conoce la historia, experiencia y especialización de Auto-Talleres Orihuela S.L. en el servicio de posventa y recambios originales para vehículos industriales.",
+            "openGraph": {
+                "title": "Sobre Nosotros | Auto-Talleres Orihuela",
+                "description": "Conoce la trayectoria y especialización de Auto-Talleres Orihuela S.L."
+            }
+        },
+        "breadcrumb": {
+            "home": "Inicio",
+            "aboutUs": "Nosotros",
+            "history": "Historia"
+        },
+        "hero": {
+            "eyebrow": "Sobre nosotros",
+            "titleLine1": "Más de cuatro décadas",
+            "titleLine2": "al servicio del",
+            "titleLine3": "transporte.",
+            "description": "Nuestra pasión en cada kilómetro. En Auto Talleres Orihuela conocemos de primera mano lo que significa el valor de una herramienta de trabajo."
+        },
+        "passion": {
+            "eyebrow": "Nuestra pasión",
+            "titleLine1": "Un punto de apoyo para quienes mantienen el país",
+            "titleLine2": "en movimiento.",
+            "paragraph1": "En Auto Talleres Orihuela, S.L. sabemos lo que significa depender de un vehículo para trabajar. Somos el punto de apoyo de cientos de transportistas, empresas de logística y autónomos que necesitan mantener sus vehículos en condiciones óptimas.",
+            "paragraph2": "Esa responsabilidad es la que nos motiva a levantar la persiana cada mañana con el mismo compromiso del primer día."
+        },
+        "roots": {
+            "eyebrow": "Nuestras raíces",
+            "titleLine1": "Pasión y tradición",
+            "titleLine2": "familiar.",
+            "subtitle": "El comienzo de un proyecto familiar.",
+            "paragraph1": "Nuestra historia comenzó de la mano de Francisco Parres Sánchez, quien fundó este proyecto con una visión muy clara: ofrecer a la comarca de la Vega Baja un servicio técnico de reparación y mantenimiento de vehículos industriales caracterizado por la honestidad, la precisión y la máxima cercanía.",
+            "paragraph2": "Lo que empezó como un taller técnico familiar ha evolucionado, con el paso de los años, hasta consolidarse en un referente de la posventa en nuestra comarca, manteniendo intactos los valores de dedicación y calidad técnica que nos vieron nacer."
+        },
+        "facilities": {
+            "eyebrow": "Nuestras instalaciones",
+            "titleLine1": "Instalaciones de vanguardia al servicio de tu",
+            "titleLine2": "flota.",
+            "paragraph1": "Ubicados en un enclave estratégico, en la Ctra. Murcia-Alicante, km 28, Orihuela, contamos con instalaciones totalmente equipadas para dar respuesta inmediata a las necesidades de nuestros clientes.",
+            "paragraph2": "Nuestro trabajo abarca las necesidades mecánicas, electromecánicas, de frenado y de mantenimiento preventivo de vehículos comerciales y pesados.",
+            "paragraph3": "Cuidamos tu vehículo para que tú solo tengas que preocuparte de tu ruta."
+        },
+        "specialization": {
+            "eyebrow": "Posventa y recambio original",
+            "titleLine1": "Especialistas en lo que",
+            "titleLine2": "mejor sabemos hacer.",
+            "description": "Nos enfocamos al 100 % en el servicio técnico de posventa y la venta de recambios originales, respaldados por los máximos estándares de calidad del sector."
+        },
+        "specializations": {
+            "vans": {
+                "alt": "Mercedes-Benz Vans",
+                "title": "Mercedes-Benz Vans",
+                "description": "Mantenimiento integral y recambio original para furgonetas de combustión como Vito, Sprinter y Citan."
+            },
+            "truck": {
+                "alt": "Daimler Truck España",
+                "title": "Daimler Truck España",
+                "description": "Asistencia especializada y repuestos oficiales para la gama de camiones Actros, Arocs, Atego y Unimog."
+            },
+            "buses": {
+                "alt": "Daimler Buses",
+                "title": "Daimler Buses",
+                "description": "Soporte en taller y piezas originales para autobuses y autocares Setra y Mercedes-Benz."
+            },
+            "fuso": {
+                "alt": "FUSO Trucks",
+                "title": "FUSO Trucks",
+                "description": "Servicio técnico oficial y recambios para la gama de camiones compactos FUSO Canter."
+            }
+        },
+        "pillars": {
+            "eyebrow": "Nuestros pilares",
+            "titleLine1": "Tú y nuestro",
+            "titleLine2": "equipo.",
+            "customers": {
+                "title": "Nuestros clientes",
+                "description": "Transportistas y empresas que confían en nosotros para mantener sus herramientas de trabajo en perfecto estado."
+            },
+            "team": {
+                "title": "Nuestro equipo humano",
+                "description": "Profesionales apasionados, cualificados y cercanos, cuya experiencia técnica es la garantía de que tu vehículo está en las mejores manos."
+            }
+        },
+        "closing": {
+            "eyebrow": "Auto-Talleres Orihuela",
+            "titleLine1": "Gracias por confiar",
+            "titleLine2": "en nosotros.",
+            "titleLine3": "Seguimos rodando juntos."
+        }
+    },
+    "Cookies": {
+        "metadata": {
+            "title": "Política de cookies",
+            "description": "Política de cookies de Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Información legal",
+        "title": "Política de cookies",
+        "intro": "Información sobre el uso de tecnologías de almacenamiento y recuperación de datos en este sitio web.",
+        "sections": {
+            "whatAre": {
+                "title": "Qué son las cookies",
+                "content": "Las cookies son pequeños archivos que el navegador puede almacenar en su dispositivo al visitar un sitio web. Permiten recordar información técnica necesaria para que algunas funciones operen correctamente."
+            },
+            "used": {
+                "title": "Cookies utilizadas",
+                "content": "Este sitio utiliza únicamente las cookies técnicas necesarias para su funcionamiento y seguridad. No se emplean cookies publicitarias ni se elaboran perfiles comerciales a través de cookies."
+            },
+            "management": {
+                "title": "Gestión de cookies",
+                "content": "Puede permitir, bloquear o eliminar las cookies desde las opciones de configuración de su navegador. Tenga en cuenta que la desactivación de cookies técnicas puede afectar al funcionamiento de algunas partes del sitio."
+            },
+            "updates": {
+                "title": "Actualizaciones",
+                "content": "Esta política podrá actualizarse para reflejar cambios técnicos, legales o en el uso de cookies. Le recomendamos revisarla periódicamente."
+            }
+        }
+    },
+    "Legal": {
+        "metadata": {
+            "title": "Aviso legal",
+            "description": "Aviso legal de Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Información legal",
+        "title": "Aviso legal",
+        "intro": "Condiciones de acceso y uso del sitio web de Auto-Talleres Orihuela S.L.",
+        "sections": {
+            "ownership": {
+                "title": "Titularidad del sitio web",
+                "content": "Este sitio web es titularidad de Autotalleres Orihuela S.L., con NIF B03934908 y domicilio en Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, España. Para cualquier consulta puede contactar a través del teléfono 966 74 44 66 o del correo orihuela.ato@autotalleresorihuela.es."
+            },
+            "purpose": {
+                "title": "Objeto",
+                "content": "Este sitio tiene carácter informativo y presenta los servicios de mantenimiento, diagnosis y reparación ofrecidos por el taller. La información publicada no constituye una oferta contractual y puede actualizarse cuando sea necesario."
+            },
+            "use": {
+                "title": "Uso del sitio",
+                "content": "La persona usuaria se compromete a utilizar el sitio de forma lícita, diligente y respetuosa, evitando cualquier actuación que pueda afectar a su seguridad, funcionamiento o contenidos."
+            },
+            "intellectualProperty": {
+                "title": "Propiedad intelectual",
+                "content": "Los textos, imágenes, diseño, logotipos y demás contenidos de este sitio están protegidos por la normativa aplicable. No se permite su reproducción, distribución o transformación sin autorización previa del titular, salvo los usos legalmente permitidos."
+            },
+            "liability": {
+                "title": "Responsabilidad",
+                "content": "Auto-Talleres Orihuela S.L. procura mantener la información del sitio actualizada y exacta, sin que pueda garantizar la ausencia total de errores o interrupciones. El uso de la información se realiza bajo la responsabilidad de la persona usuaria."
+            }
+        }
+    },
+    "Privacy": {
+        "metadata": {
+            "title": "Política de privacidad",
+            "description": "Política de privacidad de Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Información legal",
+        "title": "Política de privacidad",
+        "intro": "Así tratamos los datos personales que nos facilite al contactar con Auto-Talleres Orihuela.",
+        "sections": {
+            "controller": {
+                "title": "Responsable del tratamiento",
+                "content": "El responsable del tratamiento es Autotalleres Orihuela S.L., con NIF B03934908 y domicilio en Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, España. Puede contactar en orihuela.ato@autotalleresorihuela.es o en el teléfono 966 74 44 66."
+            },
+            "dataAndPurpose": {
+                "title": "Datos y finalidad",
+                "content": "Tratamos los datos de contacto y la información que facilite en sus consultas para atender su solicitud, resolver dudas y gestionar la relación profesional o comercial que pueda derivarse de ella."
+            },
+            "legalBasis": {
+                "title": "Base jurídica y conservación",
+                "content": "El tratamiento se basa en su consentimiento al contactar con nosotros y, cuando corresponda, en la ejecución de medidas precontractuales o de una relación contractual. Los datos se conservarán durante el tiempo necesario para atender la solicitud y cumplir las obligaciones legales aplicables."
+            },
+            "recipients": {
+                "title": "Destinatarios",
+                "content": "No se cederán datos a terceros salvo obligación legal o cuando resulte necesario para prestar el servicio solicitado. Los proveedores que puedan acceder a datos personales lo harán bajo las garantías legales correspondientes."
+            },
+            "rights": {
+                "title": "Sus derechos",
+                "content": "Puede solicitar el acceso, rectificación, supresión, oposición, limitación o portabilidad de sus datos escribiendo a orihuela.ato@autotalleresorihuela.es. También puede presentar una reclamación ante la autoridad competente en materia de protección de datos."
+            }
+        }
+    },
+    "Errors": {
+        "retry": "Intentar de nuevo",
+        "generic": {
+            "title": "No hemos podido cargar este contenido.",
+            "description": "Ha ocurrido un problema al obtener la información. Puedes intentarlo de nuevo."
+        },
+        "news": {
+            "title": "No hemos podido cargar las noticias.",
+            "description": "Ha ocurrido un problema al obtener las últimas noticias. Puedes intentarlo de nuevo."
+        },
+        "contact": {
+            "title": "No hemos podido cargar la información de contacto.",
+            "description": "Ha ocurrido un problema al obtener la información de nuestro equipo. Puedes intentarlo de nuevo."
+        }
     }
 }

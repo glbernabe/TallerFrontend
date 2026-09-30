@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 type LegalSection = {
     title: string;
-    content: React.ReactNode;
+    content: ReactNode;
 };
 
 type Props = {
@@ -39,7 +41,10 @@ export default function LegalContent({
             <section className="mx-auto max-w-[1560px] px-6 py-20 md:px-8 md:py-28 lg:px-10 xl:px-12">
                 <div className="max-w-4xl space-y-14">
                     {sections.map((section) => (
-                        <article key={section.title} className="border-t border-black/15 pt-8">
+                        <article
+                            key={section.title}
+                            className="border-t border-black/15 pt-8"
+                        >
                             <h2 className="font-title text-3xl leading-tight md:text-4xl">
                                 {section.title}
                             </h2>

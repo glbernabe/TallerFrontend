@@ -16,8 +16,8 @@ export default function Error({ reset }: Props) {
 
     return (
         <ErrorContent
-            title={t("contact.title")}
-            description={t("contact.description")}
+            title={t("generic.title")}
+            description={t("generic.description")}
             retryLabel={t("retry")}
             reset={reset}
         />

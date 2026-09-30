@@ -1,123 +1,146 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import Breadcrumb from "@/components/navigation/Breadcrumb";
 
-export const metadata: Metadata = {
-    title: "Sobre Nosotros | Auto-Talleres Orihuela",
-    description:
-        "Conoce la historia, experiencia y especialización de Auto-Talleres Orihuela S.L. en el servicio de posventa y recambios originales para vehículos industriales.",
-    alternates: {
-        canonical: "/about-us/historia",
-    },
-    openGraph: {
-        title: "Sobre Nosotros | Auto-Talleres Orihuela",
-        description:
-            "Conoce la trayectoria y especialización de Auto-Talleres Orihuela S.L.",
-        url: "/about-us/historia",
-        type: "website",
-    },
+type Props = {
+    params: Promise<{
+        locale: string;
+    }>;
 };
 
 const specializations = [
     {
+        key: "vans",
         image: "/content/images/history/Vans.svg",
-        alt: "Mercedes-Benz Vans",
-        title: "Mercedes-Benz Vans",
-        description:
-            "Mantenimiento integral y recambio original para furgonetas de combustión como Vito, Sprinter y Citan.",
     },
     {
+        key: "truck",
         image: "/content/images/history/Daimler-truck.svg",
-        alt: "Daimler Truck España",
-        title: "Daimler Truck España",
-        description:
-            "Asistencia especializada y repuestos oficiales para la gama de camiones Actros, Arocs, Atego y Unimog.",
     },
     {
+        key: "buses",
         image: "/content/images/history/Bus.svg",
-        alt: "Daimler Buses",
-        title: "Daimler Buses",
-        description:
-            "Soporte en taller y piezas originales para autobuses y autocares Setra y Mercedes-Benz.",
     },
     {
+        key: "fuso",
         image: "/content/images/history/MitsubishiFUSO.svg",
-        alt: "FUSO Trucks",
-        title: "FUSO Trucks",
-        description:
-            "Servicio técnico oficial y recambios para la gama de camiones compactos FUSO Canter.",
     },
 ];
 
-export default function HistoryPage() {
+export async function generateMetadata({
+    params,
+}: Props): Promise<Metadata> {
+    const { locale } = await params;
+
+    const t = await getTranslations({
+        locale,
+        namespace: "History",
+    });
+
+    const historyPaths: Record<string, string> = {
+        es: "/es/sobre-nosotros/historia",
+        en: "/en/about-us/history",
+        fr: "/fr/a-propos/histoire",
+        de: "/de/ueber-uns/geschichte",
+    };
+
+    const pathname =
+        historyPaths[locale] ??
+        historyPaths.es;
+
+    return {
+        title: t("metadata.title"),
+        description: t("metadata.description"),
+        alternates: {
+            canonical: pathname,
+        },
+        openGraph: {
+            title: t("metadata.openGraph.title"),
+            description: t("metadata.openGraph.description"),
+            url: pathname,
+            type: "website",
+        },
+    };
+}
+
+export default async function HistoryPage() {
+    const t = await getTranslations("History");
+
     return (
         <main className="bg-black text-white">
             {/* HERO */}
+
             <section className="flex min-h-[calc(100vh-72px)] items-center bg-black">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40 xl:px-12">
                     <div className="max-w-6xl">
                         <div className="mb-10">
                             <Breadcrumb
                                 items={[
-                                    { label: "Inicio", href: "/" },
-                                    { label: "Nosotros", href: "/about-us" },
-                                    { label: "Historia" },
+                                    {
+                                        label: t("breadcrumb.home"),
+                                        href: "/",
+                                    },
+                                    {
+                                        label: t(
+                                            "breadcrumb.aboutUs"
+                                        ),
+                                        href: "/sobre-nosotros",
+                                    },
+                                    {
+                                        label: t(
+                                            "breadcrumb.history"
+                                        ),
+                                    },
                                 ]}
                                 color="white"
                             />
                         </div>
 
                         <p className="mb-8 text-sm uppercase tracking-[0.2em] text-white/50">
-                            Sobre nosotros
+                            {t("hero.eyebrow")}
                         </p>
 
                         <h1 className="font-title text-6xl leading-[0.92] tracking-[-0.03em] md:text-8xl lg:text-[9rem]">
-                            Más de cuatro décadas
+                            {t("hero.titleLine1")}
                             <br />
-                            al servicio del
+                            {t("hero.titleLine2")}
                             <br />
-                            transporte.
+                            {t("hero.titleLine3")}
                         </h1>
 
                         <p className="mt-10 max-w-3xl text-lg leading-8 text-white/65 md:text-xl">
-                            Nuestra pasión en cada kilómetro. En Auto Talleres
-                            Orihuela conocemos de primera mano lo que significa
-                            el valor de una herramienta de trabajo.
+                            {t("hero.description")}
                         </p>
                     </div>
                 </div>
             </section>
 
             {/* INTRODUCCIÓN */}
+
             <section className="bg-white text-black">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40 xl:px-12">
                     <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
                         <div>
                             <p className="text-sm uppercase tracking-[0.2em] text-black/45">
-                                Nuestra pasión
+                                {t("passion.eyebrow")}
                             </p>
 
                             <h2 className="mt-6 max-w-lg font-title text-5xl leading-[1.05] md:text-6xl">
-                                Un punto de apoyo para quienes mantienen el país
-                                en movimiento.
+                                {t("passion.titleLine1")}
+                                <br />
+                                {t("passion.titleLine2")}
                             </h2>
                         </div>
 
                         <div className="max-w-3xl text-lg leading-8 text-black/65 md:text-xl">
                             <p>
-                                En Auto Talleres Orihuela, S.L. sabemos lo que
-                                significa depender de un vehículo para trabajar.
-                                Somos el punto de apoyo de cientos de
-                                transportistas, empresas de logística y
-                                autónomos que necesitan mantener sus vehículos
-                                en condiciones óptimas.
+                                {t("passion.paragraph1")}
                             </p>
 
                             <p className="mt-8">
-                                Esa responsabilidad es la que nos motiva a
-                                levantar la persiana cada mañana con el mismo
-                                compromiso del primer día.
+                                {t("passion.paragraph2")}
                             </p>
                         </div>
                     </div>
@@ -125,17 +148,18 @@ export default function HistoryPage() {
             </section>
 
             {/* RAÍCES */}
+
             <section className="bg-neutral-950 text-white">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40 xl:px-12">
                     <div className="max-w-5xl">
                         <p className="text-sm uppercase tracking-[0.2em] text-white/40">
-                            Nuestras raíces
+                            {t("roots.eyebrow")}
                         </p>
 
                         <h2 className="mt-6 font-title text-5xl leading-[1.05] md:text-7xl">
-                            Pasión y tradición
+                            {t("roots.titleLine1")}
                             <br />
-                            familiar.
+                            {t("roots.titleLine2")}
                         </h2>
                     </div>
 
@@ -148,26 +172,15 @@ export default function HistoryPage() {
 
                         <div className="max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
                             <h3 className="font-title text-3xl leading-tight text-white md:text-4xl">
-                                El comienzo de un proyecto familiar.
+                                {t("roots.subtitle")}
                             </h3>
 
                             <p className="mt-6">
-                                Nuestra historia comenzó de la mano de Francisco
-                                Parres Sánchez, quien fundó este proyecto con una
-                                visión muy clara: ofrecer a la comarca de la Vega
-                                Baja un servicio técnico de reparación y
-                                mantenimiento de vehículos industriales
-                                caracterizado por la honestidad, la precisión y
-                                la máxima cercanía.
+                                {t("roots.paragraph1")}
                             </p>
 
                             <p className="mt-8">
-                                Lo que empezó como un taller técnico familiar
-                                ha evolucionado, con el paso de los años, hasta
-                                consolidarse en un referente de la posventa en
-                                nuestra comarca, manteniendo intactos los
-                                valores de dedicación y calidad técnica que nos
-                                vieron nacer.
+                                {t("roots.paragraph2")}
                             </p>
                         </div>
                     </div>
@@ -175,39 +188,33 @@ export default function HistoryPage() {
             </section>
 
             {/* INSTALACIONES */}
+
             <section className="bg-white text-black">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40 xl:px-12">
                     <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-start">
                         <div>
                             <p className="text-sm uppercase tracking-[0.2em] text-black/40">
-                                Nuestras instalaciones
+                                {t("facilities.eyebrow")}
                             </p>
 
                             <h2 className="mt-6 font-title text-5xl leading-[1.05] md:text-6xl">
-                                Instalaciones de vanguardia al servicio de tu
-                                flota.
+                                {t("facilities.titleLine1")}
+                                <br />
+                                {t("facilities.titleLine2")}
                             </h2>
                         </div>
 
                         <div className="max-w-3xl text-lg leading-8 text-black/65 md:text-xl">
                             <p>
-                                Ubicados en un enclave estratégico, en la Ctra.
-                                Murcia-Alicante, km 28, Orihuela, contamos con
-                                instalaciones totalmente equipadas para dar
-                                respuesta inmediata a las necesidades de
-                                nuestros clientes.
+                                {t("facilities.paragraph1")}
                             </p>
 
                             <p className="mt-8">
-                                Nuestro trabajo abarca las necesidades
-                                mecánicas, electromecánicas, de frenado y de
-                                mantenimiento preventivo de vehículos
-                                comerciales y pesados.
+                                {t("facilities.paragraph2")}
                             </p>
 
                             <p className="mt-8">
-                                Cuidamos tu vehículo para que tú solo tengas
-                                que preocuparte de tu ruta.
+                                {t("facilities.paragraph3")}
                             </p>
                         </div>
                     </div>
@@ -215,37 +222,37 @@ export default function HistoryPage() {
             </section>
 
             {/* ESPECIALIZACIÓN */}
+
             <section className="bg-neutral-950 text-white">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40 xl:px-12">
                     <div className="max-w-5xl">
                         <p className="text-sm uppercase tracking-[0.2em] text-white/40">
-                            Posventa y recambio original
+                            {t("specialization.eyebrow")}
                         </p>
 
                         <h2 className="mt-6 font-title text-5xl leading-[1.05] md:text-7xl">
-                            Especialistas en lo que
+                            {t("specialization.titleLine1")}
                             <br />
-                            mejor sabemos hacer.
+                            {t("specialization.titleLine2")}
                         </h2>
 
                         <p className="mt-8 max-w-3xl text-lg leading-8 text-white/60 md:text-xl">
-                            Nos enfocamos al 100 % en el servicio técnico de
-                            posventa y la venta de recambios originales,
-                            respaldados por los máximos estándares de calidad
-                            del sector.
+                            {t("specialization.description")}
                         </p>
                     </div>
 
                     <div className="mt-20 grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 md:grid-cols-2">
                         {specializations.map((item) => (
                             <article
-                                key={item.title}
+                                key={item.key}
                                 className="bg-neutral-950 p-8 md:p-10"
                             >
                                 <div className="relative h-16 w-24">
                                     <Image
                                         src={item.image}
-                                        alt={item.alt}
+                                        alt={t(
+                                            `specializations.${item.key}.alt`
+                                        )}
                                         fill
                                         sizes="96px"
                                         className="object-contain object-left"
@@ -261,7 +268,9 @@ export default function HistoryPage() {
                                         md:text-4xl
                                     "
                                 >
-                                    {item.title}
+                                    {t(
+                                        `specializations.${item.key}.title`
+                                    )}
                                 </h3>
 
                                 <p
@@ -273,7 +282,9 @@ export default function HistoryPage() {
                                         text-white/55
                                     "
                                 >
-                                    {item.description}
+                                    {t(
+                                        `specializations.${item.key}.description`
+                                    )}
                                 </p>
                             </article>
                         ))}
@@ -282,17 +293,18 @@ export default function HistoryPage() {
             </section>
 
             {/* DOS PILARES */}
+
             <section className="bg-white text-black">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-24 md:px-8 md:py-32 lg:px-10 lg:py-40 xl:px-12">
                     <div className="max-w-5xl">
                         <p className="text-sm uppercase tracking-[0.2em] text-black/40">
-                            Nuestros pilares
+                            {t("pillars.eyebrow")}
                         </p>
 
                         <h2 className="mt-6 font-title text-5xl leading-[1.05] md:text-7xl">
-                            Tú y nuestro
+                            {t("pillars.titleLine1")}
                             <br />
-                            equipo.
+                            {t("pillars.titleLine2")}
                         </h2>
                     </div>
 
@@ -303,13 +315,13 @@ export default function HistoryPage() {
                             </span>
 
                             <h3 className="mt-10 font-title text-3xl md:text-4xl">
-                                Nuestros clientes
+                                {t("pillars.customers.title")}
                             </h3>
 
                             <p className="mt-6 max-w-xl text-lg leading-8 text-black/60">
-                                Transportistas y empresas que confían en
-                                nosotros para mantener sus herramientas de
-                                trabajo en perfecto estado.
+                                {t(
+                                    "pillars.customers.description"
+                                )}
                             </p>
                         </article>
 
@@ -319,14 +331,13 @@ export default function HistoryPage() {
                             </span>
 
                             <h3 className="mt-10 font-title text-3xl md:text-4xl">
-                                Nuestro equipo humano
+                                {t("pillars.team.title")}
                             </h3>
 
                             <p className="mt-6 max-w-xl text-lg leading-8 text-black/60">
-                                Profesionales apasionados, cualificados y
-                                cercanos, cuya experiencia técnica es la
-                                garantía de que tu vehículo está en las mejores
-                                manos.
+                                {t(
+                                    "pillars.team.description"
+                                )}
                             </p>
                         </article>
                     </div>
@@ -334,19 +345,20 @@ export default function HistoryPage() {
             </section>
 
             {/* CIERRE */}
+
             <section className="bg-black text-white">
                 <div className="mx-auto w-full max-w-[1560px] px-6 py-32 md:px-8 md:py-40 lg:px-10 lg:py-48 xl:px-12">
                     <div className="max-w-6xl">
                         <p className="text-sm uppercase tracking-[0.2em] text-white/40">
-                            Auto-Talleres Orihuela
+                            {t("closing.eyebrow")}
                         </p>
 
                         <h2 className="mt-8 font-title text-5xl leading-[1.05] md:text-7xl lg:text-8xl">
-                            Gracias por confiar
+                            {t("closing.titleLine1")}
                             <br />
-                            en nosotros.
+                            {t("closing.titleLine2")}
                             <br />
-                            Seguimos rodando juntos.
+                            {t("closing.titleLine3")}
                         </h2>
                     </div>
                 </div>

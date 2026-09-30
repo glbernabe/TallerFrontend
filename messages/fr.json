@@ -1,5 +1,8 @@
 {
     "Navigation": {
+        "menu": "Menu",
+        "closeMenu": "Fermer le menu",
+        "mobileNavigation": "Navigation mobile",
         "home": "Accueil",
         "services": "Services",
         "workshop": "Atelier",
@@ -7,18 +10,222 @@
         "appointment": "Prendre rendez-vous",
         "offers": "Offres",
         "florists": "Fleuristes",
-        "originalParts": "Pièces détachées d'origine",
+        "originalParts": "Pièces d'origine",
         "individuals": "Particuliers",
         "professionals": "Professionnels",
         "afterSales": "Après-vente",
-        "vans": "Utilitaires",
+        "vans": "Vans",
         "trucks": "Camions",
         "buses": "Autobus",
         "fuso": "FUSO",
-        "aboutUs": "À propos",
-        "contact": "Contact",
+        "aboutUs": "À propos de nous",
+        "contact": "Personnel de contact",
         "history": "Histoire",
         "interestingLinks": "Liens utiles",
         "news": "Actualités"
+    },
+    "News": {
+        "metadata": {
+            "title": "Actualités",
+            "description": "Les dernières actualités d'Auto Talleres Orihuela."
+        },
+        "title": "Actualités",
+        "description": "Les dernières actualités d'Auto Talleres Orihuela."
+    },
+    "History": {
+        "metadata": {
+            "title": "À propos de nous | Auto-Talleres Orihuela",
+            "description": "Découvrez l'histoire, l'expérience et l'expertise d'Auto-Talleres Orihuela S.L. dans le service après-vente et les pièces de rechange d'origine pour véhicules industriels.",
+            "openGraph": {
+                "title": "À propos de nous | Auto-Talleres Orihuela",
+                "description": "Découvrez le parcours et l'expertise d'Auto-Talleres Orihuela S.L."
+            }
+        },
+        "breadcrumb": {
+            "home": "Accueil",
+            "aboutUs": "À propos de nous",
+            "history": "Histoire"
+        },
+        "hero": {
+            "eyebrow": "À propos de nous",
+            "titleLine1": "Plus de quatre décennies",
+            "titleLine2": "au service du",
+            "titleLine3": "transport.",
+            "description": "Notre passion à chaque kilomètre. Chez Auto Talleres Orihuela, nous savons de première main ce que signifie dépendre d'un véhicule comme outil de travail."
+        },
+        "passion": {
+            "eyebrow": "Notre passion",
+            "titleLine1": "Un point d'appui pour ceux qui font avancer",
+            "titleLine2": "le pays.",
+            "paragraph1": "Chez Auto Talleres Orihuela, S.L., nous savons ce que signifie dépendre d'un véhicule pour travailler. Nous sommes un point d'appui pour des centaines de transporteurs, d'entreprises de logistique et de travailleurs indépendants qui ont besoin de maintenir leurs véhicules dans des conditions optimales.",
+            "paragraph2": "Cette responsabilité est ce qui nous motive à ouvrir nos portes chaque matin avec le même engagement que le premier jour."
+        },
+        "roots": {
+            "eyebrow": "Nos racines",
+            "titleLine1": "Passion et tradition",
+            "titleLine2": "familiale.",
+            "subtitle": "Le début d'un projet familial.",
+            "paragraph1": "Notre histoire a commencé avec Francisco Parres Sánchez, qui a fondé ce projet avec une vision très claire : offrir à la région de la Vega Baja un service technique de réparation et d'entretien des véhicules industriels fondé sur l'honnêteté, la précision et la proximité.",
+            "paragraph2": "Ce qui a commencé comme un atelier technique familial a évolué au fil des années pour devenir une référence du service après-vente dans notre région, tout en conservant les valeurs de dévouement et de qualité technique qui ont accompagné nos débuts."
+        },
+        "facilities": {
+            "eyebrow": "Nos installations",
+            "titleLine1": "Des installations de pointe au service de votre",
+            "titleLine2": "flotte.",
+            "paragraph1": "Situés dans un emplacement stratégique, sur la route Murcia-Alicante, km 28, à Orihuela, nous disposons d'installations entièrement équipées pour répondre immédiatement aux besoins de nos clients.",
+            "paragraph2": "Notre travail couvre les besoins mécaniques, électromécaniques, de freinage et de maintenance préventive des véhicules commerciaux et lourds.",
+            "paragraph3": "Nous prenons soin de votre véhicule afin que vous n'ayez plus qu'à vous concentrer sur votre itinéraire."
+        },
+        "specialization": {
+            "eyebrow": "Après-vente et pièces d'origine",
+            "titleLine1": "Spécialistes dans ce que",
+            "titleLine2": "nous savons faire de mieux.",
+            "description": "Nous nous consacrons à 100 % au service technique après-vente et à la vente de pièces de rechange d'origine, soutenus par les plus hauts standards de qualité du secteur."
+        },
+        "specializations": {
+            "vans": {
+                "alt": "Mercedes-Benz Vans",
+                "title": "Mercedes-Benz Vans",
+                "description": "Entretien complet et pièces de rechange d'origine pour les fourgons à moteur thermique tels que Vito, Sprinter et Citan."
+            },
+            "truck": {
+                "alt": "Daimler Truck Espagne",
+                "title": "Daimler Truck Espagne",
+                "description": "Assistance spécialisée et pièces de rechange officielles pour les gammes de camions Actros, Arocs, Atego et Unimog."
+            },
+            "buses": {
+                "alt": "Daimler Buses",
+                "title": "Daimler Buses",
+                "description": "Assistance en atelier et pièces d'origine pour les autobus et autocars Setra et Mercedes-Benz."
+            },
+            "fuso": {
+                "alt": "FUSO Trucks",
+                "title": "FUSO Trucks",
+                "description": "Service technique officiel et pièces de rechange pour la gamme de camions compacts FUSO Canter."
+            }
+        },
+        "pillars": {
+            "eyebrow": "Nos piliers",
+            "titleLine1": "Vous et notre",
+            "titleLine2": "équipe.",
+            "customers": {
+                "title": "Nos clients",
+                "description": "Des transporteurs et des entreprises qui nous font confiance pour maintenir leurs outils de travail en parfait état."
+            },
+            "team": {
+                "title": "Notre équipe",
+                "description": "Des professionnels passionnés, qualifiés et proches de leurs clients, dont l'expérience technique garantit que votre véhicule est entre de bonnes mains."
+            }
+        },
+        "closing": {
+            "eyebrow": "Auto-Talleres Orihuela",
+            "titleLine1": "Merci de nous faire",
+            "titleLine2": "confiance.",
+            "titleLine3": "Continuons la route ensemble."
+        }
+    },
+    "Cookies": {
+        "metadata": {
+            "title": "Politique relative aux cookies",
+            "description": "Politique relative aux cookies d'Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Informations légales",
+        "title": "Politique relative aux cookies",
+        "intro": "Informations sur l'utilisation des technologies de stockage et de récupération de données sur ce site web.",
+        "sections": {
+            "whatAre": {
+                "title": "Que sont les cookies ?",
+                "content": "Les cookies sont de petits fichiers que votre navigateur peut stocker sur votre appareil lorsque vous visitez un site web. Ils permettent de mémoriser les informations techniques nécessaires au bon fonctionnement de certaines fonctionnalités."
+            },
+            "used": {
+                "title": "Cookies utilisés",
+                "content": "Ce site utilise uniquement les cookies techniques nécessaires à son fonctionnement et à sa sécurité. Aucun cookie publicitaire n'est utilisé et aucun profil commercial n'est établi à partir de cookies."
+            },
+            "management": {
+                "title": "Gestion des cookies",
+                "content": "Vous pouvez autoriser, bloquer ou supprimer les cookies depuis les paramètres de votre navigateur. Veuillez noter que la désactivation des cookies techniques peut affecter le fonctionnement de certaines parties du site."
+            },
+            "updates": {
+                "title": "Mises à jour",
+                "content": "Cette politique peut être mise à jour afin de refléter les évolutions techniques, légales ou les changements concernant l'utilisation des cookies. Nous vous recommandons de la consulter régulièrement."
+            }
+        }
+    },
+    "Legal": {
+        "metadata": {
+            "title": "Mentions légales",
+            "description": "Mentions légales d'Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Informations légales",
+        "title": "Mentions légales",
+        "intro": "Conditions d'accès et d'utilisation du site web d'Auto-Talleres Orihuela S.L.",
+        "sections": {
+            "ownership": {
+                "title": "Propriété du site web",
+                "content": "Ce site web appartient à Autotalleres Orihuela S.L., dont le numéro d'identification fiscale espagnol est B03934908 et dont le siège est situé Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, Espagne. Pour toute demande, vous pouvez nous contacter au 966 74 44 66 ou par e-mail à l'adresse orihuela.ato@autotalleresorihuela.es."
+            },
+            "purpose": {
+                "title": "Objet",
+                "content": "Ce site a un caractère informatif et présente les services d'entretien, de diagnostic et de réparation proposés par l'atelier. Les informations publiées ne constituent pas une offre contractuelle et peuvent être mises à jour si nécessaire."
+            },
+            "use": {
+                "title": "Utilisation du site",
+                "content": "L'utilisateur s'engage à utiliser le site de manière licite, diligente et respectueuse, en évitant toute action susceptible d'affecter sa sécurité, son fonctionnement ou son contenu."
+            },
+            "intellectualProperty": {
+                "title": "Propriété intellectuelle",
+                "content": "Les textes, images, éléments graphiques, logos et autres contenus de ce site sont protégés par la réglementation applicable. Leur reproduction, distribution ou transformation est interdite sans l'autorisation préalable du titulaire, sauf dans les cas autorisés par la loi."
+            },
+            "liability": {
+                "title": "Responsabilité",
+                "content": "Auto-Talleres Orihuela S.L. s'efforce de maintenir les informations du site à jour et exactes, sans pouvoir garantir l'absence totale d'erreurs ou d'interruptions. L'utilisation des informations relève de la responsabilité de l'utilisateur."
+            }
+        }
+    },
+    "Privacy": {
+        "metadata": {
+            "title": "Politique de confidentialité",
+            "description": "Politique de confidentialité d'Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Informations légales",
+        "title": "Politique de confidentialité",
+        "intro": "Voici comment nous traitons les données personnelles que vous nous fournissez lorsque vous contactez Auto-Talleres Orihuela.",
+        "sections": {
+            "controller": {
+                "title": "Responsable du traitement",
+                "content": "Le responsable du traitement est Autotalleres Orihuela S.L., dont le numéro d'identification fiscale espagnol est B03934908 et dont le siège est situé Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, Espagne. Vous pouvez nous contacter à l'adresse orihuela.ato@autotalleresorihuela.es ou au 966 74 44 66."
+            },
+            "dataAndPurpose": {
+                "title": "Données et finalité",
+                "content": "Nous traitons les coordonnées et les informations que vous fournissez dans vos demandes afin de répondre à votre demande, de répondre à vos questions et de gérer toute relation professionnelle ou commerciale qui pourrait en découler."
+            },
+            "legalBasis": {
+                "title": "Base juridique et conservation",
+                "content": "Le traitement repose sur votre consentement lorsque vous nous contactez et, le cas échéant, sur la mise en œuvre de mesures précontractuelles ou l'exécution d'une relation contractuelle. Les données sont conservées pendant la durée nécessaire au traitement de votre demande et au respect des obligations légales applicables."
+            },
+            "recipients": {
+                "title": "Destinataires",
+                "content": "Les données personnelles ne seront pas communiquées à des tiers, sauf obligation légale ou lorsque cela est nécessaire à la fourniture du service demandé. Les prestataires pouvant accéder aux données personnelles le feront dans le respect des garanties légales applicables."
+            },
+            "rights": {
+                "title": "Vos droits",
+                "content": "Vous pouvez demander l'accès, la rectification, l'effacement, l'opposition, la limitation ou la portabilité de vos données personnelles en écrivant à orihuela.ato@autotalleresorihuela.es. Vous pouvez également introduire une réclamation auprès de l'autorité compétente en matière de protection des données."
+            }
+        }
+    },
+    "Errors": {
+        "retry": "Réessayer",
+        "generic": {
+            "title": "Nous n'avons pas pu charger ce contenu.",
+            "description": "Un problème est survenu lors de la récupération des informations. Vous pouvez réessayer."
+        },
+        "news": {
+            "title": "Nous n'avons pas pu charger les actualités.",
+            "description": "Un problème est survenu lors de la récupération des dernières actualités. Vous pouvez réessayer."
+        },
+        "contact": {
+            "title": "Nous n'avons pas pu charger les informations de contact.",
+            "description": "Un problème est survenu lors de la récupération des informations de notre équipe. Vous pouvez réessayer."
+        }
     }
 }
