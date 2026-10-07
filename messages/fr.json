@@ -24,6 +24,82 @@
         "interestingLinks": "Liens utiles",
         "news": "Actualités"
     },
+    "Hero": {
+        "imageAlt": "Véhicules industriels Mercedes-Benz",
+        "title": "Des véhicules industriels prêts à continuer à travailler",
+        "description": "Entretien, diagnostic et réparation de camions, fourgons et véhicules utilitaires à Orihuela.",
+        "button": "Appeler l'atelier"
+    },
+    "FloatingAppointment": {
+        "ariaLabel": "Prendre rendez-vous",
+        "request": "PRENDRE",
+        "appointment": "RENDEZ-VOUS"
+    },
+    "Services": {
+        "title": "Un service pensé pour le travail",
+        "description": "Nous assurons l'entretien et la réparation des véhicules utilitaires qui font partie du quotidien des professionnels et des entreprises. De l'entretien préventif au diagnostic et à la réparation, nous travaillons pour que votre véhicule reste en circulation.",
+        "cards": {
+            "maintenance": {
+                "alt": "Entretien d'un véhicule utilitaire",
+                "title": "Entretien",
+                "description": "Révisions, vidanges, filtres, liquides et entretien préventif pour maintenir votre véhicule dans des conditions optimales."
+            },
+            "diagnosis": {
+                "alt": "Diagnostic d'un véhicule utilitaire",
+                "title": "Diagnostic",
+                "description": "Diagnostic électronique pour identifier les pannes avec précision et faciliter une réparation efficace."
+            },
+            "repairs": {
+                "alt": "Réparation d'un véhicule utilitaire",
+                "title": "Réparations",
+                "description": "Interventions mécaniques et électroniques pour résoudre les pannes et maintenir votre véhicule opérationnel."
+            }
+        }
+    },
+    "Features": {
+        "title": "Pourquoi nous faire confiance ?",
+        "description": "Expérience, technologie et professionnels qualifiés pour maintenir votre véhicule dans les meilleures conditions.",
+        "items": {
+            "specializedTechnicians": {
+                "title": "Techniciens spécialisés",
+                "description": "Des professionnels qualifiés pour répondre aux exigences des véhicules utilitaires."
+            },
+            "qualityParts": {
+                "title": "Pièces de qualité",
+                "description": "Des composants sélectionnés pour garantir la fiabilité et les performances de chaque intervention."
+            },
+            "specializedEquipment": {
+                "title": "Équipement spécialisé",
+                "description": "Des technologies et des outils adaptés pour réaliser des diagnostics et des réparations avec précision."
+            },
+            "trustAndWarranty": {
+                "title": "Confiance et garantie",
+                "description": "Nous appliquons des procédures professionnelles afin que chaque intervention réponde à nos exigences de qualité."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Votre atelier de véhicules utilitaires à Orihuela",
+        "description": "Nous sommes situés à Orihuela, Alicante, pour assurer l'entretien, le diagnostic et la réparation de camions, fourgons et véhicules utilitaires.",
+        "phone": "Téléphone",
+        "email": "E-mail",
+        "openingHours": "Horaires",
+        "callButton": "Appeler l'atelier",
+        "locationLabel": "Notre emplacement",
+        "directionsButton": "Itinéraire",
+        "mapAlt": "Emplacement d'Auto Talleres Orihuela à Orihuela, Alicante",
+        "mapAriaLabel": "Voir l'emplacement d'Auto Talleres Orihuela sur Google Maps",
+        "closed": "Fermé",
+        "days": {
+            "Lunes": "Lundi",
+            "Martes": "Mardi",
+            "Miercoles": "Mercredi",
+            "Jueves": "Jeudi",
+            "Viernes": "Vendredi",
+            "Sábado": "Samedi",
+            "Domingo": "Dimanche"
+        }
+    },
     "News": {
         "metadata": {
             "title": "Actualités",
@@ -123,6 +199,18 @@
             "titleLine2": "confiance.",
             "titleLine3": "Continuons la route ensemble."
         }
+    },
+    "OpeningHours": {
+        "days": {
+            "Lunes": "Lundi",
+            "Martes": "Mardi",
+            "Miércoles": "Mercredi",
+            "Jueves": "Jeudi",
+            "Viernes": "Vendredi",
+            "Sábado": "Samedi",
+            "Domingo": "Dimanche"
+        },
+        "closed": "Fermé"
     },
     "Cookies": {
         "metadata": {

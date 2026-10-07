@@ -24,6 +24,82 @@
         "interestingLinks": "Useful links",
         "news": "News"
     },
+    "Hero": {
+        "imageAlt": "Mercedes-Benz commercial vehicles",
+        "title": "Commercial vehicles ready to keep working",
+        "description": "Maintenance, diagnostics and repair for trucks, vans and commercial vehicles in Orihuela.",
+        "button": "Call the workshop"
+    },
+    "FloatingAppointment": {
+        "ariaLabel": "Book an appointment",
+        "request": "BOOK",
+        "appointment": "APPOINTMENT"
+    },
+    "Services": {
+        "title": "A service designed for the job",
+        "description": "We maintain and repair commercial vehicles that are part of the daily work of professionals and businesses. From preventive maintenance to diagnostics and repairs, we work to keep your vehicle on the road.",
+        "cards": {
+            "maintenance": {
+                "alt": "Commercial vehicle maintenance",
+                "title": "Maintenance",
+                "description": "Inspections, oil changes, filters, fluids and preventive maintenance to keep your vehicle in optimal condition."
+            },
+            "diagnosis": {
+                "alt": "Commercial vehicle diagnostics",
+                "title": "Diagnostics",
+                "description": "Electronic diagnostics to identify faults accurately and enable effective repairs."
+            },
+            "repairs": {
+                "alt": "Commercial vehicle repair",
+                "title": "Repairs",
+                "description": "Mechanical and electronic repairs to resolve faults and keep your vehicle operational."
+            }
+        }
+    },
+    "Features": {
+        "title": "Why trust us?",
+        "description": "Experience, technology and skilled professionals prepared to keep your vehicle in the best possible condition.",
+        "items": {
+            "specializedTechnicians": {
+                "title": "Specialized technicians",
+                "description": "Skilled professionals prepared to meet the demands of commercial vehicles."
+            },
+            "qualityParts": {
+                "title": "Quality parts",
+                "description": "Selected components to ensure reliability and performance in every service."
+            },
+            "specializedEquipment": {
+                "title": "Specialized equipment",
+                "description": "Technology and tools designed to carry out diagnostics and repairs with precision."
+            },
+            "trustAndWarranty": {
+                "title": "Trust and warranty",
+                "description": "We follow professional procedures and strive to ensure that every service meets our quality standards."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Your commercial vehicle workshop in Orihuela",
+        "description": "We are located in Orihuela, Alicante, providing maintenance, diagnostics and repairs for trucks, vans and commercial vehicles.",
+        "phone": "Phone",
+        "email": "Email",
+        "openingHours": "Opening hours",
+        "callButton": "Call the workshop",
+        "locationLabel": "Our location",
+        "directionsButton": "Get directions",
+        "mapAlt": "Auto Talleres Orihuela location in Orihuela, Alicante",
+        "mapAriaLabel": "View the Auto Talleres Orihuela location on Google Maps",
+        "closed": "Closed",
+        "days": {
+            "Lunes": "Monday",
+            "Martes": "Tuesday",
+            "Miercoles": "Wednesday",
+            "Jueves": "Thursday",
+            "Viernes": "Friday",
+            "Sábado": "Saturday",
+            "Domingo": "Sunday"
+        }
+    },
     "News": {
         "metadata": {
             "title": "News",
@@ -123,6 +199,18 @@
             "titleLine2": "us.",
             "titleLine3": "We keep moving forward together."
         }
+    },
+    "OpeningHours": {
+        "days": {
+            "Lunes": "Monday",
+            "Martes": "Tuesday",
+            "Miércoles": "Wednesday",
+            "Jueves": "Thursday",
+            "Viernes": "Friday",
+            "Sábado": "Saturday",
+            "Domingo": "Sunday"
+        },
+        "closed": "Closed"
     },
     "Cookies": {
         "metadata": {

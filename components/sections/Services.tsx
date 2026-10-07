@@ -1,12 +1,14 @@
+import { getTranslations } from "next-intl/server";
+
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 
 import Card from "@/components/ui/Card";
 
-export default function Services() {
+export default async function Services() {
+    const t = await getTranslations("Services");
 
     return (
-
         <Section
             className="
                 bg-black
@@ -35,9 +37,7 @@ export default function Services() {
                             xl:text-7xl
                         "
                     >
-                        Un servicio pensado
-                        <br />
-                        para el trabajo
+                        {t("title")}
                     </h2>
 
                     <p
@@ -49,11 +49,7 @@ export default function Services() {
                             text-white/70
                         "
                     >
-                        Mantenemos y reparamos vehículos industriales que
-                        forman parte del día a día de profesionales y empresas.
-                        Desde el mantenimiento preventivo hasta la diagnosis y
-                        reparación, trabajamos para que tu vehículo pueda
-                        seguir en marcha.
+                        {t("description")}
                     </p>
 
                 </div>
@@ -71,13 +67,9 @@ export default function Services() {
 
                     <Card
                         src="/content/images/cards/oil_change.webp"
-                        alt="Mantenimiento de un vehículo industrial"
-                        title="Mantenimiento"
-                        description="
-                            Revisiones, cambios de aceite, filtros, líquidos
-                            y mantenimiento preventivo para mantener el
-                            vehículo en condiciones óptimas.
-                        "
+                        alt={t("cards.maintenance.alt")}
+                        title={t("cards.maintenance.title")}
+                        description={t("cards.maintenance.description")}
                         imageClassName="
                             grayscale
                             group-hover:grayscale-0
@@ -86,12 +78,9 @@ export default function Services() {
 
                     <Card
                         src="/content/images/cards/electric_equipment.webp"
-                        alt="Diagnosis de un vehículo industrial"
-                        title="Diagnosis"
-                        description="
-                            Diagnóstico electrónico para identificar averías
-                            con precisión y facilitar una reparación eficaz.
-                        "
+                        alt={t("cards.diagnosis.alt")}
+                        title={t("cards.diagnosis.title")}
+                        description={t("cards.diagnosis.description")}
                         imageClassName="
                             grayscale
                             group-hover:grayscale-0
@@ -100,12 +89,9 @@ export default function Services() {
 
                     <Card
                         src="/content/images/cards/motor_up.webp"
-                        alt="Reparación de un vehículo industrial"
-                        title="Reparaciones"
-                        description="
-                            Intervenciones mecánicas y electrónicas para
-                            resolver averías y mantener el vehículo operativo.
-                        "
+                        alt={t("cards.repairs.alt")}
+                        title={t("cards.repairs.title")}
+                        description={t("cards.repairs.description")}
                         imageClassName="
                             grayscale
                             group-hover:grayscale-0
@@ -117,7 +103,5 @@ export default function Services() {
             </Container>
 
         </Section>
-
     );
-
 }

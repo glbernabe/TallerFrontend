@@ -24,6 +24,82 @@
         "interestingLinks": "Nützliche Links",
         "news": "Nachrichten"
     },
+    "Hero": {
+        "imageAlt": "Mercedes-Benz Nutzfahrzeuge",
+        "title": "Nutzfahrzeuge, bereit für den nächsten Einsatz",
+        "description": "Wartung, Diagnose und Reparatur von Lkw, Transportern und Nutzfahrzeugen in Orihuela.",
+        "button": "Werkstatt anrufen"
+    },
+    "FloatingAppointment": {
+        "ariaLabel": "Termin vereinbaren",
+        "request": "TERMIN",
+        "appointment": "VEREINBAREN"
+    },
+    "Services": {
+        "title": "Service für Ihren Arbeitsalltag",
+        "description": "Wir warten und reparieren Nutzfahrzeuge, die zum Arbeitsalltag von Fachleuten und Unternehmen gehören. Von der vorbeugenden Wartung über die Diagnose bis zur Reparatur arbeiten wir dafür, dass Ihr Fahrzeug einsatzbereit bleibt.",
+        "cards": {
+            "maintenance": {
+                "alt": "Wartung eines Nutzfahrzeugs",
+                "title": "Wartung",
+                "description": "Inspektionen, Ölwechsel, Filter, Flüssigkeiten und vorbeugende Wartung, damit Ihr Fahrzeug in optimalem Zustand bleibt."
+            },
+            "diagnosis": {
+                "alt": "Diagnose eines Nutzfahrzeugs",
+                "title": "Diagnose",
+                "description": "Elektronische Diagnose zur präzisen Erkennung von Fehlern und für eine effiziente Reparatur."
+            },
+            "repairs": {
+                "alt": "Reparatur eines Nutzfahrzeugs",
+                "title": "Reparaturen",
+                "description": "Mechanische und elektronische Arbeiten zur Behebung von Störungen und zur Sicherstellung der Einsatzbereitschaft Ihres Fahrzeugs."
+            }
+        }
+    },
+    "Features": {
+        "title": "Warum uns vertrauen?",
+        "description": "Erfahrung, Technologie und qualifizierte Fachkräfte, damit Ihr Fahrzeug stets in bestem Zustand bleibt.",
+        "items": {
+            "specializedTechnicians": {
+                "title": "Spezialisierte Techniker",
+                "description": "Qualifizierte Fachkräfte, die auf die Anforderungen von Nutzfahrzeugen vorbereitet sind."
+            },
+            "qualityParts": {
+                "title": "Qualitätsersatzteile",
+                "description": "Ausgewählte Komponenten für zuverlässige Leistung bei jeder Reparatur und Wartung."
+            },
+            "specializedEquipment": {
+                "title": "Spezialausrüstung",
+                "description": "Moderne Technologie und geeignete Werkzeuge für präzise Diagnosen und Reparaturen."
+            },
+            "trustAndWarranty": {
+                "title": "Vertrauen und Garantie",
+                "description": "Wir arbeiten nach professionellen Verfahren und stellen sicher, dass jeder Eingriff unseren Qualitätsstandards entspricht."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Ihre Nutzfahrzeugwerkstatt in Orihuela",
+        "description": "Wir sind in Orihuela, Alicante, für die Wartung, Diagnose und Reparatur von Lkw, Transportern und Nutzfahrzeugen für Sie da.",
+        "phone": "Telefon",
+        "email": "E-Mail",
+        "openingHours": "Öffnungszeiten",
+        "callButton": "Werkstatt anrufen",
+        "locationLabel": "Unser Standort",
+        "directionsButton": "Anfahrt",
+        "mapAlt": "Standort von Auto Talleres Orihuela in Orihuela, Alicante",
+        "mapAriaLabel": "Standort von Auto Talleres Orihuela auf Google Maps anzeigen",
+        "closed": "Geschlossen",
+        "days": {
+            "Lunes": "Montag",
+            "Martes": "Dienstag",
+            "Miercoles": "Mittwoch",
+            "Jueves": "Donnerstag",
+            "Viernes": "Freitag",
+            "Sábado": "Samstag",
+            "Domingo": "Sonntag"
+        }
+    },
     "News": {
         "metadata": {
             "title": "Nachrichten",
@@ -123,6 +199,18 @@
             "titleLine2": "Vertrauen.",
             "titleLine3": "Wir fahren gemeinsam weiter."
         }
+    },
+    "OpeningHours": {
+        "days": {
+            "Lunes": "Montag",
+            "Martes": "Dienstag",
+            "Miércoles": "Mittwoch",
+            "Jueves": "Donnerstag",
+            "Viernes": "Freitag",
+            "Sábado": "Samstag",
+            "Domingo": "Sonntag"
+        },
+        "closed": "Geschlossen"
     },
     "Cookies": {
         "metadata": {

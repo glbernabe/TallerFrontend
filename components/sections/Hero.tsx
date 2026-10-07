@@ -1,10 +1,13 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 import MainButton from "@/components/ui/MainButton";
 
-export default function Hero() {
+export default async function Hero() {
+    const t = await getTranslations("Hero");
+
     return (
         <Section className="relative h-screen min-h-[700px] overflow-hidden">
 
@@ -13,7 +16,7 @@ export default function Hero() {
 
                 <Image
                     src="/content/images/background/Trucks_display.webp"
-                    alt="Patrón Mercedes-Benz"
+                    alt={t("imageAlt")}
                     fill
                     priority
                     sizes="100vw"
@@ -41,9 +44,7 @@ export default function Hero() {
                         max-w-[820px]
                         flex-col
                         justify-start
-
                         pt-[22vh]
-
                         sm:pt-[21vh]
                         md:pt-[20vh]
                         lg:pt-[19vh]
@@ -57,10 +58,8 @@ export default function Hero() {
                             font-title
                             text-white
                             tracking-[-0.02em]
-
                             text-[2.3rem]
                             leading-[1.05]
-
                             sm:text-[3rem]
                             md:text-[3.8rem]
                             lg:text-[4.5rem]
@@ -68,37 +67,28 @@ export default function Hero() {
                             2xl:text-[5.6rem]
                         "
                     >
-                        Vehículos industriales
-                        <br />
-                        preparados para seguir
-                        <br />
-                        trabajando
+                        {t("title")}
                     </h1>
 
                     <p
                         className="
                             mt-6
                             max-w-[680px]
-
                             text-base
                             leading-relaxed
                             text-white/90
-
                             sm:text-lg
                             md:text-xl
                             xl:text-2xl
                         "
                     >
-                        Mantenimiento, diagnosis y reparación de camiones,
-                        furgonetas y vehículos comerciales en Orihuela.
+                        {t("description")}
                     </p>
 
                     <div className="mt-10">
-
                         <MainButton href="tel:+34966744466">
-                            Llamar al taller
+                            {t("button")}
                         </MainButton>
-
                     </div>
 
                 </div>

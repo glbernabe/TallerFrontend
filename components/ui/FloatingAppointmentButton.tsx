@@ -1,10 +1,14 @@
-import {Link} from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export default function FloatingAppointmentButton() {
+import { Link } from "@/i18n/navigation";
+
+export default async function FloatingAppointmentButton() {
+    const t = await getTranslations("FloatingAppointment");
+
     return (
         <Link
-            href="/cita-previa"
-            aria-label="Pedir cita previa"
+            href="/servicios/taller/cita-previa"
+            aria-label={t("ariaLabel")}
             className="
                 fixed
                 right-6
@@ -14,7 +18,7 @@ export default function FloatingAppointmentButton() {
 
                 flex
                 h-40
-                w-14
+                w-20
                 flex-col
                 items-center
                 justify-center
@@ -34,12 +38,35 @@ export default function FloatingAppointmentButton() {
                 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]
             "
         >
-            <span className="font-text text-xs font-medium tracking-[0.12em]">
-                PEDIR
+            <span
+                className="
+                    max-w-full
+                    px-1
+                    text-center
+                    font-text
+                    text-[10px]
+                    font-medium
+                    leading-tight
+                    tracking-[0.08em]
+                "
+            >
+                {t("request")}
             </span>
 
-            <span className="mt-1 font-text text-xs font-medium tracking-[0.12em]">
-                CITA
+            <span
+                className="
+                    mt-1
+                    max-w-full
+                    px-1
+                    text-center
+                    font-text
+                    text-[10px]
+                    font-medium
+                    leading-tight
+                    tracking-[0.08em]
+                "
+            >
+                {t("appointment")}
             </span>
         </Link>
     );

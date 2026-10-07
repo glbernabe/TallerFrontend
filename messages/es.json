@@ -24,6 +24,17 @@
         "interestingLinks": "Enlaces de interés",
         "news": "Noticias"
     },
+    "Hero": {
+        "imageAlt": "Vehículos industriales Mercedes-Benz",
+        "title": "Vehículos industriales preparados para seguir trabajando",
+        "description": "Mantenimiento, diagnosis y reparación de camiones, furgonetas y vehículos comerciales en Orihuela.",
+        "button": "Llamar al taller"
+    },
+    "FloatingAppointment": {
+        "ariaLabel": "Pedir cita previa",
+        "request": "PEDIR",
+        "appointment": "CITA"
+    },
     "News": {
         "metadata": {
             "title": "Noticias",
@@ -31,6 +42,71 @@
         },
         "title": "Noticias",
         "description": "Las últimas novedades de Auto Talleres Orihuela."
+    },
+    "Services": {
+        "title": "Un servicio pensado para el trabajo",
+        "description": "Mantenemos y reparamos vehículos industriales que forman parte del día a día de profesionales y empresas. Desde el mantenimiento preventivo hasta la diagnosis y reparación, trabajamos para que tu vehículo pueda seguir en marcha.",
+        "cards": {
+            "maintenance": {
+                "alt": "Mantenimiento de un vehículo industrial",
+                "title": "Mantenimiento",
+                "description": "Revisiones, cambios de aceite, filtros, líquidos y mantenimiento preventivo para mantener el vehículo en condiciones óptimas."
+            },
+            "diagnosis": {
+                "alt": "Diagnosis de un vehículo industrial",
+                "title": "Diagnosis",
+                "description": "Diagnóstico electrónico para identificar averías con precisión y facilitar una reparación eficaz."
+            },
+            "repairs": {
+                "alt": "Reparación de un vehículo industrial",
+                "title": "Reparaciones",
+                "description": "Intervenciones mecánicas y electrónicas para resolver averías y mantener el vehículo operativo."
+            }
+        }
+    },
+    "Features": {
+        "title": "¿Por qué confiar en nosotros?",
+        "description": "Experiencia, tecnología y profesionales preparados para mantener su vehículo siempre en las mejores condiciones.",
+        "items": {
+            "specializedTechnicians": {
+                "title": "Técnicos especializados",
+                "description": "Profesionales preparados para trabajar con las exigencias de los vehículos industriales."
+            },
+            "qualityParts": {
+                "title": "Recambios de calidad",
+                "description": "Componentes seleccionados para garantizar la fiabilidad y el rendimiento de cada intervención."
+            },
+            "specializedEquipment": {
+                "title": "Equipamiento especializado",
+                "description": "Tecnología y herramientas adecuadas para realizar diagnosis y reparaciones con precisión."
+            },
+            "trustAndWarranty": {
+                "title": "Confianza y garantía",
+                "description": "Trabajamos con procedimientos profesionales y buscamos que cada intervención cumpla nuestras exigencias de calidad."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Tu taller de vehículos industriales en Orihuela",
+        "description": "Estamos en Orihuela, Alicante, para ayudarte con el mantenimiento, diagnosis y reparación de camiones, furgonetas y vehículos comerciales.",
+        "phone": "Teléfono",
+        "email": "Correo electrónico",
+        "openingHours": "Horario",
+        "callButton": "Llamar al taller",
+        "locationLabel": "Nuestra ubicación",
+        "directionsButton": "Cómo llegar",
+        "mapAlt": "Ubicación de Auto Talleres Orihuela en Orihuela, Alicante",
+        "mapAriaLabel": "Ver la ubicación de Auto Talleres Orihuela en Google Maps",
+        "closed": "Cerrado",
+        "days": {
+            "Lunes": "Lunes",
+            "Martes": "Martes",
+            "Miercoles": "Miércoles",
+            "Jueves": "Jueves",
+            "Viernes": "Viernes",
+            "Sábado": "Sábado",
+            "Domingo": "Domingo"
+        }
     },
     "History": {
         "metadata": {
@@ -123,6 +199,18 @@
             "titleLine2": "en nosotros.",
             "titleLine3": "Seguimos rodando juntos."
         }
+    },
+    "OpeningHours": {
+        "days": {
+            "Lunes": "Lunes",
+            "Martes": "Martes",
+            "Miércoles": "Miércoles",
+            "Jueves": "Jueves",
+            "Viernes": "Viernes",
+            "Sábado": "Sábado",
+            "Domingo": "Domingo"
+        },
+        "closed": "Cerrado"
     },
     "Cookies": {
         "metadata": {

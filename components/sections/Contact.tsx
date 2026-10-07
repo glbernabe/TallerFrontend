@@ -1,18 +1,44 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
+
 import MainButton from "@/components/ui/MainButton";
 
-export default function Contact() {
-    const googleMapsUrl =
-        "https://www.google.com/maps/dir/?api=1&destination=Auto-Talleres+Orihuela,+Carretera+Murcia-Alicante,+km+28,+03300+Orihuela,+Alicante";
+import {
+    getOpeningHours,
+} from "@/lib/opening-hours/openingHoursDependencies";
 
-    // Puedes cambiar esta ruta por la imagen del mapa que quieras utilizar.
-    const mapImage = "/content/images/maps.webp";
+import {
+    getSiteSettings,
+} from "@/lib/site-settings/siteSettingsDependencies";
+
+export default async function Contact() {
+    const t = await getTranslations("Contact");
+
+    const [
+        siteSettings,
+        openingHours,
+    ] = await Promise.all([
+        getSiteSettings.execute(),
+        getOpeningHours.execute(),
+    ]);
+
+    const googleMapsUrl =
+        siteSettings.googleMapsUrl;
+
+    const mapImage =
+        "/content/images/maps.webp";
 
     return (
-        <Section className="bg-neutral-950 py-32 text-white">
+        <Section
+            className="
+                bg-neutral-950
+                py-32
+                text-white
+            "
+        >
 
             <Container>
 
@@ -20,13 +46,12 @@ export default function Contact() {
                     className="
                         grid
                         gap-16
-
                         lg:grid-cols-[1fr_1.2fr]
                         lg:items-center
                     "
                 >
 
-                    {/* Información */}
+                    {/* INFORMACIÓN */}
 
                     <div>
 
@@ -35,130 +60,150 @@ export default function Contact() {
                                 font-title
                                 text-5xl
                                 leading-tight
-
                                 md:text-6xl
                             "
                         >
-                            Tu taller de vehículos industriales en Orihuela
+                            {t("title")}
                         </h2>
 
                         <p
                             className="
                                 mt-6
-
                                 max-w-xl
-
                                 font-text
                                 text-lg
                                 leading-8
-
                                 text-white/70
                             "
                         >
-                            Estamos en Orihuela, Alicante, para ayudarte con el
-                            mantenimiento, diagnosis y reparación de camiones,
-                            furgonetas y vehículos comerciales.
+                            {t("description")}
                         </p>
+
+
+                        {/* DATOS DE CONTACTO */}
 
                         <div className="mt-12 space-y-8">
 
-                            {/* Teléfono */}
+                            {/* TELÉFONO */}
 
                             <div>
 
                                 <h3 className="font-title text-xl">
-                                    Teléfono
+                                    {t("phone")}
                                 </h3>
 
                                 <a
-                                    href="tel:+34966744466"
+                                    href={`tel:${siteSettings.phone}`}
                                     className="
                                         mt-2
                                         block
-
                                         font-text
                                         text-white/65
-
                                         transition-colors
                                         duration-200
-
                                         hover:text-white
                                     "
                                 >
-                                    966 744 466
+                                    {siteSettings.phone}
                                 </a>
 
                             </div>
 
 
-                            {/* Correo */}
+                            {/* CORREO */}
 
                             <div>
 
                                 <h3 className="font-title text-xl">
-                                    Correo electrónico
+                                    {t("email")}
                                 </h3>
 
                                 <a
-                                    href="mailto:orihuela.ato@autotalleresorihuela.es"
+                                    href={`mailto:${siteSettings.email}`}
                                     className="
                                         mt-2
                                         block
-
                                         font-text
                                         text-white/65
-
                                         transition-colors
                                         duration-200
-
                                         hover:text-white
                                     "
                                 >
-                                    orihuela.ato@autotalleresorihuela.es
+                                    {siteSettings.email}
                                 </a>
 
                             </div>
 
 
-                            {/* Horario */}
+                            {/* HORARIO */}
 
                             <div>
 
                                 <h3 className="font-title text-xl">
-                                    Horario
+                                    {t("openingHours")}
                                 </h3>
 
-                                <p
+                                <div
                                     className="
-                                        mt-2
-
+                                        mt-3
+                                        space-y-3
                                         font-text
                                         text-white/65
                                     "
                                 >
-                                    Lunes - Viernes
-                                    <br />
-                                    08:30 - 14:00
-                                    <br />
-                                    15:30 - 19:00
+                                    {openingHours.map(
+                                        (openingHour) => (
+                                            <div
+                                                key={
+                                                    openingHour.id
+                                                }
+                                                className="
+                                                    flex
+                                                    flex-col
+                                                    gap-1
+                                                    sm:flex-row
+                                                    sm:items-baseline
+                                                    sm:gap-4
+                                                "
+                                            >
 
-                                    <br />
-                                    <br />
+                                                <span
+                                                    className="
+                                                        min-w-24
+                                                        text-white/90
+                                                    "
+                                                >
+                                                    {t(
+                                                        `days.${openingHour.day}`
+                                                    )}
+                                                </span>
 
-                                    Sábado
-                                    <br />
-                                    08:30 - 13:30
-                                </p>
+                                                <span>
+                                                    {formatOpeningHour(
+                                                        openingHour,
+                                                        t("closed")
+                                                    )}
+                                                </span>
+
+                                            </div>
+                                        )
+                                    )}
+                                </div>
 
                             </div>
 
                         </div>
 
 
+                        {/* BOTÓN */}
+
                         <div className="mt-12">
 
-                            <MainButton href="tel:+34966744466">
-                                Llamar al taller
+                            <MainButton
+                                href={`tel:${siteSettings.phone}`}
+                            >
+                                {t("callButton")}
                             </MainButton>
 
                         </div>
@@ -166,8 +211,7 @@ export default function Contact() {
                     </div>
 
 
-                    {/* Ubicación */}
-
+                    {/* UBICACIÓN */}
 
                     <div
                         className="
@@ -177,20 +221,32 @@ export default function Contact() {
                             bg-white
                         "
                     >
+
                         {/* CAPA 1 — Fondo blanco */}
+
                         <div className="absolute inset-0 bg-white" />
 
+
                         {/* CAPA 2 — Imagen del mapa */}
+
                         <a
                             href={googleMapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Ver la ubicación de Auto Talleres Orihuela en Google Maps"
-                            className="group absolute inset-0 block"
+                            aria-label={t(
+                                "mapAriaLabel"
+                            )}
+                            className="
+                                group
+                                absolute
+                                inset-0
+                                block
+                            "
                         >
+
                             <Image
                                 src={mapImage}
-                                alt="Ubicación de Auto Talleres Orihuela en Orihuela, Alicante"
+                                alt={t("mapAlt")}
                                 fill
                                 sizes="
                                     (min-width: 1024px) 50vw,
@@ -200,48 +256,47 @@ export default function Contact() {
                                 quality={75}
                                 className="
                                     object-cover
-
                                     grayscale
                                     contrast-[0.9]
-
                                     transition-transform
                                     duration-700
                                     ease-out
-
                                     group-hover:scale-[1.03]
-
                                     motion-reduce:transition-none
                                     motion-reduce:transform-none
                                 "
                             />
+
                         </a>
 
+
                         {/* CAPA 3 — Contenido */}
+
                         <div
                             className="
                                 pointer-events-none
                                 absolute
                                 inset-0
                                 z-10
-
                                 flex
                                 flex-col
                                 justify-between
-
                                 p-8
+                                text-white
                                 md:p-10
                                 lg:p-12
-
-                                text-white
                             "
                         >
-                            {/* Parte superior */}
+
+                            {/* PARTE SUPERIOR */}
+
                             <div
                                 className="
                                     max-w-[75%]
                                     drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]
                                 "
                             >
+
                                 <p
                                     className="
                                         font-text
@@ -252,18 +307,16 @@ export default function Contact() {
                                         md:text-sm
                                     "
                                 >
-                                    Nuestra ubicación
+                                    {t("locationLabel")}
                                 </p>
 
                                 <h3
                                     className="
                                         mt-4
-
                                         font-title
                                         text-4xl
                                         leading-[0.95]
                                         tracking-[-0.02em]
-
                                         md:text-5xl
                                         lg:text-6xl
                                     "
@@ -272,55 +325,68 @@ export default function Contact() {
                                     <br />
                                     Alicante
                                 </h3>
+
                             </div>
 
-                            {/* Parte inferior */}
+
+                            {/* PARTE INFERIOR */}
+
                             <div
                                 className="
-                                        flex
-                                        items-end
-                                        justify-between
-                                        gap-8
-
-                                        drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]
-                                    "
+                                    flex
+                                    items-end
+                                    justify-between
+                                    gap-8
+                                    drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]
+                                "
                             >
+
                                 <div className="max-w-md">
+
                                     <div
                                         className="
-                        mb-5
-                        h-px
-                        w-12
-                        bg-white/80
-                    "
+                                            mb-5
+                                            h-px
+                                            w-12
+                                            bg-white/80
+                                        "
                                     />
 
                                     <p
                                         className="
-                        font-text
-                        text-sm
-                        leading-6
-                        text-white/85
-
-                        md:text-base
-                        md:leading-7
-                    "
+                                            font-text
+                                            text-sm
+                                            leading-6
+                                            text-white/85
+                                            md:text-base
+                                            md:leading-7
+                                        "
                                     >
-                                        Carretera Murcia-Alicante, km 28
-                                        <br />
-                                        03300 Orihuela, Alicante
+                                        {siteSettings.address}
                                     </p>
+
                                 </div>
 
-                                <div className="pointer-events-auto shrink-0">
-                                    <MainButton href={googleMapsUrl}>
-                                        Cómo llegar
+                                <div
+                                    className="
+                                        pointer-events-auto
+                                        shrink-0
+                                    "
+                                >
+                                    <MainButton
+                                        href={googleMapsUrl}
+                                    >
+                                        {t("directionsButton")}
                                     </MainButton>
                                 </div>
+
                             </div>
+
                         </div>
 
-                        {/* Borde visible */}
+
+                        {/* BORDE VISIBLE */}
+
                         <div
                             className="
                                 pointer-events-none
@@ -332,6 +398,7 @@ export default function Contact() {
                             "
                             aria-hidden="true"
                         />
+
                     </div>
 
                 </div>
@@ -340,4 +407,50 @@ export default function Contact() {
 
         </Section>
     );
+}
+
+
+function formatOpeningHour(
+    openingHour: {
+        morningOpening: string | null;
+        morningClosing: string | null;
+        afternoonOpening: string | null;
+        afternoonClosing: string | null;
+        closedMorning: boolean;
+        closedAfternoon: boolean;
+        closedAllDay: boolean;
+    },
+    closedLabel: string
+): string {
+    if (openingHour.closedAllDay) {
+        return closedLabel;
+    }
+
+    const periods: string[] = [];
+
+    if (
+        !openingHour.closedMorning &&
+        openingHour.morningOpening &&
+        openingHour.morningClosing
+    ) {
+        periods.push(
+            `${openingHour.morningOpening} - ${openingHour.morningClosing}`
+        );
+    }
+
+    if (
+        !openingHour.closedAfternoon &&
+        openingHour.afternoonOpening &&
+        openingHour.afternoonClosing
+    ) {
+        periods.push(
+            `${openingHour.afternoonOpening} - ${openingHour.afternoonClosing}`
+        );
+    }
+
+    if (periods.length === 0) {
+        return closedLabel;
+    }
+
+    return periods.join(" / ");
 }

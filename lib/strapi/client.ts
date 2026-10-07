@@ -1,10 +1,18 @@
 import { StrapiError } from "./StrapiError";
 
 const STRAPI_URL = process.env.STRAPI_URL;
+const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN;
 
 if (!STRAPI_URL) {
     throw new Error(
         "STRAPI_URL no está definida. " +
+        "Comprueba que existe en tu archivo .env.local."
+    );
+}
+
+if (!STRAPI_API_TOKEN) {
+    throw new Error(
+        "STRAPI_API_TOKEN no está definida. " +
         "Comprueba que existe en tu archivo .env.local."
     );
 }
@@ -22,6 +30,7 @@ export async function strapiFetch<T>(
             ...options,
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${STRAPI_API_TOKEN}`,
                 ...(options?.headers ?? {}),
             },
         });
