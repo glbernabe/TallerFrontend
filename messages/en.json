@@ -100,6 +100,68 @@
             "Domingo": "Sunday"
         }
     },
+    "Footer": {
+        "description": "A specialist workshop for commercial vehicles, trucks and vans. Maintenance, diagnostics and repairs for professionals and businesses.",
+        "services": {
+            "title": "Services",
+            "maintenance": "Maintenance",
+            "diagnosis": "Diagnostics",
+            "repairs": "Repairs",
+            "commercialVehicles": "Commercial vehicles"
+        },
+        "company": {
+            "title": "Company",
+            "aboutUs": "About us",
+            "contact": "Contact",
+            "workWithUs": "Work with us"
+        },
+        "information": {
+            "title": "Information",
+            "legalNotice": "Legal notice",
+            "privacyPolicy": "Privacy policy",
+            "cookies": "Cookies"
+        },
+        "social": {
+            "title": "Follow us",
+            "googleReviews": "Google Reviews"
+        },
+        "copyright": "All rights reserved.",
+        "trademark": "Mercedes-Benz® is a registered trademark of Mercedes-Benz Group AG."
+    },
+    "WorkWithUs": {
+        "breadcrumbHome": "Home",
+        "breadcrumbCurrent": "Work with us",
+        "title": "Work with us",
+        "description": "If you would like to join Auto Talleres Orihuela, send us your details and CV. We will review your application and get in touch with you.",
+        "form": {
+            "nameLabel": "Name:",
+            "emailLabel": "Email address:",
+            "phoneLabel": "Phone:",
+            "messageLabel": "Message:",
+            "cvLabel": "CV:",
+            "selectCv": "Choose CV",
+            "pdfHelp": "PDF files only, up to 5 MB.",
+            "privacyConsentPrefix": "I have read and accept the",
+            "privacyPolicyLink": "privacy policy",
+            "privacyConsentSuffix": "and consent to the processing of my data to manage my application.",
+            "captchaLabel": "I'm not a robot",
+            "captchaNotice": "Temporary CAPTCHA mockup. This visual check does not yet verify that you are a human.",
+            "successMessage": "Your application has been sent successfully. Thank you for your interest.",
+            "cancelButton": "Cancel",
+            "submitButton": "Submit application",
+            "sendingButton": "Sending...",
+            "errors": {
+                "pdfRequired": "Please attach your CV as a PDF file.",
+                "invalidPdf": "Please attach a valid PDF file.",
+                "fileTooLarge": "The file exceeds the 5 MB limit.",
+                "invalidEmail": "Enter a valid email address.",
+                "termsRequired": "You must accept the privacy policy to submit your application.",
+                "emailNotConfigured": "Application submission has not been configured yet. Please contact the company another way.",
+                "sendFailed": "Your application could not be sent. Please try again later.",
+                "network": "Could not connect to the server. Check your connection and try again."
+            }
+        }
+    },
     "News": {
         "metadata": {
             "title": "News",

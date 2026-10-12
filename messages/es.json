@@ -108,6 +108,68 @@
             "Domingo": "Domingo"
         }
     },
+    "Footer": {
+        "description": "Taller especializado en vehículos industriales, camiones y furgonetas. Mantenimiento, diagnosis y reparación para profesionales y empresas.",
+        "services": {
+            "title": "Servicios",
+            "maintenance": "Mantenimiento",
+            "diagnosis": "Diagnosis",
+            "repairs": "Reparaciones",
+            "commercialVehicles": "Vehículo industrial"
+        },
+        "company": {
+            "title": "Empresa",
+            "aboutUs": "Sobre nosotros",
+            "contact": "Contacto",
+            "workWithUs": "Trabaja con nosotros"
+        },
+        "information": {
+            "title": "Información",
+            "legalNotice": "Aviso legal",
+            "privacyPolicy": "Política de privacidad",
+            "cookies": "Cookies"
+        },
+        "social": {
+            "title": "Síguenos",
+            "googleReviews": "Reseñas de Google"
+        },
+        "copyright": "Todos los derechos reservados.",
+        "trademark": "Mercedes-Benz® es una marca registrada de Mercedes-Benz Group AG."
+    },
+    "WorkWithUs": {
+        "breadcrumbHome": "Inicio",
+        "breadcrumbCurrent": "Trabaja con nosotros",
+        "title": "Trabaja con nosotros",
+        "description": "Si quieres formar parte de Auto Talleres Orihuela, envíanos tus datos y tu currículum. Revisaremos tu candidatura y nos pondremos en contacto contigo.",
+        "form": {
+            "nameLabel": "Nombre:",
+            "emailLabel": "Correo electrónico:",
+            "phoneLabel": "Teléfono:",
+            "messageLabel": "Mensaje:",
+            "cvLabel": "Currículum:",
+            "selectCv": "Seleccionar CV",
+            "pdfHelp": "Solo se aceptan archivos PDF de hasta 5 MB.",
+            "privacyConsentPrefix": "He leído y acepto la",
+            "privacyPolicyLink": "política de privacidad",
+            "privacyConsentSuffix": "y autorizo el tratamiento de mis datos para gestionar mi candidatura.",
+            "captchaLabel": "No soy un robot",
+            "captchaNotice": "CAPTCHA provisional. Esta comprobación visual todavía no verifica que seas una persona.",
+            "successMessage": "Tu candidatura se ha enviado correctamente. Gracias por tu interés.",
+            "cancelButton": "Cancelar",
+            "submitButton": "Enviar candidatura",
+            "sendingButton": "Enviando...",
+            "errors": {
+                "pdfRequired": "Debes adjuntar tu currículum en formato PDF.",
+                "invalidPdf": "Adjunta un archivo PDF válido.",
+                "fileTooLarge": "El archivo supera el límite de 5 MB.",
+                "invalidEmail": "Introduce una dirección de correo electrónico válida.",
+                "termsRequired": "Debes aceptar la política de privacidad para enviar tu candidatura.",
+                "emailNotConfigured": "El envío de candidaturas aún no está configurado. Contacta con la empresa por otra vía.",
+                "sendFailed": "No se ha podido enviar la candidatura. Inténtalo de nuevo más tarde.",
+                "network": "No se ha podido conectar con el servidor. Comprueba tu conexión e inténtalo de nuevo."
+            }
+        }
+    },
     "History": {
         "metadata": {
             "title": "Sobre Nosotros | Auto-Talleres Orihuela",

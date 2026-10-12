@@ -108,6 +108,40 @@
         "title": "Actualités",
         "description": "Les dernières actualités d'Auto Talleres Orihuela."
     },
+    "Footer": {
+        "description": "Un atelier spécialisé dans les véhicules utilitaires, les camions et les fourgons. Entretien, diagnostic et réparation pour les professionnels et les entreprises.",
+        "services": {
+            "title": "Services",
+            "maintenance": "Entretien",
+            "diagnosis": "Diagnostic",
+            "repairs": "Réparations",
+            "commercialVehicles": "Véhicules utilitaires"
+        },
+        "company": {
+            "title": "Entreprise",
+            "aboutUs": "À propos de nous",
+            "contact": "Contact",
+            "workWithUs": "Rejoignez notre équipe"
+        },
+        "information": {
+            "title": "Informations",
+            "legalNotice": "Mentions légales",
+            "privacyPolicy": "Politique de confidentialité",
+            "cookies": "Cookies"
+        },
+        "social": {
+            "title": "Suivez-nous",
+            "googleReviews": "Avis Google"
+        },
+        "copyright": "Tous droits réservés.",
+        "trademark": "Mercedes-Benz® est une marque déposée de Mercedes-Benz Group AG."
+    },
+    "WorkWithUs": {
+        "breadcrumbHome": "Accueil",
+        "breadcrumbCurrent": "Rejoignez notre équipe",
+        "title": "Rejoignez notre équipe",
+        "description": "Si vous souhaitez rejoindre Auto Talleres Orihuela, envoyez-nous vos coordonnées et votre CV. Nous examinerons votre candidature et nous vous contacterons."
+    },
     "History": {
         "metadata": {
             "title": "À propos de nous | Auto-Talleres Orihuela",

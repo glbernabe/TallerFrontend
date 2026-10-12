@@ -1,3 +1,5 @@
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import Container from "./Container";
 
 import Logo from "./Logo";
@@ -80,16 +82,15 @@ function GoogleIcon() {
     );
 }
 
-export default function Footer() {
+
+export default async function Footer() {
+    const t = await getTranslations("Footer");
+
     return (
         <footer className="border-t border-white/10 bg-black text-white">
-
             <Container>
-
                 <div className="py-20">
-
                     {/* Parte superior */}
-
                     <div
                         className="
                             grid
@@ -97,11 +98,8 @@ export default function Footer() {
                             lg:grid-cols-[1.2fr_1fr_1fr_1fr]
                         "
                     >
-
                         {/* Empresa */}
-
                         <div>
-
                             <Logo />
 
                             <p
@@ -112,20 +110,14 @@ export default function Footer() {
                                     text-white/65
                                 "
                             >
-                                Taller especializado en vehículos industriales,
-                                camiones y furgonetas. Mantenimiento, diagnosis
-                                y reparación para profesionales y empresas.
+                                {t("description")}
                             </p>
-
                         </div>
 
-
                         {/* Servicios */}
-
                         <div>
-
                             <h3 className="font-title text-lg">
-                                Servicios
+                                {t("services.title")}
                             </h3>
 
                             <ul
@@ -140,7 +132,7 @@ export default function Footer() {
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
-                                        Mantenimiento
+                                        {t("services.maintenance")}
                                     </a>
                                 </li>
 
@@ -149,7 +141,7 @@ export default function Footer() {
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
-                                        Diagnosis
+                                        {t("services.diagnosis")}
                                     </a>
                                 </li>
 
@@ -158,7 +150,7 @@ export default function Footer() {
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
-                                        Reparaciones
+                                        {t("services.repairs")}
                                     </a>
                                 </li>
 
@@ -167,60 +159,52 @@ export default function Footer() {
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
-                                        Vehículo industrial
+                                        {t("services.commercialVehicles")}
                                     </a>
                                 </li>
                             </ul>
-
                         </div>
 
-
                         {/* Empresa */}
-
                         <FooterColumn
-                            title="Empresa"
+                            title={t("company.title")}
                             links={[
                                 {
-                                    label: "Sobre nosotros",
+                                    label: t("company.aboutUs"),
                                     href: "/about-us",
                                 },
                                 {
-                                    label: "Contacto",
+                                    label: t("company.contact"),
                                     href: "/contacto",
                                 },
                                 {
-                                    label: "Trabaja con nosotros",
+                                    label: t("company.workWithUs"),
                                     href: "/trabaja-con-nosotros",
                                 },
                             ]}
                         />
 
-
                         {/* Información */}
-
                         <FooterColumn
-                            title="Información"
+                            title={t("information.title")}
                             links={[
                                 {
-                                    label: "Aviso legal",
+                                    label: t("information.legalNotice"),
                                     href: "/legal",
                                 },
                                 {
-                                    label: "Política de privacidad",
+                                    label: t("information.privacyPolicy"),
                                     href: "/privacidad",
                                 },
                                 {
-                                    label: "Cookies",
+                                    label: t("information.cookies"),
                                     href: "/cookies",
                                 },
                             ]}
                         />
-
                     </div>
 
-
                     {/* Redes sociales */}
-
                     <div
                         className="
                             mt-16
@@ -230,17 +214,14 @@ export default function Footer() {
                             border-t
                             border-white/10
                             pt-10
-
                             md:flex-row
                             md:items-center
                             md:justify-between
                         "
                     >
-
                         <div>
-
                             <h3 className="font-title text-lg">
-                                Síguenos
+                                {t("social.title")}
                             </h3>
 
                             <div
@@ -251,7 +232,6 @@ export default function Footer() {
                                     gap-5
                                 "
                             >
-
                                 <a
                                     href="https://www.instagram.com/autotalleresorihuela/"
                                     target="_blank"
@@ -298,7 +278,7 @@ export default function Footer() {
                                     href="https://share.google/AKOiwxkeLV1rZIzbC"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Google Reviews"
+                                    aria-label={t("social.googleReviews")}
                                     className="
                                         text-white/60
                                         transition-colors
@@ -307,68 +287,52 @@ export default function Footer() {
                                 >
                                     <GoogleIcon />
                                 </a>
-
                             </div>
-
                         </div>
 
-
                         {/* Trabaja con nosotros destacado */}
-
-                        <a
+                        <Link
                             href="/trabaja-con-nosotros"
                             className="
                                 inline-flex
                                 items-center
                                 gap-3
-
                                 font-text
                                 text-sm
                                 font-medium
-
                                 text-white
-
                                 transition-opacity
                                 duration-200
-
                                 hover:opacity-60
                             "
                         >
-                            Trabaja con nosotros
+                            {t("company.workWithUs")}
 
                             <span aria-hidden="true">
                                 →
                             </span>
-                        </a>
-
+                        </Link>
                     </div>
 
-
                     {/* Línea */}
-
                     <div className="my-16 border-t border-white/10" />
 
-
                     {/* Parte inferior */}
-
                     <div
                         className="
                             flex
                             flex-col
                             gap-6
-
                             text-sm
                             text-white/50
-
                             md:flex-row
                             md:items-center
                             md:justify-between
                         "
                     >
-
                         <p>
-                            © {new Date().getFullYear()} Autotalleres Orihuela.
-                            Todos los derechos reservados.
+                            © {new Date().getFullYear()} Autotalleres Orihuela.{" "}
+                            {t("copyright")}
                         </p>
 
                         <div
@@ -379,7 +343,6 @@ export default function Footer() {
                                 gap-6
                             "
                         >
-
                             <div className="flex items-center gap-3">
                                 <Logo />
 
@@ -389,18 +352,12 @@ export default function Footer() {
                             </div>
 
                             <span>
-                                Mercedes-Benz® es una marca registrada de
-                                Mercedes-Benz Group AG.
+                                {t("trademark")}
                             </span>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </Container>
-
         </footer>
     );
 }

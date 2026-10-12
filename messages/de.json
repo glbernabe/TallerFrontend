@@ -78,6 +78,68 @@
             }
         }
     },
+    "Footer": {
+        "description": "Spezialwerkstatt für Nutzfahrzeuge, Lkw und Transporter. Wartung, Diagnose und Reparatur für Fachleute und Unternehmen.",
+        "services": {
+            "title": "Leistungen",
+            "maintenance": "Wartung",
+            "diagnosis": "Diagnose",
+            "repairs": "Reparaturen",
+            "commercialVehicles": "Nutzfahrzeuge"
+        },
+        "company": {
+            "title": "Unternehmen",
+            "aboutUs": "Über uns",
+            "contact": "Kontakt",
+            "workWithUs": "Karriere"
+        },
+        "information": {
+            "title": "Informationen",
+            "legalNotice": "Impressum",
+            "privacyPolicy": "Datenschutzerklärung",
+            "cookies": "Cookies"
+        },
+        "social": {
+            "title": "Folgen Sie uns",
+            "googleReviews": "Google-Bewertungen"
+        },
+        "copyright": "Alle Rechte vorbehalten.",
+        "trademark": "Mercedes-Benz® ist eine eingetragene Marke der Mercedes-Benz Group AG."
+    },
+    "WorkWithUs": {
+        "breadcrumbHome": "Startseite",
+        "breadcrumbCurrent": "Karriere",
+        "title": "Werden Sie Teil unseres Teams",
+        "description": "Wenn Sie Teil von Auto Talleres Orihuela werden möchten, senden Sie uns Ihre Kontaktdaten und Ihren Lebenslauf. Wir prüfen Ihre Bewerbung und setzen uns mit Ihnen in Verbindung.",
+        "form": {
+            "nameLabel": "Name:",
+            "emailLabel": "E-Mail-Adresse:",
+            "phoneLabel": "Telefon:",
+            "messageLabel": "Nachricht:",
+            "cvLabel": "Lebenslauf:",
+            "selectCv": "Lebenslauf auswählen",
+            "pdfHelp": "Nur PDF-Dateien bis maximal 5 MB.",
+            "privacyConsentPrefix": "Ich habe die",
+            "privacyPolicyLink": "Datenschutzerklärung",
+            "privacyConsentSuffix": "gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Bewerbung zu.",
+            "captchaLabel": "Ich bin kein Roboter",
+            "captchaNotice": "Vorläufiger CAPTCHA-Platzhalter. Diese visuelle Prüfung bestätigt noch nicht, dass Sie ein Mensch sind.",
+            "successMessage": "Ihre Bewerbung wurde erfolgreich gesendet. Vielen Dank für Ihr Interesse.",
+            "cancelButton": "Abbrechen",
+            "submitButton": "Bewerbung senden",
+            "sendingButton": "Wird gesendet...",
+            "errors": {
+                "pdfRequired": "Bitte fügen Sie Ihren Lebenslauf als PDF-Datei bei.",
+                "invalidPdf": "Bitte fügen Sie eine gültige PDF-Datei bei.",
+                "fileTooLarge": "Die Datei überschreitet die Grenze von 5 MB.",
+                "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+                "termsRequired": "Sie müssen die Datenschutzerklärung akzeptieren, um Ihre Bewerbung zu senden.",
+                "emailNotConfigured": "Der Bewerbungseingang ist noch nicht konfiguriert. Bitte kontaktieren Sie das Unternehmen auf anderem Weg.",
+                "sendFailed": "Ihre Bewerbung konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
+                "network": "Der Server konnte nicht erreicht werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+            }
+        }
+    },
     "Contact": {
         "title": "Ihre Nutzfahrzeugwerkstatt in Orihuela",
         "description": "Wir sind in Orihuela, Alicante, für die Wartung, Diagnose und Reparatur von Lkw, Transportern und Nutzfahrzeugen für Sie da.",
