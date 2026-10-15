@@ -104,7 +104,7 @@ export default function WorkWithUsForm() {
         setStatus("submitting");
 
         try {
-            const response = await fetch("/api/work-with-us", {
+            const response = await fetch("/api/curriculums", {
                 method: "POST",
                 body: formData,
             });
