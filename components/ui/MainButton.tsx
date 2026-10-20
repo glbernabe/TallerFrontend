@@ -1,6 +1,9 @@
 "use client";
 
-import {Link} from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
+import type { ComponentProps } from "react";
+
+type InternalHref = ComponentProps<typeof Link>["href"];
 
 type Props = {
     children: React.ReactNode;
@@ -57,18 +60,21 @@ export default function MainButton({
     `;
 
     if (href) {
+        const isInternalHref = href.startsWith("/") && !href.startsWith("//");
+
+        if (isInternalHref) {
+            return (
+                <Link href={href as InternalHref} className={classes}>
+                    {children}
+                </Link>
+            );
+        }
 
         return (
-
-            <Link
-                href={href}
-                className={classes}
-            >
+            <a href={href} className={classes}>
                 {children}
-            </Link>
-
+            </a>
         );
-
     }
 
     return (

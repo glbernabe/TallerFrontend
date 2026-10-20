@@ -39,7 +39,7 @@ export default function NewsCard({
                 )}
 
                 <Link
-                    href={`/noticias/${news.slug}`}
+                    href={{ pathname: "/noticias/[slug]", params: { slug: news.slug } }}
                     className="mt-5 inline-block font-text text-sm font-medium"
                 >
                     Leer noticia →

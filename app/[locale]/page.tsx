@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import Features from "@/components/sections/Features";
 import Contact from "@/components/sections/Contact";
-import FloatingAppointmentButton from "@/components/ui/FloatingAppointmentButton";
 
-import { getTranslations } from "next-intl/server";
 
 
 export const metadata: Metadata = {
@@ -40,16 +36,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-    const t = await getTranslations("home");
-
     return (
         <>
 
-            <Navbar />
             
             <Hero />
 
-            <FloatingAppointmentButton />
 
             <Services />
 
@@ -57,7 +49,6 @@ export default async function Home() {
 
             <Contact />
 
-            <Footer />
         </>
     );
 }

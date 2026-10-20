@@ -86,7 +86,6 @@ export default async function HistoryPage() {
                                         label: t(
                                             "breadcrumb.aboutUs"
                                         ),
-                                        href: "/sobre-nosotros",
                                     },
                                     {
                                         label: t(

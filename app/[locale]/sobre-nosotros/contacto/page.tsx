@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import MainButton from "@/components/ui/MainButton";
-import Navbar from "@/components/layout/Navbar";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 import ContactPeopleSection from "@/components/contact/ContactPeopleSection";
 
@@ -43,7 +42,6 @@ export default async function ContactPage() {
 
     return (
         <main className="bg-black text-white">
-            <Navbar />
 
             {/* HERO */}
 

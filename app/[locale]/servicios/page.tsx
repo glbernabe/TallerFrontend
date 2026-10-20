@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
 import Services from "@/components/sections/Services";
 import MainButton from "@/components/ui/MainButton";
 
@@ -73,7 +71,6 @@ export default function ServicesPage() {
                 </section>
             </main>
 
-            <Footer />
         </>
     );
 }

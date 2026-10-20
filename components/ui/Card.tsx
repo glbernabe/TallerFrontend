@@ -1,11 +1,15 @@
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+
+type InternalHref = Exclude<keyof typeof routing.pathnames, "/noticias/[slug]">;
 
 type Props = {
     src: string;
     alt: string;
     title: string;
     description: string;
-    href?: string;
+    href?: InternalHref;
     imageClassName?: string;
 };
 
@@ -17,7 +21,7 @@ export default function Card({
     href,
     imageClassName = "",
 }: Props) {
-    return (
+    const content = (
         <article
             className="
                 group
@@ -31,84 +35,36 @@ export default function Card({
                 hover:border-white/50
             "
         >
-            {/* Imagen */}
-
-            <div
-                className="
-                    relative
-                    h-[420px]
-                    overflow-hidden
-                "
-            >
-
+            <div className="relative h-[420px] overflow-hidden">
                 <Image
                     src={src}
                     alt={alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
-                    className={`
-                        object-cover
-                        transition-all
-                        duration-500
-                        group-hover:scale-105
-                        ${imageClassName}
-                    `}
+                    className={`object-cover transition-all duration-500 group-hover:scale-105 ${imageClassName}`}
                     quality={75}
                 />
-
-                {/* Degradado */}
-
-                <div
-                    className="
-                        absolute
-                        inset-x-0
-                        bottom-0
-                        h-48
-                        bg-gradient-to-t
-                        from-black
-                        via-black/80
-                        to-transparent
-                    "
-                />
-
+                <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black via-black/80 to-transparent" />
             </div>
 
-            {/* Contenido */}
-
-            <div
-                className="
-                    flex
-                    flex-col
-                    gap-3
-                    px-5
-                    py-5
-                "
-            >
-
-                <h3
-                    className="
-                        font-title
-                        text-[2rem]
-                        leading-tight
-                        text-white
-                    "
-                >
+            <div className="flex flex-col gap-3 px-5 py-5">
+                <h3 className="font-title text-[2rem] leading-tight text-white">
                     {title}
                 </h3>
-
-                <p
-                    className="
-                        font-text
-                        text-base
-                        leading-relaxed
-                        text-white/80
-                    "
-                >
+                <p className="font-text text-base leading-relaxed text-white/80">
                     {description}
                 </p>
-
             </div>
-
         </article>
+    );
+
+    if (!href) {
+        return content;
+    }
+
+    return (
+        <Link href={href} className="block">
+            {content}
+        </Link>
     );
 }

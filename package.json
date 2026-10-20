@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint app components core i18n infrastructure lib proxy.ts next.config.ts postcss.config.mjs eslint.config.mjs"
   },
   "dependencies": {
     "next": "^16.2.11",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
 import { useLocale } from "next-intl";
 
@@ -47,6 +48,7 @@ export default function LanguageSwitcher() {
 
     const router = useRouter();
     const pathname = usePathname();
+    const params = useParams<{ slug?: string }>();
 
     const currentLanguage =
         languages.find(
@@ -57,6 +59,16 @@ export default function LanguageSwitcher() {
         nextLocale: Locale
     ) {
         setIsOpen(false);
+
+        if (pathname === "/noticias/[slug]") {
+            if (typeof params.slug === "string") {
+                router.replace(
+                    { pathname: "/noticias/[slug]", params: { slug: params.slug } },
+                    { locale: nextLocale }
+                );
+            }
+            return;
+        }
 
         router.replace(pathname, {
             locale: nextLocale,

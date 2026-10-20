@@ -18,6 +18,10 @@ html {
 }
 
 :root {
+  /* Tipografías de respaldo cuando no se despliegan fuentes corporativas locales. */
+    --font-text: var(--font-mb-text);
+    --font-title: var(--font-mb-title);
+
   /* Colores */
   --hover-darkgray: #1a1a1a;
   --background: #000000;

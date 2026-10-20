@@ -2,7 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import Container from "./Container";
 
-import Logo from "./Logo";
+import BrandLockup from "./BrandLockup";
 
 import FooterColumn from "../ui/FooterColumn";
 
@@ -100,7 +100,7 @@ export default async function Footer() {
                     >
                         {/* Empresa */}
                         <div>
-                            <Logo />
+                            <BrandLockup />
 
                             <p
                                 className="
@@ -128,39 +128,39 @@ export default async function Footer() {
                                 "
                             >
                                 <li>
-                                    <a
+                                    <Link
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
                                         {t("services.maintenance")}
-                                    </a>
+                                    </Link>
                                 </li>
 
                                 <li>
-                                    <a
+                                    <Link
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
                                         {t("services.diagnosis")}
-                                    </a>
+                                    </Link>
                                 </li>
 
                                 <li>
-                                    <a
+                                    <Link
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
                                         {t("services.repairs")}
-                                    </a>
+                                    </Link>
                                 </li>
 
                                 <li>
-                                    <a
+                                    <Link
                                         href="/servicios"
                                         className="transition-colors hover:text-white"
                                     >
                                         {t("services.commercialVehicles")}
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -171,15 +171,15 @@ export default async function Footer() {
                             links={[
                                 {
                                     label: t("company.aboutUs"),
-                                    href: "/about-us",
+                                    href: "/sobre-nosotros/historia",
                                 },
                                 {
                                     label: t("company.contact"),
-                                    href: "/contacto",
+                                    href: "/sobre-nosotros/contacto",
                                 },
                                 {
                                     label: t("company.workWithUs"),
-                                    href: "/trabaja-con-nosotros",
+                                    href: "mailto:orihuela.ato@autotalleresorihuela.es?subject=Consulta%20de%20empleo",
                                 },
                             ]}
                         />
@@ -291,8 +291,8 @@ export default async function Footer() {
                         </div>
 
                         {/* Trabaja con nosotros destacado */}
-                        <Link
-                            href="/trabaja-con-nosotros"
+                        <a
+                            href="mailto:orihuela.ato@autotalleresorihuela.es?subject=Consulta%20de%20empleo"
                             className="
                                 inline-flex
                                 items-center
@@ -311,7 +311,7 @@ export default async function Footer() {
                             <span aria-hidden="true">
                                 →
                             </span>
-                        </Link>
+                        </a>
                     </div>
 
                     {/* Línea */}
@@ -344,7 +344,7 @@ export default async function Footer() {
                             "
                         >
                             <div className="flex items-center gap-3">
-                                <Logo />
+                                <BrandLockup />
 
                                 <span>
                                     Auto Talleres Orihuela

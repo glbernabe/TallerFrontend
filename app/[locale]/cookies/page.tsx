@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
 import LegalContent from "@/components/sections/LegalContent";
 
 type Props = {
@@ -35,7 +33,6 @@ export default async function CookiesPage() {
 
     return (
         <>
-            <Navbar />
 
             <LegalContent
                 eyebrow={t("eyebrow")}
@@ -85,7 +82,6 @@ export default async function CookiesPage() {
                 ]}
             />
 
-            <Footer />
         </>
     );
 }

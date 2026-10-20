@@ -1,7 +1,6 @@
 
 import { getTranslations } from "next-intl/server";
 
-import Navbar from "@/components/layout/Navbar";
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 import Breadcrumb from "@/components/navigation/Breadcrumb";
@@ -12,7 +11,6 @@ export default async function WorkWithUsPage() {
 
     return (
         <main>
-            <Navbar />
             <Section
                 className="
                     bg-white

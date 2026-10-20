@@ -79,6 +79,17 @@ Antes de modificar la arquitectura o añadir nuevas funcionalidades se recomiend
 git clone <repositorio>
 ```
 
+## Configurar variables de entorno
+
+Copia `.env.example` a `.env.local` y completa los valores del entorno local. No subas `.env.local` ni tokens reales al repositorio.
+
+Variables utilizadas por la aplicación:
+
+- `STRAPI_URL`: URL de la instancia de Strapi.
+- `STRAPI_API_TOKEN`: token de acceso de Strapi con los permisos mínimos necesarios.
+- `BACKEND_URL`: URL base del backend FastAPI.
+- `NEXT_PUBLIC_SITE_URL`: URL pública usada para metadatos y SEO.
+
 ## Instalar dependencias
 
 ```bash
@@ -192,3 +203,7 @@ Las funcionalidades implementadas y las planificadas pueden consultarse en:
 # Licencia
 
 Pendiente de definir.
+
+## Tipografías
+
+El paquete usa tipografías de sistema como respaldo para no redistribuir archivos de fuentes corporativas. Si el proyecto debe utilizar las fuentes de marca, incorpóralas desde la fuente autorizada de la empresa y configúralas de nuevo en `next/font/local`.

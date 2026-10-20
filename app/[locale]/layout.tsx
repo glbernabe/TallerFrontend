@@ -2,6 +2,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {hasLocale} from "next-intl";
 import {notFound} from "next/navigation";
 import {routing} from "@/i18n/routing";
+import SiteLayout from "@/components/layout/SiteLayout";
 
 type Props = {
     children: React.ReactNode;
@@ -22,7 +23,7 @@ export default async function LocaleLayout({
 
     return (
         <NextIntlClientProvider>
-            {children}
+            <SiteLayout>{children}</SiteLayout>
         </NextIntlClientProvider>
     );
 }

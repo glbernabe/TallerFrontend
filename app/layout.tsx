@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { mbCorpoText, mbCorpoTitle } from "@/fonts/fonts";
 
 import "./globals.css";
-
-import { mbCorpoText, mbCorpoTitle } from "@/fonts/fonts";
 
 const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
@@ -215,31 +214,21 @@ export default function RootLayout({
 }>) {
 
     return (
-
         <html
             lang="es"
-            className={`
-                ${mbCorpoText.variable}
-                ${mbCorpoTitle.variable}
-            `}
+            className={`${mbCorpoText.variable} ${mbCorpoTitle.variable}`}
         >
-
             <body>
-
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
-                        __html:
-                            JSON.stringify(structuredData),
+                        __html: JSON.stringify(structuredData),
                     }}
                 />
 
                 {children}
-
             </body>
-
         </html>
-
     );
 
 }
