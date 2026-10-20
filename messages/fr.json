@@ -98,7 +98,9 @@
             "Viernes": "Vendredi",
             "Sábado": "Samedi",
             "Domingo": "Dimanche"
-        }
+        },
+        "siteSettingsUnavailable": "Certaines coordonnées peuvent ne pas être à jour pour le moment. Vous pouvez toujours nous appeler ou nous envoyer un e-mail.",
+        "openingHoursUnavailable": "Nos horaires ne sont temporairement pas disponibles. Contactez notre équipe pour confirmer nos heures d'ouverture. Veuillez nous excuser pour la gêne occasionnée."
     },
     "News": {
         "metadata": {
@@ -135,6 +137,34 @@
         },
         "copyright": "Tous droits réservés.",
         "trademark": "Mercedes-Benz® est une marque déposée de Mercedes-Benz Group AG."
+    },
+    "ContactPage": {
+        "metadata": {
+            "title": "Contact",
+            "description": "Contactez Auto-Talleres Orihuela S.L. Découvrez notre équipe et retrouvez les coordonnées des responsables de chaque service.",
+            "openGraphTitle": "Contact",
+            "openGraphDescription": "Découvrez l'équipe d'Auto-Talleres Orihuela S.L. et contactez les responsables de chaque service."
+        },
+        "hero": {
+            "imageAlt": "Assistance automobile",
+            "eyebrow": "Contact",
+            "titleLine1": "Nous sommes là",
+            "titleLine2": "pour vous aider.",
+            "description": "Besoin d'assistance, une question ou envie de parler à notre équipe ? Contactez-nous directement.",
+            "callButton": "Appeler l'atelier",
+            "emailButton": "Envoyer un e-mail"
+        }
+    },
+    "ContactPeopleSection": {
+        "eyebrow": "Notre équipe",
+        "title": "Nos interlocuteurs",
+        "description": "Contactez directement le responsable du service dont vous avez besoin."
+    },
+    "ContactDepartments": {
+        "Taller": "Atelier",
+        "Recambios": "Pièces détachées",
+        "Administración": "Administration",
+        "Ventas": "Ventes"
     },
     "WorkWithUs": {
         "breadcrumbHome": "Accueil",

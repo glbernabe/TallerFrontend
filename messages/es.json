@@ -106,7 +106,9 @@
             "Viernes": "Viernes",
             "Sábado": "Sábado",
             "Domingo": "Domingo"
-        }
+        },
+        "siteSettingsUnavailable": "Algunos datos de contacto pueden no estar actualizados en este momento. Puedes llamarnos o escribirnos directamente.",
+        "openingHoursUnavailable": "El horario no está disponible temporalmente. Para confirmar cuándo abrimos, ponte en contacto con nuestro equipo. Disculpa las molestias."
     },
     "Footer": {
         "description": "Taller especializado en vehículos industriales, camiones y furgonetas. Mantenimiento, diagnosis y reparación para profesionales y empresas.",
@@ -135,6 +137,34 @@
         },
         "copyright": "Todos los derechos reservados.",
         "trademark": "Mercedes-Benz® es una marca registrada de Mercedes-Benz Group AG."
+    },
+    "ContactPage": {
+        "metadata": {
+            "title": "Contacto",
+            "description": "Contacta con Auto-Talleres Orihuela S.L. Conoce a nuestro equipo y encuentra los datos de contacto de los responsables de cada departamento.",
+            "openGraphTitle": "Contacto",
+            "openGraphDescription": "Conoce al equipo de Auto-Talleres Orihuela S.L. y contacta con los responsables de cada departamento."
+        },
+        "hero": {
+            "imageAlt": "Asistencia de vehículos",
+            "eyebrow": "Contacto",
+            "titleLine1": "Estamos aquí",
+            "titleLine2": "para ayudarte.",
+            "description": "¿Necesitas asistencia, tienes alguna consulta o quieres hablar con nuestro equipo? Ponte en contacto directamente con nosotros.",
+            "callButton": "Llamar al taller",
+            "emailButton": "Enviar un correo"
+        }
+    },
+    "ContactPeopleSection": {
+        "eyebrow": "Nuestro equipo",
+        "title": "Personas de contacto",
+        "description": "Contacta directamente con el responsable del departamento que necesitas."
+    },
+    "ContactDepartments": {
+        "Taller": "Taller",
+        "Recambios": "Recambios",
+        "Administración": "Administración",
+        "Ventas": "Ventas"
     },
     "WorkWithUs": {
         "breadcrumbHome": "Inicio",

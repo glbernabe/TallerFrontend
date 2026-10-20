@@ -1,7 +1,9 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import MainButton from "@/components/ui/MainButton";
+import Navbar from "@/components/layout/Navbar";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 import ContactPeopleSection from "@/components/contact/ContactPeopleSection";
 
@@ -10,39 +12,45 @@ import {
     groupContactsByDepartment,
 } from "@/lib/contact/contactDependencies";
 
-export const metadata: Metadata = {
-    title: "Contacto",
-    description:
-        "Contacta con Auto-Talleres Orihuela S.L. Conoce a nuestro equipo y encuentra los datos de contacto de los responsables de cada departamento.",
-    alternates: {
-        canonical: "/contacto",
-    },
-    openGraph: {
-        title: "Contacto",
-        description:
-            "Conoce al equipo de Auto-Talleres Orihuela S.L. y contacta con los responsables de cada departamento.",
-        url: "/contacto",
-        type: "website",
-    },
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("ContactPage");
+    const locale = await getLocale();
+    const canonical = `/${locale}/contacto`;
+
+    return {
+        title: t("metadata.title"),
+        description: t("metadata.description"),
+        alternates: {
+            canonical,
+        },
+        openGraph: {
+            title: t("metadata.openGraphTitle"),
+            description: t("metadata.openGraphDescription"),
+            url: canonical,
+            type: "website",
+        },
+    };
+}
 
 export default async function ContactPage() {
-    const people =
-        await getActiveContacts.execute();
+    const t = await getTranslations("ContactPage");
 
-    const departments =
-        groupContactsByDepartment.execute(
-            people
-        );
+    const people = await getActiveContacts.execute();
+
+    const departments = groupContactsByDepartment.execute(
+        people
+    );
 
     return (
         <main className="bg-black text-white">
+            <Navbar />
+
             {/* HERO */}
 
             <section className="relative min-h-[calc(100vh-72px)] overflow-hidden">
                 <Image
                     src="/content/images/Assistance_client.webp"
-                    alt="Asistencia de vehículos"
+                    alt={t("hero.imageAlt")}
                     fill
                     priority
                     sizes="100vw"
@@ -110,7 +118,7 @@ export default async function ContactPage() {
                                     text-white/70
                                 "
                             >
-                                Contacto
+                                {t("hero.eyebrow")}
                             </p>
 
                             <h1
@@ -122,9 +130,9 @@ export default async function ContactPage() {
                                     lg:text-[8rem]
                                 "
                             >
-                                Estamos aquí
+                                {t("hero.titleLine1")}
                                 <br />
-                                para ayudarte.
+                                {t("hero.titleLine2")}
                             </h1>
 
                             <p
@@ -137,18 +145,12 @@ export default async function ContactPage() {
                                     md:text-xl
                                 "
                             >
-                                ¿Necesitas asistencia,
-                                tienes alguna consulta
-                                o quieres hablar con
-                                nuestro equipo?
-                                Ponte en contacto
-                                directamente con
-                                nosotros.
+                                {t("hero.description")}
                             </p>
 
                             <div className="mt-10 flex flex-wrap gap-4">
                                 <MainButton href="tel:+34966744466">
-                                    Llamar al taller
+                                    {t("hero.callButton")}
                                 </MainButton>
 
                                 <SecondaryButton
@@ -162,7 +164,7 @@ export default async function ContactPage() {
                                         hover:text-black
                                     "
                                 >
-                                    Enviar un correo
+                                    {t("hero.emailButton")}
                                 </SecondaryButton>
                             </div>
                         </div>
@@ -170,9 +172,7 @@ export default async function ContactPage() {
                 </div>
             </section>
 
-            <ContactPeopleSection
-                groups={departments}
-            />
+            <ContactPeopleSection groups={departments} />
         </main>
     );
 }

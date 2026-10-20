@@ -98,7 +98,9 @@
             "Viernes": "Friday",
             "Sábado": "Saturday",
             "Domingo": "Sunday"
-        }
+        },
+        "siteSettingsUnavailable": "Some contact details may not be up to date at the moment. You can still call or email us directly.",
+        "openingHoursUnavailable": "Our opening hours are temporarily unavailable. Please contact our team to confirm when we're open. We apologise for the inconvenience."
     },
     "Footer": {
         "description": "A specialist workshop for commercial vehicles, trucks and vans. Maintenance, diagnostics and repairs for professionals and businesses.",
@@ -127,6 +129,34 @@
         },
         "copyright": "All rights reserved.",
         "trademark": "Mercedes-Benz® is a registered trademark of Mercedes-Benz Group AG."
+    },
+    "ContactPage": {
+        "metadata": {
+            "title": "Contact",
+            "description": "Contact Auto-Talleres Orihuela S.L. Meet our team and find the contact details for the people in charge of each department.",
+            "openGraphTitle": "Contact",
+            "openGraphDescription": "Meet the Auto-Talleres Orihuela S.L. team and contact the people in charge of each department."
+        },
+        "hero": {
+            "imageAlt": "Vehicle assistance",
+            "eyebrow": "Contact",
+            "titleLine1": "We're here",
+            "titleLine2": "to help you.",
+            "description": "Need assistance, have a question, or want to speak with our team? Get in touch with us directly.",
+            "callButton": "Call the workshop",
+            "emailButton": "Send an email"
+        }
+    },
+    "ContactPeopleSection": {
+        "eyebrow": "Our team",
+        "title": "Contact people",
+        "description": "Contact the person in charge of the department you need directly."
+    },
+    "ContactDepartments": {
+        "Taller": "Workshop",
+        "Recambios": "Parts",
+        "Administración": "Administration",
+        "Ventas": "Sales"
     },
     "WorkWithUs": {
         "breadcrumbHome": "Home",

@@ -14,22 +14,105 @@ import {
     getSiteSettings,
 } from "@/lib/site-settings/siteSettingsDependencies";
 
+const FALLBACK_CONTACT = {
+    phone: "+34966744466",
+    email: "orihuela.ato@autotalleresorihuela.es",
+    address: "Orihuela, Alicante",
+    googleMapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Auto-Talleres%20Orihuela%20S.L.%2C%20Orihuela%2C%20Alicante",
+} as const;
+
+const STRAPI_TIMEOUT_MS = 4_000;
+
+function withTimeout<T>(
+    operation: () => Promise<T>,
+    timeoutMs: number
+): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+        const timeout = setTimeout(() => {
+            reject(new Error("Strapi request timed out"));
+        }, timeoutMs);
+
+        Promise.resolve()
+            .then(operation)
+            .then(
+                (value) => {
+                    clearTimeout(timeout);
+                    resolve(value);
+                },
+                (error: unknown) => {
+                    clearTimeout(timeout);
+                    reject(error);
+                }
+            );
+    });
+}
+
 export default async function Contact() {
     const t = await getTranslations("Contact");
 
-    const [
-        siteSettings,
-        openingHours,
-    ] = await Promise.all([
-        getSiteSettings.execute(),
-        getOpeningHours.execute(),
-    ]);
+    // Cada consulta se resuelve de forma independiente.
+    const [siteSettingsResult, openingHoursResult] =
+        await Promise.allSettled([
+            withTimeout(
+                () => getSiteSettings.execute(),
+                STRAPI_TIMEOUT_MS
+            ),
+            withTimeout(
+                () => getOpeningHours.execute(),
+                STRAPI_TIMEOUT_MS
+            ),
+        ]);
+
+    const siteSettingsUnavailable =
+        siteSettingsResult.status === "rejected";
+
+    const openingHoursUnavailable =
+        openingHoursResult.status === "rejected";
+
+    const siteSettings =
+        siteSettingsResult.status === "fulfilled"
+            ? siteSettingsResult.value
+            : null;
+
+    const openingHours =
+        openingHoursResult.status === "fulfilled"
+            ? openingHoursResult.value
+            : [];
+
+    if (siteSettingsUnavailable) {
+        console.error(
+            "No se pudieron cargar los ajustes del sitio:",
+            siteSettingsResult.reason
+        );
+    }
+
+    if (openingHoursUnavailable) {
+        console.error(
+            "No se pudieron cargar los horarios del taller:",
+            openingHoursResult.reason
+        );
+    }
+
+    // Se conserva la información de contacto aunque falle Strapi.
+    const phone =
+        siteSettings?.phone || FALLBACK_CONTACT.phone;
+
+    const email =
+        siteSettings?.email || FALLBACK_CONTACT.email;
+
+    const address =
+        siteSettings?.address || FALLBACK_CONTACT.address;
 
     const googleMapsUrl =
-        siteSettings.googleMapsUrl;
+        siteSettings?.googleMapsUrl ||
+        FALLBACK_CONTACT.googleMapsUrl;
 
-    const mapImage =
-        "/content/images/maps.webp";
+    const mapImage = "/content/images/maps.webp";
+
+    // Evita dejar vacío el bloque de horarios si no hay datos.
+    const showOpeningHoursFallback =
+        openingHoursUnavailable || openingHours.length === 0;
 
     return (
         <Section
@@ -39,9 +122,7 @@ export default async function Contact() {
                 text-white
             "
         >
-
             <Container>
-
                 <div
                     className="
                         grid
@@ -50,11 +131,9 @@ export default async function Contact() {
                         lg:items-center
                     "
                 >
-
                     {/* INFORMACIÓN */}
 
                     <div>
-
                         <h2
                             className="
                                 font-title
@@ -79,21 +158,34 @@ export default async function Contact() {
                             {t("description")}
                         </p>
 
+                        {siteSettingsUnavailable && (
+                            <p
+                                role="status"
+                                className="
+                                    mt-4
+                                    max-w-xl
+                                    font-text
+                                    text-sm
+                                    leading-6
+                                    text-white/60
+                                "
+                            >
+                                {t("siteSettingsUnavailable")}
+                            </p>
+                        )}
 
                         {/* DATOS DE CONTACTO */}
 
                         <div className="mt-12 space-y-8">
-
                             {/* TELÉFONO */}
 
                             <div>
-
                                 <h3 className="font-title text-xl">
                                     {t("phone")}
                                 </h3>
 
                                 <a
-                                    href={`tel:${siteSettings.phone}`}
+                                    href={`tel:${phone.replace(/\s+/g, "")}`}
                                     className="
                                         mt-2
                                         block
@@ -104,22 +196,19 @@ export default async function Contact() {
                                         hover:text-white
                                     "
                                 >
-                                    {siteSettings.phone}
+                                    {phone}
                                 </a>
-
                             </div>
-
 
                             {/* CORREO */}
 
                             <div>
-
                                 <h3 className="font-title text-xl">
                                     {t("email")}
                                 </h3>
 
                                 <a
-                                    href={`mailto:${siteSettings.email}`}
+                                    href={`mailto:${email}`}
                                     className="
                                         mt-2
                                         block
@@ -130,16 +219,13 @@ export default async function Contact() {
                                         hover:text-white
                                     "
                                 >
-                                    {siteSettings.email}
+                                    {email}
                                 </a>
-
                             </div>
-
 
                             {/* HORARIO */}
 
                             <div>
-
                                 <h3 className="font-title text-xl">
                                     {t("openingHours")}
                                 </h3>
@@ -152,64 +238,62 @@ export default async function Contact() {
                                         text-white/65
                                     "
                                 >
-                                    {openingHours.map(
-                                        (openingHour) => (
-                                            <div
-                                                key={
-                                                    openingHour.id
-                                                }
-                                                className="
-                                                    flex
-                                                    flex-col
-                                                    gap-1
-                                                    sm:flex-row
-                                                    sm:items-baseline
-                                                    sm:gap-4
-                                                "
-                                            >
-
-                                                <span
+                                    {showOpeningHoursFallback ? (
+                                        <p
+                                            role="status"
+                                            className="max-w-xl leading-7"
+                                        >
+                                            {t("openingHoursUnavailable")}
+                                        </p>
+                                    ) : (
+                                        openingHours.map(
+                                            (openingHour) => (
+                                                <div
+                                                    key={openingHour.id}
                                                     className="
-                                                        min-w-24
-                                                        text-white/90
+                                                        flex
+                                                        flex-col
+                                                        gap-1
+                                                        sm:flex-row
+                                                        sm:items-baseline
+                                                        sm:gap-4
                                                     "
                                                 >
-                                                    {t(
-                                                        `days.${openingHour.day}`
-                                                    )}
-                                                </span>
+                                                    <span
+                                                        className="
+                                                            min-w-24
+                                                            text-white/90
+                                                        "
+                                                    >
+                                                        {t(
+                                                            `days.${openingHour.day}`
+                                                        )}
+                                                    </span>
 
-                                                <span>
-                                                    {formatOpeningHour(
-                                                        openingHour,
-                                                        t("closed")
-                                                    )}
-                                                </span>
-
-                                            </div>
+                                                    <span>
+                                                        {formatOpeningHour(
+                                                            openingHour,
+                                                            t("closed")
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            )
                                         )
                                     )}
                                 </div>
-
                             </div>
-
                         </div>
-
 
                         {/* BOTÓN */}
 
                         <div className="mt-12">
-
                             <MainButton
-                                href={`tel:${siteSettings.phone}`}
+                                href={`tel:${phone.replace(/\s+/g, "")}`}
                             >
                                 {t("callButton")}
                             </MainButton>
-
                         </div>
-
                     </div>
-
 
                     {/* UBICACIÓN */}
 
@@ -221,11 +305,9 @@ export default async function Contact() {
                             bg-white
                         "
                     >
-
                         {/* CAPA 1 — Fondo blanco */}
 
                         <div className="absolute inset-0 bg-white" />
-
 
                         {/* CAPA 2 — Imagen del mapa */}
 
@@ -233,9 +315,7 @@ export default async function Contact() {
                             href={googleMapsUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={t(
-                                "mapAriaLabel"
-                            )}
+                            aria-label={t("mapAriaLabel")}
                             className="
                                 group
                                 absolute
@@ -243,7 +323,6 @@ export default async function Contact() {
                                 block
                             "
                         >
-
                             <Image
                                 src={mapImage}
                                 alt={t("mapAlt")}
@@ -266,9 +345,7 @@ export default async function Contact() {
                                     motion-reduce:transform-none
                                 "
                             />
-
                         </a>
-
 
                         {/* CAPA 3 — Contenido */}
 
@@ -287,7 +364,6 @@ export default async function Contact() {
                                 lg:p-12
                             "
                         >
-
                             {/* PARTE SUPERIOR */}
 
                             <div
@@ -296,7 +372,6 @@ export default async function Contact() {
                                     drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]
                                 "
                             >
-
                                 <p
                                     className="
                                         font-text
@@ -325,9 +400,7 @@ export default async function Contact() {
                                     <br />
                                     Alicante
                                 </h3>
-
                             </div>
-
 
                             {/* PARTE INFERIOR */}
 
@@ -340,9 +413,7 @@ export default async function Contact() {
                                     drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]
                                 "
                             >
-
                                 <div className="max-w-md">
-
                                     <div
                                         className="
                                             mb-5
@@ -362,9 +433,8 @@ export default async function Contact() {
                                             md:leading-7
                                         "
                                     >
-                                        {siteSettings.address}
+                                        {address}
                                     </p>
-
                                 </div>
 
                                 <div
@@ -373,17 +443,12 @@ export default async function Contact() {
                                         shrink-0
                                     "
                                 >
-                                    <MainButton
-                                        href={googleMapsUrl}
-                                    >
+                                    <MainButton href={googleMapsUrl}>
                                         {t("directionsButton")}
                                     </MainButton>
                                 </div>
-
                             </div>
-
                         </div>
-
 
                         {/* BORDE VISIBLE */}
 
@@ -398,17 +463,12 @@ export default async function Contact() {
                             "
                             aria-hidden="true"
                         />
-
                     </div>
-
                 </div>
-
             </Container>
-
         </Section>
     );
 }
-
 
 function formatOpeningHour(
     openingHour: {

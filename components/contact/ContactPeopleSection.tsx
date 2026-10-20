@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 import ContactPersonCard from "@/components/contact/ContactPersonCard";
 
 import type { ContactDepartmentGroup } from "@/core/contact/domain/ContactDepartmentGroup";
@@ -6,9 +8,20 @@ type Props = {
     groups: ContactDepartmentGroup[];
 };
 
-export default function ContactPeopleSection({
+export default async function ContactPeopleSection({
     groups,
 }: Props) {
+    const t = await getTranslations("ContactPeopleSection");
+    const tDepartments = await getTranslations("ContactDepartments");
+
+    const translateDepartment = (department: string): string => {
+        const key = department.trim();
+
+        return tDepartments.has(key as never)
+            ? tDepartments(key as never)
+            : department;
+    };
+
     return (
         <section className="bg-black py-24 md:py-32">
             <div
@@ -29,7 +42,7 @@ export default function ContactPeopleSection({
                             text-white/50
                         "
                     >
-                        Nuestro equipo
+                        {t("eyebrow")}
                     </p>
 
                     <h2
@@ -41,7 +54,7 @@ export default function ContactPeopleSection({
                             md:text-6xl
                         "
                     >
-                        Personas de contacto
+                        {t("title")}
                     </h2>
 
                     <p
@@ -53,82 +66,59 @@ export default function ContactPeopleSection({
                             text-white/60
                         "
                     >
-                        Contacta directamente con
-                        el responsable del
-                        departamento que necesitas.
+                        {t("description")}
                     </p>
                 </div>
 
                 <div className="mt-20 space-y-20">
-                    {groups.map(
-                        ({
-                            department,
-                            people,
-                        }) => (
-                            <section
-                                key={department}
-                            >
-                                <div className="mb-8">
-                                    <h3
-                                        className="
-                                            font-title
-                                            text-3xl
-                                            leading-tight
-                                            md:text-4xl
-                                        "
-                                    >
-                                        {department}
-                                    </h3>
-
-                                    <div
-                                        className="
-                                            mt-4
-                                            h-px
-                                            w-12
-                                            bg-white/30
-                                        "
-                                    />
-                                </div>
+                    {groups.map(({ department, people }) => (
+                        <section key={department}>
+                            <div className="mb-8">
+                                <h3
+                                    className="
+                                        font-title
+                                        text-3xl
+                                        leading-tight
+                                        md:text-4xl
+                                    "
+                                >
+                                    {translateDepartment(department)}
+                                </h3>
 
                                 <div
                                     className="
-                                        grid
-                                        gap-6
-                                        md:grid-cols-2
-                                        xl:grid-cols-3
+                                        mt-4
+                                        h-px
+                                        w-12
+                                        bg-white/30
                                     "
-                                >
-                                    {people.map(
-                                        (person) => (
-                                            <ContactPersonCard
-                                                key={
-                                                    person.id
-                                                }
-                                                firstName={
-                                                    person.firstName
-                                                }
-                                                lastName={
-                                                    person.lastName
-                                                }
-                                                department={
-                                                    person.department
-                                                }
-                                                phone={
-                                                    person.phone
-                                                }
-                                                email={
-                                                    person.email
-                                                }
-                                                image={
-                                                    person.image
-                                                }
-                                            />
-                                        )
-                                    )}
-                                </div>
-                            </section>
-                        )
-                    )}
+                                />
+                            </div>
+
+                            <div
+                                className="
+                                    grid
+                                    gap-6
+                                    md:grid-cols-2
+                                    xl:grid-cols-3
+                                "
+                            >
+                                {people.map((person) => (
+                                    <ContactPersonCard
+                                        key={person.id}
+                                        firstName={person.firstName}
+                                        lastName={person.lastName}
+                                        department={translateDepartment(
+                                            person.department
+                                        )}
+                                        phone={person.phone}
+                                        email={person.email}
+                                        image={person.image}
+                                    />
+                                ))}
+                            </div>
+                        </section>
+                    ))}
                 </div>
             </div>
         </section>

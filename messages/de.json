@@ -106,6 +106,34 @@
         "copyright": "Alle Rechte vorbehalten.",
         "trademark": "Mercedes-Benz® ist eine eingetragene Marke der Mercedes-Benz Group AG."
     },
+    "ContactPage": {
+        "metadata": {
+            "title": "Kontakt",
+            "description": "Kontaktieren Sie Auto-Talleres Orihuela S.L. Lernen Sie unser Team kennen und finden Sie die Kontaktdaten der Verantwortlichen in den einzelnen Abteilungen.",
+            "openGraphTitle": "Kontakt",
+            "openGraphDescription": "Lernen Sie das Team von Auto-Talleres Orihuela S.L. kennen und kontaktieren Sie die Verantwortlichen der einzelnen Abteilungen."
+        },
+        "hero": {
+            "imageAlt": "Fahrzeughilfe",
+            "eyebrow": "Kontakt",
+            "titleLine1": "Wir sind hier,",
+            "titleLine2": "um Ihnen zu helfen.",
+            "description": "Benötigen Sie Unterstützung, haben Sie eine Frage oder möchten Sie mit unserem Team sprechen? Kontaktieren Sie uns direkt.",
+            "callButton": "Werkstatt anrufen",
+            "emailButton": "E-Mail senden"
+        }
+    },
+    "ContactPeopleSection": {
+        "eyebrow": "Unser Team",
+        "title": "Ihre Ansprechpartner",
+        "description": "Kontaktieren Sie direkt die zuständige Person in der gewünschten Abteilung."
+    },
+    "ContactDepartments": {
+        "Taller": "Werkstatt",
+        "Recambios": "Ersatzteile",
+        "Administración": "Verwaltung",
+        "Ventas": "Vertrieb"
+    },
     "WorkWithUs": {
         "breadcrumbHome": "Startseite",
         "breadcrumbCurrent": "Karriere",
@@ -160,7 +188,9 @@
             "Viernes": "Freitag",
             "Sábado": "Samstag",
             "Domingo": "Sonntag"
-        }
+        },
+        "siteSettingsUnavailable": "Einige Kontaktdaten sind möglicherweise momentan nicht aktuell. Sie können uns weiterhin anrufen oder eine E-Mail senden.",
+        "openingHoursUnavailable": "Unsere Öffnungszeiten sind vorübergehend nicht verfügbar. Bitte kontaktieren Sie unser Team, um unsere Öffnungszeiten zu bestätigen. Wir bitten um Entschuldigung für die Unannehmlichkeiten."
     },
     "News": {
         "metadata": {
