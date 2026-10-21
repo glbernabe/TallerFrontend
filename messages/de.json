@@ -9,7 +9,7 @@
         "quote": "Kostenvoranschlag",
         "appointment": "Termin vereinbaren",
         "offers": "Angebote",
-        "florists": "Floristen",
+        "fleetCustomers": "Flottenkunden",
         "originalParts": "Original-Ersatzteile",
         "individuals": "Privatkunden",
         "professionals": "Gewerbekunden",
@@ -165,6 +165,108 @@
                 "emailNotConfigured": "Der Bewerbungseingang ist noch nicht konfiguriert. Bitte kontaktieren Sie das Unternehmen auf anderem Weg.",
                 "sendFailed": "Ihre Bewerbung konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.",
                 "network": "Der Server konnte nicht erreicht werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+            }
+        }
+    },
+    "BudgetPage": {
+        "metadata": {
+            "title": "Werkstatt-Kostenvoranschlag anfragen",
+            "description": "Fordern Sie einen Kostenvoranschlag für Wartung, Diagnose oder Reparaturen an Transporter, Lkw, Bus oder Nutzfahrzeug bei Auto-Talleres Orihuela an.",
+            "openGraphTitle": "Kostenvoranschlag für Nutzfahrzeuge",
+            "openGraphDescription": "Teilen Sie uns mit, was Ihr Nutzfahrzeug benötigt, und bereiten Sie eine Kostenvoranschlagsanfrage an unsere Werkstatt in Orihuela vor."
+        },
+        "hero": {
+            "servicesLink": "Dienstleistungen",
+            "workshopLabel": "Werkstatt",
+            "eyebrow": "Kostenvoranschlag",
+            "titleLine1": "Ein klares Angebot",
+            "titleLine2": "damit Sie mobil bleiben.",
+            "description": "Teilen Sie uns mit, was Ihr Nutzfahrzeug benötigt. Wir prüfen Ihre Angaben, um Sie über die nächsten Schritte zu informieren.",
+            "vehicleScope": "Transporter · Lkw · Busse · FUSO",
+            "imageAlt": "Mehrere Nutzfahrzeuge vor einer modernen Anlage"
+        },
+        "intro": {
+            "eyebrow": "Kostenvoranschlagsanfrage",
+            "title": "Was benötigt Ihr Fahrzeug?",
+            "description": "Nennen Sie uns die wichtigsten Fahrzeugdaten und beschreiben Sie die gewünschte Arbeit. Je genauer Ihre Angaben sind, desto besser können wir Ihre Anfrage einschätzen.",
+            "steps": {
+                "vehicle": {
+                    "title": "Fahrzeug identifizieren",
+                    "description": "Wählen Sie Fahrzeugtyp und Modell; Kennzeichen und Kilometerstand können Sie optional ergänzen."
+                },
+                "work": {
+                    "title": "Arbeiten beschreiben",
+                    "description": "Teilen Sie uns mit, ob Sie Wartung, Reparatur, Diagnose oder eine andere Arbeit benötigen."
+                },
+                "contact": {
+                    "title": "Kontakt zur Werkstatt",
+                    "description": "Hinterlassen Sie Ihre Kontaktdaten, damit unser Team auf Ihre Anfrage antworten kann."
+                }
+            },
+            "contactTitle": "Möchten Sie lieber direkt mit der Werkstatt sprechen?",
+            "contactDescription": "Sie können uns auch direkt anrufen und Ihren Fall schildern.",
+            "callButton": "Werkstatt anrufen"
+        },
+        "form": {
+            "eyebrow": "Angaben zur Anfrage",
+            "title": "Anfrage vorbereiten",
+            "description": "Füllen Sie die Pflichtfelder aus und prüfen Sie Ihre Angaben, bevor die E-Mail vorbereitet wird.",
+            "sections": {
+                "vehicle": "01 · Fahrzeug",
+                "work": "02 · Gewünschte Arbeiten",
+                "contact": "03 · Kontaktdaten"
+            },
+            "fields": {
+                "vehicleType": "Fahrzeugtyp",
+                "vehicleTypePlaceholder": "Fahrzeugtyp auswählen",
+                "makeModel": "Marke und Modell",
+                "makeModelPlaceholder": "z. B. Mercedes-Benz Actros",
+                "registration": "Kennzeichen",
+                "registrationPlaceholder": "Optional",
+                "mileage": "Ungefährer Kilometerstand",
+                "mileagePlaceholder": "In Kilometern",
+                "operationType": "Art der Arbeit",
+                "operationTypePlaceholder": "Gewünschte Arbeit auswählen",
+                "details": "Beschreiben Sie Ihren Bedarf",
+                "detailsPlaceholder": "Beschreiben Sie Symptome, erforderliche Wartung oder zu prüfende Arbeiten…",
+                "name": "Vor- und Nachname",
+                "company": "Unternehmen (optional)",
+                "phone": "Telefonnummer",
+                "email": "E-Mail-Adresse",
+                "privacyPrefix": "Ich habe die",
+                "privacyLink": "Datenschutzerklärung",
+                "privacySuffix": " gelesen und akzeptiere sie."
+            },
+            "vehicleTypes": {
+                "van": "Transporter",
+                "truck": "Lkw",
+                "bus": "Bus",
+                "fuso": "FUSO-Fahrzeug",
+                "other": "Anderes Nutzfahrzeug"
+            },
+            "operationTypes": {
+                "maintenance": "Wartung",
+                "repair": "Reparatur",
+                "diagnosis": "Diagnose",
+                "other": "Sonstige Arbeiten"
+            },
+            "submit": "Anfrage per E-Mail vorbereiten",
+            "emailNotice": "Beim Klicken auf die Schaltfläche öffnet sich das E-Mail-Programm Ihres Geräts mit der vorbereiteten Anfrage. Sie müssen die Nachricht dort prüfen und selbst senden; dieses Formular übermittelt die Daten nicht direkt an einen Server.",
+            "emailClientNotice": "Wenn sich Ihr E-Mail-Programm nicht öffnet, können Sie uns anrufen oder direkt per E-Mail kontaktieren.",
+            "requiredNote": "Mit * markierte Felder sind Pflichtfelder.",
+            "emailSubject": "Werkstatt-Kostenvoranschlag",
+            "emailBodyIntro": "Kostenvoranschlagsanfrage über die Website von Auto-Talleres Orihuela.",
+            "emailFields": {
+                "vehicleType": "Fahrzeugtyp",
+                "makeModel": "Marke und Modell",
+                "registration": "Kennzeichen",
+                "mileage": "Kilometerstand",
+                "operationType": "Gewünschte Arbeiten",
+                "details": "Details",
+                "name": "Name",
+                "company": "Unternehmen",
+                "phone": "Telefon",
+                "email": "E-Mail"
             }
         }
     },
@@ -390,6 +492,118 @@
             "rights": {
                 "title": "Ihre Rechte",
                 "content": "Sie können Auskunft, Berichtigung, Löschung, Widerspruch, Einschränkung der Verarbeitung oder Übertragbarkeit Ihrer personenbezogenen Daten beantragen, indem Sie an orihuela.ato@autotalleresorihuela.es schreiben. Sie können außerdem eine Beschwerde bei der zuständigen Datenschutzbehörde einreichen."
+            }
+        }
+    },
+    "FleetCustomersPage": {
+        "metadata": {
+            "title": "Flottenservice in Orihuela",
+            "description": "Werkstattservice für Flotten von Lkw, Transportern und Nutzfahrzeugen in Orihuela, Alicante.",
+            "openGraphTitle": "Flottenservice | Auto-Talleres Orihuela",
+            "openGraphDescription": "Ein Werkstattservice, der Ihre Flotte in Bewegung hält."
+        },
+        "hero": {
+            "imageAlt": "Lkw und Nutzfahrzeuge auf der Straße",
+            "servicesLink": "Dienstleistungen",
+            "workshopLabel": "Werkstatt",
+            "eyebrow": "Flottenkunden",
+            "titleLine1": "Ihre Flotte,",
+            "titleLine2": "stets in Bewegung.",
+            "description": "Ein Werkstattservice für Unternehmen und Fachleute, die täglich auf ihre Fahrzeuge angewiesen sind.",
+            "callButton": "Mit der Werkstatt sprechen"
+        },
+        "introduction": {
+            "eyebrow": "Ein Partner für Ihren Betrieb",
+            "titleLine1": "Weniger Zeit",
+            "titleLine2": "abseits der Straße.",
+            "description": "Wir wissen, dass jedes ausgefallene Fahrzeug Ihr Unternehmen beeinträchtigt. Deshalb arbeiten wir technisch, direkt und mit Blick auf die Einsatzbereitschaft Ihrer Flotte.",
+            "detail": "Wir betreuen Lkw, Transporter und Nutzfahrzeuge mit dem Ziel, jede Arbeit klar, sorgfältig und passend zu den tatsächlichen Anforderungen Ihres Betriebs auszuführen."
+        },
+        "services": {
+            "eyebrow": "Betreuung für Flotten",
+            "titleLine1": "Ein Service, der Ihren",
+            "titleLine2": "Arbeitsrhythmus versteht.",
+            "items": {
+                "planning": {
+                    "title": "Planung",
+                    "description": "Wir koordinieren Wartungs- und Reparaturbedarfe, damit Sie Ihren Betrieb leichter organisieren können."
+                },
+                "maintenance": {
+                    "title": "Wartung und Reparatur",
+                    "description": "Wir arbeiten an den mechanischen und elektronischen Systemen Ihrer Fahrzeuge nach technischen und zuverlässigen Kriterien."
+                },
+                "communication": {
+                    "title": "Direkte Kommunikation",
+                    "description": "Wir halten Sie während des gesamten Ablaufs auf dem Laufenden, damit Sie fundiert entscheiden können."
+                }
+            }
+        },
+        "contact": {
+            "eyebrow": "Sprechen wir über Ihre Flotte",
+            "titleLine1": "Eine Werkstatt bereit,",
+            "titleLine2": "weiterzufahren.",
+            "description": "Erzählen Sie uns, was Ihre Fahrzeuge brauchen. Unser Team zeigt Ihnen den besten Weg dafür auf.",
+            "callButton": "Werkstatt anrufen"
+        },
+        "form": {
+            "eyebrow": "Geschäftliche Anfrage",
+            "title": "Sprechen wir über Ihren Fuhrpark",
+            "description": "Teilen Sie uns mit, welche Fahrzeuge Sie verwalten und welche Unterstützung Sie benötigen. Unser Team kann Ihre Anfrage prüfen und Sie über verfügbare Möglichkeiten informieren.",
+            "directContactNote": "Möchten Sie Ihr Anliegen lieber direkt schildern? Sie können unsere Werkstatt auch anrufen.",
+            "sections": {
+                "company": "01 · Unternehmen und Fuhrpark",
+                "needs": "02 · Bedarf",
+                "contact": "03 · Kontaktperson"
+            },
+            "fields": {
+                "company": "Unternehmensname",
+                "taxId": "Steuernummer",
+                "fleetSize": "Anzahl der Fahrzeuge",
+                "vehicleTypes": "Fahrzeugtypen im Fuhrpark",
+                "serviceType": "Wie können wir helfen?",
+                "serviceTypePlaceholder": "Art der Anfrage auswählen",
+                "details": "Weitere Angaben (optional)",
+                "detailsPlaceholder": "Beschreiben Sie den Bedarf Ihres Fuhrparks, gewünschte Leistungen oder weitere hilfreiche Informationen...",
+                "contactName": "Name der Kontaktperson",
+                "email": "Geschäftliche E-Mail-Adresse",
+                "phone": "Telefonnummer",
+                "privacyPrefix": "Ich habe die",
+                "privacyLink": "Datenschutzerklärung",
+                "privacySuffix": " gelesen und akzeptiere sie."
+            },
+            "vehicleTypes": {
+                "vans": "Transporter",
+                "trucks": "Lkw",
+                "buses": "Busse",
+                "fuso": "FUSO",
+                "other": "Andere Nutzfahrzeuge"
+            },
+            "vehicleTypesRequired": "Wählen Sie mindestens einen Fahrzeugtyp aus.",
+            "serviceTypes": {
+                "maintenance": "Wartung und Inspektionen",
+                "diagnosisRepair": "Diagnose und Reparaturen",
+                "spareParts": "Original-Ersatzteile",
+                "fleetSupport": "Informationen zu Fuhrparkservices",
+                "other": "Sonstige Anfrage"
+            },
+            "submit": "Informationen anfragen",
+            "emailNotice": "Beim Klicken auf die Schaltfläche öffnet sich Ihr E-Mail-Programm mit der vorbereiteten Anfrage. Sie müssen die Nachricht dort prüfen und selbst senden.",
+            "emailClientNotice": "Wenn sich Ihr E-Mail-Programm nicht öffnet, kontaktieren Sie die Werkstatt direkt. Diese Seite sendet die Anfrage nicht direkt an den Server.",
+            "requiredNote": "Mit * markierte Felder sind Pflichtfelder.",
+            "emailSubject": "Anfrage zu Fuhrparkservices",
+            "emailBodyIntro": "Fuhrparkanfrage, vorbereitet über die Website von Auto-Talleres Orihuela.",
+            "emailFields": {
+                "company": "Unternehmen",
+                "taxId": "Steuernummer",
+                "contactName": "Kontaktperson",
+                "email": "E-Mail",
+                "phone": "Telefon",
+                "fleetSize": "Anzahl der Fahrzeuge",
+                "vehicleTypes": "Fahrzeugtypen",
+                "serviceType": "Gewünschter Service",
+                "details": "Weitere Angaben",
+                "privacyAccepted": "Zustimmung zur Datenschutzerklärung",
+                "yes": "Ja"
             }
         }
     },

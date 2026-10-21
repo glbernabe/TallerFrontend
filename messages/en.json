@@ -9,7 +9,7 @@
         "quote": "Quote",
         "appointment": "Appointment",
         "offers": "Offers",
-        "florists": "Florists",
+        "fleetCustomers": "Fleet customers",
         "originalParts": "Original parts",
         "individuals": "Individuals",
         "professionals": "Professionals",
@@ -189,6 +189,231 @@
                 "emailNotConfigured": "Application submission has not been configured yet. Please contact the company another way.",
                 "sendFailed": "Your application could not be sent. Please try again later.",
                 "network": "Could not connect to the server. Check your connection and try again."
+            }
+        }
+    },
+    "BudgetPage": {
+        "metadata": {
+            "title": "Request a workshop quote",
+            "description": "Request a quote for maintenance, diagnostics or repairs for your van, truck, bus or commercial vehicle at Auto-Talleres Orihuela.",
+            "openGraphTitle": "Commercial vehicle workshop quote",
+            "openGraphDescription": "Tell us what your commercial vehicle needs and prepare a quote request for our workshop in Orihuela."
+        },
+        "hero": {
+            "servicesLink": "Services",
+            "workshopLabel": "Workshop",
+            "eyebrow": "Quote request",
+            "titleLine1": "A clear estimate",
+            "titleLine2": "to keep you moving.",
+            "description": "Tell us what your commercial vehicle needs. We will review the information you provide so we can advise you on the next step.",
+            "vehicleScope": "Vans · Trucks · Buses · FUSO",
+            "imageAlt": "Several commercial trucks outside a modern facility"
+        },
+        "intro": {
+            "eyebrow": "Quote request",
+            "title": "Tell us what your vehicle needs",
+            "description": "Provide the basic vehicle details and describe the work you need. The more specific the information, the better we can assess your request.",
+            "steps": {
+                "vehicle": {
+                    "title": "Identify the vehicle",
+                    "description": "Select the vehicle type and model, and optionally add the registration number and mileage."
+                },
+                "work": {
+                    "title": "Describe the work",
+                    "description": "Tell us whether you need maintenance, a repair, diagnostics or another type of work."
+                },
+                "contact": {
+                    "title": "Get in touch with the workshop",
+                    "description": "Leave your contact details so our team can reply to your request."
+                }
+            },
+            "contactTitle": "Would you rather speak to the workshop?",
+            "contactDescription": "You can also call us directly to discuss your situation.",
+            "callButton": "Call the workshop"
+        },
+        "form": {
+            "eyebrow": "Request details",
+            "title": "Prepare your request",
+            "description": "Complete the required fields and review your details before preparing the email.",
+            "sections": {
+                "vehicle": "01 · Vehicle",
+                "work": "02 · Requested work",
+                "contact": "03 · Contact details"
+            },
+            "fields": {
+                "vehicleType": "Vehicle type",
+                "vehicleTypePlaceholder": "Select a vehicle type",
+                "makeModel": "Make and model",
+                "makeModelPlaceholder": "e.g. Mercedes-Benz Actros",
+                "registration": "Registration number",
+                "registrationPlaceholder": "Optional",
+                "mileage": "Approximate mileage",
+                "mileagePlaceholder": "In kilometres",
+                "operationType": "Type of work",
+                "operationTypePlaceholder": "Select the work you need",
+                "details": "Describe what you need",
+                "detailsPlaceholder": "Describe the symptoms, required maintenance or work you would like us to assess…",
+                "name": "Full name",
+                "company": "Company (optional)",
+                "phone": "Contact telephone",
+                "email": "Email address",
+                "privacyPrefix": "I have read and accept the",
+                "privacyLink": "privacy policy",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "van": "Van",
+                "truck": "Truck",
+                "bus": "Bus",
+                "fuso": "FUSO vehicle",
+                "other": "Other commercial vehicle"
+            },
+            "operationTypes": {
+                "maintenance": "Maintenance",
+                "repair": "Repair",
+                "diagnosis": "Diagnostics",
+                "other": "Other work"
+            },
+            "submit": "Prepare email request",
+            "emailNotice": "Clicking the button opens your device’s email application with the request prepared. You must review and send the message from that application; this page does not submit the form directly to a server.",
+            "emailClientNotice": "If your email application does not open, you can call us or contact us directly by email.",
+            "requiredNote": "Fields marked with * are required.",
+            "emailSubject": "Workshop quote request",
+            "emailBodyIntro": "Quote request prepared from the Auto-Talleres Orihuela website.",
+            "emailFields": {
+                "vehicleType": "Vehicle type",
+                "makeModel": "Make and model",
+                "registration": "Registration number",
+                "mileage": "Mileage",
+                "operationType": "Requested work",
+                "details": "Details",
+                "name": "Name",
+                "company": "Company",
+                "phone": "Telephone",
+                "email": "Email"
+            }
+        }
+    },
+    "AppointmentPage": {
+        "metadata": {
+            "title": "Book a workshop appointment",
+            "description": "Request an appointment for your van, truck, bus or commercial vehicle at Auto-Talleres Orihuela.",
+            "openGraphTitle": "Workshop appointment",
+            "openGraphDescription": "Plan your workshop visit and request an appointment for your commercial vehicle."
+        },
+        "hero": {
+            "servicesLink": "Services",
+            "workshopLabel": "Workshop",
+            "eyebrow": "Appointment",
+            "titleLine1": "Plan your visit",
+            "titleLine2": "with our workshop.",
+            "description": "Request an appointment for your commercial vehicle and tell us what you need. Choose your preferred date and our team can review your request.",
+            "vehicleScope": "Vans · Trucks · Buses · FUSO",
+            "imageAlt": "Commercial trucks outside a modern facility"
+        },
+        "intro": {
+            "eyebrow": "Plan your visit",
+            "title": "Keep your business moving",
+            "description": "Provide your vehicle details and the reason for your visit so we can review your appointment request.",
+            "steps": {
+                "vehicle": {
+                    "title": "Identify your vehicle",
+                    "description": "Tell us the vehicle type, make, model and registration number."
+                },
+                "work": {
+                    "title": "Tell us what you need",
+                    "description": "Describe the maintenance, fault or work required."
+                },
+                "date": {
+                    "title": "Tell us when you're available",
+                    "description": "Choose your preferred date and time window."
+                },
+                "contact": {
+                    "title": "Leave your contact details",
+                    "description": "Our team will have the information needed to respond to your request."
+                }
+            },
+            "contactTitle": "Need to speak to the workshop?",
+            "contactDescription": "You can also call us directly to discuss your situation.",
+            "callButton": "Call the workshop"
+        },
+        "form": {
+            "eyebrow": "Appointment request",
+            "title": "Plan your visit",
+            "description": "Complete your vehicle details, describe the work required and tell us when you would prefer to visit.",
+            "sections": {
+                "vehicle": "01 · Vehicle",
+                "appointment": "02 · Appointment and work",
+                "contact": "03 · Contact details"
+            },
+            "fields": {
+                "vehicleType": "Vehicle type",
+                "vehicleTypePlaceholder": "Select a vehicle type",
+                "makeModel": "Make and model",
+                "makeModelPlaceholder": "e.g. Mercedes-Benz Actros",
+                "registration": "Registration number",
+                "registrationPlaceholder": "Enter the registration number",
+                "customerType": "Are you an existing customer?",
+                "operationType": "Reason for your visit",
+                "operationTypePlaceholder": "Select a reason",
+                "preferredDate": "Preferred date",
+                "preferredDateHint": "Your requested date is indicative and must be confirmed by the workshop.",
+                "preferredTime": "Preferred time window",
+                "preferredTimePlaceholder": "Select a time window",
+                "details": "Tell us what you need",
+                "detailsPlaceholder": "Describe the maintenance, fault, symptoms or work required...",
+                "name": "Full name",
+                "company": "Company (optional)",
+                "phone": "Contact telephone",
+                "email": "Email address",
+                "privacyPrefix": "I have read and accept the",
+                "privacyLink": "privacy policy",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "van": "Van",
+                "truck": "Truck",
+                "bus": "Bus",
+                "fuso": "FUSO vehicle",
+                "other": "Other commercial vehicle"
+            },
+            "customerTypes": {
+                "yes": "Yes",
+                "no": "No"
+            },
+            "operationTypes": {
+                "maintenance": "Maintenance or inspection",
+                "repair": "Fault or repair",
+                "diagnosis": "Diagnostics",
+                "other": "Other work"
+            },
+            "preferredTimes": {
+                "morning": "Morning",
+                "afternoon": "Afternoon",
+                "any": "Any available time"
+            },
+            "submit": "Prepare appointment request",
+            "emailNotice": "Continuing opens your email application with the request prepared. You must review and send the message from that application.",
+            "emailClientNotice": "If your email application does not open, you can contact our workshop directly. Your request does not constitute a confirmed appointment.",
+            "requiredNote": "Fields marked with * are required.",
+            "emailSubject": "Workshop appointment request",
+            "emailBodyIntro": "Appointment request prepared from the Auto-Talleres Orihuela website.",
+            "emailAvailabilityNotice": "The requested date and time window are subject to confirmation by the workshop.",
+            "emailFields": {
+                "vehicleType": "Vehicle type",
+                "makeModel": "Make and model",
+                "registration": "Registration number",
+                "customerType": "Existing customer",
+                "operationType": "Reason for visit",
+                "preferredDate": "Preferred date",
+                "preferredTime": "Preferred time window",
+                "details": "Details",
+                "name": "Name",
+                "company": "Company",
+                "phone": "Telephone",
+                "email": "Email",
+                "privacyAccepted": "Privacy policy acceptance",
+                "yes": "Yes"
             }
         }
     },
@@ -390,6 +615,118 @@
             "rights": {
                 "title": "Your rights",
                 "content": "You may request access to, rectification, erasure, objection to, restriction of or portability of your personal data by writing to orihuela.ato@autotalleresorihuela.es. You may also lodge a complaint with the competent data protection authority."
+            }
+        }
+    },
+    "FleetCustomersPage": {
+        "metadata": {
+            "title": "Fleet service in Orihuela",
+            "description": "Workshop support for fleets of trucks, vans and commercial vehicles in Orihuela, Alicante.",
+            "openGraphTitle": "Fleet service | Auto-Talleres Orihuela",
+            "openGraphDescription": "A workshop service focused on keeping your fleet moving."
+        },
+        "hero": {
+            "imageAlt": "Trucks and industrial vehicles on the road",
+            "servicesLink": "Services",
+            "workshopLabel": "Workshop",
+            "eyebrow": "Fleet customers",
+            "titleLine1": "Your fleet,",
+            "titleLine2": "always moving.",
+            "description": "A workshop service designed for businesses and professionals who depend on their vehicles every day.",
+            "callButton": "Talk to the workshop"
+        },
+        "introduction": {
+            "eyebrow": "A partner for your operation",
+            "titleLine1": "Less time",
+            "titleLine2": "off the road.",
+            "description": "We know that every vehicle out of service affects your business. That is why we work with a technical, direct approach focused on fleet continuity.",
+            "detail": "We support trucks, vans and commercial vehicles, aiming to make each job clear, rigorous and suited to the real needs of your activity."
+        },
+        "services": {
+            "eyebrow": "Fleet support",
+            "titleLine1": "A service that understands",
+            "titleLine2": "your pace of work.",
+            "items": {
+                "planning": {
+                    "title": "Planning",
+                    "description": "We coordinate maintenance and repair needs to help you organise your operation."
+                },
+                "maintenance": {
+                    "title": "Maintenance and repair",
+                    "description": "We work on the mechanical and electronic systems of your vehicles using technical and reliability criteria."
+                },
+                "communication": {
+                    "title": "Direct communication",
+                    "description": "We keep you informed throughout the process so you can make decisions with the information you need."
+                }
+            }
+        },
+        "contact": {
+            "eyebrow": "Let's talk about your fleet",
+            "titleLine1": "A workshop ready",
+            "titleLine2": "to keep moving forward.",
+            "description": "Tell us what your vehicles need and our team will guide you towards the best way to handle them.",
+            "callButton": "Call the workshop"
+        },
+        "form": {
+            "eyebrow": "Business enquiries",
+            "title": "Let's talk about your fleet",
+            "description": "Tell us which vehicles you manage and what kind of support you need. Our team can review your enquiry and explain the available options.",
+            "directContactNote": "Would you rather explain your situation directly? You can also call our workshop.",
+            "sections": {
+                "company": "01 · Company and fleet",
+                "needs": "02 · Requirements",
+                "contact": "03 · Contact person"
+            },
+            "fields": {
+                "company": "Company name",
+                "taxId": "Company tax ID",
+                "fleetSize": "Number of vehicles",
+                "vehicleTypes": "Vehicle types in your fleet",
+                "serviceType": "How can we help?",
+                "serviceTypePlaceholder": "Select the type of enquiry",
+                "details": "Tell us more (optional)",
+                "detailsPlaceholder": "Describe your fleet's needs, the services you are looking for or any useful information...",
+                "contactName": "Contact person's name",
+                "email": "Business email address",
+                "phone": "Contact telephone",
+                "privacyPrefix": "I have read and accept the",
+                "privacyLink": "privacy policy",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "vans": "Vans",
+                "trucks": "Trucks",
+                "buses": "Buses",
+                "fuso": "FUSO",
+                "other": "Other commercial vehicles"
+            },
+            "vehicleTypesRequired": "Select at least one vehicle type.",
+            "serviceTypes": {
+                "maintenance": "Maintenance and inspections",
+                "diagnosisRepair": "Diagnostics and repairs",
+                "spareParts": "Original spare parts",
+                "fleetSupport": "Information about fleet services",
+                "other": "Other enquiry"
+            },
+            "submit": "Request information",
+            "emailNotice": "Clicking the button opens your email application with the enquiry prepared. You must review and send the message from that application.",
+            "emailClientNotice": "If your email application does not open, contact the workshop directly. This page does not submit the enquiry directly to the server.",
+            "requiredNote": "Fields marked with * are required.",
+            "emailSubject": "Fleet services enquiry",
+            "emailBodyIntro": "Fleet enquiry prepared from the Auto-Talleres Orihuela website.",
+            "emailFields": {
+                "company": "Company",
+                "taxId": "Company tax ID",
+                "contactName": "Contact person",
+                "email": "Email",
+                "phone": "Telephone",
+                "fleetSize": "Number of vehicles",
+                "vehicleTypes": "Vehicle types",
+                "serviceType": "Requested service",
+                "details": "Details",
+                "privacyAccepted": "Privacy policy acceptance",
+                "yes": "Yes"
             }
         }
     },

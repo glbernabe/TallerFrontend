@@ -9,7 +9,7 @@
         "quote": "Devis",
         "appointment": "Prendre rendez-vous",
         "offers": "Offres",
-        "florists": "Fleuristes",
+        "fleetCustomers": "Gestionnaires de flotte",
         "originalParts": "Pièces d'origine",
         "individuals": "Particuliers",
         "professionals": "Professionnels",
@@ -171,6 +171,354 @@
         "breadcrumbCurrent": "Rejoignez notre équipe",
         "title": "Rejoignez notre équipe",
         "description": "Si vous souhaitez rejoindre Auto Talleres Orihuela, envoyez-nous vos coordonnées et votre CV. Nous examinerons votre candidature et nous vous contacterons."
+    },
+    "BudgetPage": {
+        "metadata": {
+            "title": "Demander un devis atelier",
+            "description": "Demandez un devis pour l’entretien, le diagnostic ou la réparation de votre fourgon, camion, bus ou véhicule utilitaire chez Auto-Talleres Orihuela.",
+            "openGraphTitle": "Devis atelier pour véhicules utilitaires",
+            "openGraphDescription": "Expliquez-nous les besoins de votre véhicule utilitaire et préparez une demande de devis auprès de notre atelier à Orihuela."
+        },
+        "hero": {
+            "servicesLink": "Services",
+            "workshopLabel": "Atelier",
+            "eyebrow": "Devis",
+            "titleLine1": "Un devis clair",
+            "titleLine2": "pour rester en route.",
+            "description": "Expliquez-nous les besoins de votre véhicule utilitaire. Nous examinerons les informations fournies afin de vous orienter vers la prochaine étape.",
+            "vehicleScope": "Fourgons · Camions · Bus · FUSO",
+            "imageAlt": "Plusieurs camions utilitaires devant des installations modernes"
+        },
+        "intro": {
+            "eyebrow": "Demande de devis",
+            "title": "Dites-nous ce dont votre véhicule a besoin",
+            "description": "Indiquez les informations essentielles du véhicule et décrivez les travaux souhaités. Plus votre demande sera précise, mieux nous pourrons l’évaluer.",
+            "steps": {
+                "vehicle": {
+                    "title": "Identifier le véhicule",
+                    "description": "Indiquez le type et le modèle, et, si vous le souhaitez, l’immatriculation et le kilométrage."
+                },
+                "work": {
+                    "title": "Décrire les travaux",
+                    "description": "Précisez s’il s’agit d’un entretien, d’une réparation, d’un diagnostic ou d’une autre intervention."
+                },
+                "contact": {
+                    "title": "Être recontacté par l’atelier",
+                    "description": "Laissez vos coordonnées pour que notre équipe puisse répondre à votre demande."
+                }
+            },
+            "contactTitle": "Vous préférez parler à l’atelier ?",
+            "contactDescription": "Vous pouvez également nous appeler directement pour expliquer votre situation.",
+            "callButton": "Appeler l’atelier"
+        },
+        "form": {
+            "eyebrow": "Informations de la demande",
+            "title": "Préparez votre demande",
+            "description": "Remplissez les champs obligatoires et vérifiez les informations avant de préparer l’e-mail.",
+            "sections": {
+                "vehicle": "01 · Véhicule",
+                "work": "02 · Travaux souhaités",
+                "contact": "03 · Coordonnées"
+            },
+            "fields": {
+                "vehicleType": "Type de véhicule",
+                "vehicleTypePlaceholder": "Sélectionnez le type de véhicule",
+                "makeModel": "Marque et modèle",
+                "makeModelPlaceholder": "Ex. Mercedes-Benz Actros",
+                "registration": "Immatriculation",
+                "registrationPlaceholder": "Facultatif",
+                "mileage": "Kilométrage approximatif",
+                "mileagePlaceholder": "En kilomètres",
+                "operationType": "Type d’intervention",
+                "operationTypePlaceholder": "Sélectionnez les travaux souhaités",
+                "details": "Décrivez votre besoin",
+                "detailsPlaceholder": "Indiquez les symptômes, l’entretien nécessaire ou les travaux à évaluer…",
+                "name": "Nom et prénom",
+                "company": "Entreprise (facultatif)",
+                "phone": "Téléphone de contact",
+                "email": "Adresse e-mail",
+                "privacyPrefix": "J’ai lu et j’accepte la",
+                "privacyLink": "politique de confidentialité",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "van": "Fourgon",
+                "truck": "Camion",
+                "bus": "Bus",
+                "fuso": "Véhicule FUSO",
+                "other": "Autre véhicule utilitaire"
+            },
+            "operationTypes": {
+                "maintenance": "Entretien",
+                "repair": "Réparation",
+                "diagnosis": "Diagnostic",
+                "other": "Autre intervention"
+            },
+            "submit": "Préparer la demande par e-mail",
+            "emailNotice": "En cliquant sur le bouton, l’application e-mail de votre appareil s’ouvrira avec la demande préparée. Vous devrez vérifier et envoyer le message depuis cette application ; cette page ne transmet pas directement le formulaire à un serveur.",
+            "emailClientNotice": "Si votre application e-mail ne s’ouvre pas, vous pouvez nous appeler ou nous contacter directement par e-mail.",
+            "requiredNote": "Les champs marqués d’un * sont obligatoires.",
+            "emailSubject": "Demande de devis atelier",
+            "emailBodyIntro": "Demande de devis préparée depuis le site d’Auto-Talleres Orihuela.",
+            "emailFields": {
+                "vehicleType": "Type de véhicule",
+                "makeModel": "Marque et modèle",
+                "registration": "Immatriculation",
+                "mileage": "Kilométrage",
+                "operationType": "Travaux demandés",
+                "details": "Détails",
+                "name": "Nom",
+                "company": "Entreprise",
+                "phone": "Téléphone",
+                "email": "E-mail"
+            }
+        }
+    },
+    "AppointmentPage": {
+        "metadata": {
+            "title": "Demander un rendez-vous à l’atelier",
+            "description": "Demandez un rendez-vous pour votre fourgon, camion, bus ou véhicule utilitaire chez Auto-Talleres Orihuela.",
+            "openGraphTitle": "Rendez-vous à l’atelier",
+            "openGraphDescription": "Planifiez votre visite et demandez un rendez-vous pour votre véhicule utilitaire."
+        },
+        "hero": {
+            "servicesLink": "Services",
+            "workshopLabel": "Atelier",
+            "eyebrow": "Rendez-vous",
+            "titleLine1": "Planifiez votre visite",
+            "titleLine2": "dans notre atelier.",
+            "description": "Demandez un rendez-vous pour votre véhicule utilitaire et expliquez-nous vos besoins. Indiquez la date souhaitée afin que notre équipe puisse examiner votre demande.",
+            "vehicleScope": "Fourgons · Camions · Bus · FUSO",
+            "imageAlt": "Camions utilitaires devant des installations modernes"
+        },
+        "intro": {
+            "eyebrow": "Organisez votre visite",
+            "title": "Gardez votre activité en mouvement",
+            "description": "Indiquez les caractéristiques de votre véhicule et le motif de votre visite afin que nous puissions examiner votre demande de rendez-vous.",
+            "steps": {
+                "vehicle": {
+                    "title": "Identifiez votre véhicule",
+                    "description": "Indiquez le type, la marque, le modèle et l’immatriculation."
+                },
+                "work": {
+                    "title": "Expliquez-nous vos besoins",
+                    "description": "Décrivez l’entretien, la panne ou l’intervention nécessaire."
+                },
+                "date": {
+                    "title": "Indiquez vos disponibilités",
+                    "description": "Choisissez la date et la plage horaire souhaitées."
+                },
+                "contact": {
+                    "title": "Laissez vos coordonnées",
+                    "description": "Notre équipe disposera des informations nécessaires pour répondre à votre demande."
+                }
+            },
+            "contactTitle": "Vous souhaitez parler à l’atelier ?",
+            "contactDescription": "Vous pouvez également nous appeler directement pour expliquer votre situation.",
+            "callButton": "Appeler l’atelier"
+        },
+        "form": {
+            "eyebrow": "Demande de rendez-vous",
+            "title": "Préparez votre visite",
+            "description": "Renseignez les informations du véhicule, décrivez les travaux nécessaires et indiquez vos disponibilités.",
+            "sections": {
+                "vehicle": "01 · Véhicule",
+                "appointment": "02 · Rendez-vous et intervention",
+                "contact": "03 · Coordonnées"
+            },
+            "fields": {
+                "vehicleType": "Type de véhicule",
+                "vehicleTypePlaceholder": "Sélectionnez un type de véhicule",
+                "makeModel": "Marque et modèle",
+                "makeModelPlaceholder": "Ex. Mercedes-Benz Actros",
+                "registration": "Immatriculation",
+                "registrationPlaceholder": "Saisissez l’immatriculation",
+                "customerType": "Êtes-vous déjà client ?",
+                "operationType": "Motif de la visite",
+                "operationTypePlaceholder": "Sélectionnez un motif",
+                "preferredDate": "Date souhaitée",
+                "preferredDateHint": "La date demandée est indicative et doit être confirmée par l’atelier.",
+                "preferredTime": "Plage horaire souhaitée",
+                "preferredTimePlaceholder": "Sélectionnez une plage horaire",
+                "details": "Décrivez votre besoin",
+                "detailsPlaceholder": "Décrivez l’entretien, la panne, les symptômes ou les travaux nécessaires...",
+                "name": "Nom et prénom",
+                "company": "Entreprise (facultatif)",
+                "phone": "Téléphone de contact",
+                "email": "Adresse e-mail",
+                "privacyPrefix": "J’ai lu et j’accepte la",
+                "privacyLink": "politique de confidentialité",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "van": "Fourgon",
+                "truck": "Camion",
+                "bus": "Bus",
+                "fuso": "Véhicule FUSO",
+                "other": "Autre véhicule utilitaire"
+            },
+            "customerTypes": {
+                "yes": "Oui",
+                "no": "Non"
+            },
+            "operationTypes": {
+                "maintenance": "Entretien ou révision",
+                "repair": "Panne ou réparation",
+                "diagnosis": "Diagnostic",
+                "other": "Autre intervention"
+            },
+            "preferredTimes": {
+                "morning": "Le matin",
+                "afternoon": "L’après-midi",
+                "any": "Toute plage disponible"
+            },
+            "submit": "Préparer la demande de rendez-vous",
+            "emailNotice": "En continuant, l’application e-mail de votre appareil s’ouvrira avec la demande préparée. Vous devrez vérifier et envoyer le message depuis cette application.",
+            "emailClientNotice": "Si votre application e-mail ne s’ouvre pas, vous pouvez contacter directement notre atelier. Votre demande ne constitue pas un rendez-vous confirmé.",
+            "requiredNote": "Les champs marqués d’un * sont obligatoires.",
+            "emailSubject": "Demande de rendez-vous à l’atelier",
+            "emailBodyIntro": "Demande de rendez-vous préparée depuis le site d’Auto-Talleres Orihuela.",
+            "emailAvailabilityNotice": "La date et la plage horaire demandées doivent être confirmées par l’atelier.",
+            "emailFields": {
+                "vehicleType": "Type de véhicule",
+                "makeModel": "Marque et modèle",
+                "registration": "Immatriculation",
+                "customerType": "Client habituel",
+                "operationType": "Motif de la visite",
+                "preferredDate": "Date souhaitée",
+                "preferredTime": "Plage horaire souhaitée",
+                "details": "Détails",
+                "name": "Nom",
+                "company": "Entreprise",
+                "phone": "Téléphone",
+                "email": "E-mail",
+                "privacyAccepted": "Acceptation de la politique de confidentialité",
+                "yes": "Oui"
+            }
+        }
+    },
+    "AppointmentPage": {
+        "metadata": {
+            "title": "Werkstatttermin anfragen",
+            "description": "Vereinbaren Sie einen Termin für Ihren Transporter, Lkw, Bus oder Ihr Nutzfahrzeug bei Auto-Talleres Orihuela.",
+            "openGraphTitle": "Werkstatttermin",
+            "openGraphDescription": "Planen Sie Ihren Werkstattbesuch und stellen Sie eine Terminanfrage für Ihr Nutzfahrzeug."
+        },
+        "hero": {
+            "servicesLink": "Dienstleistungen",
+            "workshopLabel": "Werkstatt",
+            "eyebrow": "Termin",
+            "titleLine1": "Planen Sie Ihren Besuch",
+            "titleLine2": "in unserer Werkstatt.",
+            "description": "Fragen Sie einen Termin für Ihr Nutzfahrzeug an und schildern Sie uns Ihren Bedarf. Geben Sie Ihren Wunschtermin an, damit unser Team Ihre Anfrage prüfen kann.",
+            "vehicleScope": "Transporter · Lkw · Busse · FUSO",
+            "imageAlt": "Nutzfahrzeuge vor einer modernen Anlage"
+        },
+        "intro": {
+            "eyebrow": "Besuch planen",
+            "title": "Damit Ihr Betrieb in Bewegung bleibt",
+            "description": "Nennen Sie uns die Fahrzeugdaten und den Grund Ihres Besuchs, damit wir Ihre Terminanfrage prüfen können.",
+            "steps": {
+                "vehicle": {
+                    "title": "Fahrzeug identifizieren",
+                    "description": "Geben Sie Fahrzeugtyp, Marke, Modell und Kennzeichen an."
+                },
+                "work": {
+                    "title": "Bedarf beschreiben",
+                    "description": "Beschreiben Sie die benötigte Wartung, Störung oder Reparatur."
+                },
+                "date": {
+                    "title": "Verfügbarkeit angeben",
+                    "description": "Wählen Sie Ihren Wunschtermin und ein bevorzugtes Zeitfenster."
+                },
+                "contact": {
+                    "title": "Kontaktdaten hinterlassen",
+                    "description": "Unser Team erhält so die nötigen Informationen, um auf Ihre Anfrage zu antworten."
+                }
+            },
+            "contactTitle": "Möchten Sie mit der Werkstatt sprechen?",
+            "contactDescription": "Sie können uns auch direkt anrufen und Ihr Anliegen schildern.",
+            "callButton": "Werkstatt anrufen"
+        },
+        "form": {
+            "eyebrow": "Terminanfrage",
+            "title": "Besuch vorbereiten",
+            "description": "Geben Sie die Fahrzeugdaten ein, beschreiben Sie die benötigten Arbeiten und nennen Sie Ihren Wunschtermin.",
+            "sections": {
+                "vehicle": "01 · Fahrzeug",
+                "appointment": "02 · Termin und Arbeit",
+                "contact": "03 · Kontaktdaten"
+            },
+            "fields": {
+                "vehicleType": "Fahrzeugtyp",
+                "vehicleTypePlaceholder": "Fahrzeugtyp auswählen",
+                "makeModel": "Marke und Modell",
+                "makeModelPlaceholder": "z. B. Mercedes-Benz Actros",
+                "registration": "Kennzeichen",
+                "registrationPlaceholder": "Kennzeichen eingeben",
+                "customerType": "Sind Sie bereits Kunde?",
+                "operationType": "Grund des Besuchs",
+                "operationTypePlaceholder": "Grund auswählen",
+                "preferredDate": "Wunschtermin",
+                "preferredDateHint": "Der gewünschte Termin ist unverbindlich und muss von der Werkstatt bestätigt werden.",
+                "preferredTime": "Bevorzugtes Zeitfenster",
+                "preferredTimePlaceholder": "Zeitfenster auswählen",
+                "details": "Beschreiben Sie Ihren Bedarf",
+                "detailsPlaceholder": "Beschreiben Sie die Wartung, Störung, Symptome oder benötigten Arbeiten...",
+                "name": "Vor- und Nachname",
+                "company": "Unternehmen (optional)",
+                "phone": "Telefonnummer",
+                "email": "E-Mail-Adresse",
+                "privacyPrefix": "Ich habe die",
+                "privacyLink": "Datenschutzerklärung",
+                "privacySuffix": " gelesen und akzeptiere sie."
+            },
+            "vehicleTypes": {
+                "van": "Transporter",
+                "truck": "Lkw",
+                "bus": "Bus",
+                "fuso": "FUSO-Fahrzeug",
+                "other": "Anderes Nutzfahrzeug"
+            },
+            "customerTypes": {
+                "yes": "Ja",
+                "no": "Nein"
+            },
+            "operationTypes": {
+                "maintenance": "Wartung oder Inspektion",
+                "repair": "Störung oder Reparatur",
+                "diagnosis": "Diagnose",
+                "other": "Sonstige Arbeiten"
+            },
+            "preferredTimes": {
+                "morning": "Vormittags",
+                "afternoon": "Nachmittags",
+                "any": "Jedes verfügbare Zeitfenster"
+            },
+            "submit": "Terminanfrage vorbereiten",
+            "emailNotice": "Beim Fortfahren öffnet sich das E-Mail-Programm Ihres Geräts mit der vorbereiteten Anfrage. Sie müssen die Nachricht dort prüfen und selbst senden.",
+            "emailClientNotice": "Wenn sich Ihr E-Mail-Programm nicht öffnet, können Sie unsere Werkstatt direkt kontaktieren. Ihre Anfrage gilt noch nicht als bestätigter Termin.",
+            "requiredNote": "Mit * markierte Felder sind Pflichtfelder.",
+            "emailSubject": "Werkstatt-Terminanfrage",
+            "emailBodyIntro": "Terminanfrage über die Website von Auto-Talleres Orihuela vorbereitet.",
+            "emailAvailabilityNotice": "Der gewünschte Termin und das Zeitfenster müssen von der Werkstatt bestätigt werden.",
+            "emailFields": {
+                "vehicleType": "Fahrzeugtyp",
+                "makeModel": "Marke und Modell",
+                "registration": "Kennzeichen",
+                "customerType": "Bestandskunde",
+                "operationType": "Grund des Besuchs",
+                "preferredDate": "Wunschtermin",
+                "preferredTime": "Bevorzugtes Zeitfenster",
+                "details": "Details",
+                "name": "Name",
+                "company": "Unternehmen",
+                "phone": "Telefon",
+                "email": "E-Mail",
+                "privacyAccepted": "Zustimmung zur Datenschutzerklärung",
+                "yes": "Ja"
+            }
+        }
     },
     "History": {
         "metadata": {
@@ -362,6 +710,118 @@
             "rights": {
                 "title": "Vos droits",
                 "content": "Vous pouvez demander l'accès, la rectification, l'effacement, l'opposition, la limitation ou la portabilité de vos données personnelles en écrivant à orihuela.ato@autotalleresorihuela.es. Vous pouvez également introduire une réclamation auprès de l'autorité compétente en matière de protection des données."
+            }
+        }
+    },
+    "FleetCustomersPage": {
+        "metadata": {
+            "title": "Service pour gestionnaires de flotte à Orihuela",
+            "description": "Service d'atelier pour flottes de camions, fourgons et véhicules utilitaires à Orihuela, Alicante.",
+            "openGraphTitle": "Service pour flottes | Auto-Talleres Orihuela",
+            "openGraphDescription": "Un service d'atelier conçu pour maintenir votre flotte en mouvement."
+        },
+        "hero": {
+            "imageAlt": "Camions et véhicules industriels sur la route",
+            "servicesLink": "Services",
+            "workshopLabel": "Atelier",
+            "eyebrow": "Gestionnaires de flotte",
+            "titleLine1": "Votre flotte,",
+            "titleLine2": "toujours en mouvement.",
+            "description": "Un service d'atelier pensé pour les entreprises et les professionnels qui dépendent de leurs véhicules au quotidien.",
+            "callButton": "Parler à l'atelier"
+        },
+        "introduction": {
+            "eyebrow": "Un partenaire pour votre activité",
+            "titleLine1": "Moins de temps",
+            "titleLine2": "hors de la route.",
+            "description": "Nous savons que chaque véhicule immobilisé a un impact sur votre activité. C'est pourquoi nous travaillons avec une approche technique, directe et orientée vers la continuité de votre flotte.",
+            "detail": "Nous prenons en charge les camions, fourgons et véhicules utilitaires afin que chaque intervention soit claire, rigoureuse et adaptée aux besoins réels de votre activité."
+        },
+        "services": {
+            "eyebrow": "Accompagnement des flottes",
+            "titleLine1": "Un service qui comprend",
+            "titleLine2": "votre rythme de travail.",
+            "items": {
+                "planning": {
+                    "title": "Planification",
+                    "description": "Nous coordonnons les besoins d'entretien et de réparation pour faciliter l'organisation de votre activité."
+                },
+                "maintenance": {
+                    "title": "Entretien et réparation",
+                    "description": "Nous intervenons sur les systèmes mécaniques et électroniques de vos véhicules selon des critères techniques et de fiabilité."
+                },
+                "communication": {
+                    "title": "Communication directe",
+                    "description": "Nous vous tenons informé tout au long du processus pour vous aider à prendre vos décisions."
+                }
+            }
+        },
+        "contact": {
+            "eyebrow": "Parlons de votre flotte",
+            "titleLine1": "Un atelier prêt",
+            "titleLine2": "à aller de l'avant.",
+            "description": "Expliquez-nous les besoins de vos véhicules et notre équipe vous orientera vers la meilleure façon d'y répondre.",
+            "callButton": "Appeler l'atelier"
+        },
+        "form": {
+            "eyebrow": "Demande professionnelle",
+            "title": "Parlons de votre flotte",
+            "description": "Présentez-nous les véhicules que vous gérez et le type d'accompagnement recherché. Notre équipe pourra examiner votre demande et vous informer des options disponibles.",
+            "directContactNote": "Vous préférez nous expliquer votre situation directement ? Vous pouvez également appeler notre atelier.",
+            "sections": {
+                "company": "01 · Entreprise et flotte",
+                "needs": "02 · Besoins",
+                "contact": "03 · Personne à contacter"
+            },
+            "fields": {
+                "company": "Nom de l'entreprise",
+                "taxId": "Numéro d'identification fiscale",
+                "fleetSize": "Nombre de véhicules",
+                "vehicleTypes": "Types de véhicules de votre flotte",
+                "serviceType": "Comment pouvons-nous vous aider ?",
+                "serviceTypePlaceholder": "Sélectionnez le type de demande",
+                "details": "Précisions (facultatif)",
+                "detailsPlaceholder": "Décrivez les besoins de votre flotte, les services recherchés ou toute information utile...",
+                "contactName": "Nom de la personne à contacter",
+                "email": "Adresse e-mail professionnelle",
+                "phone": "Téléphone de contact",
+                "privacyPrefix": "J’ai lu et j’accepte la",
+                "privacyLink": "politique de confidentialité",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "vans": "Fourgons",
+                "trucks": "Camions",
+                "buses": "Bus",
+                "fuso": "FUSO",
+                "other": "Autres véhicules utilitaires"
+            },
+            "vehicleTypesRequired": "Sélectionnez au moins un type de véhicule.",
+            "serviceTypes": {
+                "maintenance": "Entretien et révisions",
+                "diagnosisRepair": "Diagnostic et réparations",
+                "spareParts": "Pièces détachées d'origine",
+                "fleetSupport": "Informations sur les services pour flottes",
+                "other": "Autre demande"
+            },
+            "submit": "Demander des informations",
+            "emailNotice": "En cliquant sur le bouton, l'application e-mail de votre appareil s'ouvrira avec la demande préparée. Vous devrez vérifier et envoyer le message depuis cette application.",
+            "emailClientNotice": "Si votre application e-mail ne s'ouvre pas, contactez directement l'atelier. Cette page n'envoie pas directement la demande au serveur.",
+            "requiredNote": "Les champs marqués d'un * sont obligatoires.",
+            "emailSubject": "Demande d'informations sur les services pour flottes",
+            "emailBodyIntro": "Demande concernant une flotte préparée depuis le site d'Auto-Talleres Orihuela.",
+            "emailFields": {
+                "company": "Entreprise",
+                "taxId": "Numéro d'identification fiscale",
+                "contactName": "Personne à contacter",
+                "email": "E-mail",
+                "phone": "Téléphone",
+                "fleetSize": "Nombre de véhicules",
+                "vehicleTypes": "Types de véhicules",
+                "serviceType": "Service demandé",
+                "details": "Précisions",
+                "privacyAccepted": "Acceptation de la politique de confidentialité",
+                "yes": "Oui"
             }
         }
     },

@@ -38,8 +38,8 @@ export const navigation: NavItem[] = [
                         href: "/servicios/taller/ofertas",
                     },
                     {
-                        key: "florists",
-                        href: "/servicios/taller/floristas",
+                        key: "fleetCustomers",
+                        href: "/servicios/taller/flotistas",
                     },
                 ],
             },

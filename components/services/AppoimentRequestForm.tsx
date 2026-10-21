@@ -1,0 +1,447 @@
+"use client";
+
+import { useEffect, useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
+
+import { Link } from "@/i18n/navigation";
+import MainButton from "@/components/ui/MainButton";
+
+type Props = {
+    recipient: string;
+};
+
+type VehicleType = "van" | "truck" | "bus" | "fuso" | "other";
+type CustomerType = "yes" | "no";
+type OperationType = "maintenance" | "repair" | "diagnosis" | "other";
+type PreferredTime = "morning" | "afternoon" | "any";
+
+const inputClassName = `
+    mt-2
+    block
+    min-h-12
+    w-full
+    rounded-sm
+    border
+    border-neutral-300
+    bg-white
+    px-4
+    py-3
+    font-text
+    text-base
+    text-black
+    outline-none
+    transition-colors
+    placeholder:text-neutral-400
+    focus:border-[#0078d6]
+    focus:ring-2
+    focus:ring-[#0078d6]/15
+`;
+
+const labelClassName = "block text-sm font-medium text-neutral-800";
+
+function getLocalDateString(): string {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+export default function AppointmentRequestForm({ recipient }: Props) {
+    const t = useTranslations("AppointmentPage");
+
+    const [minimumDate, setMinimumDate] = useState("");
+    const [emailNotice, setEmailNotice] = useState(false);
+
+    useEffect(() => {
+        setMinimumDate(getLocalDateString());
+    }, []);
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+        const read = (name: string) =>
+            String(formData.get(name) ?? "").trim();
+
+        const vehicleType = read("vehicleType") as VehicleType;
+        const customerType = read("customerType") as CustomerType;
+        const operationType = read("operationType") as OperationType;
+        const preferredTime = read("preferredTime") as PreferredTime;
+
+        const vehicleLabels: Record<VehicleType, string> = {
+            van: t("form.vehicleTypes.van"),
+            truck: t("form.vehicleTypes.truck"),
+            bus: t("form.vehicleTypes.bus"),
+            fuso: t("form.vehicleTypes.fuso"),
+            other: t("form.vehicleTypes.other"),
+        };
+
+        const customerLabels: Record<CustomerType, string> = {
+            yes: t("form.customerTypes.yes"),
+            no: t("form.customerTypes.no"),
+        };
+
+        const operationLabels: Record<OperationType, string> = {
+            maintenance: t("form.operationTypes.maintenance"),
+            repair: t("form.operationTypes.repair"),
+            diagnosis: t("form.operationTypes.diagnosis"),
+            other: t("form.operationTypes.other"),
+        };
+
+        const timeLabels: Record<PreferredTime, string> = {
+            morning: t("form.preferredTimes.morning"),
+            afternoon: t("form.preferredTimes.afternoon"),
+            any: t("form.preferredTimes.any"),
+        };
+
+        const subject = `${t("form.emailSubject")} — ${vehicleLabels[vehicleType]}`;
+
+        const rows: Array<[string, string]> = [
+            [t("form.emailFields.vehicleType"), vehicleLabels[vehicleType]],
+            [t("form.emailFields.makeModel"), read("makeModel")],
+            [t("form.emailFields.registration"), read("registration")],
+            [t("form.emailFields.customerType"), customerLabels[customerType]],
+            [t("form.emailFields.operationType"), operationLabels[operationType]],
+            [t("form.emailFields.preferredDate"), read("preferredDate")],
+            [t("form.emailFields.preferredTime"), timeLabels[preferredTime]],
+            [t("form.emailFields.details"), read("details")],
+            [t("form.emailFields.name"), read("name")],
+            [t("form.emailFields.company"), read("company")],
+            [t("form.emailFields.phone"), read("phone")],
+            [t("form.emailFields.email"), read("email")],
+            [
+                t("form.emailFields.privacyAccepted"),
+                t("form.emailFields.yes"),
+            ],
+        ];
+
+        const body = [
+            t("form.emailBodyIntro"),
+            "",
+            ...rows
+                .filter(([, value]) => value.length > 0)
+                .map(([label, value]) => `${label}: ${value}`),
+            "",
+            t("form.emailAvailabilityNotice"),
+        ].join("\n");
+
+        const mailto =
+            `mailto:${recipient}` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${encodeURIComponent(body)}`;
+
+        setEmailNotice(true);
+        window.location.href = mailto;
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="space-y-9">
+            <fieldset className="space-y-5">
+                <legend className="font-title text-2xl">
+                    {t("form.sections.vehicle")}
+                </legend>
+
+                <div>
+                    <label className={labelClassName} htmlFor="appointment-vehicle-type">
+                        {t("form.fields.vehicleType")} *
+                    </label>
+
+                    <select
+                        id="appointment-vehicle-type"
+                        name="vehicleType"
+                        className={inputClassName}
+                        defaultValue=""
+                        required
+                    >
+                        <option value="" disabled>
+                            {t("form.fields.vehicleTypePlaceholder")}
+                        </option>
+                        <option value="van">{t("form.vehicleTypes.van")}</option>
+                        <option value="truck">{t("form.vehicleTypes.truck")}</option>
+                        <option value="bus">{t("form.vehicleTypes.bus")}</option>
+                        <option value="fuso">{t("form.vehicleTypes.fuso")}</option>
+                        <option value="other">{t("form.vehicleTypes.other")}</option>
+                    </select>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-make-model">
+                            {t("form.fields.makeModel")} *
+                        </label>
+
+                        <input
+                            id="appointment-make-model"
+                            name="makeModel"
+                            autoComplete="off"
+                            maxLength={120}
+                            className={inputClassName}
+                            placeholder={t("form.fields.makeModelPlaceholder")}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-registration">
+                            {t("form.fields.registration")} *
+                        </label>
+
+                        <input
+                            id="appointment-registration"
+                            name="registration"
+                            autoComplete="off"
+                            maxLength={20}
+                            className={inputClassName}
+                            placeholder={t("form.fields.registrationPlaceholder")}
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <span className={labelClassName}>
+                        {t("form.fields.customerType")} *
+                    </span>
+
+                    <div className="mt-3 flex flex-wrap gap-6">
+                        {(["yes", "no"] as const).map((customer) => (
+                            <label
+                                key={customer}
+                                className="flex items-center gap-2 text-sm text-neutral-700"
+                            >
+                                <input
+                                    type="radio"
+                                    name="customerType"
+                                    value={customer}
+                                    required
+                                    className="size-4 accent-[#0078d6]"
+                                />
+                                {t(`form.customerTypes.${customer}`)}
+                            </label>
+                        ))}
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset className="space-y-5 border-t border-neutral-200 pt-8">
+                <legend className="font-title text-2xl">
+                    {t("form.sections.appointment")}
+                </legend>
+
+                <div>
+                    <label className={labelClassName} htmlFor="appointment-operation-type">
+                        {t("form.fields.operationType")} *
+                    </label>
+
+                    <select
+                        id="appointment-operation-type"
+                        name="operationType"
+                        className={inputClassName}
+                        defaultValue=""
+                        required
+                    >
+                        <option value="" disabled>
+                            {t("form.fields.operationTypePlaceholder")}
+                        </option>
+                        <option value="maintenance">
+                            {t("form.operationTypes.maintenance")}
+                        </option>
+                        <option value="repair">
+                            {t("form.operationTypes.repair")}
+                        </option>
+                        <option value="diagnosis">
+                            {t("form.operationTypes.diagnosis")}
+                        </option>
+                        <option value="other">
+                            {t("form.operationTypes.other")}
+                        </option>
+                    </select>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-date">
+                            {t("form.fields.preferredDate")} *
+                        </label>
+
+                        <input
+                            id="appointment-date"
+                            name="preferredDate"
+                            type="date"
+                            min={minimumDate || undefined}
+                            className={inputClassName}
+                            required
+                        />
+
+                        <p className="mt-2 text-xs leading-5 text-neutral-500">
+                            {t("form.fields.preferredDateHint")}
+                        </p>
+                    </div>
+
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-time">
+                            {t("form.fields.preferredTime")} *
+                        </label>
+
+                        <select
+                            id="appointment-time"
+                            name="preferredTime"
+                            className={inputClassName}
+                            defaultValue=""
+                            required
+                        >
+                            <option value="" disabled>
+                                {t("form.fields.preferredTimePlaceholder")}
+                            </option>
+                            <option value="morning">
+                                {t("form.preferredTimes.morning")}
+                            </option>
+                            <option value="afternoon">
+                                {t("form.preferredTimes.afternoon")}
+                            </option>
+                            <option value="any">
+                                {t("form.preferredTimes.any")}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label className={labelClassName} htmlFor="appointment-details">
+                        {t("form.fields.details")} *
+                    </label>
+
+                    <textarea
+                        id="appointment-details"
+                        name="details"
+                        rows={4}
+                        minLength={10}
+                        maxLength={4000}
+                        className={`${inputClassName} resize-y`}
+                        placeholder={t("form.fields.detailsPlaceholder")}
+                        required
+                    />
+                </div>
+            </fieldset>
+
+            <fieldset className="space-y-5 border-t border-neutral-200 pt-8">
+                <legend className="font-title text-2xl">
+                    {t("form.sections.contact")}
+                </legend>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-name">
+                            {t("form.fields.name")} *
+                        </label>
+
+                        <input
+                            id="appointment-name"
+                            name="name"
+                            autoComplete="name"
+                            maxLength={120}
+                            className={inputClassName}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-company">
+                            {t("form.fields.company")}
+                        </label>
+
+                        <input
+                            id="appointment-company"
+                            name="company"
+                            autoComplete="organization"
+                            maxLength={160}
+                            className={inputClassName}
+                        />
+                    </div>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-phone">
+                            {t("form.fields.phone")} *
+                        </label>
+
+                        <input
+                            id="appointment-phone"
+                            name="phone"
+                            type="tel"
+                            autoComplete="tel"
+                            maxLength={40}
+                            className={inputClassName}
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label className={labelClassName} htmlFor="appointment-email">
+                            {t("form.fields.email")} *
+                        </label>
+
+                        <input
+                            id="appointment-email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            maxLength={254}
+                            className={inputClassName}
+                            required
+                        />
+                    </div>
+                </div>
+            </fieldset>
+
+            <div className="border-t border-neutral-200 pt-7">
+                <div className="flex items-start gap-3">
+                    <input
+                        id="appointment-privacy"
+                        name="privacy"
+                        type="checkbox"
+                        required
+                        className="mt-1 size-4 shrink-0 accent-[#0078d6]"
+                    />
+
+                    <label
+                        htmlFor="appointment-privacy"
+                        className="text-sm leading-6 text-neutral-600"
+                    >
+                        {t("form.fields.privacyPrefix")}{" "}
+                        <Link
+                            href="/privacidad"
+                            className="underline decoration-neutral-400 underline-offset-4 transition-colors hover:text-black"
+                        >
+                            {t("form.fields.privacyLink")}
+                        </Link>
+                        {t("form.fields.privacySuffix")}
+                    </label>
+                </div>
+
+                <p className="mt-5 text-sm leading-6 text-neutral-500">
+                    {t("form.emailNotice")}
+                </p>
+
+                <div className="mt-7 flex flex-col items-start gap-4">
+                    <MainButton type="submit" className="w-full sm:w-auto">
+                        {t("form.submit")}
+                    </MainButton>
+
+                    {emailNotice && (
+                        <p role="status" className="text-sm leading-6 text-neutral-600">
+                            {t("form.emailClientNotice")}
+                        </p>
+                    )}
+
+                    <p className="text-xs leading-5 text-neutral-500">
+                        {t("form.requiredNote")}
+                    </p>
+                </div>
+            </div>
+        </form>
+    );
+}

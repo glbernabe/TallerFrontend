@@ -29,11 +29,11 @@ export const routing = defineRouting({
             de: "/dienstleistungen/werkstatt/termin",
         },
 
-        "/servicios/taller/floristas": {
-            es: "/servicios/taller/floristas",
-            en: "/services/workshop/florists",
-            fr: "/services/atelier/fleuristes",
-            de: "/dienstleistungen/werkstatt/floristen",
+        "/servicios/taller/flotistas": {
+            es: "/servicios/taller/flotistas",
+            en: "/services/workshop/fleet-operators",
+            fr: "/services/atelier/gestion-de-flotte",
+            de: "/dienstleistungen/werkstatt/flottenmanagement",
         },
 
         "/servicios/taller/ofertas": {
