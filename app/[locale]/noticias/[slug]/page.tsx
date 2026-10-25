@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import {
     getNewsBySlug,
 } from "@/lib/news/newsDependencies";
+import { getPathname } from "@/i18n/navigation";
 
 type Props = {
     params: Promise<{
+        locale: string;
         slug: string;
     }>;
 };
@@ -14,7 +16,7 @@ type Props = {
 export async function generateMetadata({
     params,
 }: Props): Promise<Metadata> {
-    const {slug} = await params;
+    const {locale, slug} = await params;
 
     const news =
         await getNewsBySlug.execute(
@@ -25,11 +27,23 @@ export async function generateMetadata({
         return {};
     }
 
+    const canonical = getPathname({
+        locale,
+        href: { pathname: "/noticias/[slug]", params: { slug } },
+    });
+
     return {
         title: news.title,
         description:
             news.summary ??
             undefined,
+        alternates: { canonical },
+        openGraph: {
+            title: news.title,
+            description: news.summary ?? undefined,
+            url: canonical,
+            type: "article",
+        },
     };
 }
 

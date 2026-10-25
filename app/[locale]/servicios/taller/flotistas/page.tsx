@@ -20,12 +20,18 @@ export async function generateMetadata(): Promise<Metadata> {
         href: "/servicios/taller/flotistas",
     });
 
-    const languages = {
+    const localizedPaths = {
         es: getPathname({ locale: "es", href: "/servicios/taller/flotistas" }),
         en: getPathname({ locale: "en", href: "/servicios/taller/flotistas" }),
         fr: getPathname({ locale: "fr", href: "/servicios/taller/flotistas" }),
         de: getPathname({ locale: "de", href: "/servicios/taller/flotistas" }),
     };
+
+    const languages = Object.fromEntries(
+        Object.entries(localizedPaths).filter(
+            ([language]) => language !== locale
+        )
+    );
 
     return {
         title: t("metadata.title"),

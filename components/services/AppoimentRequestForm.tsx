@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
@@ -51,12 +51,8 @@ function getLocalDateString(): string {
 export default function AppointmentRequestForm({ recipient }: Props) {
     const t = useTranslations("AppointmentPage");
 
-    const [minimumDate, setMinimumDate] = useState("");
+    const [minimumDate] = useState(getLocalDateString);
     const [emailNotice, setEmailNotice] = useState(false);
-
-    useEffect(() => {
-        setMinimumDate(getLocalDateString());
-    }, []);
 
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import NewsPageContent from "@/components/news/NewsPageContent";
+import { getPathname } from "@/i18n/navigation";
 
 import {
     getNewsPage,
@@ -25,10 +26,18 @@ export async function generateMetadata({
         locale,
         namespace: "News",
     });
+    const canonical = getPathname({ locale, href: "/noticias" });
 
     return {
         title: t("metadata.title"),
         description: t("metadata.description"),
+        alternates: { canonical },
+        openGraph: {
+            title: t("metadata.title"),
+            description: t("metadata.description"),
+            url: canonical,
+            type: "website",
+        },
     };
 }
 

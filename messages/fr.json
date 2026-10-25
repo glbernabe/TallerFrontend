@@ -170,7 +170,41 @@
         "breadcrumbHome": "Accueil",
         "breadcrumbCurrent": "Rejoignez notre équipe",
         "title": "Rejoignez notre équipe",
-        "description": "Si vous souhaitez rejoindre Auto Talleres Orihuela, envoyez-nous vos coordonnées et votre CV. Nous examinerons votre candidature et nous vous contacterons."
+        "description": "Si vous souhaitez rejoindre Auto Talleres Orihuela, envoyez-nous vos coordonnées et votre CV. Nous examinerons votre candidature et nous vous contacterons.",
+        "metadata": {
+            "title": "Rejoignez notre équipe",
+            "description": "Rejoignez l'équipe d'Auto-Talleres Orihuela. Envoyez votre candidature pour travailler avec des véhicules utilitaires à Orihuela.",
+            "openGraphTitle": "Rejoignez notre équipe | Auto-Talleres Orihuela",
+            "openGraphDescription": "Envoyez votre candidature pour rejoindre notre équipe à Orihuela."
+        },
+        "form": {
+            "nameLabel": "Nom :",
+            "emailLabel": "Adresse e-mail :",
+            "phoneLabel": "Téléphone :",
+            "messageLabel": "Message :",
+            "cvLabel": "Curriculum vitæ :",
+            "selectCv": "Sélectionner un CV",
+            "pdfHelp": "Seuls les fichiers PDF de 5 Mo maximum sont acceptés.",
+            "privacyConsentPrefix": "J’ai lu et j’accepte la",
+            "privacyPolicyLink": "politique de confidentialité",
+            "privacyConsentSuffix": " et j’autorise le traitement de mes données personnelles pour gérer ma candidature.",
+            "captchaLabel": "Je ne suis pas un robot",
+            "captchaNotice": "CAPTCHA provisoire. Cette vérification visuelle ne permet pas encore de confirmer que vous êtes une personne réelle.",
+            "successMessage": "Votre candidature a été envoyée avec succès. Merci de votre intérêt.",
+            "cancelButton": "Annuler",
+            "submitButton": "Envoyer ma candidature",
+            "sendingButton": "Envoi en cours...",
+            "errors": {
+                "pdfRequired": "Vous devez joindre votre CV au format PDF.",
+                "invalidPdf": "Veuillez joindre un fichier PDF valide.",
+                "fileTooLarge": "Le fichier dépasse la limite de 5 Mo.",
+                "invalidEmail": "Veuillez saisir une adresse e-mail valide.",
+                "termsRequired": "Vous devez accepter la politique de confidentialité pour envoyer votre candidature.",
+                "emailNotConfigured": "L’envoi des candidatures n’est pas encore configuré. Veuillez contacter l’entreprise par un autre moyen.",
+                "sendFailed": "Impossible d’envoyer votre candidature. Veuillez réessayer plus tard.",
+                "network": "Impossible de se connecter au serveur. Vérifiez votre connexion et réessayez."
+            }
+        }
     },
     "BudgetPage": {
         "metadata": {
@@ -712,6 +746,18 @@
                 "content": "Vous pouvez demander l'accès, la rectification, l'effacement, l'opposition, la limitation ou la portabilité de vos données personnelles en écrivant à orihuela.ato@autotalleresorihuela.es. Vous pouvez également introduire une réclamation auprès de l'autorité compétente en matière de protection des données."
             }
         }
+    },
+    "HomeMetadata": {
+        "title": "Auto-Talleres Orihuela | Service agréé Mercedes-Benz",
+        "description": "Service agréé Mercedes-Benz à Orihuela, Alicante. Entretien, diagnostic et réparation de véhicules industriels.",
+        "openGraphTitle": "Auto-Talleres Orihuela | Service agréé Mercedes-Benz",
+        "openGraphDescription": "Entretien, diagnostic et réparation de véhicules industriels à Orihuela."
+    },
+    "ServicesMetadata": {
+        "title": "Services pour véhicules industriels",
+        "description": "Entretien, diagnostic et réparation de camions, fourgons et véhicules utilitaires à Orihuela, Alicante.",
+        "openGraphTitle": "Services pour véhicules industriels",
+        "openGraphDescription": "Entretien, diagnostic et réparation de véhicules industriels à Orihuela, Alicante."
     },
     "FleetCustomersPage": {
         "metadata": {

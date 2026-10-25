@@ -163,6 +163,12 @@
         "breadcrumbCurrent": "Work with us",
         "title": "Work with us",
         "description": "If you would like to join Auto Talleres Orihuela, send us your details and CV. We will review your application and get in touch with you.",
+        "metadata": {
+            "title": "Work with us",
+            "description": "Join the Auto-Talleres Orihuela team. Send us your application to work with commercial vehicles in Orihuela.",
+            "openGraphTitle": "Work with us | Auto-Talleres Orihuela",
+            "openGraphDescription": "Send your application to join our team in Orihuela."
+        },
         "form": {
             "nameLabel": "Name:",
             "emailLabel": "Email address:",
@@ -617,6 +623,18 @@
                 "content": "You may request access to, rectification, erasure, objection to, restriction of or portability of your personal data by writing to orihuela.ato@autotalleresorihuela.es. You may also lodge a complaint with the competent data protection authority."
             }
         }
+    },
+    "HomeMetadata": {
+        "title": "Auto-Talleres Orihuela | Authorised Mercedes-Benz Service",
+        "description": "Authorised Mercedes-Benz service in Orihuela, Alicante. Maintenance, diagnostics and repair for commercial vehicles.",
+        "openGraphTitle": "Auto-Talleres Orihuela | Authorised Mercedes-Benz Service",
+        "openGraphDescription": "Maintenance, diagnostics and repair for commercial vehicles in Orihuela."
+    },
+    "ServicesMetadata": {
+        "title": "Commercial vehicle services",
+        "description": "Maintenance, diagnostics and repair for trucks, vans and commercial vehicles in Orihuela, Alicante.",
+        "openGraphTitle": "Commercial vehicle services",
+        "openGraphDescription": "Maintenance, diagnostics and repair for commercial vehicles in Orihuela, Alicante."
     },
     "FleetCustomersPage": {
         "metadata": {

@@ -179,7 +179,7 @@ export default async function Footer() {
                                 },
                                 {
                                     label: t("company.workWithUs"),
-                                    href: "mailto:orihuela.ato@autotalleresorihuela.es?subject=Consulta%20de%20empleo",
+                                    href: "/trabaja-con-nosotros",
                                 },
                             ]}
                         />

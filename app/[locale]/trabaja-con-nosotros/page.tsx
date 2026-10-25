@@ -1,10 +1,31 @@
 
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 import Breadcrumb from "@/components/navigation/Breadcrumb";
 import WorkWithUsForm from "@/components/work-with-us/WorkWithUsForm";
+import { getPathname } from "@/i18n/navigation";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("WorkWithUs.metadata");
+    const locale = await getLocale();
+    const canonical = getPathname({ locale, href: "/trabaja-con-nosotros" });
+
+    return {
+        title: t("title"),
+        description: t("description"),
+        alternates: { canonical },
+        openGraph: {
+            title: t("openGraphTitle"),
+            description: t("openGraphDescription"),
+            url: canonical,
+            type: "website",
+        },
+    };
+}
 
 export default async function WorkWithUsPage() {
     const t = await getTranslations("WorkWithUs");

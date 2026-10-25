@@ -171,6 +171,12 @@
         "breadcrumbCurrent": "Trabaja con nosotros",
         "title": "Trabaja con nosotros",
         "description": "Si quieres formar parte de Auto Talleres Orihuela, envíanos tus datos y tu currículum. Revisaremos tu candidatura y nos pondremos en contacto contigo.",
+        "metadata": {
+            "title": "Trabaja con nosotros",
+            "description": "Únete al equipo de Auto-Talleres Orihuela. Envíanos tu candidatura para trabajar con vehículos industriales en Orihuela.",
+            "openGraphTitle": "Trabaja con nosotros | Auto-Talleres Orihuela",
+            "openGraphDescription": "Envía tu candidatura para formar parte de nuestro equipo en Orihuela."
+        },
         "form": {
             "nameLabel": "Nombre:",
             "emailLabel": "Correo electrónico:",
@@ -617,6 +623,18 @@
                 "content": "Puede solicitar el acceso, rectificación, supresión, oposición, limitación o portabilidad de sus datos escribiendo a orihuela.ato@autotalleresorihuela.es. También puede presentar una reclamación ante la autoridad competente en materia de protección de datos."
             }
         }
+    },
+    "HomeMetadata": {
+        "title": "Auto-Talleres Orihuela | Servicio Oficial Mercedes-Benz",
+        "description": "Servicio Oficial Mercedes-Benz en Orihuela, Alicante. Mantenimiento, diagnosis y reparación de vehículos industriales.",
+        "openGraphTitle": "Auto-Talleres Orihuela | Servicio Oficial Mercedes-Benz",
+        "openGraphDescription": "Mantenimiento, diagnosis y reparación de vehículos industriales en Orihuela."
+    },
+    "ServicesMetadata": {
+        "title": "Servicios para vehículos industriales",
+        "description": "Mantenimiento, diagnosis y reparación de camiones, furgonetas y vehículos comerciales en Orihuela, Alicante.",
+        "openGraphTitle": "Servicios para vehículos industriales",
+        "openGraphDescription": "Mantenimiento, diagnosis y reparación de vehículos industriales en Orihuela, Alicante."
     },
     "FleetCustomersPage": {
         "metadata": {

@@ -34,53 +34,15 @@ export const navigation: NavItem[] = [
                         href: "/servicios/taller/cita-previa",
                     },
                     {
-                        key: "offers",
-                        href: "/servicios/taller/ofertas",
-                    },
-                    {
                         key: "fleetCustomers",
                         href: "/servicios/taller/flotistas",
                     },
                 ],
             },
 
-            {
-                key: "originalParts",
-                children: [
-                    {
-                        key: "individuals",
-                        href: "/servicios/recambios/particulares",
-                    },
-                    {
-                        key: "professionals",
-                        href: "/servicios/recambios/profesionales",
-                    },
-                ],
-            },
         ],
     },
 
-    {
-        key: "afterSales",
-        children: [
-            {
-                key: "vans",
-                href: "/posventa/furgonetas",
-            },
-            {
-                key: "trucks",
-                href: "/posventa/camiones",
-            },
-            {
-                key: "buses",
-                href: "/posventa/autobuses",
-            },
-            {
-                key: "fuso",
-                href: "/posventa/fuso",
-            },
-        ],
-    },
 
     {
         key: "aboutUs",

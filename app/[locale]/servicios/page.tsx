@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import Services from "@/components/sections/Services";
 import MainButton from "@/components/ui/MainButton";
+import { getPathname } from "@/i18n/navigation";
 
-export const metadata: Metadata = {
-    title: "Servicios para vehículos industriales",
-    description:
-        "Mantenimiento, diagnosis y reparación de camiones, furgonetas y vehículos comerciales en Orihuela, Alicante.",
-    alternates: { canonical: "/servicios" },
-    openGraph: {
-        title: "Servicios para vehículos industriales",
-        description:
-            "Mantenimiento, diagnosis y reparación de vehículos industriales en Orihuela, Alicante.",
-        url: "/servicios",
-    },
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("ServicesMetadata");
+    const locale = await getLocale();
+    const canonical = getPathname({ locale, href: "/servicios" });
+
+    return {
+        title: t("title"),
+        description: t("description"),
+        alternates: { canonical },
+        openGraph: {
+            title: t("openGraphTitle"),
+            description: t("openGraphDescription"),
+            url: canonical,
+            type: "website",
+        },
+    };
+}
 
 export default function ServicesPage() {
     return (

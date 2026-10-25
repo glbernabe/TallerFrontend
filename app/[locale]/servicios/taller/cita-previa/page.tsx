@@ -80,7 +80,7 @@ export async function generateMetadata(): Promise<Metadata> {
         href: "/servicios/taller/cita-previa",
     });
 
-    const languages = {
+    const localizedPaths = {
         es: getPathname({
             locale: "es",
             href: "/servicios/taller/cita-previa",
@@ -98,6 +98,12 @@ export async function generateMetadata(): Promise<Metadata> {
             href: "/servicios/taller/cita-previa",
         }),
     };
+
+    const languages = Object.fromEntries(
+        Object.entries(localizedPaths).filter(
+            ([language]) => language !== locale
+        )
+    );
 
     return {
         title: t("metadata.title"),

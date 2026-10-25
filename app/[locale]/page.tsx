@@ -1,39 +1,31 @@
 import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import Features from "@/components/sections/Features";
 import Contact from "@/components/sections/Contact";
+import { getPathname } from "@/i18n/navigation";
 
 
 
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("HomeMetadata");
+    const locale = await getLocale();
+    const canonical = getPathname({ locale, href: "/" });
 
-    title:
-        "Auto-Talleres Orihuela | Servicio Oficial Mercedes-Benz",
-
-    description:
-        "Auto-Talleres Orihuela S.L., Servicio Oficial Mercedes-Benz en Orihuela, Alicante. Mantenimiento, diagnosis y reparación de vehículos.",
-
-    alternates: {
-        canonical: "/",
-    },
-
-    openGraph: {
-
-        title:
-            "Auto-Talleres Orihuela | Servicio Oficial Mercedes-Benz",
-
-        description:
-            "Mantenimiento, diagnosis y reparación de vehículos en Auto-Talleres Orihuela, Orihuela, Alicante.",
-
-        url: "/",
-
-        type: "website",
-
-    },
-
-};
+    return {
+        title: t("title"),
+        description: t("description"),
+        alternates: { canonical },
+        openGraph: {
+            title: t("openGraphTitle"),
+            description: t("openGraphDescription"),
+            url: canonical,
+            type: "website",
+        },
+    };
+}
 
 export default async function Home() {
     return (

@@ -22,6 +22,7 @@ export default async function Hero() {
                     sizes="100vw"
                     quality={75}
                     className="object-cover object-center"
+                    fetchPriority="high"
                 />
 
                 {/* Oscurecer ligeramente */}
