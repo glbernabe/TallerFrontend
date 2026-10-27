@@ -11,6 +11,7 @@
         "offers": "Offers",
         "fleetCustomers": "Fleet customers",
         "originalParts": "Original parts",
+        "spareParts": "Spare Parts",
         "individuals": "Individuals",
         "professionals": "Professionals",
         "afterSales": "After-sales",
@@ -93,7 +94,7 @@
         "days": {
             "Lunes": "Monday",
             "Martes": "Tuesday",
-            "Miercoles": "Wednesday",
+            "Miércoles": "Wednesday",
             "Jueves": "Thursday",
             "Viernes": "Friday",
             "Sábado": "Saturday",
@@ -297,6 +298,48 @@
                 "company": "Company",
                 "phone": "Telephone",
                 "email": "Email"
+            }
+        }
+    },
+    "SparePartsIndividuals": {
+        "breadcrumbLabel": "Breadcrumb",
+        "breadcrumbHome": "Home",
+        "breadcrumbParts": "Spare Parts",
+        "breadcrumbIndividuals": "Private Customers",
+        "contactHeading": "Need personal assistance?",
+        "contactsUnavailable": "No contacts are available for this department.",
+        "call": "Call",
+        "callAriaLabel": "Call {name}",
+        "eyebrow": "Counter Sales",
+        "title": "Spare Parts for Private Customers",
+        "intro": "Find the spare parts category you need and explore the available information.",
+        "openDetails": "Show information about {category}",
+        "closeDetails": "Hide information about {category}",
+        "shippingNotice": "Free shipping throughout mainland Spain on orders over €100. Shipping costs €5 for other orders.",
+        "categories": {
+            "oils": {
+                "title": "Oils",
+                "description": "Contact our department for availability and compatible part references for your vehicle."
+            },
+            "tires": {
+                "title": "Tyres",
+                "description": "Bridgestone, Continental, Michelin and Pirelli tyres."
+            },
+            "filters": {
+                "title": "Filters",
+                "description": "Ask about the availability of filters compatible with your vehicle."
+            },
+            "brakes": {
+                "title": "Brakes",
+                "description": "Ask about spare parts availability for your vehicle's braking system."
+            },
+            "antifreeze": {
+                "title": "Antifreeze",
+                "description": "Ask about the availability of antifreeze and other vehicle fluids."
+            },
+            "beltsRadiators": {
+                "title": "Belts and Radiators",
+                "description": "Ask about the availability of belts, radiators and related components."
             }
         }
     },

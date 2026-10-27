@@ -11,6 +11,7 @@
         "offers": "Ofertas",
         "fleetCustomers": "Flotistas",
         "originalParts": "Recambios originales",
+        "spareParts": "Recambios",
         "individuals": "Particulares",
         "professionals": "Profesionales",
         "afterSales": "Posventa",
@@ -101,7 +102,7 @@
         "days": {
             "Lunes": "Lunes",
             "Martes": "Martes",
-            "Miercoles": "Miércoles",
+            "Miércoles": "Miércoles",
             "Jueves": "Jueves",
             "Viernes": "Viernes",
             "Sábado": "Sábado",
@@ -305,6 +306,48 @@
                 "company": "Empresa",
                 "phone": "Teléfono",
                 "email": "Correo electrónico"
+            }
+        }
+    },
+    "SparePartsIndividuals": {
+        "breadcrumbLabel": "Ruta de navegación",
+        "breadcrumbHome": "Inicio",
+        "breadcrumbParts": "Recambios",
+        "breadcrumbIndividuals": "Particulares",
+        "contactHeading": "¿Necesitas asistencia personal?",
+        "contactsUnavailable": "No hay contactos publicados para este departamento.",
+        "call": "Llamar",
+        "callAriaLabel": "Llamar a {name}",
+        "eyebrow": "Ventas por mostrador",
+        "title": "Recambios para particulares",
+        "intro": "Encuentra la categoría de recambios que necesitas y consulta la información disponible.",
+        "openDetails": "Mostrar información de {category}",
+        "closeDetails": "Ocultar información de {category}",
+        "shippingNotice": "Envío gratuito a toda la península para pedidos superiores a 100 €. Para el resto de pedidos, 5 € de gastos de envío.",
+        "categories": {
+            "oils": {
+                "title": "Aceites",
+                "description": "Consulta con nuestro departamento la disponibilidad y las referencias compatibles con tu vehículo."
+            },
+            "tires": {
+                "title": "Neumáticos",
+                "description": "Neumáticos Bridgestone, Continental, Michelin y Pirelli."
+            },
+            "filters": {
+                "title": "Filtros",
+                "description": "Consulta la disponibilidad y las referencias de filtros compatibles con tu vehículo."
+            },
+            "brakes": {
+                "title": "Frenos",
+                "description": "Consulta la disponibilidad de recambios para el sistema de frenado de tu vehículo."
+            },
+            "antifreeze": {
+                "title": "Anticongelantes",
+                "description": "Consulta la disponibilidad de anticongelantes y líquidos auxiliares."
+            },
+            "beltsRadiators": {
+                "title": "Correas y radiadores",
+                "description": "Consulta la disponibilidad de correas, radiadores y componentes relacionados."
             }
         }
     },

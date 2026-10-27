@@ -12,16 +12,14 @@ import type {
 } from "./StrapiOpeningHourTypes";
 
 export class StrapiOpeningHourRepository
-    implements OpeningHourRepository
-{
+    implements OpeningHourRepository {
     async getOpeningHours(): Promise<OpeningHour[]> {
         const response =
             await strapiFetch<StrapiOpeningHourCollectionResponse>(
-                "/api/opening-hours?sort=Orden:asc"
+                "/api/opening-hours?sort=order:asc"
             );
 
-        return response.data.map(
-            mapStrapiOpeningHour
-        );
+
+        return response.data.map(mapStrapiOpeningHour);
     }
 }

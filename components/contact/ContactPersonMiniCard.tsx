@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 
 type ContactPersonMiniCardProps = {
@@ -12,6 +13,8 @@ type ContactPersonMiniCardProps = {
         width?: number;
         height?: number;
     } | null;
+    callLabel?: string;
+    callAriaLabel?: string;
 };
 
 export default function ContactPersonMiniCard({
@@ -21,7 +24,15 @@ export default function ContactPersonMiniCard({
     phone,
     email,
     image,
+    callLabel = "Llamar",
+    callAriaLabel,
 }: ContactPersonMiniCardProps) {
+    const fullName = `${firstName} ${lastName}`;
+    const accessibleCallLabel =
+        callAriaLabel ?? `Llamar a ${fullName}`;
+
+    const telephone = phone.replace(/[^\d+]/g, "");
+
     return (
         <article
             className="
@@ -52,8 +63,7 @@ export default function ContactPersonMiniCard({
                     <Image
                         src={image.url}
                         alt={
-                            image.alternativeText ||
-                            `${firstName} ${lastName}`
+                            image.alternativeText || fullName
                         }
                         fill
                         sizes="44px"
@@ -81,16 +91,32 @@ export default function ContactPersonMiniCard({
             </div>
 
             <div className="min-w-0 flex-1">
-                <h3 className="truncate font-text text-sm font-medium text-black">
-                    {firstName} {lastName}
+                <h3
+                    className="
+                        truncate
+                        font-text
+                        text-sm
+                        font-medium
+                        text-black
+                    "
+                >
+                    {fullName}
                 </h3>
 
-                <p className="truncate font-text text-xs text-black/45">
+                <p
+                    className="
+                        truncate
+                        font-text
+                        text-xs
+                        text-black/45
+                    "
+                >
                     {department}
                 </p>
 
                 <a
                     href={`mailto:${email}`}
+                    aria-label={`Enviar correo a ${fullName}`}
                     className="
                         block
                         truncate
@@ -100,6 +126,8 @@ export default function ContactPersonMiniCard({
                         transition-colors
                         duration-200
                         hover:text-black
+                        focus-visible:outline-none
+                        focus-visible:underline
                     "
                 >
                     {email}
@@ -107,8 +135,8 @@ export default function ContactPersonMiniCard({
             </div>
 
             <a
-                href={`tel:${phone.replace(/\s+/g, "")}`}
-                aria-label={`Llamar a ${firstName} ${lastName}`}
+                href={`tel:${telephone}`}
+                aria-label={accessibleCallLabel}
                 className="
                     shrink-0
                     font-text
@@ -118,9 +146,11 @@ export default function ContactPersonMiniCard({
                     transition-colors
                     duration-200
                     hover:text-black
+                    focus-visible:outline-none
+                    focus-visible:underline
                 "
             >
-                Llamar
+                {callLabel}
             </a>
         </article>
     );

@@ -1,3 +1,4 @@
+
 export type StrapiContactImageFormat = {
     url: string;
     width: number;
@@ -10,28 +11,34 @@ export type StrapiContactImage = {
     width: number;
     height: number;
     formats?: {
-        medium?: StrapiContactImageFormat;
-        small?: StrapiContactImageFormat;
-        thumbnail?: StrapiContactImageFormat;
-    };
+        medium?: StrapiContactImageFormat | null;
+        small?: StrapiContactImageFormat | null;
+        thumbnail?: StrapiContactImageFormat | null;
+    } | null;
 };
 
 export type StrapiContact = {
+    id: number;
     documentId: string;
-    Nombre: string;
-    Apellidos: string;
-    Departamento: string;
-    Email: string;
-    Telefono: string;
-    Foto: StrapiContactImage | null;
-    Activo: boolean;
-    Orden: number;
+
+    firstName: string;
+    lastName: string;
+    department: string;
+    email: string;
+    phone: string;
+
+    photo: StrapiContactImage | null;
+
+    active: boolean;
+    order: number;
 };
 
 export type StrapiContactCollectionResponse = {
     data: StrapiContact[];
+    meta?: Record<string, unknown>;
 };
 
 export type StrapiContactSingleResponse = {
     data: StrapiContact;
+    meta?: Record<string, unknown>;
 };

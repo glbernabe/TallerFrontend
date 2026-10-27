@@ -1,28 +1,28 @@
 import type { ContactPerson } from "@/core/contact/domain/ContactPerson";
 import type { StrapiContact } from "./StrapiContactTypes";
 
-const STRAPI_URL = process.env.STRAPI_URL;
+const STRAPI_URL = (() => {
+    const url = process.env.STRAPI_URL;
 
-if (!STRAPI_URL) {
-    throw new Error(
-        "STRAPI_URL no está definida"
-    );
-}
+    if (!url) {
+        throw new Error("STRAPI_URL no está definida");
+    }
 
-function getStrapiImageUrl(
-    url: string
-): string {
-    if (url.startsWith("http")) {
+    return url;
+})();
+
+function getStrapiImageUrl(url: string): string {
+    if (/^https?:\/\//i.test(url)) {
         return url;
     }
 
-    return `${STRAPI_URL}${url}`;
+    return `${STRAPI_URL.replace(/\/+$/, "")}/${url.replace(/^\/+/, "")}`;
 }
 
 export function mapStrapiContact(
     contact: StrapiContact
 ): ContactPerson {
-    const image = contact.Foto;
+    const image = contact.photo;
 
     const imageFormat =
         image?.formats?.medium ??
@@ -32,41 +32,24 @@ export function mapStrapiContact(
 
     return {
         id: contact.documentId,
-
-        firstName:
-            contact.Nombre,
-
-        lastName:
-            contact.Apellidos,
-
-        department:
-            contact.Departamento,
-
-        email:
-            contact.Email,
-
-        phone:
-            contact.Telefono,
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        department: contact.department,
+        email: contact.email,
+        phone: contact.phone,
 
         image: imageFormat
             ? {
-                  url: getStrapiImageUrl(
-                      imageFormat.url
-                  ),
+                  url: getStrapiImageUrl(imageFormat.url),
                   alt:
                       image?.alternativeText ??
-                      `${contact.Nombre} ${contact.Apellidos}`,
-                  width:
-                      imageFormat.width,
-                  height:
-                      imageFormat.height,
+                      `${contact.firstName} ${contact.lastName}`,
+                  width: imageFormat.width,
+                  height: imageFormat.height,
               }
             : null,
 
-        active:
-            contact.Activo,
-
-        order:
-            contact.Orden,
+        active: contact.active,
+        order: contact.order,
     };
 }

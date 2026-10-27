@@ -1,28 +1,24 @@
 export type StrapiOpeningHour = {
+    id: number;
     documentId: string;
 
-    Dia:
-        | "Lunes"
-        | "Martes"
-        | "Miércoles"
-        | "Jueves"
-        | "Viernes"
-        | "Sábado"
-        | "Domingo";
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string | null;
 
-    HoraAperturaManana: string | null;
-    HoraCierreManana: string | null;
+    day: string;
 
-    HoraAperturaTarde: string | null;
-    HoraCierreTarde: string | null;
+    morningOpening: string | null;
+    morningClosing: string | null;
 
-    CerradoTarde: boolean;
-    CerradoManana: boolean;
-    CerradoTodoElDia: boolean;
+    afternoonOpening: string | null;
+    afternoonClosing: string | null;
 
-    Orden: number;
+    closed: boolean;
+    order: number;
 };
 
 export type StrapiOpeningHourCollectionResponse = {
     data: StrapiOpeningHour[];
+    meta?: Record<string, unknown>;
 };

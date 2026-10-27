@@ -11,6 +11,7 @@
         "offers": "Offres",
         "fleetCustomers": "Gestionnaires de flotte",
         "originalParts": "Pièces d'origine",
+        "spareParts": "Pièces détachées",
         "individuals": "Particuliers",
         "professionals": "Professionnels",
         "afterSales": "Après-vente",
@@ -93,7 +94,7 @@
         "days": {
             "Lunes": "Lundi",
             "Martes": "Mardi",
-            "Miercoles": "Mercredi",
+            "Miércoles": "Mercredi",
             "Jueves": "Jeudi",
             "Viernes": "Vendredi",
             "Sábado": "Samedi",
@@ -308,6 +309,48 @@
             }
         }
     },
+    "SparePartsIndividuals": {
+        "breadcrumbLabel": "Fil d’Ariane",
+        "breadcrumbHome": "Accueil",
+        "breadcrumbParts": "Pièces détachées",
+        "breadcrumbIndividuals": "Particuliers",
+        "contactHeading": "Besoin d’une assistance personnalisée ?",
+        "contactsUnavailable": "Aucun contact n’est disponible pour ce département.",
+        "call": "Appeler",
+        "callAriaLabel": "Appeler {name}",
+        "eyebrow": "Vente au comptoir",
+        "title": "Pièces détachées pour particuliers",
+        "intro": "Trouvez la catégorie de pièces dont vous avez besoin et consultez les informations disponibles.",
+        "openDetails": "Afficher les informations sur {category}",
+        "closeDetails": "Masquer les informations sur {category}",
+        "shippingNotice": "Livraison gratuite dans toute l’Espagne péninsulaire pour les commandes supérieures à 100 €. Pour les autres commandes, les frais de livraison sont de 5 €.",
+        "categories": {
+            "oils": {
+                "title": "Huiles",
+                "description": "Contactez notre département pour connaître la disponibilité et les références compatibles avec votre véhicule."
+            },
+            "tires": {
+                "title": "Pneus",
+                "description": "Pneus Bridgestone, Continental, Michelin et Pirelli."
+            },
+            "filters": {
+                "title": "Filtres",
+                "description": "Renseignez-vous sur la disponibilité des filtres compatibles avec votre véhicule."
+            },
+            "brakes": {
+                "title": "Freins",
+                "description": "Renseignez-vous sur la disponibilité des pièces du système de freinage de votre véhicule."
+            },
+            "antifreeze": {
+                "title": "Antigel",
+                "description": "Renseignez-vous sur la disponibilité des antigels et autres liquides automobiles."
+            },
+            "beltsRadiators": {
+                "title": "Courroies et radiateurs",
+                "description": "Renseignez-vous sur la disponibilité des courroies, radiateurs et composants associés."
+            }
+        }
+    },
     "AppointmentPage": {
         "metadata": {
             "title": "Demander un rendez-vous à l’atelier",
@@ -428,129 +471,6 @@
                 "email": "E-mail",
                 "privacyAccepted": "Acceptation de la politique de confidentialité",
                 "yes": "Oui"
-            }
-        }
-    },
-    "AppointmentPage": {
-        "metadata": {
-            "title": "Werkstatttermin anfragen",
-            "description": "Vereinbaren Sie einen Termin für Ihren Transporter, Lkw, Bus oder Ihr Nutzfahrzeug bei Auto-Talleres Orihuela.",
-            "openGraphTitle": "Werkstatttermin",
-            "openGraphDescription": "Planen Sie Ihren Werkstattbesuch und stellen Sie eine Terminanfrage für Ihr Nutzfahrzeug."
-        },
-        "hero": {
-            "servicesLink": "Dienstleistungen",
-            "workshopLabel": "Werkstatt",
-            "eyebrow": "Termin",
-            "titleLine1": "Planen Sie Ihren Besuch",
-            "titleLine2": "in unserer Werkstatt.",
-            "description": "Fragen Sie einen Termin für Ihr Nutzfahrzeug an und schildern Sie uns Ihren Bedarf. Geben Sie Ihren Wunschtermin an, damit unser Team Ihre Anfrage prüfen kann.",
-            "vehicleScope": "Transporter · Lkw · Busse · FUSO",
-            "imageAlt": "Nutzfahrzeuge vor einer modernen Anlage"
-        },
-        "intro": {
-            "eyebrow": "Besuch planen",
-            "title": "Damit Ihr Betrieb in Bewegung bleibt",
-            "description": "Nennen Sie uns die Fahrzeugdaten und den Grund Ihres Besuchs, damit wir Ihre Terminanfrage prüfen können.",
-            "steps": {
-                "vehicle": {
-                    "title": "Fahrzeug identifizieren",
-                    "description": "Geben Sie Fahrzeugtyp, Marke, Modell und Kennzeichen an."
-                },
-                "work": {
-                    "title": "Bedarf beschreiben",
-                    "description": "Beschreiben Sie die benötigte Wartung, Störung oder Reparatur."
-                },
-                "date": {
-                    "title": "Verfügbarkeit angeben",
-                    "description": "Wählen Sie Ihren Wunschtermin und ein bevorzugtes Zeitfenster."
-                },
-                "contact": {
-                    "title": "Kontaktdaten hinterlassen",
-                    "description": "Unser Team erhält so die nötigen Informationen, um auf Ihre Anfrage zu antworten."
-                }
-            },
-            "contactTitle": "Möchten Sie mit der Werkstatt sprechen?",
-            "contactDescription": "Sie können uns auch direkt anrufen und Ihr Anliegen schildern.",
-            "callButton": "Werkstatt anrufen"
-        },
-        "form": {
-            "eyebrow": "Terminanfrage",
-            "title": "Besuch vorbereiten",
-            "description": "Geben Sie die Fahrzeugdaten ein, beschreiben Sie die benötigten Arbeiten und nennen Sie Ihren Wunschtermin.",
-            "sections": {
-                "vehicle": "01 · Fahrzeug",
-                "appointment": "02 · Termin und Arbeit",
-                "contact": "03 · Kontaktdaten"
-            },
-            "fields": {
-                "vehicleType": "Fahrzeugtyp",
-                "vehicleTypePlaceholder": "Fahrzeugtyp auswählen",
-                "makeModel": "Marke und Modell",
-                "makeModelPlaceholder": "z. B. Mercedes-Benz Actros",
-                "registration": "Kennzeichen",
-                "registrationPlaceholder": "Kennzeichen eingeben",
-                "customerType": "Sind Sie bereits Kunde?",
-                "operationType": "Grund des Besuchs",
-                "operationTypePlaceholder": "Grund auswählen",
-                "preferredDate": "Wunschtermin",
-                "preferredDateHint": "Der gewünschte Termin ist unverbindlich und muss von der Werkstatt bestätigt werden.",
-                "preferredTime": "Bevorzugtes Zeitfenster",
-                "preferredTimePlaceholder": "Zeitfenster auswählen",
-                "details": "Beschreiben Sie Ihren Bedarf",
-                "detailsPlaceholder": "Beschreiben Sie die Wartung, Störung, Symptome oder benötigten Arbeiten...",
-                "name": "Vor- und Nachname",
-                "company": "Unternehmen (optional)",
-                "phone": "Telefonnummer",
-                "email": "E-Mail-Adresse",
-                "privacyPrefix": "Ich habe die",
-                "privacyLink": "Datenschutzerklärung",
-                "privacySuffix": " gelesen und akzeptiere sie."
-            },
-            "vehicleTypes": {
-                "van": "Transporter",
-                "truck": "Lkw",
-                "bus": "Bus",
-                "fuso": "FUSO-Fahrzeug",
-                "other": "Anderes Nutzfahrzeug"
-            },
-            "customerTypes": {
-                "yes": "Ja",
-                "no": "Nein"
-            },
-            "operationTypes": {
-                "maintenance": "Wartung oder Inspektion",
-                "repair": "Störung oder Reparatur",
-                "diagnosis": "Diagnose",
-                "other": "Sonstige Arbeiten"
-            },
-            "preferredTimes": {
-                "morning": "Vormittags",
-                "afternoon": "Nachmittags",
-                "any": "Jedes verfügbare Zeitfenster"
-            },
-            "submit": "Terminanfrage vorbereiten",
-            "emailNotice": "Beim Fortfahren öffnet sich das E-Mail-Programm Ihres Geräts mit der vorbereiteten Anfrage. Sie müssen die Nachricht dort prüfen und selbst senden.",
-            "emailClientNotice": "Wenn sich Ihr E-Mail-Programm nicht öffnet, können Sie unsere Werkstatt direkt kontaktieren. Ihre Anfrage gilt noch nicht als bestätigter Termin.",
-            "requiredNote": "Mit * markierte Felder sind Pflichtfelder.",
-            "emailSubject": "Werkstatt-Terminanfrage",
-            "emailBodyIntro": "Terminanfrage über die Website von Auto-Talleres Orihuela vorbereitet.",
-            "emailAvailabilityNotice": "Der gewünschte Termin und das Zeitfenster müssen von der Werkstatt bestätigt werden.",
-            "emailFields": {
-                "vehicleType": "Fahrzeugtyp",
-                "makeModel": "Marke und Modell",
-                "registration": "Kennzeichen",
-                "customerType": "Bestandskunde",
-                "operationType": "Grund des Besuchs",
-                "preferredDate": "Wunschtermin",
-                "preferredTime": "Bevorzugtes Zeitfenster",
-                "details": "Details",
-                "name": "Name",
-                "company": "Unternehmen",
-                "phone": "Telefon",
-                "email": "E-Mail",
-                "privacyAccepted": "Zustimmung zur Datenschutzerklärung",
-                "yes": "Ja"
             }
         }
     },

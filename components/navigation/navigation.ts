@@ -39,10 +39,21 @@ export const navigation: NavItem[] = [
                     },
                 ],
             },
-
+            {
+                key: "spareParts",
+                children: [
+                    {
+                        key: "individuals",
+                        href: "/servicios/recambios/particulares",
+                    },
+                    {
+                        key: "professionals",
+                        href: "/servicios/recambios/profesionales",
+                    },
+                ],
+            },
         ],
     },
-
 
     {
         key: "aboutUs",
