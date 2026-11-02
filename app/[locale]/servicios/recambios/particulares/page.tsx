@@ -1,4 +1,3 @@
-
 import SparePartsIndividualsPage from "@/components/sections/spare-parts/SparePartsIndividualsPage";
 
 import { GetContactsByDepartment } from "@/core/contact/application/use-cases/GetContactsByDepartment";
@@ -7,21 +6,29 @@ import { StrapiContactRepository } from "@/infrastructure/strapi/contact/StrapiC
 import type { ContactDepartmentGroup } from "@/core/contact/domain/ContactDepartmentGroup";
 
 export default async function Page() {
-    const contactRepository = new StrapiContactRepository();    
+    let contactGroup: ContactDepartmentGroup | null = null;
 
-    const getContactsByDepartment =
-        new GetContactsByDepartment(contactRepository);
+    try {
+        const contactRepository = new StrapiContactRepository();
 
-    const people =
-        await getContactsByDepartment.execute("Recambios");
+        const getContactsByDepartment =
+            new GetContactsByDepartment(contactRepository);
 
-    const contactGroup: ContactDepartmentGroup | null =
-        people.length > 0
-            ? {
-                  department: "Recambios",
-                  people,
-              }
-            : null;
+        const people =
+            await getContactsByDepartment.execute("Recambios");
+
+        if (people.length > 0) {
+            contactGroup = {
+                department: "Recambios",
+                people,
+            };
+        }
+    } catch (error) {
+        console.error(
+            "[SparePartsIndividualsPage] Error obteniendo contactos de Strapi:",
+            error
+        );
+    }
 
     return (
         <SparePartsIndividualsPage

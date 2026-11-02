@@ -37,10 +37,11 @@ export default async function SparePartsIndividualsPage({
                 "
             >
                 <header
-                    className="
+                    className={`
                         grid grid-cols-1 items-start gap-8
-                        lg:grid-cols-[minmax(0,1fr)_minmax(0,1.65fr)]
-                    "
+                        ${people.length > 0 ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.65fr)]" : "lg:grid-cols-1"
+                        }
+                    `}
                 >
                     <nav
                         aria-label={t("breadcrumbLabel")}
@@ -78,18 +79,18 @@ export default async function SparePartsIndividualsPage({
                         </ol>
                     </nav>
 
-                    <aside className="min-w-0">
-                        <h2
-                            className="
-                                mb-4 text-left font-text
-                                text-base font-semibold
-                                lg:text-right
-                            "
-                        >
-                            {t("contactHeading")}
-                        </h2>
+                    {people.length > 0 && (
+                        <aside className="min-w-0">
+                            <h2
+                                className="
+                                    mb-4 text-left font-text
+                                    text-base font-semibold
+                                    lg:text-right
+                                "
+                            >
+                                {t("contactHeading")}
+                            </h2>
 
-                        {people.length > 0 ? (
                             <div
                                 className="
                                     grid grid-cols-1 gap-3
@@ -113,17 +114,8 @@ export default async function SparePartsIndividualsPage({
                                     />
                                 ))}
                             </div>
-                        ) : (
-                            <p
-                                className="
-                                    text-sm leading-6
-                                    text-black/55 lg:text-right
-                                "
-                            >
-                                {t("contactsUnavailable")}
-                            </p>
-                        )}
-                    </aside>
+                        </aside>
+                    )}
                 </header>
 
                 <section className="mt-12 md:mt-16">
