@@ -1,209 +1,88 @@
 # Mercedes Frontend
 
-Frontend desarrollado con **Next.js**, **React** y **TypeScript** siguiendo una arquitectura basada en **Clean Architecture**, **MVVM**, **Repository Pattern** y **SOLID**.
+Frontend corporativo de AutoTalleres Orihuela desarrollado con Next.js, React y TypeScript.
 
-El objetivo del proyecto es proporcionar una plataforma moderna para Auto Talleres Orihuela, preparada para integrarse con FastAPI, Spiga+, Google Identity Services y futuras APIs de Mercedes-Benz.
+## Tecnologías
 
----
-
-# Tecnologías
-
-- Next.js (App Router)
-- React
-- TypeScript
+- Next.js App Router
+- React y TypeScript
 - Tailwind CSS
-- FastAPI (Backend)
-- Spiga+ (ERP)
-- Ollama + Continue (desarrollo asistido por IA)
+- next-intl para internacionalización
+- API HTTP propia como fuente de datos
 
----
+## Arquitectura
 
-# Arquitectura
-
-El proyecto sigue una arquitectura por capas basada en Clean Architecture.
+El proyecto separa los modelos y reglas de negocio de los detalles de comunicación con la API.
 
 ```text
-Component
-    ↓
-Hook (ViewModel)
-    ↓
-UseCase
-    ↓
-Repository
-    ↓
-Service / ApiClient
-    ↓
-Backend
+app / components
+        |
+        v
+    Use cases
+        |
+        v
+Repository ports (core)
+        ^
+        |
+API repositories (infrastructure)
+        |
+        v
+     ApiClient
+        |
+        v
+   Backend API
 ```
 
-La documentación completa se encuentra en:
+- `app/`: rutas, páginas y Route Handlers de Next.js.
+- `components/`: componentes visuales y de interacción.
+- `core/`: dominio, contratos de repositorio y casos de uso. No depende de Next.js ni del proveedor HTTP.
+- `infrastructure/api/`: implementaciones HTTP de los repositorios, mappers y cliente común.
+- `lib/*Dependencies.ts`: puntos de composición que conectan los puertos con sus implementaciones y exponen casos de uso a las páginas.
 
-```text
-.ai/
-```
+Las páginas y los componentes no deben importar ni instanciar repositorios directamente. Deben utilizar los casos de uso exportados por los módulos de composición de `lib/`. La capa `core` no debe importar nada desde `infrastructure/`.
 
----
+## Configuración
 
-# Documentación
+Copia `.env.example` a `.env.local` y configura los valores del entorno. No subas `.env.local` ni credenciales reales al repositorio.
 
-Toda la documentación técnica se encuentra dentro de la carpeta:
+| Variable | Uso |
+|---|---|
+| `API_INTERNAL_URL` | Origen del backend accesible desde el servidor Next.js. En Docker puede ser `http://api:80`. |
+| `API_PUBLIC_URL` | Origen accesible desde el navegador para imágenes y archivos multimedia. |
+| `API_CURRICULUMS_PATH` | Ruta del endpoint que recibe candidaturas; debe coincidir con el montaje del router. |
+| `NEXT_PUBLIC_SITE_URL` | URL pública de la web para SEO y sitemap. |
+| `NEXT_PUBLIC_APPOINTMENT_REQUEST_EMAIL` | Destinatario visible del formulario de cita previa basado en `mailto:`. |
+| `NEXT_PUBLIC_BUDGET_REQUEST_EMAIL` | Destinatario visible del formulario de presupuestos basado en `mailto:`. |
+| `FLEET_REQUEST_EMAIL` | Destinatario visible del formulario de flotas basado en `mailto:`. |
 
-```text
-.ai/
-```
+`API_INTERNAL_URL` y `API_PUBLIC_URL` pueden ser iguales en desarrollo. En producción pueden ser diferentes: por ejemplo, Next.js puede llamar al servicio mediante la red privada de contenedores, mientras que el navegador descarga imágenes desde el dominio público protegido por el proxy.
 
-Especialmente:
+Los destinatarios usados por formularios `mailto:` no son secretos: se entregan al navegador como parte de la página o del componente cliente. Si en el futuro el envío se realiza en el backend, los destinatarios deben configurarse allí como variables privadas y eliminarse del frontend.
 
-```text
-.ai/
-├── README.md
-├── architecture/
-├── templates/
-├── coding-rules.md
-├── design-system.md
-├── filesystem.md
-├── api.md
-├── roadmap.md
-└── decisions.md
-```
-
-Antes de modificar la arquitectura o añadir nuevas funcionalidades se recomienda consultar dicha documentación.
-
----
-
-# Instalación
-
-## Clonar el proyecto
-
-```bash
-git clone <repositorio>
-```
-
-## Configurar variables de entorno
-
-Copia `.env.example` a `.env.local` y completa los valores del entorno local. No subas `.env.local` ni tokens reales al repositorio.
-
-Variables utilizadas por la aplicación:
-
-- `STRAPI_URL`: URL de la instancia de Strapi.
-- `STRAPI_API_TOKEN`: token de acceso de Strapi con los permisos mínimos necesarios.
-- `BACKEND_URL`: URL base del backend FastAPI.
-- `NEXT_PUBLIC_SITE_URL`: URL pública usada para metadatos y SEO.
-
-## Instalar dependencias
+## Ejecución
 
 ```bash
 npm install
-```
-
-## Ejecutar en desarrollo
-
-```bash
 npm run dev
 ```
 
-La aplicación estará disponible en:
+La web estará disponible en `http://localhost:3000`.
 
-```text
-http://localhost:3000
-```
-
----
-
-# Scripts
-
-```bash
-npm run dev
-```
-
-Inicia el servidor de desarrollo.
-
-```bash
-npm run build
-```
-
-Genera la versión de producción.
-
-```bash
-npm run start
-```
-
-Ejecuta la versión compilada.
+## Comprobaciones
 
 ```bash
 npm run lint
+npm run build
 ```
 
-Ejecuta el análisis estático del código.
+## Integración de datos
 
----
+Los repositorios de `infrastructure/api/` traducen los DTO de la API a modelos de dominio. Los mappers son el único lugar donde se deben traducir nombres de propiedades entre el contrato HTTP y el dominio.
 
-# Estructura del proyecto
+Las consultas públicas de contactos, horarios, noticias y configuración se realizan desde el servidor Next.js mediante el cliente común. Las peticiones GET se almacenan en la caché de datos de Next.js durante 60 segundos por defecto. Las operaciones de escritura no se cachean.
 
-```text
-app/
-components/
-core/
-hooks/
-infrastructure/
-public/
-.ai/
-```
+La subida de currículums se envía desde el Route Handler `app/api/curriculums/route.ts`, que ejecuta el caso de uso `SubmitCurriculumUseCase`. El navegador no necesita conocer la URL interna del backend.
 
-La explicación completa de cada carpeta se encuentra en:
+## Diseño
 
-```text
-.ai/filesystem.md
-```
-
----
-
-# Principios del proyecto
-
-Todo el desarrollo debe respetar:
-
-- Clean Architecture
-- SOLID
-- Repository Pattern
-- MVVM mediante Hooks
-- Componentes reutilizables
-- Separación estricta de responsabilidades
-
----
-
-# Inteligencia Artificial
-
-Este proyecto está preparado para trabajar con asistentes de IA como:
-
-- Continue
-- Ollama
-- Codex
-- Claude Code
-
-Toda la documentación necesaria para generar código correctamente se encuentra en:
-
-```text
-.ai/
-```
-
----
-
-# Estado del proyecto
-
-Actualmente en desarrollo.
-
-Las funcionalidades implementadas y las planificadas pueden consultarse en:
-
-```text
-.ai/roadmap.md
-```
-
----
-
-# Licencia
-
-Pendiente de definir.
-
-## Tipografías
-
-El paquete usa tipografías de sistema como respaldo para no redistribuir archivos de fuentes corporativas. Si el proyecto debe utilizar las fuentes de marca, incorpóralas desde la fuente autorizada de la empresa y configúralas de nuevo en `next/font/local`.
+Los componentes, las clases de Tailwind CSS, los estilos globales, las fuentes y los recursos visuales se mantienen independientes de la integración de datos. Los cambios de infraestructura no deben modificar la presentación.

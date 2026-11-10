@@ -1,11 +1,6 @@
 import { GetSiteSettings } from "@/core/site-settings/application/use-cases/GetSiteSettings";
+import { SiteSettingsApiRepository } from "@/infrastructure/api/site-settings/SiteSettingsApiRepository";
 
-import { StrapiSiteSettingsRepository } from "@/infrastructure/strapi/site-settings/StrapiSiteSettingsRepository";
+const siteSettingsRepository = new SiteSettingsApiRepository();
 
-const siteSettingsRepository =
-    new StrapiSiteSettingsRepository();
-
-export const getSiteSettings =
-    new GetSiteSettings(
-        siteSettingsRepository
-    );
+export const getSiteSettings = new GetSiteSettings(siteSettingsRepository);

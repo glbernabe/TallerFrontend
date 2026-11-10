@@ -1,29 +1,13 @@
-import {GetPublishedNews} from "@/core/news/application/use-cases/GetPublishedNews";
-import {GetNewsPage} from "@/core/news/application/use-cases/GetNewsPage";
-import {GetNewsBySlug} from "@/core/news/application/use-cases/GetNewsBySlug";
-import {SearchNews} from "@/core/news/application/use-cases/SearchNews";
+import { GetPublishedNews } from "@/core/news/application/use-cases/GetPublishedNews";
+import { GetNewsPage } from "@/core/news/application/use-cases/GetNewsPage";
+import { GetNewsBySlug } from "@/core/news/application/use-cases/GetNewsBySlug";
+import { SearchNews } from "@/core/news/application/use-cases/SearchNews";
 
-import {StrapiNewsRepository} from "@/infrastructure/strapi/news/StrapiNewsRepository";
+import { NewsApiRepository } from "@/infrastructure/api/news/NewsApiRepository";
 
-const newsRepository =
-    new StrapiNewsRepository();
+const newsRepository = new NewsApiRepository();
 
-export const getPublishedNews =
-    new GetPublishedNews(
-        newsRepository
-    );
-
-export const getNewsPage =
-    new GetNewsPage(
-        newsRepository
-    );
-
-export const getNewsBySlug =
-    new GetNewsBySlug(
-        newsRepository
-    );
-
-export const searchNews =
-    new SearchNews(
-        newsRepository
-    );
+export const getPublishedNews = new GetPublishedNews(newsRepository);
+export const getNewsPage = new GetNewsPage(newsRepository);
+export const getNewsBySlug = new GetNewsBySlug(newsRepository);
+export const searchNews = new SearchNews(newsRepository);

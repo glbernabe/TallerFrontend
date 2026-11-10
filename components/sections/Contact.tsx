@@ -22,7 +22,7 @@ const FALLBACK_CONTACT = {
         "https://www.google.com/maps/search/?api=1&query=Auto-Talleres%20Orihuela%20S.L.%2C%20Orihuela%2C%20Alicante",
 } as const;
 
-const STRAPI_TIMEOUT_MS = 4_000;
+const API_TIMEOUT_MS = 4_000;
 
 function withTimeout<T>(
     operation: () => Promise<T>,
@@ -30,7 +30,7 @@ function withTimeout<T>(
 ): Promise<T> {
     return new Promise<T>((resolve, reject) => {
         const timeout = setTimeout(() => {
-            reject(new Error("Strapi request timed out"));
+            reject(new Error("API request timed out"));
         }, timeoutMs);
 
         Promise.resolve()
@@ -56,11 +56,11 @@ export default async function Contact() {
         await Promise.allSettled([
             withTimeout(
                 () => getSiteSettings.execute(),
-                STRAPI_TIMEOUT_MS
+                API_TIMEOUT_MS
             ),
             withTimeout(
                 () => getOpeningHours.execute(),
-                STRAPI_TIMEOUT_MS
+                API_TIMEOUT_MS
             ),
         ]);
 
@@ -94,7 +94,7 @@ export default async function Contact() {
         );
     }
 
-    // Se conserva la información de contacto aunque falle Strapi.
+    // Se conserva la información de contacto aunque falle la API.
     const phone =
         siteSettings?.phone || FALLBACK_CONTACT.phone;
 

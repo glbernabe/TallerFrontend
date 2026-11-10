@@ -9,7 +9,4 @@ export type SiteSettings = {
     tiktokUrl: string | null;
     googleReviewsUrl: string | null;
 
-    recambiosEmail: string | null;
-    posventaEmail: string | null;
-    trabajaConNosotrosEmail: string | null;
 };

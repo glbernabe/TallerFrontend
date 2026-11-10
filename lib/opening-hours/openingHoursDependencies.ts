@@ -1,11 +1,6 @@
 import { GetOpeningHours } from "@/core/opening-hours/application/use-cases/GetOpeningHours";
+import { OpeningHourApiRepository } from "@/infrastructure/api/opening-hours/OpeningHourApiRepository";
 
-import { StrapiOpeningHourRepository } from "@/infrastructure/strapi/opening-hours/StrapiOpeningHourRepository";
+const openingHourRepository = new OpeningHourApiRepository();
 
-const openingHourRepository =
-    new StrapiOpeningHourRepository();
-
-export const getOpeningHours =
-    new GetOpeningHours(
-        openingHourRepository
-    );
+export const getOpeningHours = new GetOpeningHours(openingHourRepository);

@@ -5,70 +5,16 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import MainButton from "@/components/ui/MainButton";
 import AppointmentRequestForm from "@/components/services/AppoimentRequestForm";
-import { getSiteSettings } from "@/lib/site-settings/siteSettingsDependencies";
 
-const DEFAULT_APPOINTMENT_EMAIL =
-    "orihuela.ato@autotalleresorihuela.es";
+const DEFAULT_APPOINTMENT_EMAIL = "orihuela.ato@autotalleresorihuela.es";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const SITE_SETTINGS_TIMEOUT_MS = 2500;
+function getAppointmentRecipient(): string {
+    const configuredEmail = process.env.NEXT_PUBLIC_APPOINTMENT_REQUEST_EMAIL?.trim();
 
-function withTimeout<T>(
-    promise: Promise<T>,
-    timeoutMs: number
-): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
-        const timeout = setTimeout(() => {
-            reject(new Error("Appointment contact settings timed out"));
-        }, timeoutMs);
-
-        promise.then(
-            (value) => {
-                clearTimeout(timeout);
-                resolve(value);
-            },
-            (error: unknown) => {
-                clearTimeout(timeout);
-                reject(error);
-            }
-        );
-    });
-}
-
-async function getAppointmentRecipient(): Promise<string> {
-    const configuredEmail =
-        process.env.APPOINTMENT_REQUEST_EMAIL?.trim();
-
-    if (
-        configuredEmail &&
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(configuredEmail)
-    ) {
-        return configuredEmail;
-    }
-
-    try {
-        const settings = await withTimeout(
-            getSiteSettings.execute(),
-            SITE_SETTINGS_TIMEOUT_MS
-        );
-
-        const candidate =
-            settings.posventaEmail?.trim() ||
-            settings.email?.trim();
-
-        if (
-            candidate &&
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(candidate)
-        ) {
-            return candidate;
-        }
-    } catch (error) {
-        console.error(
-            "No se pudo cargar el correo de citas desde Strapi:",
-            error
-        );
-    }
-
-    return DEFAULT_APPOINTMENT_EMAIL;
+    return configuredEmail && EMAIL_PATTERN.test(configuredEmail)
+        ? configuredEmail
+        : DEFAULT_APPOINTMENT_EMAIL;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -131,7 +77,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AppointmentPage() {
     const t = await getTranslations("AppointmentPage");
-    const appointmentRecipient = await getAppointmentRecipient();
+    const appointmentRecipient = getAppointmentRecipient();
 
     return (
         <main className="bg-black text-white">

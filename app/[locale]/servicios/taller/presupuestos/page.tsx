@@ -6,71 +6,16 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { getPathname, Link } from "@/i18n/navigation";
 import MainButton from "@/components/ui/MainButton";
 import BudgetRequestForm from "@/components/services/BudgetRequestForm";
-import { getSiteSettings } from "@/lib/site-settings/siteSettingsDependencies";
 
 const DEFAULT_QUOTE_EMAIL = "orihuela.ato@autotalleresorihuela.es";
-const SITE_SETTINGS_TIMEOUT_MS = 2500;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function withTimeout<T>(
-    promise: Promise<T>,
-    timeoutMs: number
-): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
-        const timeout = setTimeout(() => {
-            reject(
-                new Error("Timeout while loading quote contact settings")
-            );
-        }, timeoutMs);
+function getQuoteRecipient(): string {
+    const configuredEmail = process.env.NEXT_PUBLIC_BUDGET_REQUEST_EMAIL?.trim();
 
-        promise.then(
-            (value) => {
-                clearTimeout(timeout);
-                resolve(value);
-            },
-            (error: unknown) => {
-                clearTimeout(timeout);
-                reject(error);
-            }
-        );
-    });
-}
-
-async function getQuoteRecipient(): Promise<string> {
-    const configuredEmail =
-        process.env.BUDGET_REQUEST_EMAIL?.trim();
-
-    if (
-        configuredEmail &&
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(configuredEmail)
-    ) {
-        return configuredEmail;
-    }
-
-    try {
-        const settings = await withTimeout(
-            getSiteSettings.execute(),
-            SITE_SETTINGS_TIMEOUT_MS
-        );
-
-        const candidate =
-            settings.posventaEmail?.trim() ||
-            settings.email?.trim();
-
-        if (
-            candidate &&
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(candidate)
-        ) {
-            return candidate;
-        }
-    } catch (error) {
-        // La página sigue funcionando si Strapi no responde.
-        console.error(
-            "No se pudo cargar el correo de presupuestos desde Strapi:",
-            error
-        );
-    }
-
-    return DEFAULT_QUOTE_EMAIL;
+    return configuredEmail && EMAIL_PATTERN.test(configuredEmail)
+        ? configuredEmail
+        : DEFAULT_QUOTE_EMAIL;
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -133,7 +78,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BudgetPage() {
     const t = await getTranslations("BudgetPage");
-    const quoteRecipient = await getQuoteRecipient();
+    const quoteRecipient = getQuoteRecipient();
 
     return (
         <main className="bg-black text-white">

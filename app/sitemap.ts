@@ -197,56 +197,25 @@ function createLocalizedEntries(
 }
 
 /**
- * Obtiene las noticias publicadas desde Strapi.
- *
- * Si Strapi no está disponible, conserva el sitemap estático
- * y omite temporalmente las URL de noticias individuales.
+ * Obtiene las noticias publicadas para añadir sus URL al sitemap.
+ * Si la API no está disponible, conserva las entradas estáticas.
  */
 async function getNewsEntries(
     baseUrl: string
 ): Promise<MetadataRoute.Sitemap> {
     try {
-        // Importación dinámica para que un fallo de configuración
-        // de Strapi no impida generar el resto del sitemap.
-        const { getNewsPage } = await import(
+        const { getPublishedNews } = await import(
             "@/lib/news/newsDependencies"
         );
 
-        const pageSize = 100;
-        const firstPage = await getNewsPage.execute(1, pageSize);
+        // Una única ejecución del caso de uso evita volver a descargar todo
+        // el catálogo por cada página del sitemap.
+        const news = await getPublishedNews.execute();
 
-        const news = [...firstPage.items];
+        // Next.js y los buscadores admiten un máximo de 50.000 URL.
+        const uniqueNews = new Map<string, (typeof news)[number]>();
 
-        // Next.js y los buscadores admiten un máximo de 50.000 URL
-        // por sitemap. Reservamos espacio para las páginas estáticas.
-        const maxPage = Math.min(firstPage.pageCount, 499);
-
-        for (let page = 2; page <= maxPage; page++) {
-            try {
-                const result = await getNewsPage.execute(
-                    page,
-                    pageSize
-                );
-
-                news.push(...result.items);
-            } catch (error) {
-                console.error(
-                    `No se pudo cargar la página ${page} de noticias para el sitemap:`,
-                    error
-                );
-
-                // Conservamos las noticias obtenidas hasta ese momento.
-                break;
-            }
-        }
-
-        // Evita URL duplicadas si Strapi devuelve algún slug repetido.
-        const uniqueNews = new Map<
-            string,
-            (typeof news)[number]
-        >();
-
-        for (const article of news) {
+        for (const article of news.slice(0, 49_900)) {
             const slug = article.slug?.trim();
 
             if (slug) {
@@ -255,8 +224,7 @@ async function getNewsEntries(
         }
 
         return Array.from(uniqueNews.keys()).map((slug) => ({
-            // El contenido de las noticias todavía no está
-            // internacionalizado en Strapi: solo listamos español.
+            // El contenido no está internacionalizado todavía: solo listamos español.
             url: `${baseUrl}/es/noticias/${encodeURIComponent(slug)}`,
             changeFrequency: "monthly",
             priority: 0.6,
@@ -264,7 +232,7 @@ async function getNewsEntries(
     } catch (error) {
         console.error(
             "No se pudieron cargar las noticias para el sitemap:",
-            error
+            error,
         );
 
         return [];

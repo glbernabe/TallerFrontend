@@ -1,9 +1,7 @@
 import { SubmitCurriculumUseCase } from "@/core/curriculums/application/use-cases/SubmitCurriculumUseCase";
-import { FastApiCurriculumRepository } from "@/infrastructure/fastapi/curriculums/FastApiCurriculumRepository";
+import { CurriculumApiRepository } from "@/infrastructure/api/curriculums/CurriculumApiRepository";
 
-/** Composition root: bind the application port to the FastAPI adapter. */
-const curriculumRepository = new FastApiCurriculumRepository();
+// Composition root: el caso de uso depende del puerto, no del proveedor HTTP.
+const curriculumRepository = new CurriculumApiRepository();
 
-export const submitCurriculum = new SubmitCurriculumUseCase(
-    curriculumRepository,
-);
+export const submitCurriculum = new SubmitCurriculumUseCase(curriculumRepository);
