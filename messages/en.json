@@ -805,5 +805,25 @@
             "title": "We couldn't load the contact information.",
             "description": "There was a problem retrieving our team's information. You can try again."
         }
+    },
+    "Admin": {
+        "login": {
+            "metadataTitle": "Panel login",
+            "eyebrow": "PRIVATE AREA",
+            "title": "Sign in",
+            "description": "Enter your credentials to access the administration panel.",
+            "emailLabel": "Email address",
+            "emailPlaceholder": "name@company.com",
+            "passwordLabel": "Password",
+            "passwordPlaceholder": "Enter your password",
+            "showPassword": "Show password",
+            "hidePassword": "Hide password",
+            "submit": "Sign in",
+            "languageLabel": "Language",
+            "restrictedAccess": "Access is restricted to authorised personnel only.",
+            "footer": "Auto-Talleres Orihuela · Administration",
+            "backToWebsite": "Back to website",
+            "notConnectedNotice": "The form is not yet connected to the authentication system. No credentials have been sent."
+        }
     }
 }

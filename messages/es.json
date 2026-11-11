@@ -805,5 +805,25 @@
             "title": "No hemos podido cargar la información de contacto.",
             "description": "Ha ocurrido un problema al obtener la información de nuestro equipo. Puedes intentarlo de nuevo."
         }
+    },
+    "Admin": {
+        "login": {
+            "metadataTitle": "Acceso al panel",
+            "eyebrow": "ÁREA PRIVADA",
+            "title": "Iniciar sesión",
+            "description": "Introduce tus credenciales para acceder al panel de administración.",
+            "emailLabel": "Correo electrónico",
+            "emailPlaceholder": "nombre@empresa.es",
+            "passwordLabel": "Contraseña",
+            "passwordPlaceholder": "Introduce tu contraseña",
+            "showPassword": "Mostrar contraseña",
+            "hidePassword": "Ocultar contraseña",
+            "submit": "Iniciar sesión",
+            "languageLabel": "Idioma",
+            "restrictedAccess": "Acceso reservado exclusivamente al personal autorizado.",
+            "footer": "Auto-Talleres Orihuela · Administración",
+            "backToWebsite": "Volver a la página web",
+            "notConnectedNotice": "El formulario todavía no está conectado al sistema de autenticación. No se ha enviado ninguna credencial."
+        }
     }
 }

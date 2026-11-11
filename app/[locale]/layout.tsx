@@ -1,21 +1,20 @@
-import {NextIntlClientProvider} from "next-intl";
-import {hasLocale} from "next-intl";
-import {notFound} from "next/navigation";
-import {routing} from "@/i18n/routing";
-import SiteLayout from "@/components/layout/SiteLayout";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
 
-type Props = {
+import { routing } from "@/i18n/routing";
+
+type Props = Readonly<{
     children: React.ReactNode;
     params: Promise<{
         locale: string;
     }>;
-};
+}>;
 
 export default async function LocaleLayout({
     children,
     params,
 }: Props) {
-    const {locale} = await params;
+    const { locale } = await params;
 
     if (!hasLocale(routing.locales, locale)) {
         notFound();
@@ -23,7 +22,7 @@ export default async function LocaleLayout({
 
     return (
         <NextIntlClientProvider>
-            <SiteLayout>{children}</SiteLayout>
+            {children}
         </NextIntlClientProvider>
     );
 }
