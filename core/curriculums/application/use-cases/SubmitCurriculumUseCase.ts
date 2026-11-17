@@ -4,10 +4,12 @@ import type { CurriculumRepository } from "../ports/CurriculumRepository";
 export type CurriculumValidationCode =
     | "name_required"
     | "name_too_long"
+    | "phone_too_long"
     | "message_too_long"
     | "invalid_email"
     | "invalid_pdf"
-    | "file_too_large";
+    | "file_too_large"
+    | "terms_required";
 
 export class CurriculumValidationError extends Error {
     constructor(public readonly code: CurriculumValidationCode) {
@@ -16,8 +18,7 @@ export class CurriculumValidationError extends Error {
     }
 }
 
-/** Keep uploads small enough for common serverless request-body limits. */
-export const MAX_CURRICULUM_FILE_SIZE = 4 * 1024 * 1024;
+export const MAX_CURRICULUM_FILE_SIZE = 5 * 1024 * 1024;
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PDF_SIGNATURE = "%PDF-";
@@ -29,27 +30,40 @@ export class SubmitCurriculumUseCase {
 
     async execute(submission: CurriculumSubmission): Promise<void> {
         const nombre = submission.nombre.trim();
-        const email = submission.email.trim();
+        const email = submission.email.trim().toLowerCase();
+        const telefono = submission.telefono.trim();
         const mensaje = submission.mensaje.trim();
-        const { archivo } = submission;
+        const { archivo, consentimiento } = submission;
 
         if (!nombre) {
             throw new CurriculumValidationError("name_required");
         }
 
-        if (nombre.length > 100) {
+        if (
+            nombre.length > 100 ||
+            /[\u0000-\u001f\u007f]/.test(nombre)
+        ) {
             throw new CurriculumValidationError("name_too_long");
         }
 
-        if (email.length > 254 || !EMAIL_PATTERN.test(email)) {
+        if (email.length > 150 || !EMAIL_PATTERN.test(email)) {
             throw new CurriculumValidationError("invalid_email");
         }
 
-        if (mensaje.length > 5000) {
+        if (telefono.length > 40) {
+            throw new CurriculumValidationError("phone_too_long");
+        }
+
+        if (mensaje.length > 1000) {
             throw new CurriculumValidationError("message_too_long");
         }
 
+        if (!consentimiento) {
+            throw new CurriculumValidationError("terms_required");
+        }
+
         const hasPdfExtension = archivo.name.toLowerCase().endsWith(".pdf");
+
         const hasAcceptableMime =
             !archivo.type || archivo.type === "application/pdf";
 
@@ -65,7 +79,6 @@ export class SubmitCurriculumUseCase {
             throw new CurriculumValidationError("file_too_large");
         }
 
-        // Check the actual file signature as well as its name and MIME type.
         const signatureBytes = await archivo.slice(0, 5).arrayBuffer();
         const signature = new TextDecoder().decode(signatureBytes);
 
@@ -76,7 +89,9 @@ export class SubmitCurriculumUseCase {
         await this.curriculumRepository.submit({
             nombre,
             email,
+            telefono,
             mensaje,
+            consentimiento,
             archivo,
         });
     }

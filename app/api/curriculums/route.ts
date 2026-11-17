@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import {
     CurriculumValidationError,
+    SubmitCurriculumUseCase,
 } from "@/core/curriculums/application/use-cases/SubmitCurriculumUseCase";
 
 import {
@@ -12,16 +13,27 @@ import {
     submitCurriculum,
 } from "@/lib/curriculums/curriculumDependencies";
 
+
 export const runtime = "nodejs";
 
-const MAX_REQUEST_SIZE = 5 * 1024 * 1024;
+const MAX_REQUEST_SIZE = 5 * 1024 * 1024 + 128 * 1024;
+
 
 function errorResponse(error: string, status: number) {
     return NextResponse.json(
-        { ok: false, error },
-        { status },
+        {
+            ok: false,
+            error,
+        },
+        {
+            status,
+            headers: {
+                "Cache-Control": "no-store",
+            },
+        },
     );
 }
+
 
 function getTextField(formData: FormData, ...keys: string[]): string {
     for (const key of keys) {
@@ -35,68 +47,77 @@ function getTextField(formData: FormData, ...keys: string[]): string {
     return "";
 }
 
+
 export async function POST(request: Request) {
-    let formData: FormData;
+    const contentType = request.headers.get("content-type") ?? "";
 
-    try {
-        const contentType = request.headers.get("content-type") ?? "";
+    if (!contentType.toLowerCase().startsWith("multipart/form-data")) {
+        return errorResponse("invalid_form", 400);
+    }
 
-        if (!contentType.toLowerCase().includes("multipart/form-data")) {
+    const contentLength = request.headers.get("content-length");
+
+    if (contentLength !== null) {
+        if (!/^\d+$/.test(contentLength)) {
             return errorResponse("invalid_form", 400);
         }
 
-        const contentLength = Number(
-            request.headers.get("content-length") ?? 0,
-        );
-
-        if (contentLength > MAX_REQUEST_SIZE) {
+        if (Number(contentLength) > MAX_REQUEST_SIZE) {
             return errorResponse("file_too_large", 413);
         }
+    }
 
+    let formData: FormData;
+
+    try {
         formData = await request.formData();
     } catch {
         return errorResponse("invalid_form", 400);
     }
 
-    const nombre = getTextField(formData, "name", "nombre");
+    const nombre = getTextField(formData, "name");
     const email = getTextField(formData, "email");
-    const mensaje = getTextField(formData, "message", "mensaje");
+    const telefono = getTextField(formData, "phone");
+    const mensaje = getTextField(formData, "message");
 
-    // El formulario actual utiliza "cv"; el dominio utiliza "archivo".
-    const cv = formData.get("cv");
-    const archivo = cv instanceof File ? cv : formData.get("archivo");
+    const archivo = formData.get("cv");
+    const consentimiento = formData.get("terms") === "on";
 
     if (!(archivo instanceof File)) {
         return errorResponse("invalid_pdf", 400);
-    }
-
-    const terms = formData.get("terms");
-
-    if (terms !== "on" && terms !== "true") {
-        return errorResponse("terms_required", 400);
     }
 
     try {
         await submitCurriculum.execute({
             nombre,
             email,
+            telefono,
             mensaje,
+            consentimiento,
             archivo,
         });
 
         return NextResponse.json(
             { ok: true },
-            { status: 201 },
+            {
+                status: 201,
+                headers: {
+                    "Cache-Control": "no-store",
+                },
+            },
         );
+
     } catch (error) {
         if (error instanceof CurriculumValidationError) {
             const statusByCode: Record<string, number> = {
                 name_required: 400,
                 name_too_long: 400,
+                phone_too_long: 400,
                 message_too_long: 400,
                 invalid_email: 400,
                 invalid_pdf: 400,
                 file_too_large: 413,
+                terms_required: 400,
             };
 
             return errorResponse(
@@ -114,15 +135,16 @@ export async function POST(request: Request) {
                 return errorResponse("backend_unavailable", 502);
             }
 
-            return errorResponse(
-                "send_failed",
-                error.status && error.status >= 400 && error.status <= 599
-                    ? error.status
-                    : 502,
-            );
+            if (error.status === 413) {
+                return errorResponse("file_too_large", 413);
+            }
+
+            return errorResponse("send_failed", 502);
         }
 
-        console.error("Error inesperado al procesar una candidatura.");
+        console.error(
+            "Error inesperado al procesar una candidatura.",
+        );
 
         return errorResponse("send_failed", 500);
     }

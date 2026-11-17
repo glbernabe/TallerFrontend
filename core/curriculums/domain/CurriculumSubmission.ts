@@ -2,6 +2,8 @@
 export type CurriculumSubmission = {
     nombre: string;
     email: string;
+    telefono: string;
     mensaje: string;
+    consentimiento: boolean;
     archivo: File;
 };
