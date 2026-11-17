@@ -823,7 +823,10 @@
             "restrictedAccess": "Acceso reservado exclusivamente al personal autorizado.",
             "footer": "Auto-Talleres Orihuela · Administración",
             "backToWebsite": "Volver a la página web",
-            "notConnectedNotice": "El formulario todavía no está conectado al sistema de autenticación. No se ha enviado ninguna credencial."
+            "notConnectedNotice": "El formulario todavía no está conectado al sistema de autenticación. No se ha enviado ninguna credencial.",
+            "invalidCredentials": "El correo electrónico o la contraseña no son correctos.",
+            "loginError": "No se ha podido iniciar sesión. Inténtalo de nuevo.",
+            "submitting": "Iniciando sesión..."
         }
     }
 }

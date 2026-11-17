@@ -1,9 +1,11 @@
+
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const isDev = process.env.NODE_ENV === "development";
+
 const publicApiUrl = new URL(
     process.env.API_PUBLIC_URL ?? "http://localhost:8000",
 );
@@ -16,11 +18,15 @@ if (
     publicApiUrl.hash ||
     publicApiUrl.pathname !== "/"
 ) {
-    throw new Error("API_PUBLIC_URL debe contener únicamente el origen público de la API.");
+    throw new Error(
+        "API_PUBLIC_URL debe contener únicamente el origen público de la API.",
+    );
 }
 
 const publicApiOrigin = publicApiUrl.origin;
-const publicApiProtocol = publicApiUrl.protocol.slice(0, -1);
+
+const publicApiProtocol: "http" | "https" =
+    publicApiUrl.protocol === "https:" ? "https" : "http";
 
 const cspHeader = `
     default-src 'self';

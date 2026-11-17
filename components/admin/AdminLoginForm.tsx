@@ -1,20 +1,58 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
+
+import { LoginAdmin } from "@/core/auth/application/use-cases/LoginAdmin";
+import { AdminLoginError } from "@/core/auth/domain/AdminLoginError";
+import { AdminAuthRepository } from "@/infrastructure/api/auth/AdminAuthRepository";
+
+const loginAdmin = new LoginAdmin(new AdminAuthRepository());
 
 export default function AdminLoginForm() {
     const t = useTranslations("Admin.login");
+    const locale = useLocale();
+    const router = useRouter();
 
     const [showPassword, setShowPassword] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [notice, setNotice] = useState<string | null>(null);
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        // La autenticación todavía no está conectada al backend.
-        // No se envían ni almacenan las credenciales.
-        setNotice(t("notConnectedNotice"));
+        if (isSubmitting) return;
+
+        setNotice(null);
+        setIsSubmitting(true);
+
+        const formData = new FormData(event.currentTarget);
+
+        const username = String(formData.get("email") ?? "").trim();
+        const password = String(formData.get("password") ?? "");
+
+        try {
+            await loginAdmin.execute({
+                username,
+                password,
+            });
+
+            router.replace(`/${locale}/admin`);
+            router.refresh();
+
+        } catch (error) {
+            if (
+                error instanceof AdminLoginError &&
+                error.code === "invalid-credentials"
+            ) {
+                setNotice(t("invalidCredentials"));
+            } else {
+                setNotice(t("loginError"));
+            }
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (
@@ -46,6 +84,7 @@ export default function AdminLoginForm() {
                     placeholder={t("emailPlaceholder")}
                     required
                     maxLength={254}
+                    disabled={isSubmitting}
                     className="
                         h-12
                         w-full
@@ -64,6 +103,8 @@ export default function AdminLoginForm() {
                         focus:border-[#0078d6]
                         focus-visible:outline-1
                         focus-visible:outline-[#0078d6]
+                        disabled:cursor-not-allowed
+                        disabled:opacity-60
                     "
                 />
             </div>
@@ -92,6 +133,7 @@ export default function AdminLoginForm() {
                         autoComplete="current-password"
                         placeholder={t("passwordPlaceholder")}
                         required
+                        disabled={isSubmitting}
                         className="
                             h-12
                             w-full
@@ -111,6 +153,8 @@ export default function AdminLoginForm() {
                             focus:border-[#0078d6]
                             focus-visible:outline-1
                             focus-visible:outline-[#0078d6]
+                            disabled:cursor-not-allowed
+                            disabled:opacity-60
                         "
                     />
 
@@ -123,6 +167,7 @@ export default function AdminLoginForm() {
                                 : t("showPassword")
                         }
                         aria-pressed={showPassword}
+                        disabled={isSubmitting}
                         className="
                             absolute
                             inset-y-0
@@ -137,6 +182,7 @@ export default function AdminLoginForm() {
                             focus-visible:outline-2
                             focus-visible:outline-inset
                             focus-visible:outline-[#0078d6]
+                            disabled:cursor-not-allowed
                         "
                     >
                         {showPassword ? (
@@ -180,6 +226,8 @@ export default function AdminLoginForm() {
 
             <button
                 type="submit"
+                disabled={isSubmitting}
+                aria-busy={isSubmitting}
                 className="
                     flex
                     h-12
@@ -199,17 +247,19 @@ export default function AdminLoginForm() {
                     focus-visible:outline-2
                     focus-visible:outline-offset-3
                     focus-visible:outline-[#0078d6]
+                    disabled:cursor-not-allowed
+                    disabled:opacity-60
                 "
             >
-                {t("submit")}
+                {isSubmitting ? t("submitting") : t("submit")}
             </button>
 
             {/* MENSAJE */}
 
             {notice && (
                 <p
-                    role="status"
-                    aria-live="polite"
+                    role="alert"
+                    aria-live="assertive"
                     className="
                         border-l-2
                         border-[#0078d6]
