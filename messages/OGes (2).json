@@ -1,0 +1,832 @@
+{
+    "Navigation": {
+        "menu": "Menu",
+        "closeMenu": "Close menu",
+        "mobileNavigation": "Mobile navigation",
+        "home": "Home",
+        "services": "Services",
+        "workshop": "Workshop",
+        "quote": "Quote",
+        "appointment": "Appointment",
+        "offers": "Offers",
+        "fleetCustomers": "Fleet customers",
+        "originalParts": "Original parts",
+        "spareParts": "Spare Parts",
+        "individuals": "Individuals",
+        "professionals": "Professionals",
+        "afterSales": "After-sales",
+        "vans": "Vans",
+        "trucks": "Trucks",
+        "buses": "Buses",
+        "fuso": "FUSO",
+        "aboutUs": "About us",
+        "contact": "Contact",
+        "history": "History",
+        "interestingLinks": "Useful links",
+        "news": "News"
+    },
+    "Hero": {
+        "imageAlt": "Mercedes-Benz commercial vehicles",
+        "title": "Commercial vehicles ready to keep working",
+        "description": "Maintenance, diagnostics and repair for trucks, vans and commercial vehicles in Orihuela.",
+        "button": "Call the workshop"
+    },
+    "FloatingAppointment": {
+        "ariaLabel": "Book an appointment",
+        "request": "BOOK",
+        "appointment": "APPOINTMENT"
+    },
+    "Services": {
+        "title": "A service designed for the job",
+        "description": "We maintain and repair commercial vehicles that are part of the daily work of professionals and businesses. From preventive maintenance to diagnostics and repairs, we work to keep your vehicle on the road.",
+        "cards": {
+            "maintenance": {
+                "alt": "Commercial vehicle maintenance",
+                "title": "Maintenance",
+                "description": "Inspections, oil changes, filters, fluids and preventive maintenance to keep your vehicle in optimal condition."
+            },
+            "diagnosis": {
+                "alt": "Commercial vehicle diagnostics",
+                "title": "Diagnostics",
+                "description": "Electronic diagnostics to identify faults accurately and enable effective repairs."
+            },
+            "repairs": {
+                "alt": "Commercial vehicle repair",
+                "title": "Repairs",
+                "description": "Mechanical and electronic repairs to resolve faults and keep your vehicle operational."
+            }
+        }
+    },
+    "Features": {
+        "title": "Why trust us?",
+        "description": "Experience, technology and skilled professionals prepared to keep your vehicle in the best possible condition.",
+        "items": {
+            "specializedTechnicians": {
+                "title": "Specialized technicians",
+                "description": "Skilled professionals prepared to meet the demands of commercial vehicles."
+            },
+            "qualityParts": {
+                "title": "Quality parts",
+                "description": "Selected components to ensure reliability and performance in every service."
+            },
+            "specializedEquipment": {
+                "title": "Specialized equipment",
+                "description": "Technology and tools designed to carry out diagnostics and repairs with precision."
+            },
+            "trustAndWarranty": {
+                "title": "Trust and warranty",
+                "description": "We follow professional procedures and strive to ensure that every service meets our quality standards."
+            }
+        }
+    },
+    "Contact": {
+        "title": "Your commercial vehicle workshop in Orihuela",
+        "description": "We are located in Orihuela, Alicante, providing maintenance, diagnostics and repairs for trucks, vans and commercial vehicles.",
+        "phone": "Phone",
+        "email": "Email",
+        "openingHours": "Opening hours",
+        "callButton": "Call the workshop",
+        "locationLabel": "Our location",
+        "directionsButton": "Get directions",
+        "mapAlt": "Auto Talleres Orihuela location in Orihuela, Alicante",
+        "mapAriaLabel": "View the Auto Talleres Orihuela location on Google Maps",
+        "closed": "Closed",
+        "days": {
+            "Lunes": "Monday",
+            "Martes": "Tuesday",
+            "Miércoles": "Wednesday",
+            "Jueves": "Thursday",
+            "Viernes": "Friday",
+            "Sábado": "Saturday",
+            "Domingo": "Sunday"
+        },
+        "siteSettingsUnavailable": "Some contact details may not be up to date at the moment. You can still call or email us directly.",
+        "openingHoursUnavailable": "Our opening hours are temporarily unavailable. Please contact our team to confirm when we're open. We apologise for the inconvenience."
+    },
+    "Footer": {
+        "description": "A specialist workshop for commercial vehicles, trucks and vans. Maintenance, diagnostics and repairs for professionals and businesses.",
+        "services": {
+            "title": "Services",
+            "maintenance": "Maintenance",
+            "diagnosis": "Diagnostics",
+            "repairs": "Repairs",
+            "commercialVehicles": "Commercial vehicles"
+        },
+        "company": {
+            "title": "Company",
+            "aboutUs": "About us",
+            "contact": "Contact",
+            "workWithUs": "Work with us"
+        },
+        "information": {
+            "title": "Information",
+            "legalNotice": "Legal notice",
+            "privacyPolicy": "Privacy policy",
+            "cookies": "Cookies"
+        },
+        "social": {
+            "title": "Follow us",
+            "googleReviews": "Google Reviews"
+        },
+        "copyright": "All rights reserved.",
+        "trademark": "Mercedes-Benz® is a registered trademark of Mercedes-Benz Group AG."
+    },
+    "ContactPage": {
+        "metadata": {
+            "title": "Contact",
+            "description": "Contact Auto-Talleres Orihuela S.L. Meet our team and find the contact details for the people in charge of each department.",
+            "openGraphTitle": "Contact",
+            "openGraphDescription": "Meet the Auto-Talleres Orihuela S.L. team and contact the people in charge of each department."
+        },
+        "hero": {
+            "imageAlt": "Vehicle assistance",
+            "eyebrow": "Contact",
+            "titleLine1": "We're here",
+            "titleLine2": "to help you.",
+            "description": "Need assistance, have a question, or want to speak with our team? Get in touch with us directly.",
+            "callButton": "Call the workshop",
+            "emailButton": "Send an email"
+        }
+    },
+    "ContactPeopleSection": {
+        "eyebrow": "Our team",
+        "title": "Contact people",
+        "description": "Contact the person in charge of the department you need directly."
+    },
+    "ContactDepartments": {
+        "Taller": "Workshop",
+        "Recambios": "Parts",
+        "Administración": "Administration",
+        "Ventas": "Sales"
+    },
+    "WorkWithUs": {
+        "breadcrumbHome": "Home",
+        "breadcrumbCurrent": "Work with us",
+        "title": "Work with us",
+        "description": "If you would like to join Auto Talleres Orihuela, send us your details and CV. We will review your application and get in touch with you.",
+        "metadata": {
+            "title": "Work with us",
+            "description": "Join the Auto-Talleres Orihuela team. Send us your application to work with commercial vehicles in Orihuela.",
+            "openGraphTitle": "Work with us | Auto-Talleres Orihuela",
+            "openGraphDescription": "Send your application to join our team in Orihuela."
+        },
+        "form": {
+            "nameLabel": "Name:",
+            "emailLabel": "Email address:",
+            "phoneLabel": "Phone:",
+            "messageLabel": "Message:",
+            "cvLabel": "CV:",
+            "selectCv": "Choose CV",
+            "pdfHelp": "PDF files only, up to 5 MB.",
+            "privacyConsentPrefix": "I have read and accept the",
+            "privacyPolicyLink": "privacy policy",
+            "privacyConsentSuffix": "and consent to the processing of my data to manage my application.",
+            "captchaLabel": "I'm not a robot",
+            "captchaNotice": "Temporary CAPTCHA mockup. This visual check does not yet verify that you are a human.",
+            "successMessage": "Your application has been sent successfully. Thank you for your interest.",
+            "cancelButton": "Cancel",
+            "submitButton": "Submit application",
+            "sendingButton": "Sending...",
+            "errors": {
+                "pdfRequired": "Please attach your CV as a PDF file.",
+                "invalidPdf": "Please attach a valid PDF file.",
+                "fileTooLarge": "The file exceeds the 5 MB limit.",
+                "invalidEmail": "Enter a valid email address.",
+                "termsRequired": "You must accept the privacy policy to submit your application.",
+                "emailNotConfigured": "Application submission has not been configured yet. Please contact the company another way.",
+                "sendFailed": "Your application could not be sent. Please try again later.",
+                "network": "Could not connect to the server. Check your connection and try again."
+            }
+        }
+    },
+    "BudgetPage": {
+        "metadata": {
+            "title": "Request a workshop quote",
+            "description": "Request a quote for maintenance, diagnostics or repairs for your van, truck, bus or commercial vehicle at Auto-Talleres Orihuela.",
+            "openGraphTitle": "Commercial vehicle workshop quote",
+            "openGraphDescription": "Tell us what your commercial vehicle needs and prepare a quote request for our workshop in Orihuela."
+        },
+        "hero": {
+            "servicesLink": "Services",
+            "workshopLabel": "Workshop",
+            "eyebrow": "Quote request",
+            "titleLine1": "A clear estimate",
+            "titleLine2": "to keep you moving.",
+            "description": "Tell us what your commercial vehicle needs. We will review the information you provide so we can advise you on the next step.",
+            "vehicleScope": "Vans · Trucks · Buses · FUSO",
+            "imageAlt": "Several commercial trucks outside a modern facility"
+        },
+        "intro": {
+            "eyebrow": "Quote request",
+            "title": "Tell us what your vehicle needs",
+            "description": "Provide the basic vehicle details and describe the work you need. The more specific the information, the better we can assess your request.",
+            "steps": {
+                "vehicle": {
+                    "title": "Identify the vehicle",
+                    "description": "Select the vehicle type and model, and optionally add the registration number and mileage."
+                },
+                "work": {
+                    "title": "Describe the work",
+                    "description": "Tell us whether you need maintenance, a repair, diagnostics or another type of work."
+                },
+                "contact": {
+                    "title": "Get in touch with the workshop",
+                    "description": "Leave your contact details so our team can reply to your request."
+                }
+            },
+            "contactTitle": "Would you rather speak to the workshop?",
+            "contactDescription": "You can also call us directly to discuss your situation.",
+            "callButton": "Call the workshop"
+        },
+        "form": {
+            "eyebrow": "Request details",
+            "title": "Prepare your request",
+            "description": "Complete the required fields and review your details before preparing the email.",
+            "sections": {
+                "vehicle": "01 · Vehicle",
+                "work": "02 · Requested work",
+                "contact": "03 · Contact details"
+            },
+            "fields": {
+                "vehicleType": "Vehicle type",
+                "vehicleTypePlaceholder": "Select a vehicle type",
+                "makeModel": "Make and model",
+                "makeModelPlaceholder": "e.g. Mercedes-Benz Actros",
+                "registration": "Registration number",
+                "registrationPlaceholder": "Optional",
+                "mileage": "Approximate mileage",
+                "mileagePlaceholder": "In kilometres",
+                "operationType": "Type of work",
+                "operationTypePlaceholder": "Select the work you need",
+                "details": "Describe what you need",
+                "detailsPlaceholder": "Describe the symptoms, required maintenance or work you would like us to assess…",
+                "name": "Full name",
+                "company": "Company (optional)",
+                "phone": "Contact telephone",
+                "email": "Email address",
+                "privacyPrefix": "I have read and accept the",
+                "privacyLink": "privacy policy",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "van": "Van",
+                "truck": "Truck",
+                "bus": "Bus",
+                "fuso": "FUSO vehicle",
+                "other": "Other commercial vehicle"
+            },
+            "operationTypes": {
+                "maintenance": "Maintenance",
+                "repair": "Repair",
+                "diagnosis": "Diagnostics",
+                "other": "Other work"
+            },
+            "submit": "Prepare email request",
+            "emailNotice": "Clicking the button opens your device’s email application with the request prepared. You must review and send the message from that application; this page does not submit the form directly to a server.",
+            "emailClientNotice": "If your email application does not open, you can call us or contact us directly by email.",
+            "requiredNote": "Fields marked with * are required.",
+            "emailSubject": "Workshop quote request",
+            "emailBodyIntro": "Quote request prepared from the Auto-Talleres Orihuela website.",
+            "emailFields": {
+                "vehicleType": "Vehicle type",
+                "makeModel": "Make and model",
+                "registration": "Registration number",
+                "mileage": "Mileage",
+                "operationType": "Requested work",
+                "details": "Details",
+                "name": "Name",
+                "company": "Company",
+                "phone": "Telephone",
+                "email": "Email"
+            }
+        }
+    },
+    "SparePartsIndividuals": {
+        "breadcrumbLabel": "Breadcrumb",
+        "breadcrumbHome": "Home",
+        "breadcrumbParts": "Spare Parts",
+        "breadcrumbIndividuals": "Private Customers",
+        "contactHeading": "Need personal assistance?",
+        "contactsUnavailable": "No contacts are available for this department.",
+        "call": "Call",
+        "callAriaLabel": "Call {name}",
+        "eyebrow": "Counter Sales",
+        "title": "Spare Parts for Private Customers",
+        "intro": "Find the spare parts category you need and explore the available information.",
+        "openDetails": "Show information about {category}",
+        "closeDetails": "Hide information about {category}",
+        "shippingNotice": "Free shipping throughout mainland Spain on orders over €100. Shipping costs €5 for other orders.",
+        "categories": {
+            "oils": {
+                "title": "Oils",
+                "description": "Contact our department for availability and compatible part references for your vehicle."
+            },
+            "tires": {
+                "title": "Tyres",
+                "description": "Bridgestone, Continental, Michelin and Pirelli tyres."
+            },
+            "filters": {
+                "title": "Filters",
+                "description": "Ask about the availability of filters compatible with your vehicle."
+            },
+            "brakes": {
+                "title": "Brakes",
+                "description": "Ask about spare parts availability for your vehicle's braking system."
+            },
+            "antifreeze": {
+                "title": "Antifreeze",
+                "description": "Ask about the availability of antifreeze and other vehicle fluids."
+            },
+            "beltsRadiators": {
+                "title": "Belts and Radiators",
+                "description": "Ask about the availability of belts, radiators and related components."
+            }
+        }
+    },
+    "AppointmentPage": {
+        "metadata": {
+            "title": "Book a workshop appointment",
+            "description": "Request an appointment for your van, truck, bus or commercial vehicle at Auto-Talleres Orihuela.",
+            "openGraphTitle": "Workshop appointment",
+            "openGraphDescription": "Plan your workshop visit and request an appointment for your commercial vehicle."
+        },
+        "hero": {
+            "servicesLink": "Services",
+            "workshopLabel": "Workshop",
+            "eyebrow": "Appointment",
+            "titleLine1": "Plan your visit",
+            "titleLine2": "with our workshop.",
+            "description": "Request an appointment for your commercial vehicle and tell us what you need. Choose your preferred date and our team can review your request.",
+            "vehicleScope": "Vans · Trucks · Buses · FUSO",
+            "imageAlt": "Commercial trucks outside a modern facility"
+        },
+        "intro": {
+            "eyebrow": "Plan your visit",
+            "title": "Keep your business moving",
+            "description": "Provide your vehicle details and the reason for your visit so we can review your appointment request.",
+            "steps": {
+                "vehicle": {
+                    "title": "Identify your vehicle",
+                    "description": "Tell us the vehicle type, make, model and registration number."
+                },
+                "work": {
+                    "title": "Tell us what you need",
+                    "description": "Describe the maintenance, fault or work required."
+                },
+                "date": {
+                    "title": "Tell us when you're available",
+                    "description": "Choose your preferred date and time window."
+                },
+                "contact": {
+                    "title": "Leave your contact details",
+                    "description": "Our team will have the information needed to respond to your request."
+                }
+            },
+            "contactTitle": "Need to speak to the workshop?",
+            "contactDescription": "You can also call us directly to discuss your situation.",
+            "callButton": "Call the workshop"
+        },
+        "form": {
+            "eyebrow": "Appointment request",
+            "title": "Plan your visit",
+            "description": "Complete your vehicle details, describe the work required and tell us when you would prefer to visit.",
+            "sections": {
+                "vehicle": "01 · Vehicle",
+                "appointment": "02 · Appointment and work",
+                "contact": "03 · Contact details"
+            },
+            "fields": {
+                "vehicleType": "Vehicle type",
+                "vehicleTypePlaceholder": "Select a vehicle type",
+                "makeModel": "Make and model",
+                "makeModelPlaceholder": "e.g. Mercedes-Benz Actros",
+                "registration": "Registration number",
+                "registrationPlaceholder": "Enter the registration number",
+                "customerType": "Are you an existing customer?",
+                "operationType": "Reason for your visit",
+                "operationTypePlaceholder": "Select a reason",
+                "preferredDate": "Preferred date",
+                "preferredDateHint": "Your requested date is indicative and must be confirmed by the workshop.",
+                "preferredTime": "Preferred time window",
+                "preferredTimePlaceholder": "Select a time window",
+                "details": "Tell us what you need",
+                "detailsPlaceholder": "Describe the maintenance, fault, symptoms or work required...",
+                "name": "Full name",
+                "company": "Company (optional)",
+                "phone": "Contact telephone",
+                "email": "Email address",
+                "privacyPrefix": "I have read and accept the",
+                "privacyLink": "privacy policy",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "van": "Van",
+                "truck": "Truck",
+                "bus": "Bus",
+                "fuso": "FUSO vehicle",
+                "other": "Other commercial vehicle"
+            },
+            "customerTypes": {
+                "yes": "Yes",
+                "no": "No"
+            },
+            "operationTypes": {
+                "maintenance": "Maintenance or inspection",
+                "repair": "Fault or repair",
+                "diagnosis": "Diagnostics",
+                "other": "Other work"
+            },
+            "preferredTimes": {
+                "morning": "Morning",
+                "afternoon": "Afternoon",
+                "any": "Any available time"
+            },
+            "submit": "Prepare appointment request",
+            "emailNotice": "Continuing opens your email application with the request prepared. You must review and send the message from that application.",
+            "emailClientNotice": "If your email application does not open, you can contact our workshop directly. Your request does not constitute a confirmed appointment.",
+            "requiredNote": "Fields marked with * are required.",
+            "emailSubject": "Workshop appointment request",
+            "emailBodyIntro": "Appointment request prepared from the Auto-Talleres Orihuela website.",
+            "emailAvailabilityNotice": "The requested date and time window are subject to confirmation by the workshop.",
+            "emailFields": {
+                "vehicleType": "Vehicle type",
+                "makeModel": "Make and model",
+                "registration": "Registration number",
+                "customerType": "Existing customer",
+                "operationType": "Reason for visit",
+                "preferredDate": "Preferred date",
+                "preferredTime": "Preferred time window",
+                "details": "Details",
+                "name": "Name",
+                "company": "Company",
+                "phone": "Telephone",
+                "email": "Email",
+                "privacyAccepted": "Privacy policy acceptance",
+                "yes": "Yes"
+            }
+        }
+    },
+    "News": {
+        "metadata": {
+            "title": "News",
+            "description": "The latest news from Auto Talleres Orihuela."
+        },
+        "title": "News",
+        "description": "The latest news from Auto Talleres Orihuela."
+    },
+    "History": {
+        "metadata": {
+            "title": "About Us | Auto-Talleres Orihuela",
+            "description": "Discover the history, experience and expertise of Auto-Talleres Orihuela S.L. in after-sales service and original spare parts for industrial vehicles.",
+            "openGraph": {
+                "title": "About Us | Auto-Talleres Orihuela",
+                "description": "Discover the history and expertise of Auto-Talleres Orihuela S.L."
+            }
+        },
+        "breadcrumb": {
+            "home": "Home",
+            "aboutUs": "About us",
+            "history": "History"
+        },
+        "hero": {
+            "eyebrow": "About us",
+            "titleLine1": "More than four decades",
+            "titleLine2": "serving the",
+            "titleLine3": "transport industry.",
+            "description": "Our passion in every kilometre. At Auto Talleres Orihuela, we know first-hand what it means to depend on a vehicle as a working tool."
+        },
+        "passion": {
+            "eyebrow": "Our passion",
+            "titleLine1": "A support point for those who keep the country",
+            "titleLine2": "moving.",
+            "paragraph1": "At Auto Talleres Orihuela, S.L., we understand what it means to depend on a vehicle for your work. We are a support point for hundreds of hauliers, logistics companies and self-employed professionals who need to keep their vehicles in optimal condition.",
+            "paragraph2": "That responsibility is what motivates us to open our doors every morning with the same commitment as on the very first day."
+        },
+        "roots": {
+            "eyebrow": "Our roots",
+            "titleLine1": "Passion and family",
+            "titleLine2": "tradition.",
+            "subtitle": "The beginning of a family project.",
+            "paragraph1": "Our history began with Francisco Parres Sánchez, who founded this project with a very clear vision: to provide the Vega Baja region with a vehicle repair and maintenance service characterised by honesty, precision and a close relationship with our customers.",
+            "paragraph2": "What began as a family-run technical workshop has evolved over the years to become a benchmark for after-sales service in our region, while preserving the dedication and technical quality values on which we were founded."
+        },
+        "facilities": {
+            "eyebrow": "Our facilities",
+            "titleLine1": "State-of-the-art facilities serving your",
+            "titleLine2": "fleet.",
+            "paragraph1": "Located in a strategic area on the Murcia-Alicante road, km 28, Orihuela, our fully equipped facilities allow us to respond immediately to our customers' needs.",
+            "paragraph2": "Our work covers mechanical, electromechanical, braking and preventive maintenance needs for commercial and heavy-duty vehicles.",
+            "paragraph3": "We take care of your vehicle so that you only have to focus on your route."
+        },
+        "specialization": {
+            "eyebrow": "After-sales and original spare parts",
+            "titleLine1": "Specialists in what",
+            "titleLine2": "we do best.",
+            "description": "We focus 100% on after-sales technical service and the sale of original spare parts, backed by the highest quality standards in the industry."
+        },
+        "specializations": {
+            "vans": {
+                "alt": "Mercedes-Benz Vans",
+                "title": "Mercedes-Benz Vans",
+                "description": "Comprehensive maintenance and original spare parts for combustion-engine vans such as Vito, Sprinter and Citan."
+            },
+            "truck": {
+                "alt": "Daimler Truck Spain",
+                "title": "Daimler Truck Spain",
+                "description": "Specialised assistance and official spare parts for Actros, Arocs, Atego and Unimog trucks."
+            },
+            "buses": {
+                "alt": "Daimler Buses",
+                "title": "Daimler Buses",
+                "description": "Workshop support and original parts for Setra and Mercedes-Benz buses and coaches."
+            },
+            "fuso": {
+                "alt": "FUSO Trucks",
+                "title": "FUSO Trucks",
+                "description": "Official technical service and spare parts for the FUSO Canter range of compact trucks."
+            }
+        },
+        "pillars": {
+            "eyebrow": "Our pillars",
+            "titleLine1": "You and our",
+            "titleLine2": "team.",
+            "customers": {
+                "title": "Our customers",
+                "description": "Hauliers and companies who trust us to keep their working vehicles in perfect condition."
+            },
+            "team": {
+                "title": "Our team",
+                "description": "Passionate, qualified and approachable professionals whose technical expertise ensures that your vehicle is in the best hands."
+            }
+        },
+        "closing": {
+            "eyebrow": "Auto-Talleres Orihuela",
+            "titleLine1": "Thank you for trusting",
+            "titleLine2": "us.",
+            "titleLine3": "We keep moving forward together."
+        }
+    },
+    "OpeningHours": {
+        "days": {
+            "Lunes": "Monday",
+            "Martes": "Tuesday",
+            "Miércoles": "Wednesday",
+            "Jueves": "Thursday",
+            "Viernes": "Friday",
+            "Sábado": "Saturday",
+            "Domingo": "Sunday"
+        },
+        "closed": "Closed"
+    },
+    "Cookies": {
+        "metadata": {
+            "title": "Cookie Policy",
+            "description": "Cookie Policy of Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Legal information",
+        "title": "Cookie Policy",
+        "intro": "Information about the use of data storage and retrieval technologies on this website.",
+        "sections": {
+            "whatAre": {
+                "title": "What are cookies?",
+                "content": "Cookies are small files that your browser may store on your device when you visit a website. They allow technical information required for certain functions to operate correctly to be remembered."
+            },
+            "used": {
+                "title": "Cookies used",
+                "content": "This website only uses technical cookies that are necessary for its operation and security. No advertising cookies are used, and no commercial profiles are created through cookies."
+            },
+            "management": {
+                "title": "Cookie management",
+                "content": "You can allow, block or delete cookies through your browser settings. Please note that disabling technical cookies may affect the operation of certain parts of the website."
+            },
+            "updates": {
+                "title": "Updates",
+                "content": "This policy may be updated to reflect technical or legal changes or changes in the use of cookies. We recommend reviewing it periodically."
+            }
+        }
+    },
+    "Legal": {
+        "metadata": {
+            "title": "Legal Notice",
+            "description": "Legal Notice of Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Legal information",
+        "title": "Legal Notice",
+        "intro": "Terms and conditions governing access to and use of the Auto-Talleres Orihuela S.L. website.",
+        "sections": {
+            "ownership": {
+                "title": "Website ownership",
+                "content": "This website is owned by Autotalleres Orihuela S.L., with Spanish Tax Identification Number B03934908 and registered address at Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, Spain. For any enquiries, you can contact us by telephone on 966 74 44 66 or by email at orihuela.ato@autotalleresorihuela.es."
+            },
+            "purpose": {
+                "title": "Purpose",
+                "content": "This website is provided for informational purposes and presents the maintenance, diagnostic and repair services offered by the workshop. The information published does not constitute a contractual offer and may be updated when necessary."
+            },
+            "use": {
+                "title": "Use of the website",
+                "content": "Users undertake to use the website lawfully, diligently and respectfully, avoiding any action that could affect its security, operation or content."
+            },
+            "intellectualProperty": {
+                "title": "Intellectual property",
+                "content": "The texts, images, design, logos and other content on this website are protected by applicable regulations. Their reproduction, distribution or modification is not permitted without prior authorisation from the owner, except where legally permitted."
+            },
+            "liability": {
+                "title": "Liability",
+                "content": "Auto-Talleres Orihuela S.L. endeavours to keep the information on the website up to date and accurate, but cannot guarantee the complete absence of errors or interruptions. The use of the information is carried out at the user's own responsibility."
+            }
+        }
+    },
+    "Privacy": {
+        "metadata": {
+            "title": "Privacy Policy",
+            "description": "Privacy Policy of Auto-Talleres Orihuela S.L."
+        },
+        "eyebrow": "Legal information",
+        "title": "Privacy Policy",
+        "intro": "How we process the personal data you provide when contacting Auto-Talleres Orihuela.",
+        "sections": {
+            "controller": {
+                "title": "Data controller",
+                "content": "The data controller is Autotalleres Orihuela S.L., with Spanish Tax Identification Number B03934908 and registered address at Carretera Murcia-Alicante, km 28, 03300 Orihuela, Alicante, Spain. You can contact us at orihuela.ato@autotalleresorihuela.es or by telephone on 966 74 44 66."
+            },
+            "dataAndPurpose": {
+                "title": "Data and purpose",
+                "content": "We process the contact details and information you provide in your enquiries in order to respond to your request, answer questions and manage any professional or commercial relationship that may arise from it."
+            },
+            "legalBasis": {
+                "title": "Legal basis and retention",
+                "content": "The processing is based on your consent when you contact us and, where applicable, on taking pre-contractual steps or performing a contractual relationship. The data will be retained for as long as necessary to handle your request and comply with applicable legal obligations."
+            },
+            "recipients": {
+                "title": "Recipients",
+                "content": "Personal data will not be disclosed to third parties except where legally required or where necessary to provide the requested service. Service providers who may have access to personal data will do so under the applicable legal safeguards."
+            },
+            "rights": {
+                "title": "Your rights",
+                "content": "You may request access to, rectification, erasure, objection to, restriction of or portability of your personal data by writing to orihuela.ato@autotalleresorihuela.es. You may also lodge a complaint with the competent data protection authority."
+            }
+        }
+    },
+    "HomeMetadata": {
+        "title": "Auto-Talleres Orihuela | Authorised Mercedes-Benz Service",
+        "description": "Authorised Mercedes-Benz service in Orihuela, Alicante. Maintenance, diagnostics and repair for commercial vehicles.",
+        "openGraphTitle": "Auto-Talleres Orihuela | Authorised Mercedes-Benz Service",
+        "openGraphDescription": "Maintenance, diagnostics and repair for commercial vehicles in Orihuela."
+    },
+    "ServicesMetadata": {
+        "title": "Commercial vehicle services",
+        "description": "Maintenance, diagnostics and repair for trucks, vans and commercial vehicles in Orihuela, Alicante.",
+        "openGraphTitle": "Commercial vehicle services",
+        "openGraphDescription": "Maintenance, diagnostics and repair for commercial vehicles in Orihuela, Alicante."
+    },
+    "FleetCustomersPage": {
+        "metadata": {
+            "title": "Fleet service in Orihuela",
+            "description": "Workshop support for fleets of trucks, vans and commercial vehicles in Orihuela, Alicante.",
+            "openGraphTitle": "Fleet service | Auto-Talleres Orihuela",
+            "openGraphDescription": "A workshop service focused on keeping your fleet moving."
+        },
+        "hero": {
+            "imageAlt": "Trucks and industrial vehicles on the road",
+            "servicesLink": "Services",
+            "workshopLabel": "Workshop",
+            "eyebrow": "Fleet customers",
+            "titleLine1": "Your fleet,",
+            "titleLine2": "always moving.",
+            "description": "A workshop service designed for businesses and professionals who depend on their vehicles every day.",
+            "callButton": "Talk to the workshop"
+        },
+        "introduction": {
+            "eyebrow": "A partner for your operation",
+            "titleLine1": "Less time",
+            "titleLine2": "off the road.",
+            "description": "We know that every vehicle out of service affects your business. That is why we work with a technical, direct approach focused on fleet continuity.",
+            "detail": "We support trucks, vans and commercial vehicles, aiming to make each job clear, rigorous and suited to the real needs of your activity."
+        },
+        "services": {
+            "eyebrow": "Fleet support",
+            "titleLine1": "A service that understands",
+            "titleLine2": "your pace of work.",
+            "items": {
+                "planning": {
+                    "title": "Planning",
+                    "description": "We coordinate maintenance and repair needs to help you organise your operation."
+                },
+                "maintenance": {
+                    "title": "Maintenance and repair",
+                    "description": "We work on the mechanical and electronic systems of your vehicles using technical and reliability criteria."
+                },
+                "communication": {
+                    "title": "Direct communication",
+                    "description": "We keep you informed throughout the process so you can make decisions with the information you need."
+                }
+            }
+        },
+        "contact": {
+            "eyebrow": "Let's talk about your fleet",
+            "titleLine1": "A workshop ready",
+            "titleLine2": "to keep moving forward.",
+            "description": "Tell us what your vehicles need and our team will guide you towards the best way to handle them.",
+            "callButton": "Call the workshop"
+        },
+        "form": {
+            "eyebrow": "Business enquiries",
+            "title": "Let's talk about your fleet",
+            "description": "Tell us which vehicles you manage and what kind of support you need. Our team can review your enquiry and explain the available options.",
+            "directContactNote": "Would you rather explain your situation directly? You can also call our workshop.",
+            "sections": {
+                "company": "01 · Company and fleet",
+                "needs": "02 · Requirements",
+                "contact": "03 · Contact person"
+            },
+            "fields": {
+                "company": "Company name",
+                "taxId": "Company tax ID",
+                "fleetSize": "Number of vehicles",
+                "vehicleTypes": "Vehicle types in your fleet",
+                "serviceType": "How can we help?",
+                "serviceTypePlaceholder": "Select the type of enquiry",
+                "details": "Tell us more (optional)",
+                "detailsPlaceholder": "Describe your fleet's needs, the services you are looking for or any useful information...",
+                "contactName": "Contact person's name",
+                "email": "Business email address",
+                "phone": "Contact telephone",
+                "privacyPrefix": "I have read and accept the",
+                "privacyLink": "privacy policy",
+                "privacySuffix": "."
+            },
+            "vehicleTypes": {
+                "vans": "Vans",
+                "trucks": "Trucks",
+                "buses": "Buses",
+                "fuso": "FUSO",
+                "other": "Other commercial vehicles"
+            },
+            "vehicleTypesRequired": "Select at least one vehicle type.",
+            "serviceTypes": {
+                "maintenance": "Maintenance and inspections",
+                "diagnosisRepair": "Diagnostics and repairs",
+                "spareParts": "Original spare parts",
+                "fleetSupport": "Information about fleet services",
+                "other": "Other enquiry"
+            },
+            "submit": "Request information",
+            "emailNotice": "Clicking the button opens your email application with the enquiry prepared. You must review and send the message from that application.",
+            "emailClientNotice": "If your email application does not open, contact the workshop directly. This page does not submit the enquiry directly to the server.",
+            "requiredNote": "Fields marked with * are required.",
+            "emailSubject": "Fleet services enquiry",
+            "emailBodyIntro": "Fleet enquiry prepared from the Auto-Talleres Orihuela website.",
+            "emailFields": {
+                "company": "Company",
+                "taxId": "Company tax ID",
+                "contactName": "Contact person",
+                "email": "Email",
+                "phone": "Telephone",
+                "fleetSize": "Number of vehicles",
+                "vehicleTypes": "Vehicle types",
+                "serviceType": "Requested service",
+                "details": "Details",
+                "privacyAccepted": "Privacy policy acceptance",
+                "yes": "Yes"
+            }
+        }
+    },
+    "Errors": {
+        "retry": "Try again",
+        "generic": {
+            "title": "We couldn't load this content.",
+            "description": "There was a problem retrieving the information. You can try again."
+        },
+        "news": {
+            "title": "We couldn't load the news.",
+            "description": "There was a problem retrieving the latest news. You can try again."
+        },
+        "contact": {
+            "title": "We couldn't load the contact information.",
+            "description": "There was a problem retrieving our team's information. You can try again."
+        }
+    },
+    "Admin": {
+        "login": {
+            "metadataTitle": "Panel login",
+            "eyebrow": "PRIVATE AREA",
+            "title": "Sign in",
+            "description": "Enter your credentials to access the administration panel.",
+            "emailLabel": "Email address",
+            "emailPlaceholder": "name@company.com",
+            "passwordLabel": "Password",
+            "passwordPlaceholder": "Enter your password",
+            "showPassword": "Show password",
+            "hidePassword": "Hide password",
+            "submit": "Sign in",
+            "languageLabel": "Language",
+            "restrictedAccess": "Access is restricted to authorised personnel only.",
+            "footer": "Auto-Talleres Orihuela · Administration",
+            "backToWebsite": "Back to website",
+            "notConnectedNotice": "The form is not yet connected to the authentication system. No credentials have been sent.",
+            "invalidCredentials": "The email or password is incorrect.",
+            "loginError": "Unable to sign in. Please try again.",
+            "submitting": "Signing in..."
+        }
+    }
+}

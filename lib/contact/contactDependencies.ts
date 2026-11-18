@@ -3,14 +3,11 @@ import { GetContactById } from "@/core/contact/application/use-cases/GetContactB
 import { GetContactsByDepartment } from "@/core/contact/application/use-cases/GetContactsByDepartment";
 import { SearchContacts } from "@/core/contact/application/use-cases/SearchContacts";
 import { GroupContactsByDepartment } from "@/core/contact/application/use-cases/GroupContactsByDepartment";
-
 import { ContactApiRepository } from "@/infrastructure/api/contact/ContactApiRepository";
 
-// Composition root: las páginas consumen casos de uso, nunca repositorios.
-const contactRepository = new ContactApiRepository();
-
-export const getActiveContacts = new GetActiveContacts(contactRepository);
-export const getContactById = new GetContactById(contactRepository);
-export const getContactsByDepartment = new GetContactsByDepartment(contactRepository);
-export const searchContacts = new SearchContacts(contactRepository);
+const repository = new ContactApiRepository();
+export const getActiveContacts = new GetActiveContacts(repository);
+export const getContactById = new GetContactById(repository);
+export const getContactsByDepartment = new GetContactsByDepartment(repository);
+export const searchContacts = new SearchContacts(repository);
 export const groupContactsByDepartment = new GroupContactsByDepartment();

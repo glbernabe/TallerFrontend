@@ -5,11 +5,13 @@ export type ContactPersonImage = {
     height: number;
 };
 
+/** Modelo público normalizado del directorio de trabajadores. */
 export type ContactPerson = {
     id: string;
     firstName: string;
     lastName: string;
     department: string;
+    jobTitle: string | null;
     email: string;
     phone: string;
     image: ContactPersonImage | null;

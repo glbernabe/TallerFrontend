@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import type {
     AdminIconName,
@@ -31,68 +32,7 @@ type NavigationGroup = {
     items: NavigationItem[];
 };
 
-const navigationGroups: NavigationGroup[] = [
-    {
-        label: "GENERAL",
-        items: [
-            {
-                id: "overview",
-                label: "Resumen",
-                icon: "dashboard",
-            },
-        ],
-    },
-    {
-        label: "CONTENIDO WEB",
-        items: [
-            {
-                id: "news",
-                label: "Noticias",
-                icon: "news",
-            },
-            {
-                id: "media",
-                label: "Archivos multimedia",
-                icon: "media",
-            },
-            {
-                id: "opening-hours",
-                label: "Horarios",
-                icon: "clock",
-            },
-        ],
-    },
-    {
-        label: "ATENCIÓN AL CLIENTE",
-        items: [
-            {
-                id: "contacts",
-                label: "Consultas",
-                icon: "contacts",
-            },
-            {
-                id: "curriculums",
-                label: "Currículums",
-                icon: "file",
-            },
-        ],
-    },
-    {
-        label: "ADMINISTRACIÓN",
-        items: [
-            {
-                id: "users",
-                label: "Usuarios",
-                icon: "users",
-            },
-            {
-                id: "settings",
-                label: "Configuración",
-                icon: "settings",
-            },
-        ],
-    },
-];
+
 
 const iconPaths: Record<AdminIconName, ReactNode> = {
     dashboard: (
@@ -311,6 +251,81 @@ export default function AdminSidebar({
     onNavigate,
     onClose,
 }: AdminSidebarProps) {
+    const t = useTranslations("Admin.dashboard");
+
+    const navigationGroups: NavigationGroup[] = [
+        {
+            label: t("nav.groups.general"),
+            items: [
+                {
+                    id: "overview",
+                    label: t("nav.overview"),
+                    icon: "dashboard",
+                },
+            ],
+        },
+        {
+            label: t("nav.groups.website"),
+            items: [
+                {
+                    id: "news",
+                    label: t("nav.news"),
+                    icon: "news",
+                },
+                {
+                    id: "media",
+                    label: t("nav.media"),
+                    icon: "media",
+                },
+                {
+                    id: "opening-hours",
+                    label: t("nav.openingHours"),
+                    icon: "clock",
+                },
+            ],
+        },
+        {
+            label: t("nav.groups.team"),
+            items: [
+                {
+                    id: "contactDirectory",
+                    label: t("nav.contactDirectory"),
+                    icon: "users",
+                },
+            ],
+        },
+        {
+            label: t("nav.groups.customerService"),
+            items: [
+                {
+                    id: "contacts",
+                    label: t("nav.enquiries"),
+                    icon: "contacts",
+                },
+                {
+                    id: "curriculums",
+                    label: t("nav.curriculums"),
+                    icon: "file",
+                },
+            ],
+        },
+        {
+            label: t("nav.groups.administration"),
+            items: [
+                {
+                    id: "users",
+                    label: t("nav.users"),
+                    icon: "users",
+                },
+                {
+                    id: "settings",
+                    label: t("nav.settings"),
+                    icon: "settings",
+                },
+            ],
+        },
+    ];
+
     const canManageUsers =
         role === "admin_principal" || role === "admin";
 
@@ -325,17 +340,17 @@ export default function AdminSidebar({
 
     const roleLabel =
         role === "admin_principal"
-            ? "Administrador principal"
+            ? t("roles.adminPrincipal")
             : role === "admin"
-              ? "Administrador"
-              : "Acceso de consulta";
+              ? t("roles.admin")
+              : t("roles.readOnly");
 
     return (
         <>
             {mobileOpen && (
                 <button
                     type="button"
-                    aria-label="Cerrar menú"
+                    aria-label={t("actions.closeMenu")}
                     onClick={onClose}
                     className="
                         fixed
@@ -348,7 +363,7 @@ export default function AdminSidebar({
             )}
 
             <aside
-                aria-label="Navegación del panel"
+                aria-label={t("nav.ariaLabel")}
                 className={`
                     fixed
                     inset-y-0
@@ -383,7 +398,7 @@ export default function AdminSidebar({
                         <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/15 bg-white/[0.04]">
                             <Image
                                 src="/content/icons/logo.svg"
-                                alt="Logo de Auto-Talleres Orihuela"
+                                alt={t("brand.logoAlt")}
                                 width={32}
                                 height={32}
                                 priority
@@ -404,7 +419,7 @@ export default function AdminSidebar({
                     <button
                         type="button"
                         onClick={onClose}
-                        aria-label="Cerrar menú"
+                        aria-label={t("actions.closeMenu")}
                         className="ml-2 rounded p-2 text-white/60 hover:bg-white/10 hover:text-white lg:hidden"
                     >
                         <AdminIcon name="close" />
@@ -470,7 +485,7 @@ export default function AdminSidebar({
                     </Link>
 
                     <p className="mt-4 px-3 text-[9px] uppercase tracking-[0.12em] text-white/25">
-                        Panel interno · Auto-Talleres Orihuela S.L.
+                        {t("brand.internalFooter")}
                     </p>
                 </div>
             </aside>

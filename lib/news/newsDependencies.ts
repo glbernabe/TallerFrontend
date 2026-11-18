@@ -2,12 +2,10 @@ import { GetPublishedNews } from "@/core/news/application/use-cases/GetPublished
 import { GetNewsPage } from "@/core/news/application/use-cases/GetNewsPage";
 import { GetNewsBySlug } from "@/core/news/application/use-cases/GetNewsBySlug";
 import { SearchNews } from "@/core/news/application/use-cases/SearchNews";
-
 import { NewsApiRepository } from "@/infrastructure/api/news/NewsApiRepository";
 
-const newsRepository = new NewsApiRepository();
-
-export const getPublishedNews = new GetPublishedNews(newsRepository);
-export const getNewsPage = new GetNewsPage(newsRepository);
-export const getNewsBySlug = new GetNewsBySlug(newsRepository);
-export const searchNews = new SearchNews(newsRepository);
+const repository = new NewsApiRepository();
+export const getPublishedNews = new GetPublishedNews(repository);
+export const getNewsPage = new GetNewsPage(repository);
+export const getNewsBySlug = new GetNewsBySlug(repository);
+export const searchNews = new SearchNews(repository);

@@ -4,6 +4,7 @@ export type AdminSectionId =
     | "media"
     | "contacts"
     | "opening-hours"
+    | "contactDirectory"
     | "curriculums"
     | "users"
     | "settings";

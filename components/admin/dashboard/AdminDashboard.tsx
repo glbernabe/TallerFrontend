@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 import AdminSidebar from "./AdminSidebar";
 import AdminDashboardContent from "./AdminDashboardContent";
@@ -20,6 +21,8 @@ export default function AdminDashboard({
     locale,
     user,
 }: AdminDashboardProps) {
+    const t = useTranslations("Admin.dashboard");
+
     const [activeSection, setActiveSection] =
         useState<AdminSectionId>("overview");
 
@@ -84,7 +87,7 @@ export default function AdminDashboard({
                                 onClick={() =>
                                     setMobileMenuOpen(true)
                                 }
-                                aria-label="Abrir menú de navegación"
+                                aria-label={t("actions.openMenu")}
                                 aria-expanded={mobileMenuOpen}
                                 className="
                                     flex
@@ -115,11 +118,11 @@ export default function AdminDashboard({
 
                             <div>
                                 <p className="text-xs font-semibold text-[#343a40]">
-                                    Auto-Talleres Orihuela S.L.
+                                    {t("brand.fullName")}
                                 </p>
 
                                 <p className="mt-0.5 text-[10px] text-[#9299a1]">
-                                    Panel de administración
+                                    {t("header.panelSubtitle")}
                                 </p>
                             </div>
                         </div>
@@ -128,7 +131,7 @@ export default function AdminDashboard({
                             <span className="h-1.5 w-1.5 rounded-full bg-[#0078d6]" />
 
                             <span className="text-[10px] font-semibold uppercase tracking-wide text-[#626a73]">
-                                Acceso interno
+                                {t("header.internalAccess")}
                             </span>
                         </div>
                     </header>
@@ -160,12 +163,13 @@ export default function AdminDashboard({
                     <footer className="border-t border-[#e0e4e8] bg-white px-4 py-4 sm:px-6 lg:px-8">
                         <div className="flex flex-col gap-2 text-[10px] text-[#9299a1] sm:flex-row sm:items-center sm:justify-between">
                             <p>
-                                © {new Date().getFullYear()} Auto-Talleres
-                                Orihuela S.L.
+                                {t("footer.copyright", {
+                                    year: new Date().getFullYear(),
+                                })}
                             </p>
 
                             <p>
-                                Panel de administración · Uso interno
+                                {t("footer.internalUse")}
                             </p>
                         </div>
                     </footer>

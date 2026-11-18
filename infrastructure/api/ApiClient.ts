@@ -70,13 +70,18 @@ function buildApiUrl(endpoint: string): URL {
     // Las rutas deben ser relativas y estar definidas por la aplicación.
     // No se admiten URLs externas ni segmentos de recorrido de directorios.
     const path = endpoint.split("?")[0];
+    const decodedPath = (() => {
+        try { return decodeURIComponent(path); } catch { return "\\\\"; }
+    })();
 
     if (
         !endpoint.trim() ||
         endpoint.startsWith("//") ||
         /^[a-z][a-z\d+.-]*:/i.test(endpoint) ||
         path.split("/").includes("..") ||
-        path.includes("\\")
+        decodedPath.split("/").includes("..") ||
+        path.includes("\\") ||
+        decodedPath.includes("\\")
     ) {
         throw new Error("La ruta solicitada a la API no es válida.");
     }

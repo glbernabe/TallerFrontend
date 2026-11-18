@@ -16,6 +16,7 @@ export function mapApiContact(contact: ApiContact): ContactPerson {
         firstName: contact.nombre,
         lastName: contact.apellidos,
         department: contact.departamento ?? "",
+        jobTitle: contact.cargo ?? null,
         email: contact.correo_electronico ?? "",
         phone: contact.telefono ?? "",
         image: mediaPath
