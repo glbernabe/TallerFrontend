@@ -1138,5 +1138,12 @@
         "retry": "Try again"
       }
     }
+  },
+  "AdminSessionBootstrap": {
+    "checkingTitle": "Verifying your session",
+    "checkingDescription": "We're checking your credentials and preparing your access to the administration panel.",
+    "errorTitle": "Session renewal failed",
+    "errorDescription": "We couldn't connect to the authentication service. Please check your connection and try again.",
+    "retry": "Try again"
   }
 }

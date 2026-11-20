@@ -1138,5 +1138,12 @@
         "retry": "Reintentar"
       }
     }
+  },
+  "AdminSessionBootstrap": {
+    "checkingTitle": "Verificando tu sesión",
+    "checkingDescription": "Estamos comprobando tus credenciales y preparando tu acceso al panel de administración.",
+    "errorTitle": "No se pudo renovar la sesión",
+    "errorDescription": "No ha sido posible conectar con el servicio de autenticación. Comprueba tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar"
   }
 }

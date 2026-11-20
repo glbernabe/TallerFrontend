@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { getPathname, Link } from "@/i18n/navigation";
 import MainButton from "@/components/ui/MainButton";
-import AppointmentRequestForm from "@/components/services/AppoimentRequestForm";
+import AppointmentRequestForm from "@/components/services/AppointmentRequestForm";
 
 const DEFAULT_APPOINTMENT_EMAIL = "orihuela.ato@autotalleresorihuela.es";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

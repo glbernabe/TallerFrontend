@@ -1,6 +1,8 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 type AdminSessionBootstrapProps = {
     locale: string;
@@ -9,6 +11,8 @@ type AdminSessionBootstrapProps = {
 export default function AdminSessionBootstrap({
     locale,
 }: AdminSessionBootstrapProps) {
+    const t = useTranslations("AdminSessionBootstrap");
+
     const [attempt, setAttempt] = useState(0);
     const [error, setError] = useState(false);
 
@@ -41,14 +45,12 @@ export default function AdminSessionBootstrap({
                 }
 
                 if (!response.ok) {
-                    throw new Error("No se pudo renovar la sesión.");
+                    throw new Error("Session refresh failed.");
                 }
 
-                // Recarga completa para que el servidor de Next.js
-                // reciba y compruebe la nueva cookie.
-                window.location.replace(
-                    `/${locale}/admin`,
-                );
+                // Recarga la página para que Next.js pueda
+                // comprobar la nueva cookie desde el servidor.
+                window.location.replace(`/${locale}/admin`);
             } catch {
                 if (!controller.signal.aborted) {
                     setError(true);
@@ -64,62 +66,89 @@ export default function AdminSessionBootstrap({
     }, [locale, attempt]);
 
     return (
-        <main className="flex min-h-screen items-center justify-center bg-[#f1f3f5] px-5">
-            <section className="w-full max-w-md border border-[#e0e4e8] bg-white p-8 text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center border border-[#e0e4e8] bg-[#f7f8f9]">
-                    <svg
-                        className="h-6 w-6 text-[#0078d6]"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.7"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                    >
-                        <path d="M20 7v5h-5" />
-                        <path d="M4 17v-5h5" />
-                        <path d="M5.6 9a7 7 0 0 1 11.6-2L20 12" />
-                        <path d="M4 12l2.8 5a7 7 0 0 0 11.6-2" />
-                    </svg>
+        <main className="flex min-h-screen items-center justify-center bg-[#080808] px-5">
+            <section className="w-full max-w-md border border-[#303030] bg-[#111111] px-8 py-10 text-center shadow-2xl shadow-black/40">
+
+                {/* Icono de estado */}
+                <div className="mx-auto flex h-16 w-16 items-center justify-center border border-[#363636] bg-[#1a1a1a]">
+                    {error ? (
+                        <svg
+                            className="h-8 w-8 text-white"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 8v4" />
+                            <path d="M12 16h.01" />
+                        </svg>
+                    ) : (
+                        <svg
+                            className="h-8 w-8 animate-spin text-white motion-reduce:animate-none"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="9"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                className="opacity-20"
+                            />
+                            <path
+                                d="M21 12a9 9 0 0 0-9-9"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                            />
+                        </svg>
+                    )}
                 </div>
 
                 {error ? (
-                    <>
-                        <h1 className="mt-6 text-lg font-semibold text-[#202328]">
-                            No se pudo renovar la sesión
+                    <div role="alert">
+                        <h1 className="mt-7 text-lg font-semibold tracking-wide text-white">
+                            {t("errorTitle")}
                         </h1>
 
-                        <p className="mt-3 text-sm leading-6 text-[#737b85]">
-                            No ha sido posible contactar con el
-                            servicio de autenticación. Comprueba la
-                            conexión y vuelve a intentarlo.
+                        <p className="mt-3 text-sm leading-6 text-[#a3a3a3]">
+                            {t("errorDescription")}
                         </p>
 
                         <button
                             type="button"
-                            onClick={() => setAttempt((value) => value + 1)}
-                            className="mt-7 min-h-11 bg-[#0078d6] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#006abd] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0078d6]"
+                            onClick={() =>
+                                setAttempt((value) => value + 1)
+                            }
+                            className="mt-8 min-h-11 w-full bg-white px-6 text-sm font-semibold text-black transition-colors hover:bg-[#d9d9d9] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                         >
-                            Reintentar
+                            {t("retry")}
                         </button>
-                    </>
+                    </div>
                 ) : (
-                    <>
-                        <h1 className="mt-6 text-lg font-semibold text-[#202328]">
-                            Comprobando tu sesión
+                    <div role="status" aria-live="polite">
+                        <h1 className="mt-7 text-lg font-semibold tracking-wide text-white">
+                            {t("checkingTitle")}
                         </h1>
 
-                        <p className="mt-2 text-sm leading-6 text-[#737b85]">
-                            Estamos verificando tu acceso al panel
-                            de administración.
+                        <p className="mt-3 text-sm leading-6 text-[#a3a3a3]">
+                            {t("checkingDescription")}
                         </p>
-
-                        <div className="mx-auto mt-6 h-1 w-32 overflow-hidden bg-[#e9edf1]">
-                            <div className="h-full w-1/2 animate-pulse bg-[#0078d6]" />
-                        </div>
-                    </>
+                    </div>
                 )}
+
+                {/* Identidad visual */}
+                <div className="mt-9 border-t border-[#292929] pt-5">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#666666]">
+                        Mercedes-Benz · Administration
+                    </p>
+                </div>
             </section>
         </main>
     );
